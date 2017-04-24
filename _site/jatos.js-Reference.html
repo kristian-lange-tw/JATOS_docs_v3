@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="jatos.js is a small JavaScript library that helps you to communicate from JavaScript with your JATOS server (in more technical terms, it wraps calls to JATOS...">
+<meta name="keywords" content=" reference, jatos.js">
+<title>jatos.js Reference  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="jatos.js-Reference.html">jatos.js Reference</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <div class="summary">jatos.js is a small JavaScript library that helps you to communicate from JavaScript with your JATOS server (in more technical terms, it wraps calls to JATOS' public REST API). Below we list and describe the variables and functions of the jatos.js library.</div>
+    
+    <p>Two <a href="Mandatory-lines-in-your-components-HTML.html">bits of code</a> are mandatory in all your components’ HTML files. One of them is the following line in the head section: <code class="highlighter-rouge">&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;</code> which includes the jatos.js library into your HTML file.</p>
+
+<p>All variables or calls to jatos.js start with <code class="highlighter-rouge">jatos.</code>. For example, if you want to get the study’s ID you can use <code class="highlighter-rouge">jatos.studyId</code>. If you want to submit some result data of your component back to your JATOS server you can call <code class="highlighter-rouge">jatos.submitResultData(resultData)</code>, where resultData can be any kind text.</p>
+
+<p>And, please, if you find a mistake or have a question don’t hesitate to <a href="Contact-us.html">contact us</a>.</p>
+
+<p>Below we list and describe the variables and functions of the jatos.js library:</p>
+
+<h2 id="jatosjs-variables">jatos.js variables</h2>
+
+<h3 id="ids">IDs</h3>
+
+<p>You can call any of these variables below at any point in your HTML file after <code class="highlighter-rouge">jatos.onload()</code> is done. All those IDs are generated and stored by JATOS. jatos.js automatically sets these variables with the corresponding values if you included the <code class="highlighter-rouge">jatos.onLoad()</code> callback function at the beginning of your JavaScript.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.studyId</code> - ID of the study which is currently running. All the study properties are associated with this ID.</li>
+  <li><code class="highlighter-rouge">jatos.componentId</code> - ID of the component which is currently running. All the component properties are associated with this ID.</li>
+  <li><code class="highlighter-rouge">jatos.batchId</code> - ID of the batch this study run belongs to. All batch properties are associated with this ID.</li>
+  <li><code class="highlighter-rouge">jatos.workerId</code> - Each worker who is running a study has an ID.</li>
+  <li><code class="highlighter-rouge">jatos.studyResultId</code> - This ID is individual for every study run. A study result contains data belonging to the run in general (e.g. study session).</li>
+  <li><code class="highlighter-rouge">jatos.componentResultId</code> - This ID is individual for every component in a study run. A component result contains data of the run belonging to the specific component (e.g. result data).</li>
+</ul>
+
+<p>There’s a convenient function that adds all these IDs to a given object. See function <code class="highlighter-rouge">jatos.addJatosIds(obj)</code> below.</p>
+
+<h3 id="study-variables">Study variables</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.studyProperties</code> - All the properties (except the JSON input data) you entered for this study
+    <ul>
+      <li><code class="highlighter-rouge">jatos.studyProperties.title</code> - Study’s title</li>
+      <li><code class="highlighter-rouge">jatos.studyProperties.uuid</code> - Study’s UUID</li>
+      <li><code class="highlighter-rouge">jatos.studyProperties.description</code> - Study’s description</li>
+      <li><code class="highlighter-rouge">jatos.studyProperties.locked</code> - Whether the study is locked or not</li>
+      <li><code class="highlighter-rouge">jatos.studyProperties.dirName</code> - Study’s dir name in the file system of your JATOS installation</li>
+      <li><code class="highlighter-rouge">jatos.studyProperties.groupStudy</code> - Whether this is a group study or not</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">jatos.studyJsonInput</code> - The JSON input you entered in the study’s properties.</li>
+  <li><code class="highlighter-rouge">jatos.studyLength</code> - Number of component this study has</li>
+</ul>
+
+<h3 id="component-variables">Component variables</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.componentProperties</code> - All the properties (except the JSON input data) you entered for this component
+    <ul>
+      <li><code class="highlighter-rouge">jatos.componentProperties.title</code> - Component’s title</li>
+      <li><code class="highlighter-rouge">jatos.componentProperties.uuid</code> - Component’s UUID</li>
+      <li><code class="highlighter-rouge">jatos.componentProperties.htmlFilePath</code> - Path to Component’s HTML file in your JATOS installation</li>
+      <li><code class="highlighter-rouge">jatos.componentProperties.reloadable</code> - Whether it’s reloadable</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">jatos.componentJsonInput</code> - The JSON input you entered in the component’s properties.</li>
+  <li><code class="highlighter-rouge">jatos.componentList</code> -  An array of all components of this study with basic information about each component. For each component it has the <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">id</code>, whether it is <code class="highlighter-rouge">active</code>, and whether it is <code class="highlighter-rouge">reloadable</code>.</li>
+  <li><code class="highlighter-rouge">jatos.componentPos</code> - Position of this component within the study starting with 1 (like shown in the GUI)</li>
+</ul>
+
+<h3 id="studys-session-data">Study’s session data</h3>
+
+<p>The session data can be accessed and modified by every component of a study. It’s a very convenient way to share data between different components. Whatever is written in this variable will be available in the subsequent components. However, remember that the session data will be deleted after the study is finished (see also <a href="Two-Types-of-Session-Data.html">Two Types of Session Data</a>).</p>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.studySessionData</code></li>
+</ul>
+
+<h3 id="batch-variables">Batch variables</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.batchProperties</code> - All the properties you entered for this batch.
+    <ul>
+      <li><code class="highlighter-rouge">jatos.batchProperties.allowedWorkerTypes</code> - List of worker types that are currently allowed to run in this batch.</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.maxActiveMembers</code> - How many members this group can have at the same time</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.maxTotalMembers</code> - How many members this group is allowed to have at the same time</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.maxTotalWorkers</code> - Total amount of workers this group is allowed to have altogether in this batch</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.title</code> - Title of this batch</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="group-variables">Group variables</h3>
+
+<p>The group variables are part of jatos.js since JATOS 2. They are only filled with values if the current study is a group study.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.groupMemberId</code> - Group member ID is unique for this member (it is actually identical with the study result ID)</li>
+  <li><code class="highlighter-rouge">jatos.groupResultId</code> - ID of this group result (It’s called group result to be consistent with the study result and the component result - although often it’s just called group)</li>
+  <li><code class="highlighter-rouge">jatos.groupState</code> - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)</li>
+  <li><code class="highlighter-rouge">jatos.groupMembers</code> - List of member IDs of the current members of the group</li>
+  <li><code class="highlighter-rouge">jatos.groupChannels</code> - List of member IDs of the currently open group channels</li>
+</ul>
+
+<h3 id="groups-session-data">Group’s session data</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.groupSessionData</code> - Group session data shared in between members of the group (see also <a href="Two-Types-of-Session-Data.html">Two Types of Session Data</a>)</li>
+</ul>
+
+<h3 id="other-variables">Other variables</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.version</code> - Current version of the jatos.js library</li>
+</ul>
+
+<h2 id="general-jatosjs-functions">General jatos.js functions</h2>
+
+<h3 id="jatosonloadcallback"><code class="highlighter-rouge">jatos.onLoad(callback)</code></h3>
+
+<p>Defines callback function that jatos.js will call when it’s finished initialising. Only <a href="Mandatory-lines-in-your-components-HTML.html">mandatory</a> call in every component.</p>
+
+<h3 id="jatosonerrorcallback"><code class="highlighter-rouge">jatos.onError(callback)</code></h3>
+
+<p>Defines callback function that is to be called in case jatos.js produces an error.</p>
+
+<h3 id="jatosloglogmsg"><code class="highlighter-rouge">jatos.log(logMsg)</code></h3>
+
+<p>Logs an msg in the log of the JATOS installation.</p>
+
+<ul>
+  <li><em>param {String} logMsg</em> - The messages to be logged</li>
+</ul>
+
+<h3 id="jatosaddjatosidsobj"><code class="highlighter-rouge">jatos.addJatosIds(obj)</code></h3>
+
+<p>Convenience function that adds some <a href="jatos.js-Reference.html#ids">IDs</a> (study ID, study title, component ID, component position, component title, worker ID, study result ID, component result ID, group result ID, group member ID) to the given object.</p>
+
+<ul>
+  <li><em>param {Object} obj</em> - Object to which the IDs will be added</li>
+</ul>
+
+<h3 id="jatossetheartbeatperiodheartbeatperiod"><code class="highlighter-rouge">jatos.setHeartbeatPeriod(heartbeatPeriod)</code></h3>
+
+<p>Every running component sends regularly a HTTP request (the heartbeat) back to the JATOS server. This signals that it is still running. As soon as the browser tab running the component is closed the heartbeat ceases. The time of the last heartbeat is visible in the GUI, in the study results page in the ‘Last Seen’ row. This way you can easily see if a worker is still running your study or if (and when) he abandonend it. By default the heartbeat period is 2 min. By careful not to set the period too low (few seconds or milliseconds) since it might overload your network or your JATOS server.</p>
+
+<ul>
+  <li><em>param {Number} heartbeatPeriod</em> - Time period between two heartbeats in milliseconds</li>
+</ul>
+
+<h2 id="functions-to-control-study-flow">Functions to control study flow</h2>
+
+<h3 id="jatosstartcomponentcomponentid"><code class="highlighter-rouge">jatos.startComponent(componentId)</code></h3>
+
+<p>Starts the component with the given ID. You can pass on information to the next component by adding a query string.</p>
+
+<ul>
+  <li><em>param {Object} componentId</em> - ID of the component to start</li>
+</ul>
+
+<h3 id="jatosstartcomponentbyposcomponentpos"><code class="highlighter-rouge">jatos.startComponentByPos(componentPos)</code></h3>
+
+<p>Starts the component with the given position (# of component within study).</p>
+
+<ul>
+  <li><em>param {Object} componentPos</em> - Position of the component to start</li>
+</ul>
+
+<h3 id="jatosstartnextcomponent"><code class="highlighter-rouge">jatos.startNextComponent()</code></h3>
+
+<p>Starts the next component of this study. The next component is the one with position + 1.</p>
+
+<h3 id="jatosstartlastcomponent"><code class="highlighter-rouge">jatos.startLastComponent()</code></h3>
+
+<p>Starts the last component of this study or if it’s inactive the component with the highest position that is active.</p>
+
+<h3 id="jatosendcomponentsuccessful-errormsg-onsuccess-onerror"><code class="highlighter-rouge">jatos.endComponent(successful, errorMsg, onSuccess, onError)</code></h3>
+
+<p>Finishes component. Usually this is not necessary because the last component is automatically finished if the new component is started. Nevertheless it’s useful to explicitly tell about a FAIL and submit an error message. Finishing the component doesn’t finish the study.</p>
+
+<ul>
+  <li><em>param {optional Boolean} successful</em> - ‘true’ if study should finish successful and the participant should get the confirmation code - ‘false’ otherwise.</li>
+  <li><em>param {optional String} errorMsg</em> - Error message that should be logged.</li>
+  <li><em>param {optional Function} onSuccess</em> - Function to be called in case of successful submit</li>
+  <li><em>param {optional Function} onError</em> - Function to be called in case of error</li>
+</ul>
+
+<h3 id="jatosabortstudyajaxmessage-success-error"><code class="highlighter-rouge">jatos.abortStudyAjax(message, success, error)</code></h3>
+
+<p>Aborts study. All previously submitted data will be deleted.</p>
+
+<ul>
+  <li><em>param {optional String} message</em> - Message that should be logged</li>
+  <li><em>param {optional Function} success</em> - Function to be called in case of successful submit</li>
+  <li><em>param {optional Function} error</em> - Function to be called in case of error</li>
+</ul>
+
+<h3 id="jatosabortstudymessage"><code class="highlighter-rouge">jatos.abortStudy(message)</code></h3>
+
+<p>Aborts study. All previously submitted data will be deleted.</p>
+
+<ul>
+  <li><em>param {optional String} message</em> - Message that should be logged</li>
+</ul>
+
+<h3 id="jatosendstudyajaxsuccessful-errormsg-onsuccess-onerror"><code class="highlighter-rouge">jatos.endStudyAjax(successful, errorMsg, onSuccess, onError)</code></h3>
+
+<p>Ends study with an Ajax call.</p>
+
+<ul>
+  <li><em>param {optional Boolean} successful</em> - ‘true’ if study should finish successful and the participant should get the confirmation code - ‘false’ otherwise.</li>
+  <li><em>param {optional String} errorMsg</em> - Error message that should be logged.</li>
+  <li><em>param {optional Function} onSuccess</em> - Function to be called in case of successful submit</li>
+  <li><em>param {optional Function} onError</em> - Function to be called in case of error</li>
+</ul>
+
+<h3 id="jatosendstudysuccessful-errormsg"><code class="highlighter-rouge">jatos.endStudy(successful, errorMsg)</code></h3>
+
+<p>Ends study.</p>
+
+<ul>
+  <li><em>param {optional Boolean} successful</em> - ‘true’ if study should finish successfully, ‘false’ otherwise.</li>
+  <li><em>param {optional String} errorMsg</em> - Error message that should be logged.</li>
+</ul>
+
+<h2 id="functions-for-session-and-result">Functions for session and result</h2>
+
+<h3 id="jatossubmitresultdataresultdata-onsuccess-onerror"><code class="highlighter-rouge">jatos.submitResultData(resultData, onSuccess, onError)</code></h3>
+
+<p>Posts resultData back to the JATOS server.</p>
+
+<ul>
+  <li><em>param {Object} resultData</em> - String to be submitted</li>
+  <li><em>param {optional Function} success</em> - Function to be called in case of successful submit</li>
+  <li><em>param {optional Function} error</em> - Function to be called in case of error</li>
+</ul>
+
+<h3 id="jatossetstudysessiondatasessiondata-complete"><code class="highlighter-rouge">jatos.setStudySessionData(sessionData, complete)</code></h3>
+
+<p>Posts study session data to the JATOS server. This function is called automatically in the end of a component’s life cycle (it’s called by all jatos.js functions that start or end a component). So unless you want to store the session data in between a component run it’s not necessary to call this function manually (in opposite to the group session’s <em>jatos.setGroupSessionData</em>).</p>
+
+<ul>
+  <li><em>param {Object} sessionData</em> - Object to be submitted</li>
+  <li><em>param {optional Function} complete</em> - Function to be called after this function is finished</li>
+</ul>
+
+<h2 id="functions-for-group-studies">Functions for group studies</h2>
+
+<h3 id="jatosjoingroupcallbacks"><code class="highlighter-rouge">jatos.joinGroup(callbacks)</code></h3>
+
+<p>Tries to join a group (actually a group result) and if it succeeds opens the group channel’s WebSocket.</p>
+
+<ul>
+  <li><em>param {Object} callbacks</em> - Defining callback functions for group events. All callbacks are optional. These callbacks functions can be:
+    <ul>
+      <li><strong>onOpen</strong>: Is called when the group channel is successfully opened</li>
+      <li><strong>onClose</strong>: Is be called when the group channel is closed</li>
+      <li><strong>onError</strong>: Is called if an error during opening of the group channel’s WebSocket occurs or if an error is received via the group channel (e.g. the group session data couldn’t be updated). If this function is not defined jatos.js will try to call the global <em>onJatosError</em> function.</li>
+      <li><strong>onMessage(msg)</strong>: Is called if a message from another group member is received. It gets the message as a parameter.</li>
+      <li><strong>onMemberJoin(memberId)</strong>: Is called when another member (not the worker running this study) joined the group. It gets the group member ID as a parameter.</li>
+      <li><strong>onMemberOpen(memberId)</strong>: Is called when another member (not the worker running this study) opened a group channel. It gets the group member ID as a parameter.</li>
+      <li><strong>onMemberLeave(memberId)</strong>: Is called when another member (not the worker running his study) left the group. It gets the group member ID as a parameter.</li>
+      <li><strong>onMemberClose(memberId)</strong>: Is called when another member (not the worker running this study) closed his group channel. It gets the group member ID as a parameter.</li>
+      <li><strong>onGroupSession(groupSessionData)</strong>: Is called when the group session is updated. It gets the new group session data as a parameter.</li>
+      <li><strong>onUpdate()</strong>: Combines several other callbacks. It’s called if one of the following is called: <em>onMemberJoin</em>, <em>onMemberOpen</em>, <em>onMemberLeave</em>, <em>onMemberClose</em>, or <em>onGroupSession</em> (the group session can then be read via <em>jatos.groupSessionData</em>).</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="jatossendgroupmsgmsg"><code class="highlighter-rouge">jatos.sendGroupMsg(msg)</code></h3>
+
+<p>Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the group session and <em>jatos.setGroupSessionData</em> instead. Compared to the transmission via group session the group messaging is fast but less reliable.</p>
+
+<ul>
+  <li><em>param {Object} msg</em> - Any JavaScript object</li>
+</ul>
+
+<h3 id="jatossendgroupmsgtorecipient-msg"><code class="highlighter-rouge">jatos.sendGroupMsgTo(recipient, msg)</code></h3>
+
+<p>Sends a message to a single group member specified with the given group member ID (only if group channel is open).</p>
+
+<ul>
+  <li><em>param {String} recipient</em> - Recipient’s group member ID</li>
+  <li><em>param {Object} msg</em> - Any JavaScript object</li>
+</ul>
+
+<h3 id="jatosleavegrouponsuccess-onerror"><code class="highlighter-rouge">jatos.leaveGroup(onSuccess, onError)</code></h3>
+
+<p>Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it’s closed from the JATOS’ side.</p>
+
+<ul>
+  <li><em>param {optional Function} onSuccess</em> - Function to be called after the group is left</li>
+  <li><em>param {optional Function} onError</em> - Function to be called in case of error</li>
+</ul>
+
+<h3 id="jatosreassigngrouponsuccess-onfail"><code class="highlighter-rouge">jatos.reassignGroup(onSuccess, onFail)</code></h3>
+
+<p>Asks the JATOS server to reassign this study run to a different group.</p>
+
+<ul>
+  <li><em>param {optional Function} onSuccess</em> - Function to be called if the reassignment was successful</li>
+  <li><em>param {optional Function} onFail</em> - Function to be called if the reassignment was unsuccessful</li>
+</ul>
+
+<h3 id="jatossetgroupsessiondatagroupsessiondata-onerror"><code class="highlighter-rouge">jatos.setGroupSessionData(groupSessionData, onError)</code></h3>
+
+<p>Sends the group session data via the group channel to the JATOS server where it’s stored and broadcasted to all members of this group. It either takes an Object as parameter or uses <em>jatos.groupSessionData</em> if the groupSessionData isn’t provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the <em>onError</em> callback. In this way it is more reliable but slower compared to <em>jatos.sendGroupMsg</em> or <em>jatos.sendGroupMsgTo</em>. Since the group session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.</p>
+
+<ul>
+  <li><em>param {optional Object} groupSessionData</em> - An object in JSON; If it’s not given take <em>jatos.groupSessionData</em></li>
+  <li><em>param {optional Object} onError</em> - Function to be called if this upload was unsuccessful</li>
+</ul>
+
+<h3 id="jatossetgroupfixed"><code class="highlighter-rouge">jatos.setGroupFixed()</code></h3>
+
+<p>Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.</p>
+
+<h3 id="jatoshasjoinedgroup"><code class="highlighter-rouge">jatos.hasJoinedGroup()</code></h3>
+
+<p>Returns true if this study run joined a group and false otherwise. It doesn’t necessarily mean that we have an open group channel. We can have joined a group in a prior component. If you want to check for an open group channel use <em>jatos.hasOpenGroupChannel</em>.</p>
+
+<h3 id="jatoshasopengroupchannel"><code class="highlighter-rouge">jatos.hasOpenGroupChannel()</code></h3>
+
+<p>Returns true if we currently have an open group channel and false otherwise. Since you can’t open a group channel without joining a group, it also means that we joined a group.</p>
+
+<h3 id="jatosismaxactivememberreached"><code class="highlighter-rouge">jatos.isMaxActiveMemberReached()</code></h3>
+
+<p>Returns true if the group has reached the maximum amount of active members like specified in the batch properties. It’s not necessary that each member has an open group channel.</p>
+
+<h3 id="jatosismaxactivememberopen"><code class="highlighter-rouge">jatos.isMaxActiveMemberOpen()</code></h3>
+
+<p>Returns true if the group has reached the maximum amount of active members like specified in the batch properties and each member has an open group channel.</p>
+
+<h3 id="jatosisgroupopen"><code class="highlighter-rouge">jatos.isGroupOpen()</code></h3>
+
+<p>Returns true if all active members of the group have an open group channel. It’s not necessary that the group has reached its minimum or maximum active member size.</p>
+
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

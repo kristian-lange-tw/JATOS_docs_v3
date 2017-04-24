@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" installation">
+<title>Installation  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Installation.html">Installation</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <h3 id="easy-installation-on-your-local-computer">Easy installation on your local computer</h3>
+
+<p><strong>JATOS runs on MacOS X, MS Windows and Linux</strong></p>
+
+<p>A local installation is straightforward.</p>
+
+<p>Usually you first develop your study with JATOS on a local computer. Then in a second step you bring it to a server installation of JATOS.</p>
+
+<p>With a local installation only you have access to JATOS - with a <a href="JATOS-on-a-server.html">server installation</a> others can run your study via the internet too. This is especially true if you want to publish your study on Mechanical Turk.</p>
+
+<p><strong>For convenience JATOS is available in a variant bundled with Java.</strong></p>
+
+<p>To run JATOS, you need Java installed on your computer (to be precise, you need a Java Runtime Environment, aka JRE). Chances are, you already have Java installed. To check whether Java is installed on your system, type <code class="highlighter-rouge">java -version</code> in your terminal (MacOS X / Linux) or command window (MS Windows). 
+If you don’t have Java installed, you can either <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">download and install it directly</a> or download and install JATOS bundled with Java, according to your operating system.</p>
+
+<h3 id="installation-ms-windows">Installation MS Windows</h3>
+
+<ol>
+  <li>Download the <a href="https://github.com/JATOS/JATOS/releases/latest">latest JATOS release</a> (exchange ‘xxx’ with the current version)
+    <ul>
+      <li>Without Java: <em>jatos-xxx.zip</em></li>
+      <li>Bundled with Java: <em>jatos-xxx_win_java.zip</em></li>
+    </ul>
+  </li>
+  <li>Unzip the downloaded file</li>
+  <li>In the File Explorer move to the unzipped JATOS folder and double-click on <code class="highlighter-rouge">loader.bat</code>. (Or <code class="highlighter-rouge">loader</code> alone, if your filename extensions are hidden). A command window will open and run your local JATOS installation. Simply close this window if you want to stop JATOS.</li>
+  <li>All set! Now go to the browser of your choice and open <a href="http://localhost:9000">http://localhost:9000</a>. You should see the login screen (wait a moment and reload the page if you don’t). Login with username ‘admin’ and password ‘admin’.</li>
+</ol>
+
+<h3 id="installation-macos-x-and-linux">Installation MacOS X and Linux</h3>
+
+<ol>
+  <li>Download the <a href="https://github.com/JATOS/JATOS/releases/latest">latest JATOS release</a> (exchange ‘xxx’ with the current version)
+    <ul>
+      <li>Without Java: <em>jatos-xxx.zip</em></li>
+      <li>For MacOS bundled with Java: <em>jatos-xxx_mac_java.zip</em></li>
+      <li>For Linux bundled with Java: <em>jatos-xxx_linux_java.zip</em></li>
+    </ul>
+  </li>
+  <li>Unzip the downloaded file</li>
+  <li>In your terminal window, cd into the unzipped JATOS folder</li>
+  <li>Run the loader shell script with the command <code class="highlighter-rouge">./loader.sh start</code> (You might have to change the file’s permissions with the command <code class="highlighter-rouge">chmod u+x loader.sh</code> to make it executable)</li>
+  <li>All set! Now go to the browser of your choice and open <a href="http://localhost:9000">http://localhost:9000</a>. You should see the login screen (wait a moment and reload the page if you don’t). Login with username ‘admin’ and password ‘admin’.</li>
+</ol>
+
+<p>Your local JATOS installation will run in the background. If you want to stop it, just type <code class="highlighter-rouge">./loader.sh stop</code> in your terminal window.</p>
+
+<h3 id="how-to-go-on-from-here">How to go on from here</h3>
+
+<p>The easiest way to start with JATOS is to download and import one of the <a href="http://www.jatos.org/Example-Studies.html">example studies</a> and <a href="Get-started.html">play around with it</a>.</p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

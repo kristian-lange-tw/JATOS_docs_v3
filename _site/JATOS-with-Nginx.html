@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" nginx, server, installation">
+<title>JATOS with Nginx  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="JATOS-with-Nginx.html">JATOS with Nginx</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>This is an example for a configuration of <a href="https://www.nginx.com/">Nginx</a> as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it’s common. It supports encryption (HTTPS) and WebSockets for JATOS’ group studies.</p>
+
+<p>The following is the content of <code class="highlighter-rouge">/etc/nginx/nginx.conf</code>. Change it to your needs. You probably want to change your servers address (<code class="highlighter-rouge">www.example.com</code> in the example) and the path to the SSL certificate and its key.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>user www-data;
+worker_processes 1;
+pid /run/nginx.pid;
+
+events <span class="o">{</span>
+        worker_connections 768;
+        <span class="c"># multi_accept on;</span>
+<span class="o">}</span>
+
+http <span class="o">{</span>
+        sendfile on;
+        keepalive_timeout 65;
+        client_max_body_size 500M;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        proxy_buffering    off;
+        proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span>;
+        proxy_set_header   X-Forwarded-Proto https;
+        proxy_set_header   X-Forwarded-Ssl on;
+        proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span>;
+        proxy_set_header   Host <span class="nv">$http_host</span>;
+        proxy_http_version 1.1;
+
+        upstream jatos-backend <span class="o">{</span>
+                server 127.0.0.1:9000;
+        <span class="o">}</span>
+
+        <span class="c"># needed for websockets</span>
+        map <span class="nv">$http_upgrade</span> <span class="nv">$connection_upgrade</span> <span class="o">{</span>
+                default upgrade;
+                <span class="s1">''</span>      close;
+        <span class="o">}</span>
+
+        <span class="c"># redirect http to https</span>
+        server <span class="o">{</span>
+                listen       80;
+                server_name www.example.com;
+                rewrite ^ https://www.example.com<span class="nv">$request_uri</span>? permanent;
+        <span class="o">}</span>
+
+        server <span class="o">{</span>
+                listen               443;
+                ssl                  on;
+
+                <span class="c"># http://www.selfsignedcertificate.com/ is useful for development testing</span>
+                ssl_certificate      /etc/ssl/certs/localhost.crt;
+                ssl_certificate_key  /etc/ssl/private/localhost.key;
+
+                <span class="c"># From https://bettercrypto.org/static/applied-crypto-hardening.pdf</span>
+                ssl_prefer_server_ciphers on;
+                ssl_protocols TLSv1 TLSv1.1 TLSv1.2; <span class="c"># not possible to do exclusive</span>
+                ssl_ciphers <span class="s1">'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA'</span>;
+                add_header Strict-Transport-Security <span class="s2">"max-age=15768000; includeSubDomains"</span>;
+
+                keepalive_timeout    70;
+                server_name www.example.com;
+
+                <span class="c"># websocket location (JATOS' group channel)</span>
+                location ~ <span class="s2">"^/publix/[</span><span class="se">\d</span><span class="s2">]+/group/join"</span> <span class="o">{</span>
+                        proxy_pass              http://jatos-backend;
+                        proxy_set_header        Upgrade <span class="nv">$http_upgrade</span>;
+                        proxy_set_header        Connection <span class="nv">$connection_upgrade</span>;
+                        proxy_read_timeout      3600; <span class="c"># keep open even without any transmission</span>
+                <span class="o">}</span>
+
+                <span class="c"># all other traffic</span>
+                location / <span class="o">{</span>
+                        proxy_pass              http://jatos-backend;
+                <span class="o">}</span>
+        <span class="o">}</span>
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        include /etc/nginx/conf.d/<span class="k">*</span>.conf;
+        include /etc/nginx/sites-enabled/<span class="k">*</span>;
+<span class="o">}</span>
+</code></pre>
+</div>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

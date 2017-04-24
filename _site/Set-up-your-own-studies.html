@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" create, import, export">
+<title>Set up your own studies  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Set-up-your-own-studies.html">Set up your own studies</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>So, now you’ve installed JATOS and tried out all the examples studies. What now?</p>
+
+<h3 id="create-a-new-study">Create a new study</h3>
+<p>There are two ways to create a new study:</p>
+
+<ol>
+  <li>
+    <p>from scratch by pressing the <strong>New Study</strong> button in the header of each JATOS page. Then edit the study properties and add new components manually.</p>
+  </li>
+  <li>
+    <p>take an existing study (e.g. from <a href="http://www.jatos.org/Example-Studies.html">Example Studies</a>) as a prototype and modify it bit by bit. We recommend you start with this to get a quick idea of how JATOS works. Just import an existing study (e.g. one from the study examples) and clone it by clicking on More –&gt; Clone in the study bar.</p>
+  </li>
+</ol>
+
+<h3 id="write-your-own-studies-in-javascript">Write your own studies in JavaScript</h3>
+<p>The most difficult part - though it’s still easy! - is to learn to write your own study component scripts, using HTML, CSS and JavaScripts. Or, instead of reinventing the wheel, you could use a framework like jsPsych that helps you with this (see <a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a>).</p>
+
+<p>Check out the <a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components’ HTML</a> page to know what you absolutely must include in your scripts in order to let JATOS see them. Also check out the <a href="jatos.js-Reference.html">jatos.js Reference</a>, that contains a set of very useful functions that you have to use to communicate with jatos (to e.g. submit and receive data).</p>
+
+<p>If you are a newbie to HTML/JavaScript programming, there are LOADS of free and excellent tutorials online. Like <a href="https://www.khanacademy.org/computing/computer-programming">this one from the Kahn Academy</a> or more searchable tutorials like the simple ones from the <a href="http://www.w3schools.com/">w3 schools</a>. In addition, <a href="http://stackoverflow.com/questions/tagged/html">StackOverflow</a> is the best place to solve the problems that hundreds of others have encountered before.</p>
+
+<h3 id="import--export-of-studies">Import / Export of studies</h3>
+<p>Usually you conveniently develop your study on your local computer where you have a <a href="Installation.html">local installation of JATOS</a>. Then just use the export and import buttons in your installations to transfer the study to your <a href="JATOS-on-a-server.html">JATOS server</a>.</p>
+
+<ol>
+  <li>In the GUI of your local installation press <strong>Export</strong> in the Study Toolbar. JATOS saves your study asset folder and some data about your study and it’s components (mostly the properties) into a ZIP file and lets you download it. Leave the ZIP file as it is.</li>
+  <li>In the GUI of your server installations press <strong>Import</strong> in the header. Select the ZIP you saved in step 1. JATOS will upload and unpack your study.</li>
+</ol>
+
+<p>If you have trouble with the export and you are using a Safari browser have a look into <a href="Troubleshooting.html#downloading-a-study--exporting-a-study-fails-eg-in-safari-browsers">this issue in our Troubleshooting section</a>.</p>
+
+<h3 id="decide-how-youre-going-to-recruit-your-workers-and-generate-the-links">Decide how you’re going to recruit your workers and generate the links</h3>
+<p>Once you have your study running and have it on a server instance, you’ll need to get your workers to access your study. <a href="Worker-Types.html">Different types of workers</a> might be allowed to run your study. You could, but you don’t have to, recruit your workers <a href="Connect-to-Mechanical-Turk.html">using MTurk</a>. You could also generate direct links in the <a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Worker Setup</a> to send to different workers.</p>
+
+<h3 id="export-your-result-data">Export your result data</h3>
+<p>After you let workers run your study and you gathered result data you probably want to export them to your local computer for further analysis. Go to one of the <strong>Results</strong> views and select the results you want to export (select them by just clicking somewhere in the row). Then click ‘Export Selected’. This will download all your results in one text file.</p>
+
+<h3 id="analyse-your-data">Analyse your data</h3>
+<p>Once you have collected all your data, export it to text files. If you used the JSON format (which is handy - but any other text is fine too) you can analyse your data using this nice <a href="http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab">JSON parser for Matlab and Octave</a> or the <a href="http://cran.r-project.org/web/packages/jsonlite/index.html">JSON parser for R</a>.</p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

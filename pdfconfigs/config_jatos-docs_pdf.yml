@@ -1,0 +1,17 @@
+destination: _site/
+url: "http://127.0.0.1:4010"
+baseurl: "/jatos-pdf"
+port: 4010
+output: pdf
+product: jatos-docs
+print_title: JATOS Documentation
+print_subtitle:
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page_print"
+      comments: true
+      search: true

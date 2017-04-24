@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" installation">
+<title>Get started  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Get-started.html">Get started</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <h3 id="get-started-in-4-steps">Get started in 4 steps</h3>
+
+<ol>
+  <li>
+    <p><strong>Download JATOS and <a href="Installation.html#easy-installation-on-your-local-computer">install a local instance</a></strong></p>
+  </li>
+  <li>
+    <p><strong>Open JATOS’ GUI by going to <a href="http://localhost:9000/" target="_blank">http://localhost:9000/</a> in your browser window</strong></p>
+  </li>
+  <li>
+    <p><strong>Download and import an example study</strong></p>
+
+    <ol>
+      <li>
+        <p>Download one of the <a href="http://www.jatos.org/Example-Studies.html">Example Studies</a>, e.g. the ‘Go- / No-Go Task’ with jsPsych. Do not unzip the downloaded file.</p>
+      </li>
+      <li>
+        <p>Import the study into JATOS: Go to JATOS’ GUI in your browser and click on <strong>Import Study</strong> in the header. Choose the .zip file you just downloaded. The imported study should appear in the sidebar on the left.</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p><strong>Explore the GUI</strong></p>
+
+    <p>In the sidebar click the study to get into the study’s page.</p>
+
+    <p>To do a test run of the entire study, click on <strong>Run</strong> in the toolbar on top of the page.</p>
+
+    <p>If you finished running through the study, you can check the results.</p>
+
+    <ul>
+      <li>To see whole-study results, click on the <strong>Results</strong> button on the top of the page.</li>
+      <li>To see results from individual components, click on the <strong>Results</strong> buttons on each component’s row.</li>
+    </ul>
+
+    <p>You can see each result’s details be clicking on the little arrow to the left of its row.</p>
+
+    <p><em>Here’s a screenshot of a study’s results view:</em></p>
+
+    <p><img src="images/Results Screenshot.png" alt="GUI screenshot" /></p>
+  </li>
+</ol>
+
+<h3 id="explore">Explore</h3>
+
+<p>Now it’s time to explore a little bit more.</p>
+
+<ul>
+  <li>You can click on any component’s position button and drag it to a new position within the study.</li>
+  <li>Each component has a <strong>Properties</strong> button. The component’s HTML file may read the data in the field ‘JSON data’. This is a way to make changes in the details of the code (wording of instructions, stimuli, timing, number of trials, etc) without having to hard-code them into JavaScript.</li>
+  <li>Where are the actual HTML, JavaScript, and CSS files? They are the files that actually run your study, so make sure you can locate them. They will be in <code class="highlighter-rouge">/path_to_my_JATOS/study_assets_root/name_of_my_study/</code>.</li>
+</ul>
+
+<p><em>Here’s a screenshot of a component’s properties view:</em>
+<img src="images/Component properties screenshot.png" alt="GUI screenshot" /></p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

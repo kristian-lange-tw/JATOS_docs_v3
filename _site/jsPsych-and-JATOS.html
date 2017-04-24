@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" jsPsych">
+<title>jsPsych and JATOS  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="jsPsych-and-JATOS.html">jsPsych and JATOS</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>JATOS basically cares for the server side: it stores result data, does worker management etc. JATOS doesn’t care so much for what happens in the browser itself - your HTML, JavaScript and CSS. Of course you can write this all yourself, but you could also use a framework for this. A very good one is <a href="http://www.jspsych.org/">jsPsych</a>.</p>
+
+<p>In <a href="http://www.jatos.org/Example-Studies.html">our example studies</a> are a couple of jsPsych ones.</p>
+
+<p>Here are the necessary changes if you want to adapt your jsPsych experiment so that it runs within (and send the result data to) JATOS. Additionally you can have a look at <a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a>.</p>
+
+<h3 id="how-to-turn-your-jspsych-experiment-into-a-jatos-study">How to turn your jsPsych experiment into a JATOS study</h3>
+
+<ol>
+  <li>
+    <p>Include the <code class="highlighter-rouge">jatos.js</code> library in the <code class="highlighter-rouge">&lt;head&gt;</code></p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/javascripts/jatos.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+    </div>
+
+    <p><a href="Troubleshooting.html#a-file-library-image--included-in-the-html-fails-to-load">Remember</a>: Any URL or file path in a HTML file should only use ‘/’ as a file path separator - even on Windows systems.</p>
+  </li>
+  <li>
+    <p>Wrap jsPsych’s init call <code class="highlighter-rouge">jsPsych.init</code> in a <code class="highlighter-rouge">jatos.onload</code> call</p>
+
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onload</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">jsPsych</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p>That’s all. If you additionally want to send your result data to JATOS read on.</p>
+
+<h3 id="send-jspsychs-result-data-back-to-jatos">Send jsPsych’s result data back to JATOS</h3>
+
+<p>Here we use jsPsych’s function <code class="highlighter-rouge">jsPsych.data.getData()</code> to collect the data into a variable and then ‘stringify’ the JSON format into a simple string.
+Then we use JATOS’ function <code class="highlighter-rouge">jatos.submitResultData</code> to send your result to JATOS and asks JATOS to move to the next component, if there is one.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onload</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">jsPsych</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="na">on_finish</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">resultJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jsPsych</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">getData</span><span class="p">());</span>
+      <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultJson</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" group">
+<title>Write Your Own Group Studies  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <h2 id="writing-javascripts-for-group-studies">Writing JavaScripts for group studies</h2>
+
+<p>Group studies differ from single-worker studies simply in that the JavaScript needs to handle groups and communications between members. The jatos.js library provides some useful functions for this.</p>
+
+<p>If you like to dive right into jatos.js’ reference:</p>
+
+<ul>
+  <li><a href="jatos.js-Reference.html#functions-for-group-studies">jatos.js functions for group studies</a></li>
+  <li><a href="jatos.js-Reference.html#group-variables">jatos.js group variables</a></li>
+  <li><a href="jatos.js-Reference.html#groups-session-data">jatos.js group session</a></li>
+</ul>
+
+<h3 id="joining-a-group-and-opening-group-channels">Joining a group and opening group channels</h3>
+
+<p>There are two requisites for allowing group members to interact:</p>
+
+<ol>
+  <li>
+    <p>Workers can only communicate with members of their own group. So, interacting workers must all join the same group. 
+<strong>A worker will remain in a group until jatos.js is explicitly told to leave the group (or the study run is finished). This means that if a worker moves between components or reloads a page they will remain in the same group.</strong> This feature makes groups much more robust.</p>
+  </li>
+  <li>
+    <p>Communication can only be done if a group channel is open. Although jatos.js opens and closes all necessary group channels so you don’t have to care for them directly while writing components. Group channels in turn use <a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets</a>. WebSockets are supported by <a href="http://caniuse.com/#feat=websockets">all modern browsers</a>.</p>
+  </li>
+</ol>
+
+<p>So here’s how a typical JATOS group study run would look like:</p>
+
+<p>Component 1</p>
+
+<ul>
+  <li><em>jatos.joinGroup</em> -&gt; joins group and opens group channel</li>
+  <li><em>jatos.nextComponent</em> -&gt; closes group channel and jumps to next component</li>
+</ul>
+
+<p>Component 2</p>
+
+<ul>
+  <li><em>jatos.joinGroup</em> -&gt; opens group channel in the <strong>same group</strong></li>
+  <li><em>jatos.nextComponent</em> -&gt; closes group channel and jumps to next component</li>
+</ul>
+
+<p>Component 3</p>
+
+<ul>
+  <li><em>jatos.joinGroup</em> -&gt; opens group channel <strong>same group</strong></li>
+  <li><em>jatos.endStudy</em> -&gt; closes group channel, leaves group, ends component, and ends study</li>
+</ul>
+
+<p>Notice that by calling <em><a href="jatos.js-Reference.html#jatosjoingroupcallbacks">jatos.joinGroup</a></em> in the second and third component JATOS does not let workers join a new group but just opens a group channel in the already joined group. To make a worker leave a group,  use the function <a href="jatos.js-Reference.html#jatosleavegrouponsuccess-onerror"><em>jatos.leaveGroup</em></a>.</p>
+
+<h3 id="reassigning-to-a-different-group">Reassigning to a different group</h3>
+
+<p>To move a worker from one group to a different one, use <a href="jatos.js-Reference.html#jatosreassigngrouponsuccess-onfail"><em>jatos.reassignGroup</em></a>. This function will make a worker leave their group and join a different one. JATOS can only reassign to a different group if there is another group available. If there is no other group JATOS will not start a new one but put the worker into the same old group again.</p>
+
+<h3 id="fixing-a-group">Fixing a group</h3>
+
+<p>Sometimes you want to stay with the group like it is in the moment and don’t let new members join - although it would be allowed according to the group properties. For example in the <a href="http://www.jatos.org/Example-Studies.html#prisoners-dilemma">Prisoner’s Example study</a> after the group is assembled in the waiting room component it is necessary to keep the two members as it is. Even if one of the members leaves in the middle of the game, JATOS shouldn’t just assign a new member. To do this call jatos.js’ function <a href="jatos.js-Reference.html#jatossetgroupfixed"><em>jatos.setGroupFixed</em></a>.</p>
+
+<h2 id="communication-between-group-members">Communication between group members</h2>
+
+<p>JATOS provides two ways for communicating within the group: direct messaging between group members or via the group session.</p>
+
+<h3 id="direct-messaging">Direct messaging</h3>
+<p>Members can send direct messages to other members of the same group with the <a href="jatos.js-Reference.html#jatossendgroupmsgmsg"><em>jatos.sendGroupMsg</em></a> and <a href="jatos.js-Reference.html#jatossendgroupmsgtorecipient-msg"><em>jatos.sendGroupMsgTo</em></a> functions. This way of communication is fast but can be unreliable in case of an unstable network connection. We use direct messaging in the <a href="http://www.jatos.org/Example-Studies.html#snake">Snake example</a> to send the coordinates of the snakes on every step. Here, speed is more critical than reliability in the messages, because a few dropped frames will probably go unnoticed.</p>
+
+<h3 id="group-session">Group session</h3>
+<p>Members can set the group session data with the <a href="jatos.js-Reference.html#jatossetgroupsessiondatagroupsessiondata-onerror"><em>jatos.setGroupSessionData</em></a> function. At any time the group session data are available in jatos.js’ variable <a href="jatos.js-Reference.html#groups-session-data"><em>jatos.groupSessionData</em></a>. The group session data are stored in JATOS’ database <strong>only while the group is active. It is deleted when the group is finished.</strong> Communication via group session is slower, but more reliable than group messaging. If one member has an unstable internet connection or does a page reload, the group session will be automatically restored after the member reopens the group channel. Workers communicate via the group session data in the <a href="http://www.jatos.org/Example-Studies.html#prisoners-dilemma">Prisoner’s Example study</a>, because it is important that each message reaches the other player.</p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

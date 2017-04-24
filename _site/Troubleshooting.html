@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" troubleshooting">
+<title>Troubleshooting  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Troubleshooting.html">Troubleshooting</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <h3 id="jatos-failed-to-update-the-gui-automatically">JATOS failed to update the GUI automatically?</h3>
+
+<p>Try reloading the browser.</p>
+
+<h3 id="downloading-a-study--exporting-a-study-fails-eg-in-safari-browsers">Downloading a study / exporting a study fails (e.g. in Safari browsers)</h3>
+
+<p>As a default, Safari (and some other browsers) automatically unzips every archive file after downloading it. When you export a study, JATOS zips your study together (study properties, all components, and all files like HTML, JavaScripts, images) and delivers it to your browser, who should save it in your local computer. Safari’s default unzipping interferes with this. Follow <a href="https://discussions.apple.com/thread/1958374?start=0&amp;tstart=0">these instructions</a> to prevent Safari’s automatic unzip.</p>
+
+<h3 id="jatos-fails-to-start">JATOS fails to start?</h3>
+
+<p><b>(Or, if you are running Windows, do you get the message ‘JATOS is already running. Press any key to continue’…)</b></p>
+
+<p>This will happen if your computer crashed before you had the chance to close JATOS.</p>
+
+<p>This is what you might see on a Mac Terminal if JATOS doesn’t start:</p>
+
+<p><img src="images/shell_start1.png" alt="jatos doesn't start" /></p>
+
+<p>Close any open command prompt windows. Then look into your JATOS folder, and check if there’s a file called ‘RUNNING_PID’. Delete this file and try to start JATOS again.</p>
+
+<p>Here is how it should look if JATOS started successfully:</p>
+
+<p><img src="images/shell_start2.png" alt="jatos doesn't start" /></p>
+
+<h3 id="read-log-file-in-the-browser">Read log file in the browser</h3>
+
+<p>In a perfect world, JATOS always works smoothly and, when it doesn’t, it describes the problem in an error message. Unfortunately we aren’t in a perfect world: every now and then something will go wrong and you might not get any clear error messages, or no message at all. In these (rare) cases, you can look into JATOS’ log file to try to find what the problem might be.</p>
+
+<p>The standard way to read the log file is directly on the server. You’ll find your complete log file in <code class="highlighter-rouge">jatos_directory/logs/application.log</code>. Because JATOS is designed to avoid the command line interface, we offer a way to view your log file directly in your browser.</p>
+
+<p>Just open the URL <code class="highlighter-rouge">http://your-jatos-server/jatos/admin/log</code>. For privacy and security reasons, you must be logged in as <strong>Admin</strong>. For example, if you’re running JATOS locally with the standard settings, you’d have to go to 
+<a href="http://localhost:9000/jatos/admin/log">http://localhost:9000/jatos/admin/log</a> to view your log file.</p>
+
+<p>By default, JATOS will display the last 1000 lines of the application.log file. If you want to see more than the last 1000 lines, add the query parameter <code class="highlighter-rouge">limit</code>. E.g. to display the last 10000 lines on a local JATOS instance, you’d have to go to <a href="http://localhost:9000/jatos/admin/log?limit=10000">http://localhost:9000/jatos/admin/log?limit=100000</a>.</p>
+
+<h3 id="a-file-library-image--included-in-the-html-fails-to-load">A file (library, image, …) included in the HTML fails to load?</h3>
+
+<p>There is a common mistake Windows users make that might prevent files in the HTML from loading: Any URL or file path in a HTML file should only use ‘/’ as a file path separator - even on Windows systems. So it should always be e.g. <code class="highlighter-rouge">&lt;script src="/study_assets/mystudy/jsPsych-5.0.3/jspsych.js"&gt;&lt;/script&gt;</code> and not <code class="highlighter-rouge">&lt;script src="\study_assets\mystudy\jsPsych-5.0.3\jspsych.js"&gt;&lt;/script&gt;</code>.</p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

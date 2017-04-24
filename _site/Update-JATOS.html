@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" update">
+<title>Update JATOS  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Update-JATOS.html">Update JATOS</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>We’ll periodically update JATOS with new features and bug fixes. We recommend you stay up to date with the <a href="https://github.com/JATOS/JATOS/releases">latest release</a>. However if you are currently running a study it’s always safest to keep the same JATOS version throughout the whole experiment.</p>
+
+<h2 id="updating-a-local-installation-of-jatos">Updating a local installation of JATOS</h2>
+<p>(The procedure is different if you want to <a href="Updating-a-JATOS-server-installation.html">update JATOS on a server installation</a>)</p>
+
+<p>To be absolutely safe you can install the new JATOS version and keep the old one untouched. This way you can switch back if something fails. Just remember that only one JATOS can run at the same time. Always end JATOS before starting another one.</p>
+
+<p>You can update your local JATOS instance in two main ways:</p>
+
+<h3 id="first-easy-way-discarding-your-result-data">First, easy way: discarding your result data</h3>
+
+<p>If you don’t care about result data stored in JATOS:</p>
+
+<ol>
+  <li>Simply download and install the new version as if it were a new fresh download. Don’t start it yet.</li>
+  <li>Export any studies you wish to keep from the old JATOS installation.</li>
+  <li>Stop the old JATOS and start the new JATOS.</li>
+  <li>Import all the studies your previously exported. This will transfer the files and subfolders in your study’s asset folder (HTML, JavaScript, CSS files).</li>
+</ol>
+
+<p><strong>What will be transferred:</strong></p>
+
+<ol>
+  <li>Files and subfolders in study’s assets folder</li>
+  <li>All your studies’ and components’ properties</li>
+  <li>The <strong>properties</strong> of the first (Default) batch</li>
+</ol>
+
+<p><strong>What will be lost:</strong></p>
+
+<ol>
+  <li><strong>All result data will be lost</strong></li>
+  <li>All workers in all batches (including Default batch)</li>
+  <li>All batches other than the Default batch</li>
+</ol>
+
+<h3 id="second-way-keeping-everything-including-your-result-data">Second way: keeping everything (including your result data)</h3>
+
+<p>If you do want to keep your studies, batches, and your result data you’ll have to move them to the new JATOS.</p>
+
+<p><strong>However: Occasionally (on major version updates such as 1.X.X to 2.1.1) we will make big changes in JATOS, which will require some restructuring of the database. In these cases, the second way described here will not be possible. We will do our best to prevent these big changes and inform you explicitly in the release description.</strong></p>
+
+<ol>
+  <li>Stop JATOS (on Unix systems, type <code class="highlighter-rouge">$ ./loader.sh stop</code> on the terminal. On Windows MS, close your command window)</li>
+  <li>Go to the folder of your old JATOS installation. From there copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called <code class="highlighter-rouge">study_assets_root</code> and lays in the JATOS folder but you might have changed this. You can find the location and name in <code class="highlighter-rouge">conf/production.conf</code>. It is specified in the line beginning with <code class="highlighter-rouge">jatos.studyAssetsRootPath=</code>.)</li>
+  <li>From your the folder of your old JATOS installation copy the folder <code class="highlighter-rouge">database</code> to the new JATOS installation.</li>
+  <li>If you had changed the <code class="highlighter-rouge">conf/production.conf</code> file in your old JATOS instance (for example to set a custom location for your <code class="highlighter-rouge">study_assets_root</code> folder) you’ll have to do this again in the new JATOS version. We recommend re-editing the new version of the file, rather than just overwriting the new with the old version, in case anything in the <code class="highlighter-rouge">production.conf</code> file has changed.</li>
+  <li>That’s it! Start the new JATOS.</li>
+</ol>
+
+<p><strong>What will be transferred:</strong></p>
+
+<ol>
+  <li>Files and subfolders in study assets folder</li>
+  <li>All your study and components properties</li>
+  <li>All batches, together with their workers, generated links, and results</li>
+</ol>
+
+<p><strong>What will be lost:</strong>
+nothing</p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

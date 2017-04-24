@@ -1,0 +1,384 @@
+[
+
+
+
+
+{
+"title": "Adapt Pre written Code to run it in JATOS (Jatosify)",
+"tags": "",
+"keywords": "jatos.js, jatosify, javascript, jsPsych, initialize",
+"url": "Adapt-Pre-written-Code-to-run-it-in-JATOS.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Configure JATOS on a Server",
+"tags": "",
+"keywords": "server, configuration",
+"url": "Configure-JATOS-on-a-Server.html",
+"summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you probably will want to set up the IP and port, or use a different database and change the path of the study assets root folder."
+}
+,
+
+
+
+{
+"title": "Connect to Mechanical Turk",
+"tags": "",
+"keywords": "Mechanical Turk, MTurk, AMT, Amazon",
+"url": "Connect-to-Mechanical-Turk.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Contact us",
+"tags": "",
+"keywords": "contact, email, help",
+"url": "Contact-us.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Data Privacy and Ethics",
+"tags": "",
+"keywords": "privacy, ethics",
+"url": "Data-Privacy-and-Ethics.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Example Group Studies",
+"tags": "",
+"keywords": "group, batch",
+"url": "Example-Group-Studies.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Example Studies",
+"tags": "",
+"keywords": "examples, jspsych, javascript",
+"url": "Example-Studies.html",
+"summary": "These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and presentation, messaging in group studies). They are not meant to show what JATOS itself does (since JATOS doesn't care for the browser side)."
+}
+,
+
+
+
+{
+"title": "Get started",
+"tags": "",
+"keywords": "installation",
+"url": "Get-started.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Group Study Properties",
+"tags": "",
+"keywords": "group, properties",
+"url": "Group-Study-Properties.html",
+"summary": "Lern how to set up a group study and the different ways in how to assign workers to groups."
+}
+,
+
+
+
+{
+"title": "Install JATOS via Docker",
+"tags": "",
+"keywords": "docker, container, installation, server",
+"url": "Install-JATOS-via-Docker.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Installation",
+"tags": "",
+"keywords": "installation",
+"url": "Installation.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "JATOS in Amazon&#39;s Cloud (without Docker)",
+"tags": "",
+"keywords": "cloud, aws, amazon, installation, server",
+"url": "JATOS-in-Amazons-Cloud-without-Docker.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "JATOS on a server",
+"tags": "",
+"keywords": "server, installation",
+"url": "JATOS-on-a-server.html",
+"summary": "To run studies online, e.g. with Mechanical Turk, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
+}
+,
+
+
+
+{
+"title": "JATOS with Apache",
+"tags": "",
+"keywords": "apache, server, httpd, installation",
+"url": "JATOS-with-Apache.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "JATOS with Nginx",
+"tags": "",
+"keywords": "nginx, server, installation",
+"url": "JATOS-with-Nginx.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Mandatory lines in your components&#39; HTML",
+"tags": "",
+"keywords": "mandatory, HTML, jatos.js",
+"url": "Mandatory-lines-in-your-components-HTML.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Results",
+"tags": "",
+"keywords": "results",
+"url": "Results.html",
+"summary": "The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g. worker ID, start time etc.)."
+}
+,
+
+
+
+{
+"title": "Run your Study with Batch Manager &amp; Worker Setup",
+"tags": "",
+"keywords": "batch manager, worker setup, worker, batch properties, worker setup, group properties",
+"url": "Run-your-Study-with-Batch-Manager-and-Worker-Setup.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Set up your own studies",
+"tags": "",
+"keywords": "create, import, export",
+"url": "Set-up-your-own-studies.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Tips &amp; Tricks",
+"tags": "",
+"keywords": "tips, tricks, Mechanical Turk, MTurk, lock",
+"url": "Tips-and-Tricks.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Troubleshooting",
+"tags": "",
+"keywords": "troubleshooting",
+"url": "Troubleshooting.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Two Types of Session Data",
+"tags": "",
+"keywords": "session data, Study Session, group session",
+"url": "Two-Types-of-Session-Data.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Update JATOS",
+"tags": "",
+"keywords": "update",
+"url": "Update-JATOS.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Updating a JATOS server installation",
+"tags": "",
+"keywords": "update, server",
+"url": "Updating-a-JATOS-server-installation.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "What&#39;s JATOS",
+"tags": "",
+"keywords": "summary, docs, glance, introduction, pdf",
+"url": "Whats-JATOS.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Worker Types",
+"tags": "",
+"keywords": "worker types, Jatos Worker, Personal Single Worker, Personal Multiple Worker, MTurk Worker, Preview Links",
+"url": "Worker-Types.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Write Your Own Group Studies",
+"tags": "",
+"keywords": "group",
+"url": "Write-Your-Own-Group-Studies.html",
+"summary": ""
+}
+,
+
+
+
+
+
+{
+"title": "jatos.js Reference",
+"tags": "",
+"keywords": "reference, jatos.js",
+"url": "jatos.js-Reference.html",
+"summary": "jatos.js is a small JavaScript library that helps you to communicate from JavaScript with your JATOS server (in more technical terms, it wraps calls to JATOS' public REST API). Below we list and describe the variables and functions of the jatos.js library."
+}
+,
+
+
+
+{
+"title": "jsPsych and JATOS",
+"tags": "",
+"keywords": "jsPsych",
+"url": "jsPsych-and-JATOS.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Scroll layout",
+"tags": "special_layouts",
+"keywords": "json, scrolling, scrollto, jquery plugin",
+"url": "jsmydoc_scroll.html",
+"summary": "This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definitions for that particular term. The scenario here is that the JSON blocks are really long, with extensive nesting and subnesting, which makes it difficult for tables below the JSON to adequately explain the term in a usable way."
+}
+,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "Sample post",
+"tags": "newsgetting_started",
+"keywords": "",
+"url": "/samplepost.html",
+"summary": "This is some summary frontmatter for my sample post."
+}
+,
+
+
+{
+"title": "Welcome to Jekyll!",
+"tags": "news",
+"keywords": "",
+"url": "/myupdate.html",
+"summary": ""
+}
+,
+
+
+{
+"title": "Test post from last year",
+"tags": "news",
+"keywords": "",
+"url": "/test-post-from-last-year.html",
+"summary": ""
+}
+
+
+
+]

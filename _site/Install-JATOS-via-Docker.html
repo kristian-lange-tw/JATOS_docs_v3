@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" docker, container, installation, server">
+<title>Install JATOS via Docker  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Install-JATOS-via-Docker.html">Install JATOS via Docker</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>JATOS has a Docker image: <a href="https://hub.docker.com/r/jatos/jatos/">hub.docker.com/r/jatos/jatos/</a></p>
+
+<p>Docker is a great technology, but if you never heard of it you can safely ignore this page (it’s not necessary to use it if you want to install JATOS, either locally or on a server).</p>
+
+<p>If you have heard of it, you might want to, for example, setup JATOS in a Docker container together with an external H2 or MySQL database in another Docker container. You can easily do that:</p>
+
+<h3 id="install-jatos-locally-with-a-docker-container">Install JATOS locally with a Docker container</h3>
+
+<ol>
+  <li>
+    <p>Install Docker locally on your computer (not covered here)</p>
+  </li>
+  <li>
+    <p>Go to your shell or command line interface</p>
+  </li>
+  <li>
+    <p>Pull the JATOS image: use <code class="highlighter-rouge">docker pull jatos/jatos:x.x.x</code> and specify the release, e.g. to get version 2.2.4 use <code class="highlighter-rouge">docker pull jatos/jatos:2.2.4</code></p>
+  </li>
+  <li>
+    <p>Check that you actually downloaded the image: <code class="highlighter-rouge">docker images</code> should show <code class="highlighter-rouge">jatos/jatos</code> in one line</p>
+  </li>
+  <li>
+    <p>Now run JATOS (and create a new Docker container) with <code class="highlighter-rouge">docker run -d -p 9000:9000 jatos/jatos:x.x.x</code>, e.g. to for version 2.2.4 use <code class="highlighter-rouge">docker run -d -p 9000:9000 jatos/jatos:2.2.4</code>. The <code class="highlighter-rouge">-d</code> argument specifies to run this container as a daemon and the <code class="highlighter-rouge">-p</code> is responsible for the port mapping.</p>
+  </li>
+  <li>
+    <p>Check that the new container is running: In your browser go to <a href="http://localhost:9000">localhost:9000</a> - it should show the JATOS login screen. Or use <code class="highlighter-rouge">docker ps -a</code> - in the line with <code class="highlighter-rouge">jatos/jatos</code> the status should say <code class="highlighter-rouge">up</code>.</p>
+  </li>
+</ol>
+
+<p><strong>Troubleshooting</strong>: By removing the <code class="highlighter-rouge">-d</code> argument (e.g. <code class="highlighter-rouge">docker run -p 9000:9000 jatos/jatos:2.2.4</code>) you get JATOS’ logs printed in your shell - although you don’t run it as a daemon in the background anymore.</p>
+
+<h3 id="change-port">Change port</h3>
+
+<p>With Docker you can easily change JATOS’ port (actually we change the port mapping of JATOS’ docker container). Just use Docker <code class="highlighter-rouge">-p</code> argument and specify your port. E.g. to run JATOS on port 8080 use <code class="highlighter-rouge">docker run -d -p 8080:9000 jatos/jatos:2.2.4</code>.</p>
+
+<h3 id="configure-with-environment-variables">Configure with environment variables</h3>
+
+<p>All environment variables that can be used to <a href="Configure-JATOS-on-a-Server.html">configure a normal JATOS server installation</a> can be used in a docker installation. Just use Docker’s <code class="highlighter-rouge">-e</code> argument to set them.</p>
+
+<p>E.g. to setup JATOS with a MySQL database running under IP <code class="highlighter-rouge">172.17.0.2</code> that uses the table <code class="highlighter-rouge">jatos</code> use the following command (but change the JATOS version and use username and password of your MySQL account):</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>docker run -e <span class="nv">JATOS_DB_URL</span><span class="o">=</span><span class="s1">'jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8'</span> -e <span class="nv">JATOS_DB_USERNAME</span><span class="o">=</span><span class="s1">'root'</span> -e <span class="nv">JATOS_DB_PASSWORD</span><span class="o">=</span><span class="s1">'password'</span> -e <span class="nv">JATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.jdbc.Driver -e <span class="nv">JATOS_JPA</span><span class="o">=</span>mysqlPersistenceUnit -p 9000:9000 jatos/jatos:2.2.4
+</code></pre>
+</div>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

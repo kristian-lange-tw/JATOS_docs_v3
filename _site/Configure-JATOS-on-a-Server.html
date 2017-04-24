@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="If JATOS runs locally it's usually not necessary to change the defaults. On a server, you probably will want to set up the IP and port, or use a different da...">
+<meta name="keywords" content=" server, configuration">
+<title>Configure JATOS on a Server  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <div class="summary">If JATOS runs locally it's usually not necessary to change the defaults. On a server, you probably will want to set up the IP and port, or use a different database and change the path of the study assets root folder.</div>
+    
+    <p><strong>Restart JATOS after making any changes to the configuration (<code class="highlighter-rouge">loader.sh restart</code>)</strong></p>
+
+<h3 id="ip--domain-and-port">IP / domain and port</h3>
+
+<p>By default JATOS uses the address 127.0.0.1 and port 9000. There are two ways to configure the host name or IP address and the port:</p>
+
+<ol>
+  <li>
+    <p>In <code class="highlighter-rouge">loader.sh</code> change the values of ‘address’ and ‘port’ according to your IP address or domain name and port.</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">address</span><span class="o">=</span><span class="s2">"172.16.0.1"</span>
+<span class="nv">port</span><span class="o">=</span><span class="s2">"8080"</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Via command-line arguments <code class="highlighter-rouge">-Dhttp.address</code> and <code class="highlighter-rouge">-Dhttp.port</code>, e.g. with the following command you’d start JATOS with IP 10.0.0.1 and port 80</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>loader.sh start -Dhttp.address<span class="o">=</span>10.0.0.1 -Dhttp.port<span class="o">=</span>80
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h3 id="study-assets-root-path">Study assets root path</h3>
+
+<p>By default the study assets root folder (where all your study’s HTML, JavaScript files etc. are stored) is located within JATOS installation’s folder in <code class="highlighter-rouge">study_assets_root</code>. There are three ways to change this path:</p>
+
+<ol>
+  <li>
+    <p>Via the command-line argument <code class="highlighter-rouge">-DJATOS_STUDY_ASSETS_ROOT_PATH</code>, e.g.</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>loader.sh start -DJATOS_STUDY_ASSETS_ROOT_PATH<span class="o">=</span><span class="s2">"/path/to/my/assets/root/folder"</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Via <code class="highlighter-rouge">conf/production.conf</code>: change <code class="highlighter-rouge">jatos.studyAssetsRootPath</code></p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>jatos.studyAssetsRootPath<span class="o">=</span><span class="s2">"/path/to/my/jatos_study_assets_root"</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Via the environment variable <code class="highlighter-rouge">JATOS_STUDY_ASSETS_ROOT_PATH</code>, e.g. the following export adds it to the env variables:</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">JATOS_STUDY_ASSETS_ROOT_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/assets/root/folder"</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h3 id="database">Database</h3>
+
+<p>By default JATOS uses an embedded H2 database, but it can be easily configured to work with an external H2 or a MySQL database.</p>
+
+<p>You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your JDBC URL).</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>19:03:42.000 <span class="o">[</span>info] - p.a.d.DefaultDBApi - Database <span class="o">[</span>default] connected at jdbc:mysql://localhost/jatos?characterEncoding<span class="o">=</span>UTF-8
+</code></pre>
+</div>
+
+<p><strong>JATOS requires MySQL &gt;= 5.5 or H2 &gt;= 1.4.192 (prior versions might work - I just never tested)</strong></p>
+
+<p>Note: We tried JATOS extensively with the H2 database. It’s reliable and doesn’t have some issues that do exist with MySQL databases such as <a href="https://github.com/JATOS/JATOS/issues/111">this one</a>.</p>
+
+<p>There are three ways to set up the database.</p>
+
+<ol>
+  <li>Via command-line arguments:
+    <ul>
+      <li><code class="highlighter-rouge">-DJATOS_DB_URL</code> - specifies the JDBC URL to the database</li>
+      <li><code class="highlighter-rouge">-DJATOS_DB_USERNAME</code> and <code class="highlighter-rouge">-DJATOS_DB_PASSWORD</code> - set username and password</li>
+      <li><code class="highlighter-rouge">-DJATOS_DB_DRIVER</code> - can be either <code class="highlighter-rouge">org.h2.Driver</code> or <code class="highlighter-rouge">com.mysql.jdbc.Driver</code></li>
+      <li><code class="highlighter-rouge">-DJATOS_JPA</code> - can be either <code class="highlighter-rouge">h2PersistenceUnit</code> or <code class="highlighter-rouge">mysqlPersistenceUnit</code></li>
+    </ul>
+
+    <p>E.g. to connect to a MySQL database running on 172.17.0.2 and a table named ‘jatos’ use:</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>loader.sh start -DJATOS_DB_URL<span class="o">=</span><span class="s1">'jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8'</span> -DJATOS_DB_USERNAME<span class="o">=</span>sa -DJATOS_DB_PASSWORD<span class="o">=</span>sa -DJATOS_JPA<span class="o">=</span>mysqlPersistenceUnit -DJATOS_DB_DRIVER<span class="o">=</span>com.mysql.jdbc.Driver
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Via production.conf (description analog to 1.)</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>db.default.url<span class="o">=</span><span class="s2">"jdbc:mysql://localhost/MyDatabase?characterEncoding=UTF-8"</span>
+db.default.user<span class="o">=</span>myusername
+db.default.password<span class="o">=</span>mypassword
+db.default.driver<span class="o">=</span>com.mysql.jdbc.Driver
+jpa.default<span class="o">=</span>mysqlPersistenceUnit
+</code></pre>
+    </div>
+  </li>
+  <li>Via environment variables (description analog to 1.)
+    <ul>
+      <li><code class="highlighter-rouge">JATOS_DB_URL</code></li>
+      <li><code class="highlighter-rouge">JATOS_DB_USERNAME</code></li>
+      <li><code class="highlighter-rouge">JATOS_DB_PASSWORD</code></li>
+      <li><code class="highlighter-rouge">JATOS_DB_DRIVER</code></li>
+      <li><code class="highlighter-rouge">JATOS_JPA</code></li>
+    </ul>
+
+    <p>E.g. to set all database environment variables for a MySQL database and table called ‘jatos’ you could use a command (change the values):</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">JATOS_DB_URL</span><span class="o">=</span><span class="s1">'jdbc:mysql://localhost/jatos?characterEncoding=UTF-8'</span> <span class="nv">JATOS_DB_USERNAME</span><span class="o">=</span><span class="s1">'jatosuser'</span> <span class="nv">JATOS_DB_PASSWORD</span><span class="o">=</span><span class="s1">'mypassword'</span> <span class="nv">JATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.jdbc.Driver <span class="nv">JATOS_JPA</span><span class="o">=</span>mysqlPersistenceUnit
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" update, server">
+<title>Updating a JATOS server installation  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>Updating the server instance is equivalent to doing it <a href="Update-JATOS.html">locally</a>, but make sure that you know what you’re doing; especially if you have paired JATOS with a MySQL database.</p>
+
+<p>To be absolutely safe you can install the new JATOS version and keep the old one untouched. This way you can switch back if something fails. Just remember that only one JATOS can run at the same time.</p>
+
+<p>Note: If you are using a MySQL database and to be on the safe side in case something goes wrong, make a backup of your MySQL database. Dump the database using <code class="highlighter-rouge">mysqldump -u yourUserName -p yourDatabaseName &gt; yourDatabaseName.out</code>.</p>
+
+<p>As when <a href="Update-JATOS.html">updating of a local JATOS installation</a> you have two options: 1. Keep your studies but discard all your result data and batches. 2. Keep everything, including your studies and result data (might not always be possible).</p>
+
+<h3 id="first-option-quick-and-dirty-discarding-result-data">First option: quick and dirty (discarding result data)</h3>
+
+<p>You can just follow the <a href="Update-JATOS.html#first-easy-way-discarding-your-result-data">update instructions for the local installation</a>. If you use a mySQL database don’t forget to <a href="Configure-JATOS-on-a-Server.html">configure it with a clean and new one</a> (not the one from your old JATOS). Do not use the new JATOS with the old MySQL database unless you choose to keep your data, as described below.</p>
+
+<h3 id="second-option-keeping-everything">Second option: keeping everything</h3>
+
+<p>This means that we have to configure the MySQL database or copy the H2 database files.</p>
+
+<p><strong>However: Occasionally (on major version updates such as 1.X.X to 2.1.1) we will make big changes in JATOS, which will require some restructuring of the database. In these cases, the second way described here will not be possible. We will do our best to prevent these big changes and inform you explicitly in the release description.</strong></p>
+
+<ol>
+  <li>Stop the old JATOS using <code class="highlighter-rouge">./loader.sh stop</code></li>
+  <li>Copy the new JATOS version to your server, e.g. copy it into the same folder where your old JATOS is located. Don’t yet remove the old JATOS instance.</li>
+  <li>Unzip the new JATOS (<code class="highlighter-rouge">unzip jatos-x.x.x-beta.zip</code>)</li>
+  <li>From the old JATOS installation copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called <code class="highlighter-rouge">study_assets_root</code> and lays in the JATOS folder but you might have <a href="Configure-JATOS-on-a-Server.html">changed this</a>.</li>
+  <li>If you are using the default H2 database: From your the folder of your old JATOS installation copy the folder <code class="highlighter-rouge">database</code> to the new JATOS installation. For an external MySQL or H2 database you don’t have to change anything on the database side.</li>
+  <li><a href="Configure-JATOS-on-a-Server.html">Configure the new JATOS like the old one</a></li>
+  <li>That’s it! Start the new JATOS using <code class="highlighter-rouge">./loader.sh start</code></li>
+</ol>
+
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" batch manager, worker setup, worker, batch properties, worker setup, group properties">
+<title>Run your Study with Batch Manager & Worker Setup  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Batch Manager & Worker Setup</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>If you run a study during development from within the JATOS GUI you will do so as a Jatos worker. There are <a href="Worker-Types.html">other worker types</a> to distribute to real participants.</p>
+
+<p>A worker in JATOS is a person who runs a study. A batch organizes workers and their study runs and results. Each study has a Batch Manager.</p>
+
+<p><strong>Generate links to send to your workers</strong></p>
+
+<p>For all worker types except Jatos and MTurk you’ll need to generate links to send to your potential workers, which they can follow to access and run your study. Those links are generated in the <strong>Worker Setup</strong> (Batch Manager –&gt; Worker Setup).</p>
+
+<h2 id="restrictions">Restrictions</h2>
+
+<ol>
+  <li>
+    <p>Common to all worker types is that <strong>the same worker can do only one study at the same time</strong>. If a worker is running a study and starts another study run, the first study run will automatically be finished with an error. This is independent of whether the study runs are in the same or different browsers.</p>
+  </li>
+  <li>
+    <p><strong>[Valid only for versions 2.1.12 and older]</strong>
+<strong>The same browser can only run one study at the same time</strong>. If you start a second study in a browser where you have started a first study, the first study will automatically be finished with an error.</p>
+  </li>
+  <li>
+    <p><strong>[Valid only for versions 2.2.1 and newer]</strong>
+<strong>The same browser can run one study in up to 10 different tabs</strong>. This is useful if you want to test a group study. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 “different” workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group.</p>
+  </li>
+</ol>
+
+<h2 id="batch-manager">Batch Manager</h2>
+
+<p>Since JATOS 2 you run studies in batches. A batch consists of its properties and a collection of workers that do the study. Using different batches is useful to organize your study runs, separate their results and vary their setup. E.g. you could separate a pilot run from the ‘proper’ experiment, or you could use different batches for different worker types.</p>
+
+<p>Batches are organized in the Batch Manager. Here you can create and delete batches and access each batch’s properties, worker setup and study results.</p>
+
+<p>Each study comes with a ‘Default’ batch.</p>
+
+<p><img src="images/batch manager.png" alt="Batch manager screenshot" /></p>
+
+<h3 id="batch-properties">Batch Properties</h3>
+
+<p>For each batch, you can limit the maximum number of workers that will ever be able to run a study in this batch by setting the <strong>Maximum Total Workers</strong>.</p>
+
+<p><img src="images/Batch Max worker types.png" alt="Batch manager screenshot" /></p>
+
+<p>Additionally you can switch on or off worker types in the <strong>Allowed Worker Types</strong>. Forbidden worker types are not able to run a study. Always check before you send out links to study runs that the corresponding worker types are switched on. You can do the same in the Worker Setup.</p>
+
+<p><img src="images/Batch Max total workers.png" alt="Worker types" /></p>
+
+<p>The <strong>Group Properties</strong> relate to <a href="Group-Study-Properties.html">group studies</a>.</p>
+
+<h3 id="worker-setup">Worker Setup</h3>
+
+<p><img src="images/Worker types screenshot.png" alt="Worker types" /></p>
+
+<p>This is the place where you generate the links to study runs for most of your workers types (except for Jatos and MTurk).</p>
+
+<p>For <strong>Personal Single Workers</strong> and <strong>Personal Multiple Workers</strong> click <strong>Add</strong>. You can enter a worker description or identification in the ‘Comments’ box.</p>
+
+<p><strong>General Single Workers</strong> only have one link and each link will create a new separate worker. Get this link by clicking on <strong>Link</strong> in its row.</p>
+
+<p>How to connect to MTurk and create links to run for <strong>MTurk Workers</strong> is described in the page <a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a>.</p>
+
+<p>The differences between the worker types is explained in the <a href="Worker-Types.html">Worker Types page</a>.</p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

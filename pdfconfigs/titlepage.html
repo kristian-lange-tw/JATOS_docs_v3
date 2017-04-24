@@ -1,0 +1,25 @@
+---
+type: title
+search: exclude
+permalink: /titlepage/
+---
+<div class="printTitleArea">
+    <div class="printTitle">{{site.print_title}}</div>
+    <div class="printSubtitle">{{site.print_subtitle}}</div>
+    <div class="lastGeneratedDate">Last generated: {{ site.time | date: '%B %d, %Y' }}</div>
+    <hr />
+
+    <div class="printTitleImage">
+        <img src="{{site.url}}/{{site.baseurl}}/images/jatos_logo_color.svg"/>
+    </div>
+
+    <div class="copyrightBoilerplate">
+        <p>&copy; 2016 JATOS. This documentation may be reproduced and distributed in whole or in part, in any medium physical or electronic.
+        </p>
+        <p>
+        NO WARRANTY. The JATOS documentation is licensed and provided "as is" without warranty of any kind, express or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose or a warranty of non-infringement.
+        </p>
+
+    </div>
+
+</div>

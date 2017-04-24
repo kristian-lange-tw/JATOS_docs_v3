@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" session data, Study Session, group session">
+<title>Two Types of Session Data  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Two-Types-of-Session-Data.html">Two Types of Session Data</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>Often you want to store information during a study run and share it with other components of the same study, or - if it is a group study - within the group. For this JATOS provides the Session Data. There are two different Session Data types, both of which are stored <strong>temporarily</strong> in your database, and will be deleted once they are no longer in use.</p>
+
+<p>The difference between session data and the result data is that the results are stored <strong>permanently</strong> in the database, and will stay there after the study is finished. All results should therefore go into the result data.</p>
+
+<h3 id="study-session-data">Study Session Data</h3>
+
+<p>The Study Session Data is useful to share information between components of a given study. Some examples include:</p>
+
+<ul>
+  <li>Sending information about percentage of correct responses in component 1 to component 2.</li>
+  <li>Having a study-wide progress bar, showing how much of the entire study has been completed.</li>
+  <li>Keeping track of the number of iterations of a given component that is repeated.</li>
+</ul>
+
+<h3 id="group-session-data">Group Session Data</h3>
+
+<p>The Group Session Data is useful to share information between members of a given group. Some examples include:</p>
+
+<ul>
+  <li>Responses to each trial in a group study like the Prisoner’s Dilemma</li>
+  <li>gender of group members</li>
+</ul>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

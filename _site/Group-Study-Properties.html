@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lern how to set up a group study and the different ways in how to assign workers to groups.">
+<meta name="keywords" content=" group, properties">
+<title>Group Study Properties  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Group-Study-Properties.html">Group Study Properties</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <div class="summary">Lern how to set up a group study and the different ways in how to assign workers to groups.</div>
+    
+    <p>(If you haven’t already, we recommend that you try out some <a href="Example-Group-Studies.html">example group studies</a>.)</p>
+
+<h2 id="set-up-group-studies">Set up group studies</h2>
+
+<p>First and common to all group setups is to check the Group study checkbox in the study properties. 
+<img src="images/Study_properties_group.png" alt="Groups property" /></p>
+
+<p>If the Group property is checked, JATOS will assign workers into groups. We’ll describe some group properties that you can use to tweak according to whether you want to keep control over worker assignment, or you give JATOS full control.</p>
+
+<h3 id="group-settings-in-each-batchs-properties">Group settings in each batch’s properties</h3>
+
+<p>You can have multiple batches in JATOS, each one with different group settings. There are three important bits of information for a group study:</p>
+
+<ol>
+  <li><em>Max total workers</em>: This isn’t just a property of group studies but can be used in single-worker studies too. It simply limits the total amount of workers who are allowed to run in this batch.</li>
+  <li><em>Max total members</em>:  This limits the number of members a single group can have. While there can be multiple groups in a batch, the <em>Max total members</em> applies to each separate group.</li>
+  <li><em>Max active members</em>: This limits the number of active members a single group can have. An active member is in the group at this time - in opposite to a past member who already left the group. This number applies to each group separately. Example: In the Prisoner’s Dilemma study, you would limit the active members to 2.</li>
+</ol>
+
+<p>By default, all properties have no upper limit.</p>
+
+<h2 id="group-assignment">Group assignment</h2>
+
+<p>You can either tell JATOS to assign workers to different groups, or you can keep full control and do it yourself (or something in between). We’ll use some example scenarios to explain how this assignment works.</p>
+
+<h3 id="scenario-1-one-group-assign-workers-manually">Scenario 1: One group, assign workers manually</h3>
+
+<p>If in a batch you set the <em>Max total worker</em> to 2 and leave the other two Max parameters empty, JATOS has no other choice than to allow only 2 workers and sort them into the same group. If you then define two Personal Single workers and send the access links (displayed in the batch) to your two participants, you can be sure that they will interact with each other. If you need more groups, just create a second batch with two other workers.</p>
+
+<h3 id="scenario-2-several-groups-let-jatos-assign-workers">Scenario 2: Several groups, let JATOS assign workers</h3>
+
+<p>Say you want to have 3 groups with 2 workers each. You want to leave it to JATOS which workers are paired together. Then, set <em>Max total workers</em> to 6 and both <em>Max active members</em> and <em>Max total members</em> to 2 (remember that these numbers apply to each group separately). Create your 6 workers in the Worker Setup (or use a General Single link) and distribute your link(s) to your workers.</p>
+
+<p><img src="images/prisoners example.png" alt="Prisoners example" /></p>
+
+<p>The first two scenarios may apply to the <a href="http://www.jatos.org/Example-Studies.html#prisoners-dilemma">Prisoner’s Dilemma Example Study</a>.</p>
+
+<h3 id="scenario-3-one-open-world">Scenario 3: One open world</h3>
+
+<p>This scenario is basically the opposite of the first one. By limiting neither the <em>Max total worker</em> nor the <em>Max total members</em>, nor the <em>Max active members</em> JATOS will sort all workers in one single group that is potentially of unlimited size. Now –to keep it completely open– just create one General Single worker and publish its link (e.g. via a mailing list or on a website). But keep in mind: this way many workers might access your study at the same time and this might overload your JATOS server.</p>
+
+<h3 id="scenario-4-multiple-open-worlds-with-limited-active-members">Scenario 4: Multiple open worlds with limited active members</h3>
+
+<p>Say you want to have groups with up to 3 members, interacting <em>at the same time</em>. But you don’t want to actually limit the total number of members per group: you want to allow new workers to join a group if one of its members left. This way each group can have a flow of workers joining and leaving - the only constraint is the maximum members per group at any given time. You also want to let JATOS set the number of groups depending on the available workers. To set up this just use one batch, set the <em>Max active members</em> to 3, and leave <em>Max total worker</em> and <em>Max total members</em> unlimited.</p>
+
+<p><img src="images/snake example.png" alt="Snake example" /></p>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

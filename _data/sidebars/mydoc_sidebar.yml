@@ -1,0 +1,152 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: mydoc_sidebar
+  product: 
+  version:
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage
+      output: pdf
+      type: frontmatter
+
+  - title: Overview
+    output: web, pdf
+    folderitems:
+
+    - title: What's JATOS
+      url: /Whats-JATOS.html
+      output: web, pdf
+
+    - title: Contact us
+      url: /Contact-us.html
+      output: pdf
+
+    - title: Installation
+      url: /Installation.html
+      output: web, pdf
+
+    - title: Get started
+      url: /Get-started.html
+      output: web, pdf
+
+    - title: Set up your own studies
+      url: /Set-up-your-own-studies.html
+      output: web, pdf
+
+  - title: Beyond the basics
+    output: web, pdf
+    folderitems:
+
+    - title: Run your Study with Batch Manager & Worker Setup
+      url: /Run-your-Study-with-Batch-Manager-and-Worker-Setup.html
+      output: web, pdf
+
+    - title: Worker Types
+      url: /Worker-Types.html
+      output: web, pdf
+      
+    - title: Results
+      url: /Results.html
+      output: web, pdf
+
+    - title: Two Types of Session Data
+      url: /Two-Types-of-Session-Data.html
+      output: web, pdf
+
+    - title: Mandatory lines in your components' HTML
+      url: /Mandatory-lines-in-your-components-HTML.html
+      output: web, pdf
+
+    - title: Adapt Pre written Code to run it in JATOS (Jatosify)
+      url: /Adapt-Pre-written-Code-to-run-it-in-JATOS.html
+      output: web, pdf
+
+    - title: jsPsych and JATOS
+      url: /jsPsych-and-JATOS.html
+      output: web, pdf
+
+    - title: Tips & Tricks
+      url: /Tips-and-Tricks.html
+      output: web, pdf
+
+    - title: Connect to Mechanical Turk
+      url: /Connect-to-Mechanical-Turk.html
+      output: web, pdf
+
+    - title: Troubleshooting
+      url: /Troubleshooting.html
+      output: web, pdf
+
+    - title: Update JATOS
+      url: /Update-JATOS.html
+      output: web, pdf
+
+    - title: Data Privacy and Ethics
+      url: /Data-Privacy-and-Ethics.html
+      output: web, pdf
+
+  - title: Group Studies
+    output: web, pdf
+    folderitems:
+
+    - title: Example Group Studies
+      url: /Example-Group-Studies.html
+      output: web, pdf
+      
+    - title: Group Study Properties
+      url: /Group-Study-Properties.html
+      output: web, pdf
+
+    - title: Write Your Own Group Studies
+      url: /Write-Your-Own-Group-Studies.html
+      output: web, pdf
+
+  - title: For admins
+    output: web, pdf
+    folderitems:
+
+    - title: JATOS on a server
+      url: /JATOS-on-a-server.html
+      output: web, pdf
+      
+    - title: Configure JATOS on a Server
+      url: /Configure-JATOS-on-a-Server.html
+      output: web, pdf
+
+    - title: JATOS with Nginx
+      url: /JATOS-with-Nginx.html
+      output: web, pdf
+      
+    - title: JATOS with Apache
+      url: /JATOS-with-Apache.html
+      output: web, pdf
+
+    - title: Install JATOS via Docker
+      url: /Install-JATOS-via-Docker.html
+      output: web, pdf
+
+    - title: JATOS in Amazon's Cloud (without Docker)
+      url: /JATOS-in-Amazons-Cloud-without-Docker.html
+      output: web, pdf
+
+    - title: Updating a JATOS server installation
+      url: /Updating-a-JATOS-server-installation.html
+      output: web, pdf
+      
+  - title: Reference
+    output: web, pdf
+    folderitems:
+
+    - title: jatos.js Reference
+      url: /jatos.js-Reference.html
+      output: web, pdf   

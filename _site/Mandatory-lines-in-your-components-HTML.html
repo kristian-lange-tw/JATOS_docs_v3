@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" mandatory, HTML, jatos.js">
+<title>Mandatory lines in your components' HTML  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>The best way to write an HTML/JavaScript file that runs with JATOS is to use one of the HTML files from the <a href="http://www.jatos.org/Example-Studies.html">Example Studies</a> as a starting point.</p>
+
+<p>Here are the absolute basics that any component HTML file MUST have in order to correctly run with JATOS</p>
+
+<ol>
+  <li>
+    <p>A link to the jatos.js library in the head section</p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/javascripts/jatos.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;/html&gt;</span>   
+</code></pre>
+    </div>
+
+    <p><a href="Troubleshooting.html#a-file-library-image--included-in-the-html-fails-to-load">Remember</a>: Any URL or file path in a HTML file should only use ‘/’ as a file path separator - even on Windows systems.</p>
+  </li>
+  <li>
+    <p>A callback function that will execute after a component has finished loading</p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+  <span class="nx">jatos</span><span class="p">.</span><span class="nx">onLoad</span><span class="p">();</span>
+<span class="nt">&lt;/script&gt;</span>   
+</code></pre>
+    </div>
+
+    <p>The code above is valid, but your component will do nothing after being loaded, which is probably not what you want. Typically, you would define the function that would get your JavaScript going after component load. Something like this, for example, will show an alert box:</p>
+
+    <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+  <span class="nx">jatos</span><span class="p">.</span><span class="nx">onLoad</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">"I am an alert box!"</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

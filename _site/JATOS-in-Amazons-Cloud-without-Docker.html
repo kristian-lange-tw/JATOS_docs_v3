@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" cloud, aws, amazon, installation, server">
+<title>JATOS in Amazon's Cloud (without Docker)  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p>On this page is additional information in how to install JATOS on a server in Amazon’s Web Services. All general installation advice is in <a href="JATOS-on-a-server.html">JATOS on a server</a> and applies here too.</p>
+
+<ol>
+  <li>First you need to register at <a href="https://aws.amazon.com/">AWS (Amazon Web Services)</a> (they’ll want your credit card).</li>
+  <li>In AWS webpage move to EC2 and launch a new instance with Ubuntu (you can use other Linux too - I tested it with Ubuntu 14.04)</li>
+  <li>During the creation of the new EC2 instance you will be ask whether you want to create a key pair. Do so. Download the file with the key (a *.pem file). Store it in a safe place - with this key you will access your server.</li>
+  <li>Login via SSH: <code class="highlighter-rouge">ssh -i /path/to/your/pem_key_file ubuntu@xx.xx.xx.xx</code> (Use your instance’s IP address: In AWS / EC2 / Instances / Description are two IPs ‘Private IP’ and ‘Public IP’. Use the <strong>public</strong> one.)</li>
+  <li>Get the latest JATOS bundled with Java (exchange x.x.x with the version you want) <code class="highlighter-rouge">wget https://github.com/JATOS/JATOS/releases/download/vx.x.x/jatos-x.x.x-linux_java.zip</code></li>
+  <li><code class="highlighter-rouge">unzip jatos-x.x.x-linux_java.zip</code> (You probably have to install ‘unzip’ first with <code class="highlighter-rouge">sudo apt-get install unzip</code>.)</li>
+  <li>Configure IP and port in <code class="highlighter-rouge">jatos.sh</code>: Use the ‘<strong>Private IP</strong>’ from your instance description (the one that starts with 172.x.x.x) and port 80</li>
+  <li>(Optional) <a href="JATOS-on-a-server.html#auto-start-jatos-on-linuxunix-as-a-daemon">make JATOS auto-start</a></li>
+  <li>Change JATOS’ admin password</li>
+</ol>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+

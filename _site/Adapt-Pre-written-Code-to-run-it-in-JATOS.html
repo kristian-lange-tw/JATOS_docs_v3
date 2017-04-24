@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" jatos.js, jatosify, javascript, jsPsych, initialize">
+<title>Adapt Pre written Code to run it in JATOS (Jatosify)  | JATOS Documentatio</title>
+
+
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/modern-business.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/customstyles.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/theme-green.css">
+<link rel="stylesheet" href="http://127.0.0.1:4010/jatos-pdf/css/syntax.css">
+<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+
+<script>
+    Prince.addScriptFunc("datestamp", function() {
+        return "PDF last generated: March 03, 2017";
+    });
+</script>
+
+<script>
+    Prince.addScriptFunc("guideName", function() {
+        return "JATOS Documentation";
+    });
+</script>
+
+
+
+
+
+
+
+</head>
+
+<body class=" print">
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Content Column -->
+    <div class="col-md-9">
+
+        <div class="post-header">
+    <h1 class="post-title-main" id="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</h1>
+</div>
+
+<div class="post-content">
+
+    
+    <p><strong>Make Your Existing Code Run in JATOS - or How To Jatosify a Study</strong></p>
+
+<p>You might have a  task, experiment, survey, or study running in a browser. You might have all its files like HTML, JavaScripts, images, etc. Maybe you wrote it with <a href="http://www.jspsych.org">jsPsych</a> or got it from <a href="http://expfactory.github.io">The Experiment Factory</a>. Do you want to run it with JATOS? That’s easy!</p>
+
+<h3 id="create-the-study-in-jatos">Create the study in JATOS</h3>
+
+<ol>
+  <li>Create a new study with the ‘<strong>New Study</strong>’ button in JATOS’ header. Choose a study title and a folder name. Leave the other fields empty for now and click ‘Create’. JATOS will have created a new folder within your assets root folder (default is <code class="highlighter-rouge">/path_to_your_JATOS/study_assets_root/</code>).</li>
+  <li>Copy all your files (HTML, JavaScripts, images, audio, …) into your new study folder.</li>
+  <li>Back in the JATOS GUI, and within the newly created study, create a <strong>new component</strong> by clicking ‘Components’ and then ‘New’. Choose a component title and set the HTML file name, to the name of the HTML file you just copied into the study folder.</li>
+  <li>
+    <p>In your HTML and JavaScripts, change all paths to your <strong>study assets</strong> folder: Always use the prefix <code class="highlighter-rouge">/study_assets/</code> and then the study assets name you specified in your study’s properties when you created it.</p>
+
+    <ul>
+      <li>E.g. if you load the CSS file <code class="highlighter-rouge">snake.css</code> and the study’s assets name is <code class="highlighter-rouge">group_snake</code> use <code class="highlighter-rouge">&lt;link rel="stylesheet" type="text/css" href="/study_assets/group_snake/snake.css" /&gt;</code></li>
+      <li>Or if you want to load some JavaScript from your local study assets with the name <code class="highlighter-rouge">prisoner_dilemma</code>, e.g. the jQuery library, use <code class="highlighter-rouge">&lt;script src="/study_assets/prisoner_dilemma/jquery-1.11.1.min.js"&gt;&lt;/script&gt;</code></li>
+    </ul>
+  </li>
+  <li>Now it’s time for a first glimpse: Click the ‘<strong>Run</strong>’ button in either the study’s or the component’s toolbar. Your experiment should run like it did before without JATOS. Use the browser’s developer tools to check for eventually missing files and other occurring errors.</li>
+</ol>
+
+<h3 id="edit-your-html-and-javascript">Edit your HTML and JavaScript</h3>
+
+<p>Up to this point JATOS served as a mere provider of your files. Now we want to use a feature of JATOS: We want to store your result data in JATOS’ safe database.</p>
+
+<ol>
+  <li>
+    <p>Include the <strong>jatos.js</strong> library in your HTML <code class="highlighter-rouge">&lt;head&gt;</code></p>
+
+    <p>Add the line <code class="highlighter-rouge">&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;</code></p>
+  </li>
+  <li>
+    <p>Add <strong><code class="highlighter-rouge">jatos.onload</code></strong></p>
+
+    <p>Every study in JATOS starts with this call. So whatever you want to do in your study it should start there.</p>
+
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onLoad</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// initialize and start your JavaScript here </span>
+<span class="p">});</span>
+</code></pre>
+    </div>
+
+    <p>E.g. if you want to initialize a jsPsych experiment:</p>
+
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onLoad</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">jsPsych</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Now to actually send our result data to JATOS we use jatos.js’ function <strong><code class="highlighter-rouge">jatos.submitResultData</code></strong>. We can pass this function any data in text format including JSON, CSV or XML.</p>
+
+    <p>E.g. if we want to send a JavaScript object as JSON</p>
+
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">myObject</span><span class="p">);</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultJson</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
+</code></pre>
+    </div>
+
+    <p>Conveniently but optionally <code class="highlighter-rouge">jatos.submitResultData</code> takes a second parameter which specifies what should be done after the result data got sent. Usually one want to jump to the next component (<code class="highlighter-rouge">jatos.startNextComponent</code>) or finish the study (<code class="highlighter-rouge">jatos.endStudy</code>).</p>
+
+    <p>Another example where we use jsPsych: We have to put <code class="highlighter-rouge">jatos.submitResultData</code> into jsPsych’s <code class="highlighter-rouge">on_finish</code>:</p>
+
+    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jsPsych</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="na">on_finish</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Submit results to JATOS</span>
+    <span class="kd">var</span> <span class="nx">resultJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jsPsych</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">getData</span><span class="p">());</span>
+    <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultJson</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p>That’s about it. Infos about other jatos.js functions and variables you can find in the <a href="jatos.js-Reference.html">reference</a>.</p>
+
+<h3 id="beyond-the-basics">Beyond the basics</h3>
+
+<ul>
+  <li>Think about dividing your study into <strong>several components</strong>. You could have separate components e.g. for introduction, training, experiment and feedback. You could even consider splitting the experiment into several parts. One advantage is that if your participant stops in the middle of your study you still have the result data of the first components. Also, you can re-use components in different studies.</li>
+  <li>Use the study’s and component’s ‘<strong>JSON input data</strong>’. With them you can change variables of your code directly through JATOS’ GUI, which might come handy if someone isn’t good in JavaScript.</li>
+  <li>You can add a <strong>quit button</strong> to your study to allow the participant to <a href="Data-Privacy-and-Ethics.html#things-you-should-consider-in-your-studies">abort at any time</a>.</li>
+</ul>
+
+</div>
+
+    </div>
+
+</div>    <!-- /.container -->
+
+</body>
+
+</html>
+
