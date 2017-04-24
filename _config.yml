@@ -2,10 +2,10 @@
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: JATOS Documentation
+topnav_title: JATOS v3 Documentation
 # this appears on the top navigation bar next to the home button
 
-site_title: JATOS Documentatio
+site_title: JATOS v3 Documentation
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 company_name: JATOS
@@ -106,5 +106,5 @@ description: "JATOS (Just Another Tool for Online Studies) helps you setup and r
 
 # needed for sitemap.xml file only
 #url: http://idratherbewriting.com
-url: http://www.jatos.org
+url: http://v3.jatos.org
 baseurl: ""
