@@ -18,15 +18,7 @@ A worker in JATOS is a person who runs a study. A batch organizes workers and th
 
 For all worker types except Jatos and MTurk you'll need to generate links to send to your potential workers, which they can follow to access and run your study. Those links are generated in the **Worker Setup** (Batch Manager --> Worker Setup).
 
-## Restrictions
-
-1. Common to all worker types is that **the same worker can do only one study at the same time**. If a worker is running a study and starts another study run, the first study run will automatically be finished with an error. This is independent of whether the study runs are in the same or different browsers.
-
-1. **[Valid only for versions 2.1.12 and older]**
-**The same browser can only run one study at the same time**. If you start a second study in a browser where you have started a first study, the first study will automatically be finished with an error.
-
-1. **[Valid only for versions 2.2.1 and newer]**
-**The same browser can run one study in up to 10 different tabs**. This is useful if you want to test a group study. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 "different" workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group. 
+**In the same browser one can run studies in up to 10 different tabs**. If more than 10 studies run in the same browser in parallel the oldest study is finished automatically. Of course this limitation doesn't apply with different browsers. One could ask why it's necessary to run several studies at once in the same browser - usually a worker should run only one?! This is actually very useful for developing and testing group studies or studies that use the batch session. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 "different" workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group. 
 
 ## Batch Manager
 
