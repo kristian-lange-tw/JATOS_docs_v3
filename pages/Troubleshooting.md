@@ -48,3 +48,10 @@ By default, JATOS will display the last 1000 lines of the application.log file. 
 ### A file (library, image, ...) included in the HTML fails to load?
 
 There is a common mistake Windows users make that might prevent files in the HTML from loading: Any URL or file path in a HTML file should only use '/' as a file path separator - even on Windows systems. So it should always be e.g. `<script src="/study_assets/mystudy/jsPsych-5.0.3/jspsych.js"></script>` and not `<script src="\study_assets\mystudy\jsPsych-5.0.3\jspsych.js"></script>`. 
+
+
+### Database is corrupted?
+
+As we mentioned in the [Installation page](Installation.html), you can run JATOS from pretty much anywhere **except** from a folder that synchs across devices, like Dropbox or Google Drive. Doing so might lead to database corruption, because while the files might be synched between computers, the running processes aren't. This will lead to havoc and destruction and, in extreme cases, to the implosion of the known Universe. You can find in our [blog post](http://blog.jatos.org/Database_Recovery/) a description of an attempt to recover a corrupted database. Didn't work.
+
+Of course, this brings us to an important point: back up your result data (i.e., simply download and save your text files) regularly if you're running a study! 
