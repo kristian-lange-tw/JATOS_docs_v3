@@ -1,6 +1,6 @@
 ---
 title: Contact us
-keywords: contact, email, help
+keywords: contact, email, help, Google group, Stack Overflow, GitHub
 tags:
 summary:
 sidebar: mydoc_sidebar
@@ -16,7 +16,7 @@ JATOS is under active development, so please do get in touch to ask questions, s
 
 If you would like to report a bug or suggest a new feature that could improve JATOS, you could write a [GitHub issue](https://github.com/JATOS/JATOS/issues).
 
-### stackoverflow / Google group
+### Stack Overflow / Google group
 
 If you have a question about JATOS, write us (and the user community) an email through our [Google Group](https://groups.google.com/forum/#!forum/jatos) or ask it at [stackoverflow.com](http://stackoverflow.com).
 

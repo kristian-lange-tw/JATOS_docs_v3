@@ -24,6 +24,9 @@ You might have a  task, experiment, survey, or study running in a browser. You m
     * E.g. if you load the CSS file `snake.css` and the study's assets name is `group_snake` use `<link rel="stylesheet" type="text/css" href="/study_assets/group_snake/snake.css" />`
     * Or if you want to load some JavaScript from your local study assets with the name `prisoner_dilemma`, e.g. the jQuery library, use `<script src="/study_assets/prisoner_dilemma/jquery-1.11.1.min.js"></script>`
 
+✰ Make sure you understand the difference between the `study_assets_root` folder and the placeholder `study_assets` in your path names. `study_assets_root` is the folder in your system (or in the server) where the assets (HTML, JS, CSS, images, etc) of **all** your JATOS studies will be stored. You can [configure](Configure-JATOS-on-a-Server.html#study-assets-root-path) the location of this folder. `study_assets`, on the other hand, is just a placeholder that will go in your HTML files. JATOS will interpret this and replace the placeholder with the path you entered in the field 'Study assets directory name' in your Study's Properties. The advantage of this is that you can change the location of your study assets, or export-import a study into a different computer, and the study will still run without having to make any changes in the HTML code.  
+
+
 1. Now it's time for a first glimpse: Click the '**Run**' button in either the study's or the component's toolbar. Your experiment should run like it did before without JATOS. Use the browser's developer tools to check for eventually missing files and other occurring errors.
 
 ### Edit your HTML and JavaScript

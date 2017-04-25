@@ -45,7 +45,7 @@ Now it's time to explore a little bit more.
 
 * You can click on any component's position button and drag it to a new position within the study. 
 * Each component has a **Properties** button. The component's HTML file may read the data in the field 'JSON data'. This is a way to make changes in the details of the code (wording of instructions, stimuli, timing, number of trials, etc) without having to hard-code them into JavaScript. 
-* Where are the actual HTML, JavaScript, and CSS files? They are the files that actually run your study, so make sure you can locate them. They will be in `/path_to_my_JATOS/study_assets_root/name_of_my_study/`.
+* Where are the actual HTML, JavaScript, and CSS files? They are the files that actually run your study, so make sure you can locate them. All these files, together with any images, sound files, etc. you might have, are called "Study assets". They will be in `/path_to_my_JATOS/study_assets_root/name_of_my_study/`.
 
 _Here's a screenshot of a component's properties view:_
 ![GUI screenshot](images/Component properties screenshot.png)

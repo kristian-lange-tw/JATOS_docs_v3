@@ -1,6 +1,6 @@
 ---
 title: Configure JATOS on a Server
-keywords: server, configuration
+keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port
 tags:
 summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you probably will want to set up the IP and port, or use a different database and change the path of the study assets root folder.
 sidebar: mydoc_sidebar
@@ -63,7 +63,7 @@ You can confirm that JATOS is accessing the correct database by looking in the l
 
 **JATOS requires MySQL >= 5.5 or H2 >= 1.4.192 (prior versions might work - I just never tested)**
 
-Note: We tried JATOS extensively with the H2 database. It's reliable and doesn't have some issues that do exist with MySQL databases such as [this one](https://github.com/JATOS/JATOS/issues/111). 
+Note: If you want to use a MySQL database consider using the [_utf8mb4_ Character Set with 4-Byte UTF-8 Unicode Encoding](https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html). Only this character set contains the whole unicode and you won't run into issues like [this one](https://github.com/JATOS/JATOS/issues/111). 
 
 There are three ways to set up the database.
 

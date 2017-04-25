@@ -1,5 +1,5 @@
 ---
-title: What's JATOS
+title: What is JATOS?
 keywords: summary, docs, glance, introduction, pdf
 tags: 
 summary:
@@ -17,7 +17,7 @@ You can read our [open access paper](http://journals.plos.org/plosone/article?id
 
 We also started a [blog about JATOS and online experiments in general](http://blog.jatos.org). There we'll post about topics that do not necessarily fit into these docs.
 
-This documentation is available as <a target="_blank" class="noCrossRef" href="/pdf/mydoc.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
+This documentation is available as <a target="_blank" class="noCrossRef" href="https://github.com/JATOS/JATOS_docs/raw/gh-pages/pdf/jatos-docs.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
 
 ![GUI Screenshot](images/Home screenshot.png)
 

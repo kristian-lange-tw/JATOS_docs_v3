@@ -63,7 +63,7 @@ There's a convenient function that adds all these IDs to a given object. See fun
 
 ### Study's session data
 
-The session data can be accessed and modified by every component of a study. It's a very convenient way to share data between different components. Whatever is written in this variable will be available in the subsequent components. However, remember that the session data will be deleted after the study is finished (see also [Two Types of Session Data](Two-Types-of-Session-Data.html)).
+The session data can be accessed and modified by every component of a study. It's a very convenient way to share data between different components. Whatever is written in this variable will be available in the subsequent components. However, remember that the session data will be deleted after the study is finished (see also [Three Types of Session Data](Three-Types-of-Session-Data.html)).
 
 * `jatos.studySessionData`
 
@@ -91,7 +91,7 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 
 ### Group's session data
 
-* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Two Types of Session Data](Two-Types-of-Session-Data.html))
+* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Three Types of Session Data](Three-Types-of-Session-Data.html))
 
 
 ### Other variables
@@ -112,7 +112,7 @@ Defines callback function that is to be called in case jatos.js produces an erro
 
 ### `jatos.log(logMsg)`
 
-Logs an msg in the log of the JATOS installation.
+Logs an message in the log on the JATOS server.
 
 * _param {String} logMsg_ - The messages to be logged
 
@@ -203,7 +203,7 @@ Posts resultData back to the JATOS server.
 
 ### `jatos.setStudySessionData(sessionData, complete)`
 
-Posts study session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that start or end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually (in opposite to the group session's _jatos.setGroupSessionData_).
+Posts study session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that start or end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually (as opposed to the group session's _jatos.setGroupSessionData_).
 
 * _param {Object} sessionData_ - Object to be submitted
 * _param {optional Function} complete_ - Function to be called after this function is finished

@@ -23,8 +23,8 @@ You can update your local JATOS instance in two main ways:
 
 If you don't care about result data stored in JATOS:
 
-1. Simply download and install the new version as if it were a new fresh download. Don't start it yet.
 1. Export any studies you wish to keep from the old JATOS installation.
+1. Download and install the new version as if it were a new fresh download. Don't start it yet.
 1. Stop the old JATOS and start the new JATOS.
 1. Import all the studies your previously exported. This will transfer the files and subfolders in your study's asset folder (HTML, JavaScript, CSS files). 
 

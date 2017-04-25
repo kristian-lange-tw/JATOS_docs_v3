@@ -43,7 +43,7 @@ If you don't have Java installed, you can either [download and install it direct
    * For Linux bundled with Java: *jatos-xxx_linux_java.zip*
 1. Unzip the downloaded file
 1. In your terminal window, cd into the unzipped JATOS folder
-1. Run the loader shell script with the command `./loader.sh start` (You might have to change the file's permissions with the command `chmod u+x loader.sh` to make it executable)
+1. Run the loader shell script with the command `./loader.sh start` (You might have to change the file's permissions with the command `chmod u+x loader.sh` to make it executable). Ignore pop-ups like 'To use the java command-line tool you need to install a JDK' - just press 'OK'.
 1. All set! Now go to the browser of your choice and open [http://localhost:9000](http://localhost:9000). You should see the login screen (wait a moment and reload the page if you don't). Login with username 'admin' and password 'admin'.
 
 Your local JATOS installation will run in the background. If you want to stop it, just type `./loader.sh stop` in your terminal window.
