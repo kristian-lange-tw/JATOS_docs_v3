@@ -1,6 +1,6 @@
 ---
 title: Adapt Pre written Code to run it in JATOS (Jatosify)
-keywords: jatos.js, jatosify, javascript, jsPsych, initialize
+keywords: jatos.js, jatosify, javascript, jsPsych, initialize, study_assets_root, study_assets
 tags:
 summary:
 sidebar: mydoc_sidebar
