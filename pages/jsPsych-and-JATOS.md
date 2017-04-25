@@ -12,7 +12,7 @@ last_updated: 29 Dec 2016
 
 JATOS basically cares for the server side: it stores result data, does worker management etc. JATOS doesn't care so much for what happens in the browser itself - your HTML, JavaScript and CSS. Of course you can write this all yourself, but you could also use a framework for this. A very good one is [jsPsych](http://www.jspsych.org/).
 
-In [our example studies](http://www.jatos.org/Example-Studies.html) are a couple of jsPsych ones.
+In [our example studies](http://v3.jatos.org/Example-Studies.html) are a couple of jsPsych ones.
 
 Here are the necessary changes if you want to adapt your jsPsych experiment so that it runs within (and send the result data to) JATOS. Additionally you can have a look at [Adapt Pre written Code to run it in JATOS (Jatosify)](Adapt-Pre-written-Code-to-run-it-in-JATOS.html).
 

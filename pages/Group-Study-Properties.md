@@ -45,7 +45,7 @@ Say you want to have 3 groups with 2 workers each. You want to leave it to JATOS
 
 ![Prisoners example](images/prisoners example.png)
 
-The first two scenarios may apply to the [Prisoner's Dilemma Example Study](http://www.jatos.org/Example-Studies.html#prisoners-dilemma).
+The first two scenarios may apply to the [Prisoner's Dilemma Example Study](http://v3.jatos.org/Example-Studies.html#prisoners-dilemma).
 
 ### Scenario 3: One open world
 

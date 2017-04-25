@@ -10,7 +10,7 @@ toc: true
 last_updated: 28 Dec 2016
 ---
 
-The best way to write an HTML/JavaScript file that runs with JATOS is to use one of the HTML files from the [Example Studies](http://www.jatos.org/Example-Studies.html) as a starting point.
+The best way to write an HTML/JavaScript file that runs with JATOS is to use one of the HTML files from the [Example Studies](http://v3.jatos.org/Example-Studies.html) as a starting point.
 
 Here are the absolute basics that any component HTML file MUST have in order to correctly run with JATOS
 
