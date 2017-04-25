@@ -24,6 +24,8 @@ If more than 10 studies run in the same browser in parallel the oldest study is 
 
 ## Batch Manager
 
+**A batch is mostly some properties together with a collection of workers**
+
 Since JATOS 2 you run studies in batches. A batch consists of its properties and a collection of workers that do the study. Using different batches is useful to organize your study runs, separate their results and vary their setup. E.g. you could separate a pilot run from the 'proper' experiment, or you could use different batches for different worker types.
 
 Batches are organized in the Batch Manager. Here you can create and delete batches and access each batch's properties, worker setup and study results.
