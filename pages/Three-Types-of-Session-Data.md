@@ -15,7 +15,7 @@ Often you want to store information during a study run and share it with other c
 The difference between session data and the result data is that the results are stored **permanently** in the database, and will stay there after the study is finished. So, store any information that might be useful for data analysis in the result data. 
 
 ### Batch Session Data
-The Batch Session Data is useful to share information between workers of a given batch, even if they don't belong to the same group. Some examples include: 
+The Batch Session Data is useful to share information between workers of a given batch, even if they don't run at the same time. Some examples include: 
  
  * Control a pseudo-random assignment of conditions to workers (e.g., assign conditions A and B to the same number of workers).
  * Combine results from different groups working in the same batch. 
