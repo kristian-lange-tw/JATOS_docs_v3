@@ -1,6 +1,6 @@
 ---
 title: JATOS on a server
-keywords: server, installation
+keywords: server, installation, test, config, configuration
 tags:
 summary: To run studies online, e.g. with Mechanical Turk, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management.
 sidebar: mydoc_sidebar
@@ -30,6 +30,9 @@ If JATOS runs locally it's usually not necessary to change the defaults but on a
 
 ### Change admin's password
 Every JATOS installation has the same default admin password 'admin'. You must change it before the server goes live. This can be done in the GUI: 1) login as 'admin', 2) click on your user in the header 3) Click 'Change Password'. 
+
+### Test page
+JATOS comes with a test page `/jatos/test` that shows some of the current configuration, system properties, and does some tests, e.g. WebSockets connections and database connection. All tests should show an 'OK'.
 
 ### Backup
 You should set up a regular backup of your data from JATOS. These include (1.) the data stored in the database and (2.) your study assets folder.
