@@ -59,8 +59,8 @@ entries:
       url: /Results.html
       output: web, pdf
 
-    - title: Two Types of Session Data
-      url: /Two-Types-of-Session-Data.html
+    - title: Three Types of Session Data
+      url: /Three-Types-of-Session-Data.html
       output: web, pdf
 
     - title: Mandatory lines in your components' HTML
