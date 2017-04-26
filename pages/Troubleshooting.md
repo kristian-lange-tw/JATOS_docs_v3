@@ -28,7 +28,7 @@ This is what you might see on a Mac Terminal if JATOS doesn't start:
 
 ![jatos doesn't start](images/shell_start1.png)
 
-Close any open command prompt windows. Then look into your JATOS folder, and check if there's a file called 'RUNNING_PID'. Delete this file and try to start JATOS again. 
+Close any open command prompt windows. Then look into your JATOS folder, and check if there's a file called `RUNNING_PID`. Delete this file and try to start JATOS again. 
 
 Here is how it should look if JATOS started successfully:
 
