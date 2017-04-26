@@ -100,4 +100,14 @@ There are three ways to set up the database.
    ~~~ bash
    export JATOS_DB_URL='jdbc:mysql://localhost/jatos?characterEncoding=UTF-8' JATOS_DB_USERNAME='jatosuser' JATOS_DB_PASSWORD='mypassword' JATOS_DB_DRIVER=com.mysql.jdbc.Driver JATOS_JPA=mysqlPersistenceUnit
    ~~~
-     
+
+### production.conf
+
+Additional to the [database](#Database) and the [study assets root path](#Study assets root path) some other properties can be configured in the production.conf.
+
+* `jatos.userSession.timeout` - time in minutes a user stays logged in (default is 1440 = 1 day)
+* `jatos.userSession.inactivity`- defines the time in minutes a user is automatically logged out after inactivity (default is 60)
+
+Apart from those all [configuration properties possible in the Play Framework](https://www.playframework.com/documentation/latest/Configuration) are possible in JATOS production.conf too. 
+
+
