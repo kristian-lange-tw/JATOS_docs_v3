@@ -74,8 +74,8 @@ http {
                 keepalive_timeout    70;
                 server_name www.example.com;
 
-                # websocket location (JATOS' group and batch channel)
-                location ~ "^/publix/[\d]+/(group/join|batch/open)" {
+                # websocket location (JATOS' group and batch channel and the test page)
+                location ~ "^/(jatos/testWebSocket|publix/[\d]+/(group/join|batch/open))" {
                         proxy_pass              http://jatos-backend;
                         proxy_http_version      1.1;
                         proxy_set_header        Upgrade $http_upgrade;
