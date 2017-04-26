@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 28 Dec 2016
+last_updated: 26 Apr 2017
 ---
 
 Two [bits of code](Mandatory-lines-in-your-components-HTML.html) are mandatory in all your components' HTML files. One of them is the following line in the head section: `<script src="/assets/javascripts/jatos.js"></script>` which includes the jatos.js library into your HTML file. 
@@ -76,6 +76,7 @@ The session data can be accessed and modified by every component of a study. It'
   * `jatos.batchProperties.maxTotalMembers` - How many members this group is allowed to have at the same time
   * `jatos.batchProperties.maxTotalWorkers` - Total amount of workers this group is allowed to have altogether in this batch
   * `jatos.batchProperties.title` - Title of this batch
+* `jatos.batchJsonInput` - The JSON input you entered in the batch's properties.
 
 
 ### Group variables
@@ -91,12 +92,14 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 
 ### Group's session data
 
-* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Three Types of Session Data](Three-Types-of-Session-Data.html))
+~~* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Three Types of Session Data](Three-Types-of-Session-Data.html))~~
 
 
 ### Other variables
 
 * `jatos.version` - Current version of the jatos.js library
+* `jatos.channelSendingTimeoutTime` - Time to wait for an answer after sending a message via a channel
+* `jatos.httpTimeout` - Time to wait for an answer of an HTTP request by jatos.js
 
 
 
