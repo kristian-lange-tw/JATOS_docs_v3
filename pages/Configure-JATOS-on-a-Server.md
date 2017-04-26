@@ -103,10 +103,10 @@ There are three ways to set up the database.
 
 ### production.conf
 
-Additional to the [database](#Database) and the [study assets root path](#study-assets-root-path) some other properties can be configured in the production.conf.
+Additional to the [database](#Database) and the [study assets root path](#study-assets-root-path) some other properties can be configured in the `conf/production.conf`.
 
 * `jatos.userSession.timeout` - time in minutes a user stays logged in (default is 1440 = 1 day)
-* `jatos.userSession.inactivity`- defines the time in minutes a user is automatically logged out after inactivity (default is 60)
+* `jatos.userSession.inactivity` - defines the time in minutes a user is automatically logged out after inactivity (default is 60)
 
 Apart from those all [configuration properties possible in the Play Framework](https://www.playframework.com/documentation/latest/Configuration) are possible in JATOS production.conf too. 
 
