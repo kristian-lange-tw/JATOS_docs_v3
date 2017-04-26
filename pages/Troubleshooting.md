@@ -46,7 +46,7 @@ Just open the URL `http://your-jatos-server/jatos/log`. For privacy and security
 
 By default, JATOS will display the last 1000 lines of the application.log file. If you want to see more than the last 1000 lines, add the query parameter `limit`. E.g. to display the last 10000 lines on a local JATOS instance:
 
-[http://localhost:9000/jatos/log?limit=100000](http://localhost:9000/jatos/log?limit=10000)
+[http://localhost:9000/jatos/log?limit=10000](http://localhost:9000/jatos/log?limit=10000)
 
 ### A file (library, image, ...) included in the HTML fails to load?
 
