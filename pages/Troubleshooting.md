@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-keywords: troubleshooting, logging, log
+keywords: troubleshooting, logging, log, test, error, fail
 tags:
 summary:
 sidebar: mydoc_sidebar
@@ -10,9 +10,9 @@ toc: true
 last_updated: 28 Dec 2016
 ---
 
-### JATOS failed to update the GUI automatically?
+### JATOS test page
 
-Try reloading the browser. 
+JATOS comes with a test page `/jatos/test` that shows some of the currently used configuration, system properties, and does some tests, e.g. WebSockets connections and database connection. All tests should show an ‘OK’.
 
 ### Downloading a study / exporting a study fails (e.g. in Safari browsers)
 
