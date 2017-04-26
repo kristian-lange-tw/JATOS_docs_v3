@@ -42,11 +42,11 @@ The standard way to read the log file is directly on the server. You'll find you
 
 Just open the URL `http://your-jatos-server/jatos/log`. For privacy and security reasons, you must be logged in as an **admin** user. For example, if you're running JATOS locally with the standard settings:
 
-`[http://localhost:9000/jatos/admin/log](http://localhost:9000/jatos/log)`
+[http://localhost:9000/jatos/admin/log](http://localhost:9000/jatos/log)
 
 By default, JATOS will display the last 1000 lines of the application.log file. If you want to see more than the last 1000 lines, add the query parameter `limit`. E.g. to display the last 10000 lines on a local JATOS instance:
 
-`[http://localhost:9000/jatos/log?limit=100000](http://localhost:9000/jatos/log?limit=10000)`
+[http://localhost:9000/jatos/log?limit=100000](http://localhost:9000/jatos/log?limit=10000)
 
 ### A file (library, image, ...) included in the HTML fails to load?
 
