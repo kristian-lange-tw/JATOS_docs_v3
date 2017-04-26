@@ -94,6 +94,8 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 
 ~~* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Three Types of Session Data](Three-Types-of-Session-Data.html))~~
 
+As of version 3 the group session data can be access via the `jatos.groupSession` functions
+
 
 ### Other variables
 
@@ -213,6 +215,14 @@ Posts study session data to the JATOS server. This function is called automatica
 
 
 ## Functions for group studies
+
+### `jatos.groupSession` - Accessing the group session
+
+#### `jatos.groupSession.get()`
+
+#### `jatos.groupSession.find()`
+
+#### `jatos.groupSession.getAll()`
 
 ### `jatos.joinGroup(callbacks)`
 
