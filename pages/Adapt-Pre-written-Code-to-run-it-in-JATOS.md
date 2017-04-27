@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Adapt-Pre-written-Code-to-run-it-in-JATOS.html
 folder:
 toc: true
-last_updated: 29 Dec 2016
+last_updated: 27 April 2017
 ---
 
 **Make Your Existing Code Run in JATOS - or How To Jatosify a Study** 
