@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" session data, Study Session, group session, batch session">
-<title>Three Types of Session Data | JATOS v3 Documentation</title>
+<meta name="keywords" content=" user manager, user, password, admin rights, admin">
+<title>Manage JATOS users | JATOS v3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Three Types of Session Data">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Manage JATOS users">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -236,7 +236,7 @@
             
             
             
-            <li class="active"><a href="Three-Types-of-Session-Data.html">Three Types of Session Data</a></li>
+            <li><a href="Three-Types-of-Session-Data.html">Three Types of Session Data</a></li>
             
             
             
@@ -285,7 +285,7 @@
             
             
             
-            <li><a href="User-Manager.html">Manage JATOS users</a></li>
+            <li class="active"><a href="User-Manager.html">Manage JATOS users</a></li>
             
             
             
@@ -424,7 +424,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Three Types of Session Data</h1>
+   <h1 class="post-title-main">Manage JATOS users</h1>
 </div>
 
 
@@ -434,84 +434,62 @@
    
 
     
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
 
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/master/pages//Three-Types-of-Session-Data.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/master/pages//User-Manager.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <p>Often you want to store information during a study run and share it with other components of the same study, or - if it is a group study - within the group. For this JATOS provides the Session Data. There are three different Session Data types, all of which are stored <strong>temporarily</strong> in your database, and will be deleted once they are no longer in use.</p>
+  <p>Each experimenter with access to the JATOS server (though the GUI) is a JATOS User. Users can create, modify and delete the studies they are members of.
+They can also export and delete results. Users may also have <strong>admin rights</strong>, which lets them control other users’ access to JATOS.</p>
 
-<p>The difference between session data and the result data is that the results are stored <strong>permanently</strong> in the database, and will stay there after the study is finished. So, store any information that might be useful for data analysis in the result data.</p>
+<p><strong>Manage users</strong></p>
 
-<h3 id="overview">Overview</h3>
+<p>Only users with admin rights have access to the <strong>User Manager</strong> (located in the header on every GUI page). In the User Manager an admin can create new user, change password of other users, or delete other users.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>Batch session    </th>
-      <th>Group Session    </th>
-      <th>Study Session</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Scope (accesible by)</strong></td>
-      <td>All workers in a batch</td>
-      <td>All workers in a group</td>
-      <td>All components in a study</td>
-    </tr>
-    <tr>
-      <td><strong>Typical use</strong></td>
-      <td>(Pseudo-)randomly assign conditions to diiferent workers</td>
-      <td>Temporary data in a group study</td>
-      <td>Temporary data from one component relevant for another component</td>
-    </tr>
-    <tr>
-      <td><strong>Lifetime</strong></td>
-      <td>Survives after all workers finished their studies</td>
-      <td>Deleted once group study finished (i.e., all workers finished the study). Hence <strong>temporary</strong></td>
-      <td>Deleted once the worker finished the study. Hence <strong>temporary</strong></td>
-    </tr>
-    <tr>
-      <td><strong>Visible from JATOS’ GUI</strong></td>
-      <td><img src="images/ok-24.ico" alt="yes" /></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="images/user_manager1.png" alt="Top Bar screenshot" /></p>
 
-<h3 id="batch-session-data">Batch Session Data</h3>
-<p>The Batch Session Data is useful to share information between workers of a given batch, even if they don’t run at the same time. Some examples include:</p>
+<p>JATOS comes with one user out-of-box: <strong>Admin</strong> (with user name ‘admin’). Admin always has admin rights that cannot be revoked. The initial password for Admin is ‘admin’ should be changed immediately after installation and kept safe!</p>
 
-<ul>
-  <li>Control a pseudo-random assignment of conditions to workers (e.g., assign conditions A and B to the same number of workers).</li>
-  <li>Combine results from different groups working in the same batch.</li>
-</ul>
+<p>Additional to the Admin user every other user can be granted admin rights too (although they can be revoked later).</p>
 
-<h3 id="group-session-data">Group Session Data</h3>
+<p>New users can be granted admin rights, by checking the corresponding box.</p>
 
-<p>The Group Session Data is useful to share information between workers of a given group. Some examples include:</p>
+<p><img src="images/user_manager_new_user.png" alt="New User screenshot" /></p>
 
-<ul>
-  <li>Responses to each trial in a group study like the Prisoner’s Dilemma.</li>
-  <li>Gender of group workers.</li>
-</ul>
+<p>Admins can see a list of users, to grant or revoke admin rights and to delete them if necessary. <strong>Be careful when deleting users! 
+This will delete all studies, along with their result data, that this user is the single member of.</strong></p>
 
-<h3 id="study-session-data">Study Session Data</h3>
+<p><img src="images/user_manager2.png" alt="User manager screenshot" /></p>
 
-<p>The Study Session Data is useful to share information between components of a given study. Some examples include:</p>
+<p>Finally, admins can also change the password of other users. To change the password you’ll need to enter your own (admin) password, along with the new desired password for the user.</p>
 
-<ul>
-  <li>Sending information about percentage of correct responses in component 1 to component 2.</li>
-  <li>Having a study-wide progress bar, showing how much of the entire study has been completed.</li>
-  <li>Keeping track of the number of iterations of a given component that is repeated.</li>
-</ul>
-
+<p><img src="images/user_manager_change_pw.png" alt="Change Password screenshot" /></p>
 
 
     <div class="tags">
@@ -527,7 +505,7 @@
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 28 Dec 2016
+<span>Page last updated:</span> 27 April 2017
                 </div>
             </div>
 </footer>
