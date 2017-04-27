@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Installation.html
 folder:
 toc: true
-last_updated: 28 Dec 2016
+last_updated: 27 April 2017
 ---
 
 ### Easy installation on your local computer
