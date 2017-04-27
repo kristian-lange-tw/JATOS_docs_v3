@@ -86,6 +86,10 @@ entries:
     - title: Troubleshooting
       url: /Troubleshooting.html
       output: web, pdf
+      
+    - title: Manage JATOS users
+      url: /User-Manager.html
+      output: web, pdf
 
     - title: Update JATOS
       url: /Update-JATOS.html
