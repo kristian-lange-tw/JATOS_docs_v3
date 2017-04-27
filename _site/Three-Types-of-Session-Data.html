@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" group, batch">
-<title>Example Group Studies | JATOS v3 Documentation</title>
+<meta name="keywords" content=" session data, Study Session, group session, batch session">
+<title>Three Types of Session Data | JATOS v3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Example Group Studies">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Three Types of Session Data">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -236,7 +236,7 @@
             
             
             
-            <li><a href="Three-Types-of-Session-Data.html">Three Types of Session Data</a></li>
+            <li class="active"><a href="Three-Types-of-Session-Data.html">Three Types of Session Data</a></li>
             
             
             
@@ -307,7 +307,7 @@
             
             
             
-            <li class="active"><a href="Example-Group-Studies.html">Example Group Studies</a></li>
+            <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
             
             
             
@@ -417,7 +417,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Example Group Studies</h1>
+   <h1 class="post-title-main">Three Types of Session Data</h1>
 </div>
 
 
@@ -431,31 +431,39 @@
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/master/pages//Example-Group-Studies.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/master/pages//Three-Types-of-Session-Data.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <p>With JATOS 2 you can run group studies. JATOS is versatile and supports fixed, two-user studies (like this <a href="http://v3.jatos.org/Example-Studies.html#prisoners-dilemma">Prisoner’s Dilemma</a>) or open, multi-user studies (like this <a href="http://v3.jatos.org/Example-Studies.html#snake">Snake game</a>), and everything in between.</p>
+  <p>Often you want to store information during a study run and share it with other components of the same study, or - if it is a group study - within the group. For this JATOS provides the Session Data. There are three different Session Data types, all of which are stored <strong>temporarily</strong> in your database, and will be deleted once they are no longer in use.</p>
 
-<p><strong>Interested? Try one of our pre-made example studies</strong></p>
+<p>The difference between session data and the result data is that the results are stored <strong>permanently</strong> in the database, and will stay there after the study is finished. So, store any information that might be useful for data analysis in the result data.</p>
 
-<p>The easiest way to get started is trying out some pre-made examples. For this, you’ll have to run a group study as two different workers.</p>
-
-<p>So you could:</p>
-
-<ol>
-  <li>Download the <a href="http://v3.jatos.org/Example-Studies.html#snake">Snake game</a></li>
-  <li>Get a link for the first worker: Snake game -&gt; Batch Manager -&gt; Default batch -&gt; Worker Setup -&gt; Personal Multiple worker and ‘Add’ a new one. In the confirmation press ‘Run’ to start the study.</li>
-  <li>Get the link for the second worker: in a second browser tab (or window), go to Worker Setup in the same Default batch and create a new Personal Multiple worker. Press ‘Run’ to start the study.</li>
-  <li>In both browser tabs, click through the introduction until you arrive in the waiting room. Click ‘Join’ and then ‘Ready’.</li>
-  <li>Voilà! You’ll see two snakes moving around: your own and the one from the other worker.</li>
-</ol>
-
-<p>Further reading about group studies:</p>
+<h3 id="batch-session-data">Batch Session Data</h3>
+<p>The Batch Session Data is useful to share information between workers of a given batch, even if they don’t run at the same time. Some examples include:</p>
 
 <ul>
-  <li><a href="Group-Study-Properties.html">Group Study Properties</a></li>
-  <li><a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a></li>
+  <li>Control a pseudo-random assignment of conditions to workers (e.g., assign conditions A and B to the same number of workers).</li>
+  <li>Combine results from different groups working in the same batch.</li>
+</ul>
+
+<h3 id="study-session-data">Study Session Data</h3>
+
+<p>The Study Session Data is useful to share information between components of a given study. Some examples include:</p>
+
+<ul>
+  <li>Sending information about percentage of correct responses in component 1 to component 2.</li>
+  <li>Having a study-wide progress bar, showing how much of the entire study has been completed.</li>
+  <li>Keeping track of the number of iterations of a given component that is repeated.</li>
+</ul>
+
+<h3 id="group-session-data">Group Session Data</h3>
+
+<p>The Group Session Data is useful to share information between workers of a given group. Some examples include:</p>
+
+<ul>
+  <li>Responses to each trial in a group study like the Prisoner’s Dilemma.</li>
+  <li>Gender of group workers.</li>
 </ul>
 
 

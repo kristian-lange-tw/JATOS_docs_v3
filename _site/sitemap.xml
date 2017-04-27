@@ -3,19 +3,19 @@
   
   
   <url>
-    <loc>http://127.0.0.1:4010/samplepost.html</loc>
+    <loc>http://localhost:4000/samplepost.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/myupdate.html</loc>
+    <loc>http://localhost:4000/myupdate.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/test-post-from-last-year.html</loc>
+    <loc>http://localhost:4000/test-post-from-last-year.html</loc>
   </url>
   
   
@@ -26,163 +26,169 @@
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Adapt-Pre-written-Code-to-run-it-in-JATOS.html</loc>
+    <loc>http://localhost:4000/Adapt-Pre-written-Code-to-run-it-in-JATOS.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Configure-JATOS-on-a-Server.html</loc>
+    <loc>http://localhost:4000/Configure-JATOS-on-a-Server.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Connect-to-Mechanical-Turk.html</loc>
+    <loc>http://localhost:4000/Connect-to-Mechanical-Turk.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Contact-us.html</loc>
+    <loc>http://localhost:4000/Contact-us.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Data-Privacy-and-Ethics.html</loc>
+    <loc>http://localhost:4000/Data-Privacy-and-Ethics.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Example-Group-Studies.html</loc>
+    <loc>http://localhost:4000/Example-Group-Studies.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Example-Studies.html</loc>
+    <loc>http://localhost:4000/Example-Studies.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Get-started.html</loc>
+    <loc>http://localhost:4000/Get-started.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Group-Study-Properties.html</loc>
+    <loc>http://localhost:4000/Group-Study-Properties.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Install-JATOS-via-Docker.html</loc>
+    <loc>http://localhost:4000/Install-JATOS-via-Docker.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Installation.html</loc>
+    <loc>http://localhost:4000/Installation.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/JATOS-in-Amazons-Cloud-without-Docker.html</loc>
+    <loc>http://localhost:4000/JATOS-in-Amazons-Cloud-without-Docker.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/JATOS-on-a-server.html</loc>
+    <loc>http://localhost:4000/JATOS-on-a-server.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/JATOS-with-Apache.html</loc>
+    <loc>http://localhost:4000/JATOS-with-Apache.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/JATOS-with-Nginx.html</loc>
+    <loc>http://localhost:4000/JATOS-with-Nginx.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Mandatory-lines-in-your-components-HTML.html</loc>
+    <loc>http://localhost:4000/Mandatory-lines-in-your-components-HTML.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Results.html</loc>
+    <loc>http://localhost:4000/Results.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Run-your-Study-with-Batch-Manager-and-Worker-Setup.html</loc>
+    <loc>http://localhost:4000/Run-your-Study-with-Batch-Manager-and-Worker-Setup.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Set-up-your-own-studies.html</loc>
+    <loc>http://localhost:4000/Set-up-your-own-studies.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Tips-and-Tricks.html</loc>
+    <loc>http://localhost:4000/Three-Types-of-Session-Data.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Troubleshooting.html</loc>
+    <loc>http://localhost:4000/Tips-and-Tricks.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Two-Types-of-Session-Data.html</loc>
+    <loc>http://localhost:4000/Troubleshooting.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Update-JATOS.html</loc>
+    <loc>http://localhost:4000/Two-Types-of-Session-Data.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Updating-a-JATOS-server-installation.html</loc>
+    <loc>http://localhost:4000/Update-JATOS.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Whats-JATOS.html</loc>
+    <loc>http://localhost:4000/Updating-a-JATOS-server-installation.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Worker-Types.html</loc>
+    <loc>http://localhost:4000/Whats-JATOS.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/Write-Your-Own-Group-Studies.html</loc>
+    <loc>http://localhost:4000/Worker-Types.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/Write-Your-Own-Group-Studies.html</loc>
   </url>
   
   
@@ -190,19 +196,19 @@
   
   
   <url>
-    <loc>http://127.0.0.1:4010/jatos.js-Reference.html</loc>
+    <loc>http://localhost:4000/jatos.js-Reference.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/jsPsych-and-JATOS.html</loc>
+    <loc>http://localhost:4000/jsPsych-and-JATOS.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://127.0.0.1:4010/js/mydoc_scroll.html</loc>
+    <loc>http://localhost:4000/js/mydoc_scroll.html</loc>
   </url>
   
   

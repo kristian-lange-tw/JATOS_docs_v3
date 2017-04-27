@@ -6,7 +6,7 @@
 {
 "title": "Adapt Pre written Code to run it in JATOS (Jatosify)",
 "tags": "",
-"keywords": "jatos.js, jatosify, javascript, jsPsych, initialize",
+"keywords": "jatos.js, jatosify, javascript, jsPsych, initialize, study_assets_root, study_assets",
 "url": "Adapt-Pre-written-Code-to-run-it-in-JATOS.html",
 "summary": ""
 }
@@ -17,7 +17,7 @@
 {
 "title": "Configure JATOS on a Server",
 "tags": "",
-"keywords": "server, configuration",
+"keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port",
 "url": "Configure-JATOS-on-a-Server.html",
 "summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you probably will want to set up the IP and port, or use a different database and change the path of the study assets root folder."
 }
@@ -39,7 +39,7 @@
 {
 "title": "Contact us",
 "tags": "",
-"keywords": "contact, email, help",
+"keywords": "contact, email, help, Google group, Stack Overflow, GitHub",
 "url": "Contact-us.html",
 "summary": ""
 }
@@ -138,7 +138,7 @@
 {
 "title": "JATOS on a server",
 "tags": "",
-"keywords": "server, installation",
+"keywords": "server, installation, test, config, configuration",
 "url": "JATOS-on-a-server.html",
 "summary": "To run studies online, e.g. with Mechanical Turk, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
 }
@@ -149,7 +149,7 @@
 {
 "title": "JATOS with Apache",
 "tags": "",
-"keywords": "apache, server, httpd, installation",
+"keywords": "apache, server, httpd, installation, websocket, proxy, mod_proxy_wstunnel module",
 "url": "JATOS-with-Apache.html",
 "summary": ""
 }
@@ -213,6 +213,17 @@
 
 
 {
+"title": "Three Types of Session Data",
+"tags": "",
+"keywords": "session data, Study Session, group session, batch session",
+"url": "Three-Types-of-Session-Data.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Tips &amp; Tricks",
 "tags": "",
 "keywords": "tips, tricks, Mechanical Turk, MTurk, lock",
@@ -226,7 +237,7 @@
 {
 "title": "Troubleshooting",
 "tags": "",
-"keywords": "troubleshooting",
+"keywords": "troubleshooting, logging, log, test, error, fail",
 "url": "Troubleshooting.html",
 "summary": ""
 }
@@ -268,7 +279,7 @@
 
 
 {
-"title": "What&#39;s JATOS",
+"title": "What is JATOS?",
 "tags": "",
 "keywords": "summary, docs, glance, introduction, pdf",
 "url": "Whats-JATOS.html",
@@ -283,7 +294,7 @@
 "tags": "",
 "keywords": "worker types, Jatos Worker, Personal Single Worker, Personal Multiple Worker, MTurk Worker, Preview Links",
 "url": "Worker-Types.html",
-"summary": ""
+"summary": "Following Amazon Mechanical Turk’s terminology, a worker in JATOS is a person who runs a study. Different worker types access a study in different ways. For example, some workers can run the same study multiple times, whereas others can do it only once."
 }
 ,
 
