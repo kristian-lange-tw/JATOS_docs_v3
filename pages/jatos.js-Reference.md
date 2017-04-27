@@ -225,9 +225,9 @@ Posts study session data to the JATOS server. This function is called automatica
 
 ## Functions to access the batch session
 
-The batch session is stored in JATOS' database on the server side. That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`) can be paired with callback functions that will signal  success or failure in the client-server synch. These callback functions can be either passed as parameters to jatos.batchSession.[writing_function_name] or via [jQuery.deferred](https://api.jquery.com/deferred.promise/).
+The batch session is stored in JATOS' database on the server side. That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred](https://api.jquery.com/deferred.promise/).
 
-On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to synch data between client and server, because jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
+On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
 
 Additionally to the reading and writing functions the calback function `jatos.onJatosBatchSession(path)` offers a way to get notified whenever the batch session changes in the JATOS' database regardless of the origin of the change. This way, you can have the client of each worker react to changes in the batch that were done by another worker in the batch. 
 

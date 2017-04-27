@@ -439,12 +439,60 @@
 
 <p>The difference between session data and the result data is that the results are stored <strong>permanently</strong> in the database, and will stay there after the study is finished. So, store any information that might be useful for data analysis in the result data.</p>
 
+<h3 id="overview">Overview</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Batch session    </th>
+      <th>Group Session    </th>
+      <th>Study Session</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Scope (accesible by)</strong></td>
+      <td>All workers in a batch</td>
+      <td>All workers in a group</td>
+      <td>All components in a study</td>
+    </tr>
+    <tr>
+      <td><strong>Typical use</strong></td>
+      <td>(Pseudo-)randomly assign conditions to diiferent workers</td>
+      <td>Temporary data in a group study</td>
+      <td>Temporary data from one component relevant for another component</td>
+    </tr>
+    <tr>
+      <td><strong>Lifetime</strong></td>
+      <td>Survives after all workers finished their studies</td>
+      <td>Deleted once group study finished (i.e., all workers finished the study). Hence <strong>temporary</strong></td>
+      <td>Deleted once the worker finished the study. Hence <strong>temporary</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Visible from JATOS’ GUI</strong></td>
+      <td><img src="images/ok-24.ico" alt="yes" /></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="batch-session-data">Batch Session Data</h3>
 <p>The Batch Session Data is useful to share information between workers of a given batch, even if they don’t run at the same time. Some examples include:</p>
 
 <ul>
   <li>Control a pseudo-random assignment of conditions to workers (e.g., assign conditions A and B to the same number of workers).</li>
   <li>Combine results from different groups working in the same batch.</li>
+</ul>
+
+<h3 id="group-session-data">Group Session Data</h3>
+
+<p>The Group Session Data is useful to share information between workers of a given group. Some examples include:</p>
+
+<ul>
+  <li>Responses to each trial in a group study like the Prisoner’s Dilemma.</li>
+  <li>Gender of group workers.</li>
 </ul>
 
 <h3 id="study-session-data">Study Session Data</h3>
@@ -457,14 +505,6 @@
   <li>Keeping track of the number of iterations of a given component that is repeated.</li>
 </ul>
 
-<h3 id="group-session-data">Group Session Data</h3>
-
-<p>The Group Session Data is useful to share information between workers of a given group. Some examples include:</p>
-
-<ul>
-  <li>Responses to each trial in a group study like the Prisoner’s Dilemma.</li>
-  <li>Gender of group workers.</li>
-</ul>
 
 
     <div class="tags">

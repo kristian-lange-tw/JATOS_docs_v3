@@ -561,7 +561,7 @@ $('#toc').on('click', 'a', function() {
 
 <p><del>* <code class="highlighter-rouge">jatos.groupSessionData</code> - Group session data shared in between members of the group (see also <a href="Three-Types-of-Session-Data.html">Three Types of Session Data</a>)</del></p>
 
-<p>As of JATOS v3 the group session data can be access via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
+<p>As of JATOS 3.1.1 the group session data can be accessed via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
 
 <h3 id="other-variables">Other variables</h3>
 
@@ -708,14 +708,14 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="functions-to-access-the-batch-session">Functions to access the batch session</h2>
 
+<p>The batch session is stored in JATOS’ database on the server side. That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (<code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">remove</code>, <code class="highlighter-rouge">clear</code>, <code class="highlighter-rouge">replace</code>, <code class="highlighter-rouge">copy</code>, <code class="highlighter-rouge">move</code>) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to <code class="highlighter-rouge">jatos.batchSession.[function_name]</code> or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred</a>.</p>
+
+<p>On the other side for all reading functions (<code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">getAll</code>, <code class="highlighter-rouge">test</code>) there is no need to sync data between client and server, because jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.</p>
+
+<p>Additionally to the reading and writing functions the calback function <code class="highlighter-rouge">jatos.onJatosBatchSession(path)</code> offers a way to get notified whenever the batch session changes in the JATOS’ database regardless of the origin of the change. This way, you can have the client of each worker react to changes in the batch that were done by another worker in the batch.</p>
+
 <p>Accessing the batch session is done via <a href="https://tools.ietf.org/html/rfc6902">JSON Patches (RFC 6902)</a> and 
 <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer (RFC 6901)</a>. An introduction can be found under <a href="http://jsonpatch.com/">jsonpatch.com</a>. For JSON Patches jatos.js uses the <a href="https://github.com/Starcounter-Jack/JSON-Patch">JSON-Patch</a> library from Joachim Wester and for JSON Pointers the <a href="https://github.com/alexeykuzmin/jsonpointer.js">jsonpointer.js</a> library from Alexey Kuzmin.</p>
-
-<p>The batch session is stored in JATOS’ database on the server side. That means that all changes in the batch session have to be synchronized with the server, which is done via the batch channel. Therefore all writing functions (<code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">remove</code>, <code class="highlighter-rouge">clear</code>, <code class="highlighter-rouge">replace</code>, <code class="highlighter-rouge">copy</code>, <code class="highlighter-rouge">move</code>) offer callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred</a>, to signal success or failure in synchronization.</p>
-
-<p>On the other side for all reading functions (<code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">getAll</code>, <code class="highlighter-rouge">test</code>) jatos.js doesn’t need to exchange data with the JATOS server since jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks.</p>
-
-<p>Additional to the reading and writing functions the <code class="highlighter-rouge">jatos.onJatosBatchSession(path)</code> offers a way to get notified whenever the batch session changes in the JATOS’ database regardless of the origin of the change.</p>
 
 <h3 id="jatosbatchsessionaddpath-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.add(path, value, onSuccess, onFail)</code></h3>
 
