@@ -904,11 +904,12 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosleavegrouponsuccess-onerror"><code class="highlighter-rouge">jatos.leaveGroup(onSuccess, onError)</code></h3>
 
-<p>Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it’s closed from the JATOS’ side.</p>
+<p>Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it’s closed from the JATOS’ side. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred</a>, to signal success or failure in the leaving.</p>
 
 <ul>
   <li><em>param {optional Function} onSuccess</em> - Function to be called after the group is left</li>
   <li><em>param {optional Function} onError</em> - Function to be called in case of error</li>
+  <li><em>@return {jQuery.Deferred}</em></li>
 </ul>
 
 <h3 id="jatosreassigngrouponsuccess-onfail"><code class="highlighter-rouge">jatos.reassignGroup(onSuccess, onFail)</code></h3>
@@ -934,7 +935,13 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatossetgroupfixed"><code class="highlighter-rouge">jatos.setGroupFixed()</code></h3>
 
-<p>Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.</p>
+<p>Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred</a>, to signal success or failure in the fixing.</p>
+
+<ul>
+  <li><em>param {optional Function} onSuccess</em> - Function to be called if the fixing was successful</li>
+  <li><em>param {optional Function} onFail</em> - Function to be called if the fixing was unsuccessful</li>
+  <li><em>@return {jQuery.Deferred}</em></li>
+</ul>
 
 <h3 id="jatoshasjoinedgroup"><code class="highlighter-rouge">jatos.hasJoinedGroup()</code></h3>
 

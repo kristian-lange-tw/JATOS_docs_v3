@@ -389,10 +389,11 @@ Sends a message to a single group member specified with the given group member I
 
 ### `jatos.leaveGroup(onSuccess, onError)`
 
-Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it's closed from the JATOS' side.
+Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it's closed from the JATOS' side. It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the leaving.
 
 * _param {optional Function} onSuccess_ - Function to be called after the group is left
 * _param {optional Function} onError_ - Function to be called in case of error
+* _@return {jQuery.Deferred}_
 
 ### `jatos.reassignGroup(onSuccess, onFail)`
 
@@ -413,7 +414,11 @@ As of JATOS v3 the group session data can be access via the [`jatos.groupSession
 
 ### `jatos.setGroupFixed()`
 
-Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.
+Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the fixing.
+
+* _param {optional Function} onSuccess_ - Function to be called if the fixing was successful
+* _param {optional Function} onFail_ - Function to be called if the fixing was unsuccessful
+* _@return {jQuery.Deferred}_
 
 ### `jatos.hasJoinedGroup()`
 
