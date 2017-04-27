@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Three-Types-of-Session-Data.html
 folder:
 toc: false
-last_updated: 28 Dec 2016
+last_updated: 27 April 2017
 ---
 
 Often you want to store information during a study run and share it with other components of the same study, or - if it is a group study - within the group. For this JATOS provides the Session Data. There are three different Session Data types, all of which are stored **temporarily** in your database, and will be deleted once they are no longer in use.
