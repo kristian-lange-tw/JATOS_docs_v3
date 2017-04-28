@@ -94,11 +94,11 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 * `jatos.groupChannels` - List of member IDs of the currently open group channels
 
 
-### Group's session data
+### ~~Group's session data~~
+
+**Removed** - As of JATOS v3 the group session data can be accessed via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
 
 ~~* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Three Types of Session Data](Three-Types-of-Session-Data.html))~~
-
-As of JATOS 3.1.1 the group session data can be accessed via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
 
 
 ### Other variables
@@ -128,7 +128,7 @@ Logs an message in the log on the JATOS server.
 
 ### `jatos.addJatosIds(obj)`
 
-Convenience function that adds some [IDs](jatos.js-Reference.html#ids) (study ID, study title, component ID, component position, component title, worker ID, study result ID, component result ID, group result ID, group member ID) to the given object.
+Convenience function that adds some [IDs](jatos.js-Reference.html#ids) (study ID, study title, batch ID, batch title, component ID, component position, component title, worker ID, study result ID, component result ID, group result ID, group member ID) to the given object.
 
 * _param {Object} obj_ - Object to which the IDs will be added
 
@@ -163,6 +163,8 @@ Starts the last component of this study or if it's inactive the component with t
 
 ### `jatos.endComponent(successful, errorMsg, onSuccess, onError)`
 
+**Deprecated**: Will be removed in future versions. Use `jatos.startComponent`, `jatos.startComponentByPos`, `jatos.startNextComponent`, or `jatos.startLastComponent` instead.
+
 Finishes component. Usually this is not necessary because the last component is automatically finished if the new component is started. Nevertheless it's useful to explicitly tell about a FAIL and submit an error message. Finishing the component doesn't finish the study.
 
 * _param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
@@ -172,12 +174,12 @@ Finishes component. Usually this is not necessary because the last component is 
 
 ### `jatos.abortStudyAjax(message, success, error)`
 
-Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS' end page. All previously submitted data will be deleted. It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the aborting.
+Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS' end page. All previously submitted data will be deleted. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the aborting.
 
 * _param {optional String} message_ - Message that should be logged
 * _param {optional Function} success_ - Function to be called in case of successful submit
 * _param {optional Function} error_ - Function to be called in case of error
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.abortStudy(message)`
 
@@ -187,13 +189,13 @@ Aborts study. All previously submitted data will be deleted.
 
 ### `jatos.endStudyAjax(successful, errorMsg, onSuccess, onError)`
 
-Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
+Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
 * _param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
 * _param {optional String} errorMsg_ - Error message that should be logged.
 * _param {optional Function} onSuccess_ - Function to be called in case of successful submit
 * _param {optional Function} onError_ - Function to be called in case of error
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.endStudy(successful, errorMsg)`
 
@@ -207,25 +209,25 @@ Ends study.
 
 ### `jatos.submitResultData(resultData, onSuccess, onError)`
 
-Posts result data back to the JATOS server. It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+Posts result data back to the JATOS server. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
 * _param {Object} resultData_ - String to be submitted
 * _param {optional Function} success_ - Function to be called in case of successful submit
 * _param {optional Function} error_ - Function to be called in case of error
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.setStudySessionData(sessionData, complete)`
 
-Posts study session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually. It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+Posts study session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
 * _param {Object} sessionData_ - Object to be submitted
 * _param {optional Function} complete_ - Function to be called after this function is finished
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 
 ## Functions to access the batch session
 
-The batch session is stored in JATOS' database on the server side. That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred](https://api.jquery.com/deferred.promise/).
+The batch session is stored in JATOS' database on the server side. That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
 
 On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
 
@@ -243,7 +245,7 @@ JSON Patch add operation: Adds a value to an object or inserts it into an array.
 * _@param {object} value_ - value to be stored
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.batchSession.remove(path, onSuccess, onFail)`
 
@@ -252,7 +254,7 @@ JSON Patch remove operation: Removes a value from an object or array (see [jsonp
 * _@param {string} path_ - JSON pointer path to the field that should be removed
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.batchSession.replace(path, value, onSuccess, onFail)`
 
@@ -262,7 +264,7 @@ JSON Patch replace operation: Replaces a value. Equivalent to a “remove” fol
 * _@param {object} value_ - value to be replaced with
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.batchSession.copy(from, path, onSuccess, onFail)`
 
@@ -272,7 +274,7 @@ JSON Patch copy operation: Copies a value from one location to another within th
 * _@param {string} path_ - JSON pointer path to the target
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.batchSession.move(from, path, onSuccess, onFail)`
 
@@ -282,7 +284,7 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
 * _@param {string} path_ - JSON pointer path to the target
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.batchSession.test(path, value)`
 
@@ -307,7 +309,7 @@ Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a n
 * _@param {object} value_ - value to be stored
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.batchSession.find(path)`
 
@@ -329,7 +331,7 @@ Replaces the whole session data (might be bad performance-wise)
 * _@param {object} value_ - value to be stored in the session
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.batchSession.clear(onSuccess, onFail)`
 
@@ -337,7 +339,7 @@ Clears the whole batch session data and sets it to an empty object
 
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.onJatosBatchSession(path)`
 
@@ -346,21 +348,11 @@ Defines a callback function that is called every time the batch session changes 
 * _@param {string} path_ - JSON pointer path to the changed field in the batch session
 
 
-## Functions to access the group session
-
-### `jatos.groupSession.get()`
-
-### `jatos.groupSession.find()`
-
-### `jatos.groupSession.getAll()`
-
-
-
 ## Functions for group studies
 
 ### `jatos.joinGroup(callbacks)`
 
-Tries to join a group (actually a group result) and if it succeeds opens the group channel's WebSocket. As the only parameter it takes an object with callback functions that will be called by jatos.js when certain group events occur. It returns a [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in joining.
+Tries to join a group (actually a group result) and if it succeeds opens the group channel's WebSocket. As the only parameter it takes an object with callback functions that will be called by jatos.js when certain group events occur. It returns a [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in joining.
 
 * _param {Object} callbacks_ - Defining callback functions for group events. All callbacks are optional. These callbacks functions are:
   * **onOpen**: Is called when the group channel is successfully opened
@@ -371,42 +363,42 @@ Tries to join a group (actually a group result) and if it succeeds opens the gro
   * **onMemberOpen(memberId)**: Is called when another member (not the worker running this study) opened a group channel. It gets the group member ID as a parameter.
   * **onMemberLeave(memberId)**: Is called when another member (not the worker running his study) left the group. It gets the group member ID as a parameter.
   * **onMemberClose(memberId)**: Is called when another member (not the worker running this study) closed his group channel. It gets the group member ID as a parameter.
-  * **onGroupSession(path)**: Is called when the group session is updated. It gets the new group session data as a parameter.
-  * **onUpdate()**: Combines several other callbacks. It's called if one of the following is called: _onMemberJoin_, _onMemberOpen_, _onMemberLeave_, _onMemberClose_, or _onGroupSession_ (the group session can then be read via _jatos.groupSessionData_).
-  * _@return {jQuery.Deferred}_
+  * **onGroupSession(path)**: Is called every time the group session changes on the JATOS server side. It gets the JSON pointer path to the changed field in the batch session as a parameter.
+  * **onUpdate()**: Combines several other callbacks. It's called if one of the following is called: _onMemberJoin_, _onMemberOpen_, _onMemberLeave_, _onMemberClose_, or _onGroupSession_.
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.sendGroupMsg(msg)`
 
-Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the group session and _jatos.setGroupSessionData_ instead. Compared to the transmission via group session the group messaging is fast but less reliable. 
+Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the [group session](#functions-to-access-the-group-session) instead. Compared to the transmission via group session the group messaging is fast but less reliable. 
 
 * _param {Object} msg_ - Any JavaScript object
 
 ### `jatos.sendGroupMsgTo(recipient, msg)`
 
-Sends a message to a single group member specified with the given group member ID (only if group channel is open).
+Like `jatos.sendGroupMsg(msg)` but sends a message to a single group member specified by the group member ID (only if group channel is open).
 
 * _param {String} recipient_ - Recipient's group member ID
 * _param {Object} msg_ - Any JavaScript object
 
 ### `jatos.leaveGroup(onSuccess, onError)`
 
-Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it's closed from the JATOS' side. It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the leaving.
+Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it's closed from the JATOS' side. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the leaving.
 
 * _param {optional Function} onSuccess_ - Function to be called after the group is left
 * _param {optional Function} onError_ - Function to be called in case of error
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.reassignGroup(onSuccess, onFail)`
 
-Asks the JATOS server to reassign this study run to a different group. It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the reassigning.
+Asks the JATOS server to reassign this study run to a different group. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the reassigning.
 
 * _param {optional Function} onSuccess_ - Function to be called if the reassignment was successful
 * _param {optional Function} onFail_ - Function to be called if the reassignment was unsuccessful
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
-### `jatos.setGroupSessionData(groupSessionData, onError)`
+### ~~`jatos.setGroupSessionData(groupSessionData, onError)`~~
 
-As of JATOS v3 the group session data can be access via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
+**Removed** - As of JATOS v3 the group session data can be access via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
 
 ~~Sends the group session data via the group channel to the JATOS server where it's stored and broadcasted to all members of this group. It either takes an Object as parameter or uses _jatos.groupSessionData_ if the groupSessionData isn't provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the _onError_ callback. In this way it is more reliable but slower compared to _jatos.sendGroupMsg_ or _jatos.sendGroupMsgTo_. Since the group session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.~~
 
@@ -415,11 +407,11 @@ As of JATOS v3 the group session data can be access via the [`jatos.groupSession
 
 ### `jatos.setGroupFixed()`
 
-Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.It offers callbacks, either as parameter or via [jQuery.deferred](https://api.jquery.com/deferred.promise/), to signal success or failure in the fixing.
+Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the fixing.
 
 * _param {optional Function} onSuccess_ - Function to be called if the fixing was successful
 * _param {optional Function} onFail_ - Function to be called if the fixing was unsuccessful
-* _@return {jQuery.Deferred}_
+* _@return {jQuery.deferred.promise}_
 
 ### `jatos.hasJoinedGroup()`
 
@@ -440,4 +432,122 @@ Returns true if the group has reached the maximum amount of active members like 
 ### `jatos.isGroupOpen()`
 
 Returns true if all active members of the group have an open group channel. It's not necessary that the group has reached its minimum or maximum active member size.
+
+
+## Functions to access the group session
+
+The group session is one of three way to communicate between members of a group. The others are direct messaging (with [jatos.sendGroupMsgTo](#jatossendgroupmsgtorecipient-msg)) and broadcast messaging ([jatos.sendGroupMsg](#jatossendgroupmsgmsg)).
+
+In difference to the [batch session](#functions-to-access-the-batch-session) the group session doesn't work from the start of a component. To use the group session you have to join a group ([with jatos.joinGroup](#jatosjoingroupcallbacks)). There you can also define a `onGroupSession` callback that gets called each time the group session changes regardless of the origin of the change.
+
+The group session is stored in JATOS' database on the server side. That means that all changes in the group session have to be synchronized between the client and the server. This is done via the group channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.groupSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
+
+On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the group session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
+
+Accessing the group session is done via [JSON Patches (RFC 6902)](https://tools.ietf.org/html/rfc6902) and 
+[JSON Pointer (RFC 6901)](https://tools.ietf.org/html/rfc6901). An introduction can be found under [jsonpatch.com](http://jsonpatch.com/). For JSON Patches jatos.js uses the [JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch) library from Joachim Wester and for JSON Pointers the [jsonpointer.js](https://github.com/alexeykuzmin/jsonpointer.js) library from Alexey Kuzmin.
+
+### `jatos.groupSession.add(path, value, onSuccess, onFail)`
+
+JSON Patch add operation: Adds a value to an object or inserts it into an array. In the case of an array, the value is inserted before the given index. The - character can be used instead of an index to insert at the end of an array (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} path_ - JSON pointer path 
+* _@param {object} value_ - value to be stored
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.groupSession.remove(path, onSuccess, onFail)`
+
+JSON Patch remove operation: Removes a value from an object or array (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} path_ - JSON pointer path to the field that should be removed
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.groupSession.replace(path, value, onSuccess, onFail)`
+
+JSON Patch replace operation: Replaces a value. Equivalent to a “remove” followed by an “add” (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} path_ - JSON pointer path 
+* _@param {object} value_ - value to be replaced with
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.groupSession.copy(from, path, onSuccess, onFail)`
+
+JSON Patch copy operation: Copies a value from one location to another within the JSON document. Both from and path are JSON Pointers (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} from_ - JSON pointer path to the origin 
+* _@param {string} path_ - JSON pointer path to the target
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.groupSession.move(from, path, onSuccess, onFail)`
+
+JSON Patch move operation: Moves a value from one location to the other. Both from and path are JSON Pointers. (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} from_ - JSON pointer path to the origin 
+* _@param {string} path_ - JSON pointer path to the target
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.groupSession.test(path, value)`
+
+JSON Patch test operation: Tests that the specified value is set in the document (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} path_ - JSON pointer path to be tested
+* _@param {object} value_ - value to be tested
+* _@return {boolean}_
+
+### `jatos.groupSession.get(name)`
+
+Convenience function: like 'jatos.groupSession.find' but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the group session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
+
+* _@param {string} name_ - name of the field 
+* _@return {object}_
+
+### `jatos.groupSession.set(name, value, onSuccess, onFail)`
+
+Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the group session's object tree.
+
+* _@param {string} name_ - name of the field 
+* _@param {object} value_ - value to be stored
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.groupSession.find(path)`
+
+Gets a field in the group session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.
+
+* _@param {string} path_ - JSON pointer path 
+* _@return {object}_
+
+### `jatos.groupSession.getAll()`
+
+Returns the complete group session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
+
+* _@return {object}_
+
+### `jatos.groupSession.setAll(value, onSuccess, onFail)`
+
+Replaces the whole session data (might be bad performance-wise)
+
+* _@param {object} value_ - value to be stored in the session
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.groupSession.clear(onSuccess, onFail)`
+
+Clears the whole group session data and sets it to an empty object
+
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {jQuery.deferred.promise}_
 

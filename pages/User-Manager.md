@@ -17,7 +17,7 @@ They can also export and delete results. Users may also have **admin rights**, w
 
 Only users with admin rights have access to the **User Manager** (located in the header on every GUI page). In the User Manager an admin can create new user, change password of other users, or delete other users. 
 
-![Top Bar screenshot](images/user_manager1.png)
+![Top Bar screenshot](images/user_manager_header.png)
 
 JATOS comes with one user out-of-box: **Admin** (with user name 'admin'). Admin always has admin rights that cannot be revoked. The initial password for Admin is 'admin' should be changed immediately after installation and kept safe!
 
