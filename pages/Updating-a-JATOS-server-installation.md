@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Updating-a-JATOS-server-installation.html
 folder:
 toc: true
-last_updated: 29 Dec 2016
+last_updated: 27 Apr 2017
 ---
 
 Updating the server instance is equivalent to doing it [locally](Update-JATOS.html), but make sure that you know what you're doing; especially if you have paired JATOS with a MySQL database.
@@ -32,7 +32,9 @@ This means that we have to configure the MySQL database or copy the H2 database 
 1. Copy the new JATOS version to your server, e.g. copy it into the same folder where your old JATOS is located. Don't yet remove the old JATOS instance. 
 1. Unzip the new JATOS (`unzip jatos-x.x.x-beta.zip`)
 1. From the old JATOS installation copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called `study_assets_root` and lays in the JATOS folder but you might have [changed this](Configure-JATOS-on-a-Server.html).
-1. If you are using the default H2 database: From your the folder of your old JATOS installation copy the folder `database` to the new JATOS installation. For an external MySQL or H2 database you don't have to change anything on the database side.
+1. Database
+   * H2 - If you are using the default H2 database: From your the folder of your old JATOS installation copy the folder `database` to the new JATOS installation. [Remember to stop JATOS before copying the folder](Troubleshooting.html#database-is-corrupted).
+   * MySQL - For MySQL you don't have to change anything on the database side.
 1. [Configure the new JATOS like the old one](Configure-JATOS-on-a-Server.html)
 1. That's it! Start the new JATOS using `./loader.sh start`
  

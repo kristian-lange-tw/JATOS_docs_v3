@@ -97,7 +97,7 @@ You might want to set up a regular backup of the data stored in JATOS. Those dat
 1. **Database**
     * **MySQL** - If you use a MySQL database you might want to look into the `mysqldump` shell command. E.g., with `mysqldump -u myusername -p mydbname > mysql_bkp.out` you can backup the whole data into a single file. Restore the database with `mysql -u myusername -p mydbname < mysql_bkp.out`.
     * **H2** - There are at least two ways: one easy (but unofficial) and one official:
-      1. Copy & paste the db file - It's important to **stop JATOS** before doing a backup or restoring a H2 database this way. If you do not stop JATOS your [data might be corrupted](#database-is-corrupted). You can just backup the folder `my-jatos-path/database`. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version.
+      1. Copy & paste the db file - It's important to **stop JATOS** before doing a backup or restoring a H2 database this way. If you do not stop JATOS your [data might be corrupted](Troubleshooting.html#database-is-corrupted). You can just backup the folder `my-jatos-path/database`. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version.
       1. Via [H2's upgrade, backup, and restore tool](http://www.h2database.com/html/tutorial.html#upgrade_backup_restore)
 
 1. **Study assets root folder** - You can just make a backup of your study assets folder. If you want to return to a prior version replace the current folder with the backed-up version.

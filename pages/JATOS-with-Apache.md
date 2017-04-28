@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-with-Apache.html
 folder:
 toc: false
-last_updated: 3 April 2017
+last_updated: 27 April 2017
 ---
 
 This is an example of a configuration of [Apache](https://httpd.apache.org/) as a proxy in front of JATOS. While it's not necessary to run JATOS with a proxy, it's common to do so in order to allow encryption.
@@ -28,7 +28,10 @@ sudo a2enmod proxy_http
 sudo a2enmod remoteip
 ~~~
 
-The following is an example of a proxy config with Apache. I stored it in `/etc/apache2/sites-available/example.com.conf` and added it to Apache with the command `sudo a2ensite example.com.conf`. It enforces access via HTTPS by redirecting all HTTP traffic.
+The following is an example of a proxy config with Apache. I stored it in `/etc/apache2/sites-available/example.com.conf` and added it to Apache with the command `sudo a2ensite example.com.conf`.
+
+* It enforces access via HTTPS by redirecting all HTTP traffic.
+* As an additional security measurement you can uncomment the `<Location "/jatos">` and config your local network. This will restrict the access to JATOS' GUI (every URL starting with `/jatos`) to the local network.
 
 ~~~ shell
 <VirtualHost *:80>
@@ -41,6 +44,15 @@ The following is an example of a proxy config with Apache. I stored it in `/etc/
 <VirtualHost *:443>
   ServerName www.example.com
 
+  # Restrict access to JATOS GUI to local network
+  #<Location "/jatos">
+  #  Order deny,allow
+  #  Deny from all
+  #  Allow from 127.0.0.1 ::1
+  #  Allow from localhost
+  #  Allow from 192.168
+  #</Location>
+
   # Needed for JATOS to get the correct host and protocol
   ProxyPreserveHost On
   RequestHeader set X-Forwarded-Proto "https"
@@ -51,7 +63,7 @@ The following is an example of a proxy config with Apache. I stored it in `/etc/
   SSLCertificateFile /etc/ssl/certs/localhost.crt
   SSLCertificateKeyFile /etc/ssl/private/localhost.key
 
-  # JATOS uses WebSockets in its group studies
+  # JATOS uses WebSockets for its batch and group channels
   RewriteEngine On
   RewriteCond %{HTTP:Upgrade} =websocket [NC]
   RewriteRule /(.*)           ws://localhost:9000/$1 [P,L]

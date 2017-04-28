@@ -55,11 +55,12 @@ There is a common mistake Windows users make that might prevent files in the HTM
 
 ### Database is corrupted?
 
-If you get an error that reads something like: "Error in custom provider, Configuration error: Configuration error[Cannot connect to database [default]]", your database might be corrupted. 
+If you get an error that reads something like: `Error in custom provider, Configuration error: Configuration error[Cannot connect to database [default]]`, your database might be corrupted. By default JATOS comes with an H2 database and the H2 database doesn't handle [copying it's files while running to well](http://stackoverflow.com/questions/2036117/how-to-back-up-the-embedded-h2-database-engine-while-it-is-running). 
 
-There are two reasons why this might be the case: you moved your JATOS file package while it was running or you installed JATOS in a synched folder. To prevent this, be sure to always be careful with the following:
-1. Always stop JATOS (type `/loader.sh stop` in your Unix terminal or close the window on Windows) before moving it.  
-1. As we mentioned in the [Installation page](Installation.html), you can run JATOS from pretty much anywhere **except** from a folder that synchs across devices, like Dropbox or Google Drive. Doing so might lead to database corruption, because while the files might be synched between computers, the running processes aren't. This will lead to havoc and destruction and, in extreme cases, to the implosion of the known Universe. You can find in our [blog post](http://blog.jatos.org/Database_Recovery/) a description of an attempt to recover a corrupted database. Didn't work.
+There are two reasons why this might be the case: you moved your JATOS folder while it was running or you installed JATOS in a synced folder. To prevent this, be sure to always be careful with the following:
+
+1. **Don't copy or move while JATOS is running** - Always **stop JATOS** (type `/loader.sh stop` in your Linux / Mac OS X terminal or close the window on Windows) before moving it.  
+1. **Don't sync while JATOS is running** - As we mentioned in the [Installation page](Installation.html), you can run JATOS from pretty much anywhere **except** from a folder that syncs across devices, like Dropbox or Google Drive. Doing so might lead to database corruption, because while the files might be synced between computers, the running processes aren't. This will lead to havoc and destruction and, in extreme cases, to the implosion of the known Universe. You can find in our [blog post](http://blog.jatos.org/Database_Recovery/) a description of an attempt to recover a corrupted database. Didn't work.
 
 **Of course, this brings us to an important point: back up your result data (i.e., simply download and save your text files) regularly if you're running a study!**
 

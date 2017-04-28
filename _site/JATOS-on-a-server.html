@@ -572,7 +572,7 @@ $('#toc').on('click', 'a', function() {
       <li><strong>MySQL</strong> - If you use a MySQL database you might want to look into the <code class="highlighter-rouge">mysqldump</code> shell command. E.g., with <code class="highlighter-rouge">mysqldump -u myusername -p mydbname &gt; mysql_bkp.out</code> you can backup the whole data into a single file. Restore the database with <code class="highlighter-rouge">mysql -u myusername -p mydbname &lt; mysql_bkp.out</code>.</li>
       <li><strong>H2</strong> - There are at least two ways: one easy (but unofficial) and one official:
         <ol>
-          <li>Copy &amp; paste the db file - It’s important to <strong>stop JATOS</strong> before doing a backup or restoring a H2 database this way. If you do not stop JATOS your <a href="#database-is-corrupted">data might be corrupted</a>. You can just backup the folder <code class="highlighter-rouge">my-jatos-path/database</code>. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version.</li>
+          <li>Copy &amp; paste the db file - It’s important to <strong>stop JATOS</strong> before doing a backup or restoring a H2 database this way. If you do not stop JATOS your <a href="Troubleshooting.html#database-is-corrupted">data might be corrupted</a>. You can just backup the folder <code class="highlighter-rouge">my-jatos-path/database</code>. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version.</li>
           <li>Via <a href="http://www.h2database.com/html/tutorial.html#upgrade_backup_restore">H2’s upgrade, backup, and restore tool</a></li>
         </ol>
       </li>

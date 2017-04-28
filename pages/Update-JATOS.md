@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Update-JATOS.html
 folder:
 toc: true
-last_updated: 29 Dec 2016
+last_updated: 27 Apr 2017
 ---
 
 We'll periodically update JATOS with new features and bug fixes. We recommend you stay up to date with the [latest release](https://github.com/JATOS/JATOS/releases). However if you are currently running a study it's always safest to keep the same JATOS version throughout the whole experiment.

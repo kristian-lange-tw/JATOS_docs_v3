@@ -488,7 +488,12 @@ $('#toc').on('click', 'a', function() {
   <li>Copy the new JATOS version to your server, e.g. copy it into the same folder where your old JATOS is located. Don’t yet remove the old JATOS instance.</li>
   <li>Unzip the new JATOS (<code class="highlighter-rouge">unzip jatos-x.x.x-beta.zip</code>)</li>
   <li>From the old JATOS installation copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called <code class="highlighter-rouge">study_assets_root</code> and lays in the JATOS folder but you might have <a href="Configure-JATOS-on-a-Server.html">changed this</a>.</li>
-  <li>If you are using the default H2 database: From your the folder of your old JATOS installation copy the folder <code class="highlighter-rouge">database</code> to the new JATOS installation. For an external MySQL or H2 database you don’t have to change anything on the database side.</li>
+  <li>Database
+    <ul>
+      <li>H2 - If you are using the default H2 database: From your the folder of your old JATOS installation copy the folder <code class="highlighter-rouge">database</code> to the new JATOS installation. <a href="Troubleshooting.html#database-is-corrupted">Remember to stop JATOS before copying the folder</a>.</li>
+      <li>MySQL - For MySQL you don’t have to change anything on the database side.</li>
+    </ul>
+  </li>
   <li><a href="Configure-JATOS-on-a-Server.html">Configure the new JATOS like the old one</a></li>
   <li>That’s it! Start the new JATOS using <code class="highlighter-rouge">./loader.sh start</code></li>
 </ol>
@@ -508,7 +513,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 29 Dec 2016
+<span>Page last updated:</span> 27 Apr 2017
                 </div>
             </div>
 </footer>

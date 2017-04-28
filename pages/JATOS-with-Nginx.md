@@ -7,12 +7,14 @@ sidebar: mydoc_sidebar
 permalink: JATOS-with-Nginx.html
 folder:
 toc: true
-last_updated: 29 Dec 2016
+last_updated: 27 Apr 2017
 ---
 
 This is an example for a configuration of [Nginx](https://www.nginx.com/) as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it's common. It supports encryption (HTTPS) and WebSockets for JATOS' group studies. 
 
 The following is the content of `/etc/nginx/nginx.conf`. Change it to your needs. You probably want to change your servers address (`www.example.com` in the example) and the path to the SSL certificate and its key.
+
+As an additional security measurement you can uncomment the `location /jatos` and config your local network. This will restrict the access to JATOS' GUI (every URL starting with `/jatos`) to the local network.
 
 ~~~ shell
 user www-data;
@@ -84,6 +86,12 @@ http {
                         proxy_send_timeout      7d;
                         proxy_read_timeout      7d;
                 }
+
+                # restrict access to JATOS' GUI to local network
+                #location /jatos {
+                #       allow   192.168.1.0/24;
+                #       deny    all;
+                #}
 
                 # all other traffic
                 location / {
