@@ -471,48 +471,58 @@ $('#toc').on('click', 'a', function() {
 
 <ul>
   <li>on your own dedicated server</li>
-  <li>in the cloud on an Infrastructure as a Service (IaaS)</li>
+  <li>in the cloud (with IaaS)</li>
   <li>in the cloud with a Docker container</li>
 </ul>
 
-<p>The first two are discussed here in this page. For the last one JATOS provides a <a href="Install-JATOS-via-Docker.html">Docker image</a>.</p>
+<p>The first two are discussed here in this page. The last one has its own <a href="Install-JATOS-via-Docker.html">page</a>.</p>
 
-<p>One word about IaaS. There are many IaaS providers (Digital Ocean, Microsoft Azure, Google Cloud, Amazon’s AWS etc.). They all give you a virtual machine (VM) and the possibility to install an operating system on it. I’d recommend to go with a Linux system like Ubuntu or Debian. Another point is to make sure they have persistent storage and not what is often called ‘ephemeral storage’ (storage that is deleted after the VM shuts down). Since JATOS stores all study assets in the server’s file system persistent storage is needed. But apart from that it’s the same JATOS installation like on a dedicated server. In <a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon’s Cloud (without Docker)</a> we have some advice in how to do it in AWS.</p>
+<p>One word about IaaS. There are many IaaS providers (Digital Ocean, Microsoft Azure, Google Cloud, Amazon’s AWS etc.). They all give you some kind of virtual machine (VM) and the possibility to install an operating system on it. I’d recommend to go with a Linux system like Ubuntu or Debian. Another point is to make sure they have persistent storage and not what is often called ‘ephemeral storage’ (storage that is deleted after the VM shuts down). Since JATOS stores all study assets in the server’s file system persistent storage is needed. But apart from that it’s the same JATOS installation like on a dedicated server. In <a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon’s Cloud (without Docker)</a> we have some advice in how to do it in AWS.</p>
 
-<p>The actual JATOS instance on a server isn’t too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the H2 database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc. The purpose of this page is not to teach you how to set up a server in general (you do need to know a little bit about Internet and security issues and should not try it at home unless you know what you’re doing!). Here, we simply cover the steps to server setup that are related to JATOS.</p>
+<p>The actual JATOS instance on a server isn’t too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the H2 database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc.</p>
 
-<h3 id="java">Java</h3>
+<h2 id="installation-on-a-server">Installation on a server</h2>
+
+<h3 id="install-java">1. Install Java</h3>
+
 <p>We’ve produced multiple versions of JATOS. The simplest version is JATOS alone, but other versions are bundled with Java JRE. On a server, it’s best (though not necessary) to install JATOS without a bundled Java. This will make it easier to upgrade to new Java releases.</p>
 
-<h3 id="configuration">Configuration</h3>
-<p>If JATOS runs locally it’s usually not necessary to change the defaults but on a server you probably want to set up the IP and port or maybe use a different database and change the path of the study assets root folder. These docs have an extra page on how to <a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a>.</p>
-
-<h3 id="change-admins-password">Change admin’s password</h3>
-<p>Every JATOS installation has the same default admin password ‘admin’. You must change it before the server goes live. This can be done in the GUI: 1) login as ‘admin’, 2) click on your user in the header 3) Click ‘Change Password’.</p>
-
-<h3 id="test-page">Test page</h3>
-<p>JATOS comes with a test page <code class="highlighter-rouge">/jatos/test</code> that shows some of the current configuration, system properties, and does some tests, e.g. WebSockets connections and database connection. All tests should show an ‘OK’.</p>
-
-<h3 id="backup">Backup</h3>
-<p>You should set up a regular backup of your data from JATOS. These include (1.) the data stored in the database and (2.) your study assets folder.</p>
+<h3 id="install-jatos">2. Install JATOS</h3>
 
 <ol>
-  <li>
-    <p>If you use the default H2 database you can just backup the folder <code class="highlighter-rouge">my-jatos-path/database</code>. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version. If you use a MySQL database you might want to look into the <code class="highlighter-rouge">mysqldump</code> shell command. E.g., with <code class="highlighter-rouge">mysqldump -u myusername -p mydbname &gt; mysql_bkp.out</code> you can backup the whole data into a single file. Restore the database with <code class="highlighter-rouge">mysql -u myusername -p mydbname &lt; mysql_bkp.out</code>.</p>
-  </li>
-  <li>
-    <p>You can just make a backup of your study assets folder. If you want to return to a prior version replace the current folder with the backed-up version.</p>
-  </li>
+  <li><a href="https://github.com/JATOS/JATOS/releases">Download JATOS</a></li>
+  <li>JATOS comes zipped. Unpack this file at a location in your server’s file system where JATOS should be installed.</li>
+  <li>Check that the file <code class="highlighter-rouge">loader.sh</code> in the JATOS folder is executable.</li>
+  <li>Check that JATOS starts with <code class="highlighter-rouge">loader.sh start|restart|stop</code></li>
 </ol>
 
-<p>Remember, a backup has to be done of <strong>both</strong> the database <strong>and</strong> the study assets root folder.</p>
+<h3 id="configuration">3. Configuration</h3>
+<p>If JATOS runs locally it’s usually not necessary to change the defaults but on a server you probably want to set up the IP and port or maybe use a different database and change the path of the study assets root folder. These docs have an extra page on how to <a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a>.</p>
 
-<h3 id="http-server">HTTP server</h3>
-<p>JATOS doesn’t need an HTTP server (like Nginx or Apache). It is its own HTTP server. But sometimes it is necessary to have an additional server in front of JATOS (e.g. for HTTPS encryption). In <a href="JATOS-with-Nginx.html">JATOS with Nginx</a> we show a sample configuration for Nginx and in <a href="JATOS-with-Apache.html">JATOS with Apache</a> for Apache. And keep in mind that JATOS uses WebSockets for group studies and your HTTP server should be configured to support them.</p>
+<h3 id="change-admins-password">4. Change Admin’s password</h3>
+<p>Every JATOS installation comes with an Admin user that has the default password ‘admin’. You must change it before the server goes live. This can be done in JATOS’ GUI:</p>
 
-<h3 id="auto-start-jatos-on-linuxunix-as-a-daemon">Auto-start JATOS on Linux/Unix as a daemon</h3>
+<ol>
+  <li>Start JATOS and in a browser go to JATOS login page <code class="highlighter-rouge">http://your-domain-or-IP/jatos</code></li>
+  <li>Login as ‘admin’ with password ‘admin’</li>
+  <li>Click on ‘Admin (admin) in top-right header</li>
+  <li>Click ‘Change Password’</li>
+</ol>
 
-<p>It’s nice to have JATOS starts automatically after a start or a reboot of your machine. It’s easy to turn the <code class="highlighter-rouge">loader.sh</code> script that you normally use to start JATOS into an init script for a daemon.</p>
+<h3 id="check-jatos-test-page">5. Check JATOS’ test page</h3>
+<p>JATOS comes with a handy test page <code class="highlighter-rouge">http://your-domain-or-IP/jatos/test</code>. It shows some of the current configuration and system properties. Above all it does some tests, e.g. WebSockets connections and database connection. Check that all tests show an ‘OK’.</p>
+
+<h3 id="optional-http-server-and-encryption">6. [Optional] HTTP server and encryption</h3>
+<p>Most admins tend to use an additional HTTP server in front of JATOS for encryption purpose. We provide two example configurations for Nginx and Apache. Both support encryption and WebSockets (keep in mind JATOS relies on WebSockets and it’s necessary to support them).</p>
+
+<ul>
+  <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
+  <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
+</ul>
+
+<h3 id="optional-auto-start-jatos">7. [Optional] Auto-start JATOS</h3>
+
+<p>It’s nice to have JATOS starts automatically after a start or a reboot of your machine. It’s easy to turn the <code class="highlighter-rouge">loader.sh</code> script into an init script for a daemon.</p>
 
 <ol>
   <li>Copy the <code class="highlighter-rouge">loader.sh</code> script to <code class="highlighter-rouge">/etc/init.d/</code></li>
@@ -520,26 +530,27 @@ $('#toc').on('click', 'a', function() {
   <li>Change access permission with <code class="highlighter-rouge">chmod og+x jatos</code></li>
   <li>Edit <code class="highlighter-rouge">/etc/init.d/jatos</code>
     <ol>
-      <li>Specify the IP address and port you want to use</li>
-      <li>Comment out the line <code class="highlighter-rouge">dir="$( cd "$( dirname "$0" )" &amp;&amp; pwd )"</code></li>
+      <li>Comment out the line that defines the JATOS location <code class="highlighter-rouge">dir="$( cd "$( dirname "$0" )" &amp;&amp; pwd )"</code></li>
       <li>
-        <p>Add variable <code class="highlighter-rouge">dir=</code> with the path to your JATOS installation</p>
+        <p>Add a new locatoin <code class="highlighter-rouge">dir=</code> with the path to your JATOS installation</p>
 
         <p>The beginning of your <code class="highlighter-rouge">/etc/init.d/jatos</code> should look like:</p>
 
-        <div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+        <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="c"># JATOS loader for Linux and MacOS X</span>
       
 <span class="c"># Change IP address and port here</span>
+<span class="c"># Alternatively you can use command-line arguments -Dhttp.address and -Dhttp.port</span>
 <span class="nv">address</span><span class="o">=</span><span class="s2">"127.0.0.1"</span>
 <span class="nv">port</span><span class="o">=</span><span class="s2">"9000"</span>
-<span class="nv">dir</span><span class="o">=</span><span class="s2">"/path/to/my/JATOS/installation"</span>
       
 <span class="c"># Don't change after here unless you know what you're doing</span>
-<span class="c">#####################################</span>
+<span class="c">###########################################################</span>
+
 <span class="c"># Get JATOS directory</span>
 <span class="c">#dir="$( cd "$( dirname "$0" )" &amp;&amp; pwd )"</span>
-<span class="nv">pidfile</span><span class="o">=</span><span class="nv">$dir</span>/RUNNING_PID
+<span class="nv">dir</span><span class="o">=</span><span class="s2">"/path/to/my/JATOS/installation"</span>
+...
 </code></pre>
         </div>
         <p> </p>
@@ -551,11 +562,26 @@ $('#toc').on('click', 'a', function() {
 
 <p>Now JATOS starts automatically when you start your server and stops when you shut it down. You can also use the init script yourself like any other init script with <code class="highlighter-rouge">sudo /etc/init.d/jatos start|stop|restart</code>.</p>
 
-<h3 id="encryption-and-https">Encryption and HTTPS</h3>
-<p>Most admins tend to use an additional HTTP server in front of JATOS for encryption purpose. But since JATOS is built with the Play Framework it can be setup JATOS directly by following their <a href="https://www.playframework.com/documentation/2.4.x/ConfiguringHttps">Documentation about Configuring HTTPS</a>.</p>
+<h3 id="optional-backup">8. [Optional] Backup</h3>
 
-<h3 id="jvm-memory">JVM Memory</h3>
-<p>If your JATOS instance has a high worker load or runs many different studies, you might have to increase the memory that is available to the JVM that runs JATOS. A clear sign that your JVM needs more memory is a <code class="highlighter-rouge">java.lang.OutOfMemoryError</code> in your log. To increase the maximal available memory use the <code class="highlighter-rouge">-Xmx</code> parameter of the JVM. You can set it in the environment variable JAVA_OPTS. E.g. to set it to 2048 MB use <code class="highlighter-rouge">export set JAVA_OPTS="-Xmx2048m"</code> on a Linux/MacOS X system.</p>
+<p>You might want to set up a regular backup of the data stored in JATOS. Those data consists of two parts (1.) the data stored in the database and (2.) your study assets folder that contains all the web files (e.g. HTML, JavaScript, images). Both have to be backed up to be able to restore them later on.</p>
+
+<ol>
+  <li><strong>Database</strong>
+    <ul>
+      <li><strong>MySQL</strong> - If you use a MySQL database you might want to look into the <code class="highlighter-rouge">mysqldump</code> shell command. E.g., with <code class="highlighter-rouge">mysqldump -u myusername -p mydbname &gt; mysql_bkp.out</code> you can backup the whole data into a single file. Restore the database with <code class="highlighter-rouge">mysql -u myusername -p mydbname &lt; mysql_bkp.out</code>.</li>
+      <li><strong>H2</strong> - There are at least two ways: one easy (but unofficial) and one official:
+        <ol>
+          <li>Copy &amp; paste the db file - It’s important to <strong>stop JATOS</strong> before doing a backup or restoring a H2 database this way. If you do not stop JATOS your <a href="#database-is-corrupted">data might be corrupted</a>. You can just backup the folder <code class="highlighter-rouge">my-jatos-path/database</code>. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version.</li>
+          <li>Via <a href="http://www.h2database.com/html/tutorial.html#upgrade_backup_restore">H2’s upgrade, backup, and restore tool</a></li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Study assets root folder</strong> - You can just make a backup of your study assets folder. If you want to return to a prior version replace the current folder with the backed-up version.</li>
+</ol>
+
+<p>Remember, a backup has to be done of <strong>both</strong> the <em>database</em> <strong>and</strong> the <em>study assets root folder</em>.</p>
 
 
     <div class="tags">
@@ -571,7 +597,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 29 Dec 2016
+<span>Page last updated:</span> 28 Apr 2017
                 </div>
             </div>
 </footer>
