@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 26 Apr 2017
+last_updated: 30 Apr 2017
 ---
 
 Two [bits of code](Mandatory-lines-in-your-components-HTML.html) are mandatory in all your components' HTML files. One of them is the following line in the head section: `<script src="/assets/javascripts/jatos.js"></script>` which includes the jatos.js library into your HTML file. 
@@ -124,19 +124,19 @@ Defines a callback function that is to be called in case jatos.js produces an er
 
 Logs an message in the log on the JATOS server.
 
-* _param {String} logMsg_ - The messages to be logged
+* _@param {String} logMsg_ - The messages to be logged
 
 ### `jatos.addJatosIds(obj)`
 
 Convenience function that adds some [IDs](jatos.js-Reference.html#ids) (study ID, study title, batch ID, batch title, component ID, component position, component title, worker ID, study result ID, component result ID, group result ID, group member ID) to the given object.
 
-* _param {Object} obj_ - Object to which the IDs will be added
+* _@param {Object} obj_ - Object to which the IDs will be added
 
 ### `jatos.setHeartbeatPeriod(heartbeatPeriod)`
 
 Every running component sends regularly a HTTP request (the heartbeat) back to the JATOS server. This signals that it is still running. As soon as the browser tab running the component is closed the heartbeat ceases. The time of the last heartbeat is visible in the GUI, in the study results page in the 'Last Seen' row. This way you can easily see if a worker is still running your study or if (and when) he abandonend it. By default the heartbeat period is 2 min. By careful not to set the period too low (few seconds or milliseconds) since it might overload your network or your JATOS server.
 
-* _param {Number} heartbeatPeriod_ - Time period between two heartbeats in milliseconds
+* _@param {Number} heartbeatPeriod_ - Time period between two heartbeats in milliseconds
 
 
 ## Functions to control study flow
@@ -145,13 +145,13 @@ Every running component sends regularly a HTTP request (the heartbeat) back to t
 
 Starts the component with the given ID. You can pass on information to the next component by adding a query string.
 
-* _param {Object} componentId_ - ID of the component to start
+* _@param {Object} componentId_ - ID of the component to start
 
 ### `jatos.startComponentByPos(componentPos)`
 
 Starts the component with the given position (# of component within study). 
 
-* _param {Object} componentPos_ - Position of the component to start
+* _@param {Object} componentPos_ - Position of the component to start
 
 ### `jatos.startNextComponent()`
 
@@ -167,42 +167,42 @@ Starts the last component of this study or if it's inactive the component with t
 
 Finishes component. Usually this is not necessary because the last component is automatically finished if the new component is started. Nevertheless it's useful to explicitly tell about a FAIL and submit an error message. Finishing the component doesn't finish the study.
 
-* _param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
-* _param {optional String} errorMsg_ - Error message that should be logged.
-* _param {optional Function} onSuccess_ - Function to be called in case of successful submit
-* _param {optional Function} onError_ - Function to be called in case of error
+* _@param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
+* _@param {optional String} errorMsg_ - Error message that should be logged.
+* _@param {optional Function} onSuccess_ - Function to be called in case of successful submit
+* _@param {optional Function} onError_ - Function to be called in case of error
 
 ### `jatos.abortStudyAjax(message, success, error)`
 
 Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS' end page. All previously submitted data will be deleted. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the aborting.
 
-* _param {optional String} message_ - Message that should be logged
-* _param {optional Function} success_ - Function to be called in case of successful submit
-* _param {optional Function} error_ - Function to be called in case of error
+* _@param {optional String} message_ - Message that should be logged
+* _@param {optional Function} success_ - Function to be called in case of successful submit
+* _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
 ### `jatos.abortStudy(message)`
 
 Aborts study. All previously submitted data will be deleted.
 
-* _param {optional String} message_ - Message that should be logged
+* _@param {optional String} message_ - Message that should be logged
 
 ### `jatos.endStudyAjax(successful, errorMsg, onSuccess, onError)`
 
 Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
-* _param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
-* _param {optional String} errorMsg_ - Error message that should be logged.
-* _param {optional Function} onSuccess_ - Function to be called in case of successful submit
-* _param {optional Function} onError_ - Function to be called in case of error
+* _@param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
+* _@param {optional String} errorMsg_ - Error message that should be logged.
+* _@param {optional Function} onSuccess_ - Function to be called in case of successful submit
+* _@param {optional Function} onError_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
 ### `jatos.endStudy(successful, errorMsg)`
 
 Ends study.
 
-* _param {optional Boolean} successful_ - 'true' if study should finish successfully, 'false' otherwise.
-* _param {optional String} errorMsg_ - Error message that should be logged.
+* _@param {optional Boolean} successful_ - 'true' if study should finish successfully, 'false' otherwise.
+* _@param {optional String} errorMsg_ - Error message that should be logged.
 
 
 ## Functions for study session and result data
@@ -211,17 +211,18 @@ Ends study.
 
 Posts result data back to the JATOS server. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
-* _param {Object} resultData_ - String to be submitted
-* _param {optional Function} success_ - Function to be called in case of successful submit
-* _param {optional Function} error_ - Function to be called in case of error
+* _@param {Object} resultData_ - String to be submitted
+* _@param {optional Function} success_ - Function to be called in case of successful submit
+* _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
-### `jatos.setStudySessionData(sessionData, complete)`
+### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`
 
 Posts study session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
-* _param {Object} sessionData_ - Object to be submitted
-* _param {optional Function} complete_ - Function to be called after this function is finished
+* _@param {Object} sessionData_ - Object to be submitted
+* _@param {optional Function} onSuccess_ - Function to be called after this function is finished
+* _@param {optional Function} onFail_ - Function to be called after if this this functions fails
 * _@return {jQuery.deferred.promise}_
 
 
@@ -354,7 +355,7 @@ Defines a callback function that is called every time the batch session changes 
 
 Tries to join a group (actually a group result) and if it succeeds opens the group channel's WebSocket. As the only parameter it takes an object with callback functions that will be called by jatos.js when certain group events occur. It returns a [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in joining.
 
-* _param {Object} callbacks_ - Defining callback functions for group events. All callbacks are optional. These callbacks functions are:
+* _@param {Object} callbacks_ - Defining callback functions for group events. All callbacks are optional. These callbacks functions are:
   * **onOpen**: Is called when the group channel is successfully opened
   * **onClose**: Is be called when the group channel is closed
   * **onError**: Is called if an error during opening of the group channel's WebSocket occurs or if an error is received via the group channel (e.g. the group session data couldn't be updated). If this function is not defined jatos.js will try to call the global _onJatosError_ function.
@@ -371,29 +372,29 @@ Tries to join a group (actually a group result) and if it succeeds opens the gro
 
 Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the [group session](#functions-to-access-the-group-session) instead. Compared to the transmission via group session the group messaging is fast but less reliable. 
 
-* _param {Object} msg_ - Any JavaScript object
+* _@param {Object} msg_ - Any JavaScript object
 
 ### `jatos.sendGroupMsgTo(recipient, msg)`
 
 Like `jatos.sendGroupMsg(msg)` but sends a message to a single group member specified by the group member ID (only if group channel is open).
 
-* _param {String} recipient_ - Recipient's group member ID
-* _param {Object} msg_ - Any JavaScript object
+* _@param {String} recipient_ - Recipient's group member ID
+* _@param {Object} msg_ - Any JavaScript object
 
 ### `jatos.leaveGroup(onSuccess, onError)`
 
 Tries to leave the group (actually a group result) it has previously joined. The group channel is not closed in this function - it's closed from the JATOS' side. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the leaving.
 
-* _param {optional Function} onSuccess_ - Function to be called after the group is left
-* _param {optional Function} onError_ - Function to be called in case of error
+* _@param {optional Function} onSuccess_ - Function to be called after the group is left
+* _@param {optional Function} onError_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
 ### `jatos.reassignGroup(onSuccess, onFail)`
 
 Asks the JATOS server to reassign this study run to a different group. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the reassigning.
 
-* _param {optional Function} onSuccess_ - Function to be called if the reassignment was successful
-* _param {optional Function} onFail_ - Function to be called if the reassignment was unsuccessful
+* _@param {optional Function} onSuccess_ - Function to be called if the reassignment was successful
+* _@param {optional Function} onFail_ - Function to be called if the reassignment was unsuccessful
 * _@return {jQuery.deferred.promise}_
 
 ### ~~`jatos.setGroupSessionData(groupSessionData, onError)`~~
@@ -402,15 +403,15 @@ Asks the JATOS server to reassign this study run to a different group. It offers
 
 ~~Sends the group session data via the group channel to the JATOS server where it's stored and broadcasted to all members of this group. It either takes an Object as parameter or uses _jatos.groupSessionData_ if the groupSessionData isn't provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the _onError_ callback. In this way it is more reliable but slower compared to _jatos.sendGroupMsg_ or _jatos.sendGroupMsgTo_. Since the group session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.~~
 
-* ~~_param {optional Object} groupSessionData_ - An object in JSON; If it's not given take _jatos.groupSessionData_~~
-* ~~_param {optional Object} onError_ - Function to be called if this upload was unsuccessful~~
+* ~~_@param {optional Object} groupSessionData_ - An object in JSON; If it's not given take _jatos.groupSessionData_~~
+* ~~_@param {optional Object} onError_ - Function to be called if this upload was unsuccessful~~
 
 ### `jatos.setGroupFixed()`
 
 Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave.It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the fixing.
 
-* _param {optional Function} onSuccess_ - Function to be called if the fixing was successful
-* _param {optional Function} onFail_ - Function to be called if the fixing was unsuccessful
+* _@param {optional Function} onSuccess_ - Function to be called if the fixing was successful
+* _@param {optional Function} onFail_ - Function to be called if the fixing was unsuccessful
 * _@return {jQuery.deferred.promise}_
 
 ### `jatos.hasJoinedGroup()`
