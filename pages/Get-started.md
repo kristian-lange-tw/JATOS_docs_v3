@@ -7,14 +7,14 @@ sidebar: mydoc_sidebar
 permalink: Get-started.html
 folder:
 toc: false
-last_updated: 28 Dec 2016
+last_updated: 28 Apr 2017
 ---
 
 ### Get started in 4 steps
 
-1. **Download JATOS and [install a local instance](Installation.html#easy-installation-on-your-local-computer)**
+1. **Download JATOS and [install a local instance](Installation.html)**
 
-1. **Open JATOS' GUI by going to <a href="http://localhost:9000/" target="_blank">http://localhost:9000/</a> in your browser window**
+1. **Open JATOS' GUI by going to [http://localhost:9000/jatos/login](http://localhost:9000/jatos/login) in your browser window**
 
 1. **Download and import an example study**
 
@@ -33,7 +33,7 @@ last_updated: 28 Dec 2016
    * To see whole-study results, click on the **Results** button on the top of the page.
    * To see results from individual components, click on the **Results** buttons on each component's row.
 
-   You can see each result's details be clicking on the little arrow to the left of its row.
+   For example, you can see each result's details by clicking on the little arrow to the left of its row ([more information on how to mangage results](Manage-results.html)).
 
    _Here's a screenshot of a study's results view:_
 

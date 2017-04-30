@@ -169,22 +169,22 @@
 
 
 {
-"title": "Mandatory lines in your components&#39; HTML",
+"title": "Manage results",
 "tags": "",
-"keywords": "mandatory, HTML, jatos.js",
-"url": "Mandatory-lines-in-your-components-HTML.html",
-"summary": ""
+"keywords": "results",
+"url": "Manage-results.html",
+"summary": "The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g. worker ID, start time etc.)."
 }
 ,
 
 
 
 {
-"title": "Results",
+"title": "Mandatory lines in your components&#39; HTML",
 "tags": "",
-"keywords": "results",
-"url": "Results.html",
-"summary": "The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g. worker ID, start time etc.)."
+"keywords": "mandatory, HTML, jatos.js",
+"url": "Mandatory-lines-in-your-components-HTML.html",
+"summary": ""
 }
 ,
 
@@ -202,10 +202,10 @@
 
 
 {
-"title": "Set up your own studies",
+"title": "Session Data - Three Types",
 "tags": "",
-"keywords": "create, import, export",
-"url": "Set-up-your-own-studies.html",
+"keywords": "session data, Study Session, group session, batch session",
+"url": "Session-Data-Three-Types.html",
 "summary": ""
 }
 ,
@@ -213,10 +213,10 @@
 
 
 {
-"title": "Three Types of Session Data",
+"title": "Set up your own studies",
 "tags": "",
-"keywords": "session data, Study Session, group session, batch session",
-"url": "Three-Types-of-Session-Data.html",
+"keywords": "create, import, export",
+"url": "Set-up-your-own-studies.html",
 "summary": ""
 }
 ,
@@ -239,17 +239,6 @@
 "tags": "",
 "keywords": "troubleshooting, logging, log, test, error, fail",
 "url": "Troubleshooting.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "Two Types of Session Data",
-"tags": "",
-"keywords": "session data, Study Session, group session",
-"url": "Two-Types-of-Session-Data.html",
 "summary": ""
 }
 ,

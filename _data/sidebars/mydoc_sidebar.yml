@@ -43,25 +43,13 @@ entries:
       url: /Set-up-your-own-studies.html
       output: web, pdf
 
-  - title: Beyond the basics
+    - title: Data Privacy and Ethics
+      url: /Data-Privacy-and-Ethics.html
+      output: web, pdf
+
+  - title: Write your study
     output: web, pdf
     folderitems:
-
-    - title: Run your Study with Batch Manager & Worker Setup
-      url: /Run-your-Study-with-Batch-Manager-and-Worker-Setup.html
-      output: web, pdf
-
-    - title: Worker Types
-      url: /Worker-Types.html
-      output: web, pdf
-      
-    - title: Results
-      url: /Results.html
-      output: web, pdf
-
-    - title: Three Types of Session Data
-      url: /Three-Types-of-Session-Data.html
-      output: web, pdf
 
     - title: Mandatory lines in your components' HTML
       url: /Mandatory-lines-in-your-components-HTML.html
@@ -75,17 +63,37 @@ entries:
       url: /jsPsych-and-JATOS.html
       output: web, pdf
 
+    - title: Session Data - Three Types
+      url: /Session-Data-Three-Types.html
+      output: web, pdf
+
     - title: Tips & Tricks
       url: /Tips-and-Tricks.html
+      output: web, pdf
+
+  - title: Run your study
+    output: web, pdf
+    folderitems:
+
+    - title: Run your Study with Batch Manager & Worker Setup
+      url: /Run-your-Study-with-Batch-Manager-and-Worker-Setup.html
+      output: web, pdf
+
+    - title: Worker Types
+      url: /Worker-Types.html
       output: web, pdf
 
     - title: Connect to Mechanical Turk
       url: /Connect-to-Mechanical-Turk.html
       output: web, pdf
 
-    - title: Troubleshooting
-      url: /Troubleshooting.html
+    - title: Manage results
+      url: /Manage-results.html
       output: web, pdf
+
+  - title: Manage your JATOS
+    output: web, pdf
+    folderitems:
       
     - title: Manage JATOS users
       url: /User-Manager.html
@@ -94,9 +102,9 @@ entries:
     - title: Update JATOS
       url: /Update-JATOS.html
       output: web, pdf
-
-    - title: Data Privacy and Ethics
-      url: /Data-Privacy-and-Ethics.html
+ 
+    - title: Troubleshooting
+      url: /Troubleshooting.html
       output: web, pdf
 
   - title: Group Studies

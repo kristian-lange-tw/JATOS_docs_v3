@@ -1,10 +1,10 @@
 ---
-title: Results
+title: Manage results
 keywords: results
 tags:
 summary: The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g. worker ID, start time etc.). 
 sidebar: mydoc_sidebar
-permalink: Results.html
+permalink: Manage-results.html
 folder:
 toc: true
 last_updated: 3 Mar 2017

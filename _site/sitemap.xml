@@ -116,13 +116,13 @@
   
   
   <url>
-    <loc>http://localhost:4000/Mandatory-lines-in-your-components-HTML.html</loc>
+    <loc>http://localhost:4000/Manage-results.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/Results.html</loc>
+    <loc>http://localhost:4000/Mandatory-lines-in-your-components-HTML.html</loc>
   </url>
   
   
@@ -134,13 +134,13 @@
   
   
   <url>
-    <loc>http://localhost:4000/Set-up-your-own-studies.html</loc>
+    <loc>http://localhost:4000/Session-Data-Three-Types.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://localhost:4000/Three-Types-of-Session-Data.html</loc>
+    <loc>http://localhost:4000/Set-up-your-own-studies.html</loc>
   </url>
   
   
@@ -153,12 +153,6 @@
   
   <url>
     <loc>http://localhost:4000/Troubleshooting.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/Two-Types-of-Session-Data.html</loc>
   </url>
   
   

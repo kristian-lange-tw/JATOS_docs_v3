@@ -67,7 +67,7 @@ There's a convenient function that adds all these IDs to a given object. See fun
 
 ### Study's session data
 
-The session data can be accessed and modified by every component of a study. It's a very convenient way to share data between different components. Whatever is written in this variable will be available in the subsequent components. However, remember that the session data will be deleted after the study is finished (see also [Three Types of Session Data](Three-Types-of-Session-Data.html)).
+The session data can be accessed and modified by every component of a study. It's a very convenient way to share data between different components. Whatever is written in this variable will be available in the subsequent components. However, remember that the session data will be deleted after the study is finished (see also [Session Data - Three Types](Session-Data-Three-Types.html)).
 
 * `jatos.studySessionData`
 
@@ -98,7 +98,7 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 
 **Removed** - As of JATOS v3 the group session data can be accessed via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
 
-~~* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Three Types of Session Data](Three-Types-of-Session-Data.html))~~
+~~* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Session Data - Three Types](Session-Data-Three-Types.html))~~
 
 
 ### Other variables
@@ -227,7 +227,7 @@ Posts study session data to the JATOS server. This function is called automatica
 
 ## Functions to access the batch session
 
-The batch session is stored in JATOS' database on the server side. That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
+The batch session is stored in JATOS' database on the server side (see also [Session Data - Three Types](Session-Data-Three-Types.html)). That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
 
 On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
 
@@ -436,7 +436,7 @@ Returns true if all active members of the group have an open group channel. It's
 
 ## Functions to access the group session
 
-The group session is one of three way to communicate between members of a group. The others are direct messaging (with [jatos.sendGroupMsgTo](#jatossendgroupmsgtorecipient-msg)) and broadcast messaging ([jatos.sendGroupMsg](#jatossendgroupmsgmsg)).
+The group session is one of three way to communicate between members of a group (see also [Session Data - Three Types](Session-Data-Three-Types.html)). The others are direct messaging (with [jatos.sendGroupMsgTo](#jatossendgroupmsgtorecipient-msg)) and broadcast messaging ([jatos.sendGroupMsg](#jatossendgroupmsgmsg)).
 
 In difference to the [batch session](#functions-to-access-the-batch-session) the group session doesn't work from the start of a component. To use the group session you have to join a group ([with jatos.joinGroup](#jatosjoingroupcallbacks)). There you can also define a `onGroupSession` callback that gets called each time the group session changes regardless of the origin of the change.
 

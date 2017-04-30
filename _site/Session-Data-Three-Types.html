@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" session data, Study Session, group session">
-<title>Two Types of Session Data | JATOS v3 Documentation</title>
+<meta name="keywords" content=" session data, Study Session, group session, batch session">
+<title>Session Data - Three Types | JATOS v3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Two Types of Session Data">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Session Data - Three Types">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -205,41 +205,20 @@
             
             
             
+            
+            
+            <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+            
+            
+            
+            
         </ul>
         
         
     
     <li>
-        <a href="#">Beyond the basics</a>
+        <a href="#">Write your study</a>
         <ul>
-            
-            
-            
-            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Batch Manager & Worker Setup</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Worker-Types.html">Worker Types</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Results.html">Results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Three-Types-of-Session-Data.html">Three Types of Session Data</a></li>
-            
-            
-            
             
             
             
@@ -264,7 +243,36 @@
             
             
             
+            <li class="active"><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+            
+            
+            
+            
+            
+            
             <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Run your study</a>
+        <ul>
+            
+            
+            
+            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Batch Manager & Worker Setup</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Worker-Types.html">Worker Types</a></li>
             
             
             
@@ -278,10 +286,18 @@
             
             
             
-            <li><a href="Troubleshooting.html">Troubleshooting</a></li>
+            <li><a href="Manage-results.html">Manage results</a></li>
             
             
             
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Manage your JATOS</a>
+        <ul>
             
             
             
@@ -299,7 +315,7 @@
             
             
             
-            <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+            <li><a href="Troubleshooting.html">Troubleshooting</a></li>
             
             
             
@@ -424,7 +440,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Two Types of Session Data</h1>
+   <h1 class="post-title-main">Session Data - Three Types</h1>
 </div>
 
 
@@ -438,32 +454,73 @@
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/master/pages//Two-Types-of-Session-Data.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/master/pages//Session-Data-Three-Types.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <p>Often you want to store information during a study run and share it with other components of the same study, or - if it is a group study - within the group. For this JATOS provides the Session Data. There are two different Session Data types, both of which are stored <strong>temporarily</strong> in your database, and will be deleted once they are no longer in use.</p>
+  <p>Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. For this purpose, use one of the three different Session Data types available.</p>
 
-<p>The difference between session data and the result data is that the results are stored <strong>permanently</strong> in the database, and will stay there after the study is finished. All results should therefore go into the result data.</p>
+<p>Unlike the session data, the <strong>Result Data</strong> are stored <strong>permanently</strong> in the JATOS server, and will never be deleted automatically. So, store any information that might be useful for data analysis in the result data.</p>
 
-<h3 id="study-session-data">Study Session Data</h3>
+<p>Unlike the <strong>JSON Input Data</strong> workers can write into the session data through jatos.js. They can only read the JSON input data. The JSON input data is set by the experimenter in JATOS’ GUI and typically used to configure the study.</p>
 
-<p>The Study Session Data is useful to share information between components of a given study. Some examples include:</p>
+<h3 id="comparative-overview">Comparative Overview</h3>
 
-<ul>
-  <li>Sending information about percentage of correct responses in component 1 to component 2.</li>
-  <li>Having a study-wide progress bar, showing how much of the entire study has been completed.</li>
-  <li>Keeping track of the number of iterations of a given component that is repeated.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Batch session    </th>
+      <th>Group Session    </th>
+      <th>Study Session</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Scope (accesible by)</strong></td>
+      <td>All workers in a batch</td>
+      <td>All workers in a group</td>
+      <td>All components in a study</td>
+    </tr>
+    <tr>
+      <td><strong>Usage</strong></td>
+      <td>Exchange and store data relevant for all members of a batch</td>
+      <td>Exchange and temporarily store data relevant for all members of a group</td>
+      <td>Exchange and temporarily store data between components of a single study run</td>
+    </tr>
+    <tr>
+      <td><strong>Example use</strong></td>
+      <td>(Pseudo-)randomly assign conditions to different workers; Combine results from different groups working in the same batch</td>
+      <td>Store choices of the two members of a Prisoner’s Dilemma game</td>
+      <td>Pass on correct answers between components; Keep track of the number of iterations of a given component that is repeated</td>
+    </tr>
+    <tr>
+      <td><strong>Lifetime</strong></td>
+      <td>Survives after all workers finished their studies</td>
+      <td>Automatically deleted once the group is finished</td>
+      <td>Deleted once the worker finished the study - Hence temporary</td>
+    </tr>
+    <tr>
+      <td><strong>Updated when and via</strong></td>
+      <td>Any time you call one of the <a href="jatos.js-Reference.html#functions-to-access-the-batch-session">jatos.batchSession funtions</a></td>
+      <td>Any time you call one of the <a href="jatos.js-Reference.html#functions-to-access-the-group-session">jatos.groupSession funtions</a></td>
+      <td>At the end of each component or if you call <a href="jatos.js-Reference.html#jatossetstudysessiondatasessiondata-complete">jatos.setStudySessionData</a></td>
+    </tr>
+    <tr>
+      <td><strong>Visible from JATOS’ GUI</strong></td>
+      <td><img src="images/ok-24.ico" alt="yes" /></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
+    </tr>
+    <tr>
+      <td><strong>Requires WebSockets</strong></td>
+      <td><img src="images/ok-24.ico" alt="yes" /></td>
+      <td><img src="images/ok-24.ico" alt="yes" /></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
+    </tr>
+  </tbody>
+</table>
 
-<h3 id="group-session-data">Group Session Data</h3>
-
-<p>The Group Session Data is useful to share information between members of a given group. Some examples include:</p>
-
-<ul>
-  <li>Responses to each trial in a group study like the Prisoner’s Dilemma</li>
-  <li>gender of group members</li>
-</ul>
 
 
     <div class="tags">
@@ -479,7 +536,7 @@
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 28 Dec 2016
+<span>Page last updated:</span> 27 April 2017
                 </div>
             </div>
 </footer>
