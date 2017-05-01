@@ -106,7 +106,7 @@ This mobile-friendly example just has an introduction component that includes a 
 
 **Needs JATOS version 2.1.7 or newer**
 
-[Download Preview Showcase (Introduction with Consent)](https://github.com/JATOS/JATOS_examples/raw/master/examples/preview_showcase_(introduction_with_consent).zip)
+[Download Consent Form and Introduction with Preview Feature](https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form_and_introduction_with_preview_feature.zip)
 
 
 ### 2048 Game
