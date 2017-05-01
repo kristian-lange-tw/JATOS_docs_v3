@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: true
-last_updated: 30 Dec 2016
+last_updated: 1 May 2017
 ---
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
@@ -37,6 +37,18 @@ This study illustrates the compatibility between JATOS and the excellent **jsPsy
 
 [Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych).zip)
 
+
+### Randomize conditions between participants (Go- / No-Go Task)
+
+Standard Go- / No-Go experiment with two different conditions. Half of the participants are assigned to condition A, the other half to condition B. Uses the Batch Session. 
+
+![Screenshot Go- / No-Go Task](images/example-studies/Screenshot_gonogo.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download Randomization with Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(randomize_between_workers).zip)
+
+
 ### Lexical Decision (with jsPsych 5.0.3)
 
 Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsych** library ([www.jspsych.org](http://www.jspsych.org/))
@@ -65,6 +77,37 @@ Shows how to embed a video with HTML 5 by using the browsers video player, YouTu
 **Needs JATOS version 1.1.11 or newer**
 
 [Download Video Example study](https://github.com/JATOS/JATOS_examples/raw/master/examples/video_example_study.zip)
+
+### Results in CSV Format Example
+
+Simple example of how to store results in CSV format
+
+![Screenshot Results in CSV Format Example](images/example-studies/Screenshot_csv_example.png){:width="300"}
+
+**Needs JATOS version 2.1.7 or newer**
+
+[Download Results as CSV Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/results_as_csv_example.zip)
+
+### Simple Consent Form
+
+Simple example of a consent form with text and buttons 'I agree' and 'Cancel'.
+
+![Screenshot Simple Consent Form](images/example-studies/Screenshot_consent_form.png){:width="300"}
+
+**Needs JATOS version 2.1.7 or newer**
+
+[Download Consent Form](https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form.zip)
+
+### Consent Form and Introduction with Preview Feature
+
+This mobile-friendly example just has an introduction component that includes a consent text. With pressing the start button the worker gives his consent. This is also a good showcase for the [JATOS' preview feature](Worker-Types.html#preview-links). 
+
+![Screenshot Preview Showcase (Introduction with Consent)](images/example-studies/Screenshot_preview_showcase.png){:width="300"}
+
+**Needs JATOS version 2.1.7 or newer**
+
+[Download Preview Showcase (Introduction with Consent)](https://github.com/JATOS/JATOS_examples/raw/master/examples/preview_showcase_(introduction_with_consent).zip)
+
 
 ### 2048 Game
 
@@ -138,49 +181,26 @@ Example how to use interact.js (http://interactjs.io/) to achieve draggable elem
 
 [Download Potato Compass Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/potato_compass.zip)
 
-### Simple Consent Form
-
-Simple example of a consent form with text and buttons 'I agree' and 'Cancel'.
-
-![Screenshot Simple Consent Form](images/example-studies/Screenshot_consent_form.png){:width="300"}
-
-**Needs JATOS version 2.1.7 or newer**
-
-[Download Consent Form](https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form.zip)
-
-### Preview Showcase (Introduction with Consent)
-
-This mobile-friendly example just has an introduction component that includes a consent text. With pressing the start button the worker gives his consent. This is also a good showcase for the [JATOS' preview feature](Worker-Types.html#preview-links). 
-
-![Screenshot Preview Showcase (Introduction with Consent)](images/example-studies/Screenshot_preview_showcase.png){:width="300"}
-
-**Needs JATOS version 2.1.7 or newer**
-
-[Download Preview Showcase (Introduction with Consent)](https://github.com/JATOS/JATOS_examples/raw/master/examples/preview_showcase_(introduction_with_consent).zip)
-
-### Results in CSV Format Example
-
-Simple example of how to store results in CSV format
-
-![Screenshot Results in CSV Format Example](images/example-studies/Screenshot_csv_example.png){:width="300"}
-
-**Needs JATOS version 2.1.7 or newer**
-
-[Download Results as CSV Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/results_as_csv_example.zip)
-
-
-
-# Group Study Examples    
 
 ### Group Chat
 
-Let members of a group study talk to each other: Here is a chat example.
+Let members of a group study talk to each other: Here is a chat example. It uses the group session. 
 
 ![Screenshot Group Chat](images/example-studies/Screenshot_chat.png){:width="300"}
 
-**Needs JATOS version 2.1.12 or newer**
+**Needs JATOS version 3.1.1 or newer**
 
 [Download Group Chat example](https://github.com/JATOS/JATOS_examples/raw/master/examples/group_chat.zip)
+
+### Batch Chat
+
+Let members of a batch talk to each other: Here is a chat example. It uses the batch session. 
+
+![Screenshot Group Chat](images/example-studies/Screenshot_chat.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download Batch Chat example](https://github.com/JATOS/JATOS_examples/raw/master/examples/batch_chat.zip)
 
 ### Prisoner's Dilemma
 
@@ -188,7 +208,7 @@ This is an implementation of the [Prisoner's Dilemma](https://en.wikipedia.org/w
 
 ![Screenshot Prisoner's Dilemma](images/example-studies/Screenshot_prisonersDilemma.png){:width="300"}
 
-**Needs JATOS version 2.1.1 or newer**
+**Needs JATOS version 3.1.1 or newer**
 
 [Download Prisoner's Dilemma example](https://github.com/JATOS/JATOS_examples/raw/master/examples/prisoner's_dilemma.zip)
 
