@@ -17,7 +17,7 @@ There are two ways to create a new study:
 
 1. from scratch by pressing the **New Study** button in the header of each JATOS page. Then edit the study properties and add new components manually.
 
-2. take an existing study (e.g. from [Example Studies](http://v3    .jatos.org/Example-Studies.html)) as a prototype and modify it bit by bit. We recommend you start with this to get a quick idea of how JATOS works. Just import an existing study (e.g. one from the study examples) and clone it by clicking on More --> Clone in the study bar.
+2. take an existing study (e.g. from [Example Studies](Example-Studies.html)) as a prototype and modify it bit by bit. We recommend you start with this to get a quick idea of how JATOS works. Just import an existing study (e.g. one from the study examples) and clone it by clicking on More --> Clone in the study bar.
 
 ### Write your own studies in JavaScript
 The most difficult part - though it's still easy! - is to learn to write your own study component scripts, using HTML, CSS and JavaScripts. Or, instead of reinventing the wheel, you could use a framework like jsPsych that helps you with this (see [jsPsych and JATOS](jsPsych-and-JATOS.html)).
