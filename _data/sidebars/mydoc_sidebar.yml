@@ -67,10 +67,6 @@ entries:
       url: /Session-Data-Three-Types.html
       output: web, pdf
 
-    - title: Tips & Tricks
-      url: /Tips-and-Tricks.html
-      output: web, pdf
-
   - title: Run your study
     output: web, pdf
     folderitems:
@@ -89,6 +85,10 @@ entries:
 
     - title: Manage results
       url: /Manage-results.html
+      output: web, pdf
+      
+    - title: Tips & Tricks
+      url: /Tips-and-Tricks.html
       output: web, pdf
 
   - title: Manage your JATOS
