@@ -27,5 +27,5 @@ Unlike the **JSON Input Data** workers can write into the session data through j
 | **Updated when and via** | Any time you call one of the [jatos.batchSession funtions](jatos.js-Reference.html#functions-to-access-the-batch-session) | Any time you call one of the [jatos.groupSession funtions](jatos.js-Reference.html#functions-to-access-the-group-session) | At the end of each component or if you call [jatos.setStudySessionData](jatos.js-Reference.html#jatossetstudysessiondatasessiondata-complete) |
 | **Visible and editable from JATOS' GUI** | ![yes](images/ok-24.ico) | ![no](images/x-24.ico) | ![no](images/x-24.ico) |
 | **Requires WebSockets** | ![yes](images/ok-24.ico) | ![yes](images/ok-24.ico) | ![no](images/x-24.ico) |
-| **Included in expoerted studies** | ![no](images/x-24.ico) | ![no](images/x-24.ico) | ![no](images/x-24.ico) |
+| **Included in exported studies** | ![no](images/x-24.ico) | ![no](images/x-24.ico) | ![no](images/x-24.ico) |
 
