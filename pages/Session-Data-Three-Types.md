@@ -14,7 +14,7 @@ Often you want to store information during a study run and share it with other c
 
 Unlike the session data, the **Result Data** are stored **permanently** in the JATOS server, and will never be deleted automatically. So, store any information that might be useful for data analysis in the result data.
 
-Unlike the **JSON Input Data** workers can write into the session data through jatos.js. They can only read the JSON input data. The JSON input data is set by the experimenter in JATOS' GUI and typically used to configure the study.
+Unlike the **JSON Input Data** workers can write into the session data through jatos.js. They can only read the JSON input data. The JSON input data is set by the experimenter in JATOS' GUI and typically used to configure the study. Another difference is that the JSON Input Data are exported/imported together with a study - but not the session data.
 
 ### Comparative Overview
 

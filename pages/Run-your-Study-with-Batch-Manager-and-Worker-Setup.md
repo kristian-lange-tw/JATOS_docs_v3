@@ -32,23 +32,21 @@ Batches are organized in the Batch Manager. Here you can create and delete batch
 
 Each study comes with a 'Default' batch.
 
-![Batch manager screenshot](images/batch manager.png)
+![Batch manager screenshot](images/batch_manager.png)
 
 ### Batch Properties
 
 For each batch, you can limit the maximum number of workers that will ever be able to run a study in this batch by setting the **Maximum Total Workers**.
 
-![Batch manager screenshot](images/Batch Max worker types.png)
+![Batch manager screenshot](images/batch_properties.png)
 
 Additionally you can switch on or off worker types in the **Allowed Worker Types**. Forbidden worker types are not able to run a study. Always check before you send out links to study runs that the corresponding worker types are switched on. You can do the same in the Worker Setup.
-
-![Worker types](images/Batch Max total workers.png)
 
 The **Group Properties** relate to [group studies](Group-Study-Properties.html).
 
 ### Worker Setup
 
-![Worker types](images/Worker types screenshot.png)
+![Worker types](images/worker_setup.png)
 
 This is the place where you generate the links to study runs for most of your workers types (except for Jatos and MTurk). 
 

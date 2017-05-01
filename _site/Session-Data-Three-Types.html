@@ -462,7 +462,7 @@
 
 <p>Unlike the session data, the <strong>Result Data</strong> are stored <strong>permanently</strong> in the JATOS server, and will never be deleted automatically. So, store any information that might be useful for data analysis in the result data.</p>
 
-<p>Unlike the <strong>JSON Input Data</strong> workers can write into the session data through jatos.js. They can only read the JSON input data. The JSON input data is set by the experimenter in JATOS’ GUI and typically used to configure the study.</p>
+<p>Unlike the <strong>JSON Input Data</strong> workers can write into the session data through jatos.js. They can only read the JSON input data. The JSON input data is set by the experimenter in JATOS’ GUI and typically used to configure the study. Another difference is that the JSON Input Data are exported/imported together with a study - but not the session data.</p>
 
 <h3 id="comparative-overview">Comparative Overview</h3>
 
@@ -507,7 +507,7 @@
       <td>At the end of each component or if you call <a href="jatos.js-Reference.html#jatossetstudysessiondatasessiondata-complete">jatos.setStudySessionData</a></td>
     </tr>
     <tr>
-      <td><strong>Visible from JATOS’ GUI</strong></td>
+      <td><strong>Visible and editable from JATOS’ GUI</strong></td>
       <td><img src="images/ok-24.ico" alt="yes" /></td>
       <td><img src="images/x-24.ico" alt="no" /></td>
       <td><img src="images/x-24.ico" alt="no" /></td>
@@ -516,6 +516,12 @@
       <td><strong>Requires WebSockets</strong></td>
       <td><img src="images/ok-24.ico" alt="yes" /></td>
       <td><img src="images/ok-24.ico" alt="yes" /></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
+    </tr>
+    <tr>
+      <td><strong>Included in exported studies</strong></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
+      <td><img src="images/x-24.ico" alt="no" /></td>
       <td><img src="images/x-24.ico" alt="no" /></td>
     </tr>
   </tbody>
@@ -536,7 +542,7 @@
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 27 April 2017
+<span>Page last updated:</span> 1 May 2017
                 </div>
             </div>
 </footer>

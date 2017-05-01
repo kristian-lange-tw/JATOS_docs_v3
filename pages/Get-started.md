@@ -37,7 +37,7 @@ last_updated: 28 Apr 2017
 
    _Here's a screenshot of a study's results view:_
 
-   ![GUI screenshot](images/Results Screenshot.png)
+   ![Results View screenshot](images/ResultsView Screenshot.png)
 
 ### Explore
 
