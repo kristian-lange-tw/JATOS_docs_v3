@@ -24,7 +24,7 @@ This is the Documentation for JATOS 3 - Are you looking for the docs of [JATOS 2
 * Manage workers, to e.g. make sure that each participant does your study only once.
 * **Export/Import** studies to facilitate exchange with other researchers.
 
-The whole documentation is available as <a target="_blank" class="noCrossRef" href="https://github.com/JATOS/JATOS_docs/raw/gh-pages/pdf/jatos-docs.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
+The whole documentation is available as <a target="_blank" class="noCrossRef" href="https://github.com/JATOS/JATOS_docs_v3/raw/gh-pages/pdf/jatos-docs.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
 
 Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130834) if you use JATOS for your research.
 
