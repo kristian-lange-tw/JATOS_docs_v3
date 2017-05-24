@@ -6,7 +6,7 @@ summary:
 sidebar: mydoc_sidebar
 permalink: Whats-JATOS.html
 toc: false
-last_updated: 28 Dec 2016
+last_updated: 24 May 2017
 ---
 
 JATOS (Just Another Tool for Online Studies) helps you set up and run your online studies on your own server.
