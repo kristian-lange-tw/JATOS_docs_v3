@@ -19,7 +19,7 @@ You will need:
 
 The steps to create a project are part of the MTurk interface. 
 
-1. Create --> New Project --> Other --> Create Project
+1. Create --> New Project --> Survey Link --> Create Project
 
 1. Complete the 'Enter Properties' tab
 
@@ -36,6 +36,8 @@ The steps to create a project are part of the MTurk interface.
 1. You'll see a box with HTML code, similar to the one shown here. Copy paste the code from JATOS to the MTurk source section. 
 
    ![JATOS GUI screenshot](images/Screenshot from 2016-03-09 21:31:57.png)
+
+1. This HTML code works out-of-the-box and you don't have to change anything (but you can if you want).
 
 1. Back in MTurk click on the 'Source' button again, and continue setting up your study in MTurk. 
  
