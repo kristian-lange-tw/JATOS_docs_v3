@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Session-Data-Three-Types.html
 folder:
 toc: false
-last_updated: 1 May 2017
+last_updated: 2 June 2017
 ---
 
 Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. For this purpose, use one of the three different Session Data types available.
