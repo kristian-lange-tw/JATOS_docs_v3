@@ -35,7 +35,7 @@ In the example study [study__group__and_batch_session](Example-Studies.html#stud
 
 1. Download and import the study. You'll find that the study contains two components: "First" and "Second". 
 1. Run the study once as a JATOS user (just click 'Run' on the study bar, not on any of the component bars).
-1. The first component will prompt you for your name. It will then write the name you enter here into the **Study session data**. Because all components have access to the Study session data, the second component can read it and use your name in a chat window. 
+1. The first component will prompt you for your name. It will then write the name you enter here into the **Study session data**. Because all components have access to the Study session data, the second component can read it and use your name in a chat window.
 ![First component Screenshot](images/ChatExample_1.png)
 1. When you click on 'Next', the second component will load. Here you will see two chat windows. The left one is called the Group chat because it uses the Group session data; the right one is called Batch chat because it uses the Batch session data. For now you're alone in these chat rooms. So, without closing this run and from a new browser tab, run the study **2 more times (at least)**. You can choose any worker type you want. Additional runs with the JATOS worker will work but you can also [get links](Run-your-Study-with-Batch-Manager-and-Worker-Setup.html#worker-setup) to other worker types.
 ![Second component Screenshot](images/ChatExample_2.png)
