@@ -37,7 +37,6 @@ This study illustrates the compatibility between JATOS and the excellent **jsPsy
 
 [Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych).zip)
 
-
 ### Randomize conditions between participants (Go- / No-Go Task)
 
 Standard Go- / No-Go experiment with two different conditions. Half of the participants are assigned to condition A, the other half to condition B. Uses the Batch Session. 
@@ -180,6 +179,15 @@ Example how to use interact.js (http://interactjs.io/) to achieve draggable elem
 
 [Download Potato Compass Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/potato_compass.zip)
 
+### Study, Group, and Batch Session Example Study
+
+In this example we show JATOS' three different session types in action.
+
+![Screenshot Study, Group, and Batch Session Example Study](images/example-studies/ChatExample_4.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download Study, Group, and Batch Session example](https://github.com/JATOS/JATOS_examples/raw/master/examples/study__group__and_batch_session.zip)
 
 ### Group Chat
 
