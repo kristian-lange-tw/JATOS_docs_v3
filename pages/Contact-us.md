@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Contact-us.html
 folder:
 toc: false
-last_updated: 28 Dec 2016
+last_updated: 24 May 2017
 ---
 
 JATOS is under active development, so please do get in touch to ask questions, suggest enhancements and report bugs. We really appreciate any contributions.

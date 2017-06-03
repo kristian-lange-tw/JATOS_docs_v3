@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: true
-last_updated: 1 May 2017
+last_updated: 24 May 2017
 ---
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
@@ -47,7 +47,6 @@ Standard Go- / No-Go experiment with two different conditions. Half of the parti
 **Needs JATOS version 3.1.1 or newer**
 
 [Download Randomization with Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-no-go_task_(randomize_between_workers).zip)
-
 
 ### Lexical Decision (with jsPsych 5.0.3)
 
