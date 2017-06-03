@@ -181,7 +181,7 @@ Example how to use interact.js (http://interactjs.io/) to achieve draggable elem
 
 ### Study, Group, and Batch Session Example Study
 
-In this example we show JATOS' three different session types in action (see [[Session Data Three Types]] for more information).
+In this example we show JATOS' three different session types in action (see [Session Data - Three Types](Session-Data-Three-Types.html) for more information).
 
 ![Screenshot Study, Group, and Batch Session Example Study](images/example-studies/ChatExample_4.png){:width="300"}
 
