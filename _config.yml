@@ -11,7 +11,7 @@ site_title: JATOS 3 Documentation
 company_name: JATOS
 # this appears in the footer
 
-github_editme_path: JATOS/JATOS_docs_v3/blob/master/
+github_editme_path: JATOS/JATOS_docs_v3/blob/gh-pages/
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
