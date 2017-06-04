@@ -92,7 +92,7 @@ Now JATOS starts automatically when you start your server and stops when you shu
 
 ### 8. [Optional] Backup
 
-The easiest way to backup is that JATOS's users care themselves for their data. JATOS has an easy to use [export function for result data](Manage-results.html). So you could just tell everyone to export their data regularily.
+The easiest way to backup is to let JATOS users care themselves for their own data. JATOS has an easy to use [export function for result data](Manage-results.html). So you could just tell everyone to export their data regularily.
 
 But if you want to set up a regular backup of the data stored in JATOS here are the necessary steps. Those data consists of two parts (1.) the data stored in the database and (2.) your study assets folder that contains all the web files (e.g. HTML, JavaScript, images). Both have to be backed up to be able to restore them later on.
 
