@@ -450,6 +450,29 @@
    
 
     
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
 
 
     
@@ -458,11 +481,17 @@
 
     
 
-  <p>Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. For this purpose, use one of the three different session types available.</p>
+  <h3 id="when-to-use">When to use?</h3>
 
-<p>Unlike the session, the <strong>Result Data</strong> are stored <strong>permanently</strong> in the JATOS server, and will never be deleted automatically. So, store any information that might be useful for data analysis in the result data.</p>
+<p><img align="right" src="images/three_sessions_types.png" /></p>
 
-<p>Unlike the <strong>JSON Input Data</strong> workers can write into the session through jatos.js. They can only read the JSON Input data. The JSON Input data is set by the experimenter in JATOS’ GUI and typically used to configure the study. Another difference is that the JSON Input Data are exported/imported together with a study - but not the session.</p>
+<p>Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. The three different session types let you transfer data in this way (shown by the curved arrows in the picture on the right). Workers can write into the sessions through jatos.js.</p>
+
+<p>The data stored in the sessions are <strong>volatile</strong> - do not use the sessions to store data permanently. Instead, store any information that might be useful for data analysis in the <strong>Result Data</strong>. Unlike the data stored in the sessions, the Result Data are stored permanently in the JATOS server, and will never be deleted automatically.</p>
+
+<p>The data stored in the sessions are not exported or imported together with a study. If you want data to be exported with a study, use the  <strong>JSON Input Data</strong> instead.</p>
+
+<p><br clear="right" /></p>
 
 <h3 id="comparative-overview">Comparative Overview</h3>
 
@@ -571,7 +600,7 @@
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 2 June 2017
+<span>Page last updated:</span> 10 June 2017
                 </div>
             </div>
 </footer>

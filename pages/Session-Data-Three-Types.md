@@ -6,16 +6,21 @@ summary:
 sidebar: mydoc_sidebar
 permalink: Session-Data-Three-Types.html
 folder:
-toc: false
-last_updated: 2 June 2017
+toc: true
+last_updated: 10 June 2017
 ---
-<img align="right" src="images/jatos_session_2.png">
 
-Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. For this purpose, use one of the three different session types available.
+### When to use?
 
-Unlike the session, the **Result Data** are stored **permanently** in the JATOS server, and will never be deleted automatically. So, store any information that might be useful for data analysis in the result data.
+<img align="right" src="images/three_sessions_types.png">
 
-Unlike the **JSON Input Data** workers can write into the session through jatos.js. They can only read the JSON Input data. The JSON Input data is set by the experimenter in JATOS' GUI and typically used to configure the study. Another difference is that the JSON Input Data are exported/imported together with a study - but not the session.
+Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. The three different session types let you transfer data in this way (shown by the curved arrows in the picture on the right). Workers can write into the sessions through jatos.js.
+
+The data stored in the sessions are **volatile** - do not use the sessions to store data permanently. Instead, store any information that might be useful for data analysis in the **Result Data**. Unlike the data stored in the sessions, the Result Data are stored permanently in the JATOS server, and will never be deleted automatically.
+
+The data stored in the sessions are not exported or imported together with a study. If you want data to be exported with a study, use the  **JSON Input Data** instead. 
+
+<br clear="right" />
 
 ### Comparative Overview
 
