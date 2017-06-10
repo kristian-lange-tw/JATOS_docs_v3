@@ -127,7 +127,7 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: JATOS on a server
+    - title: Install JATOS on a server
       url: /JATOS-on-a-server.html
       output: web, pdf
       
@@ -143,16 +143,16 @@ entries:
       url: /JATOS-with-Apache.html
       output: web, pdf
 
+    - title: Updating a JATOS server installation
+      url: /Updating-a-JATOS-server-installation.html
+      output: web, pdf
+
     - title: Install JATOS via Docker
       url: /Install-JATOS-via-Docker.html
       output: web, pdf
 
     - title: JATOS in Amazon's Cloud (without Docker)
       url: /JATOS-in-Amazons-Cloud-without-Docker.html
-      output: web, pdf
-
-    - title: Updating a JATOS server installation
-      url: /Updating-a-JATOS-server-installation.html
       output: web, pdf
       
   - title: Reference

@@ -2,7 +2,7 @@
 title: Configure JATOS on a Server
 keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port
 tags:
-summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you probably will want to set up the IP and port, or use a different database and change the path of the study assets root folder.
+summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database and change the path of the study assets root folder.
 sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:

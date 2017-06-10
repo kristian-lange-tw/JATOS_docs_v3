@@ -1,6 +1,6 @@
 ---
-title: JATOS on a server
-keywords: server, installation, test, config, configuration
+title: Install JATOS on a server
+keywords: server, installation, test, config, configuration, backup, proxy
 tags:
 summary: To run studies online, e.g. with Mechanical Turk, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management.
 sidebar: mydoc_sidebar
