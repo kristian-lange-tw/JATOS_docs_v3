@@ -12,7 +12,7 @@ last_updated: 10 June 2017
 
 ### When to use?
 
-<img align="right" src="images/three_sessions_types.png">
+<img align="right" src="images/three_session_types.png">
 
 Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. The three different session types let you transfer data in this way (shown by the curved arrows in the picture on the right). Workers can write into the sessions through jatos.js.
 
