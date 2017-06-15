@@ -12,7 +12,7 @@ last_updated: 27 Apr 2017
 
 This is an example for a configuration of [Nginx](https://www.nginx.com/) as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it's common. It supports encryption (HTTPS) and WebSockets for JATOS' group studies. 
 
-The following is the content of `/etc/nginx/nginx.conf`. Change it to your needs. You probably want to change your servers address (`www.example.com` in the example) and the path to the SSL certificate and its key.
+The following is the content of `/etc/nginx/nginx.conf`. Change it to your needs. You probably want to change your servers address (`www.example.com` in the example) and the path to the SSL certificate and its key. Those `proxy_set_header X-Forwarded-*` and `proxy_set_header X-Real-IP` are necessary to tell JATOS the real requester's IP address.
 
 As an additional security measurement you can uncomment the `location /jatos` and config your local network. This will restrict the access to JATOS' GUI (every URL starting with `/jatos`) to the local network.
 
