@@ -12,6 +12,8 @@ last_updated: 24 May 2017
 
 JATOS is under active development, so please do get in touch to ask questions, suggest enhancements and report bugs. We really appreciate any contributions.
 
+We also conduct workshops: If you want us to give a lecture or workshop about JATOS and/or online studies in general contact us via email.
+
 ### GitHub issues
 
 If you would like to report a bug or suggest a new feature that could improve JATOS, you could write a [GitHub issue](https://github.com/JATOS/JATOS/issues).
