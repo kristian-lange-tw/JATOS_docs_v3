@@ -32,7 +32,7 @@ All those IDs are generated and stored by JATOS. jatos.js automatically sets the
 * `jatos.componentId` - ID of the component which is currently running. All the component properties are associated with this ID.
 * `jatos.batchId` - ID of the batch this study run belongs to. All batch properties are associated with this ID.
 * `jatos.workerId` - Each worker who is running a study has an ID.
-* `jatos.studyResultId` - This ID is individual for every study run. A study result contains data belonging to the run in general (e.g. study session).
+* `jatos.studyResultId` - This ID is individual for every study run. A study result contains data belonging to the run in general (e.g. Study Session).
 * `jatos.componentResultId` - This ID is individual for every component in a study run. A component result contains data of the run belonging to the specific component (e.g. result data).
 * `jatos.groupMemberId` - see [Group Variables](#group-variables)
 * `jatos.groupResultId` - see [Group Variables](#group-variables)
@@ -205,7 +205,7 @@ Ends study.
 * _@param {optional String} errorMsg_ - Error message that should be logged.
 
 
-## Functions for study session and result data
+## Functions for Study Session and result data
 
 ### `jatos.submitResultData(resultData, onSuccess, onError)`
 
@@ -218,7 +218,7 @@ Posts result data back to the JATOS server. It offers callbacks, either as param
 
 ### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`
 
-Posts study session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
 * _@param {Object} sessionData_ - Object to be submitted
 * _@param {optional Function} onSuccess_ - Function to be called after this function is finished
