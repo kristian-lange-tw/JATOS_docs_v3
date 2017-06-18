@@ -18,6 +18,8 @@ Note: If you are using a MySQL database and to be on the safe side in case somet
 
 As when [updating of a local JATOS installation](Update-JATOS.html) you have two options: 1. Keep your studies but discard all your result data and batches. 2. Keep everything, including your studies and result data (might not always be possible).
 
+After updating you can check the new JATOS installation with the test page `my-address/jatos/test` in the browser. All tests should be OK.
+
 ### First option: quick and dirty (discarding result data)
 
 You can just follow the [update instructions for the local installation](Update-JATOS.html#first-easy-way-discarding-your-result-data). If you use a mySQL database don't forget to [configure it with a clean and new one](Configure-JATOS-on-a-Server.html) (not the one from your old JATOS). Do not use the new JATOS with the old MySQL database unless you choose to keep your data, as described below.

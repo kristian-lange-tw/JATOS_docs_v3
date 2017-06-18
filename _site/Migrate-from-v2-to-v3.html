@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" session data, study session, group session, batch session">
-<title>Session Data - Three Types | JATOS 3 Documentation</title>
+<meta name="keywords" content=" migration, update, upgrade, version, JATOS 2">
+<title>Migrate from JATOS 2 to JATOS 3 | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Session Data - Three Types">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Migrate from JATOS 2 to JATOS 3">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -207,7 +207,7 @@
             
             
             
-            <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
+            <li class="active"><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
             
             
             
@@ -250,7 +250,7 @@
             
             
             
-            <li class="active"><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+            <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
             
             
             
@@ -447,7 +447,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Session Data - Three Types</h1>
+   <h1 class="post-title-main">Migrate from JATOS 2 to JATOS 3</h1>
 </div>
 
 
@@ -457,140 +457,42 @@
    
 
     
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-  // Handler for .ready() called.
-
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
-
-/* this offset helps account for the space taken up by the floating toolbar. */
-$('#toc').on('click', 'a', function() {
-  var target = $(this.getAttribute('href'))
-    , scroll_target = target.offset().top
-
-  $(window).scrollTop(scroll_target - 10);
-  return false
-})
-  
-});
-</script>
-
-<div id="toc"></div>
-
-    
 
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Session-Data-Three-Types.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Migrate-from-v2-to-v3.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <h3 id="when-to-use">When to use?</h3>
+  <p>Although JATOS 3 has some nice new features (like the batch session or the user manager) there is not much to do when it comes to update your local or your server JATOS installation. Your studies should work on JATOS 3 if they worked on JATOS 2 - unless you used the group session. The access to the group session changed together with the introduction of the batch session.</p>
 
-<p><img align="right" src="images/three_session_types.png" /></p>
+<h2 id="update-your-studies---changes-in-jatosjs">Update your studies - changes in jatos.js</h2>
 
-<p>Often you want to store information during a study run and share it with other components of the same study, or between workers of a group or batch. The three different session types let you transfer data in this way (shown by the curved arrows in the picture on the right). Workers can write into the sessions through jatos.js.</p>
+<p>Like mentioned the access to the <strong>group session</strong> changed quite a bit. We abolished the direct access to the group session data with <code class="highlighter-rouge">jatos.groupSessionData</code>. Now it can be accessed via several functions:  <code class="highlighter-rouge">jatos.groupSession.[functionName]</code>, e.g. <code class="highlighter-rouge">jatos.groupSession.get()</code> and <code class="highlighter-rouge">jatos.groupSession.set()</code>. More information can be found directly under the <a href="jatos.js-Reference.html#functions-to-access-the-group-session">jatos.js Reference / Functions to access the group session</a>, or in <a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a>, or in <a href="Session-Data-Three-Types.html">Session Data - Three Types</a>.</p>
 
-<p>The data stored in the sessions are <strong>volatile</strong> - do not use the sessions to store data permanently. Instead, store any information that might be useful for data analysis in the <strong>Result Data</strong>. Unlike the data stored in the sessions, the Result Data are stored permanently in the JATOS server, and will never be deleted automatically.</p>
+<p>Just a short example: Here is what you could do to make you JATOS 2 code run in JATOS 3 again. Although be aware that the group session offers much finer access with other functions. Additionally it’s recommended to use the callback / promise functions in case something fails.</p>
 
-<p>The data stored in the sessions are not exported or imported together with a study. If you want data to be exported with a study, use the  <strong>JSON Input Data</strong> instead.</p>
-
-<p><br clear="right" /></p>
-
-<h3 id="comparative-overview">Comparative Overview</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>Batch Session    </th>
-      <th>Group Session    </th>
-      <th>Study Session</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Scope (accesible by)</strong></td>
-      <td>All workers in a batch</td>
-      <td>All workers in a group</td>
-      <td>All components in a study</td>
-    </tr>
-    <tr>
-      <td><strong>Usage</strong></td>
-      <td>Exchange and store data relevant for all members of a batch</td>
-      <td>Exchange and temporarily store data relevant for all members of a group</td>
-      <td>Exchange and temporarily store data between components of a single study run</td>
-    </tr>
-    <tr>
-      <td><strong>Example use</strong></td>
-      <td>(Pseudo-)randomly assign conditions to different workers; Combine results from different groups working in the same batch</td>
-      <td>Store choices of the two members of a Prisoner’s Dilemma game</td>
-      <td>Pass on correct answers between components; Keep track of the number of iterations of a given component that is repeated</td>
-    </tr>
-    <tr>
-      <td><strong>Lifetime</strong></td>
-      <td>Survives after all workers finished their studies</td>
-      <td>Automatically deleted once the group is finished</td>
-      <td>Deleted once the worker finished the study - Hence temporary</td>
-    </tr>
-    <tr>
-      <td><strong>Updated when and via</strong></td>
-      <td>Any time you call one of the <a href="jatos.js-Reference.html#functions-to-access-the-batch-session">jatos.batchSession functions</a></td>
-      <td>Any time you call one of the <a href="jatos.js-Reference.html#functions-to-access-the-group-session">jatos.groupSession functions</a></td>
-      <td>At the end of each component or if you call <a href="jatos.js-Reference.html#jatossetstudysessiondatasessiondata-complete">jatos.setStudySessionData</a></td>
-    </tr>
-    <tr>
-      <td><strong>Visible and editable from JATOS’ GUI</strong></td>
-      <td><img src="images/ok-24.ico" alt="yes" /></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-    </tr>
-    <tr>
-      <td><strong>Requires WebSockets</strong></td>
-      <td><img src="images/ok-24.ico" alt="yes" /></td>
-      <td><img src="images/ok-24.ico" alt="yes" /></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-    </tr>
-    <tr>
-      <td><strong>Included in exported studies</strong></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-      <td><img src="images/x-24.ico" alt="no" /></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="example-study">Example Study</h3>
-
-<p>We have an <a href="Example-Studies.html#study-group-and-batch-session-example-study">example study</a>, where we show the three different session types in action. Try it yourself:</p>
-
-<ol>
+<ul>
   <li>
-    <p>Download and import the study. You’ll find that the study contains two components: “First” and “Second”.</p>
+    <p>Writing: <code class="highlighter-rouge">jatos.groupSessionData = myObject;</code> -&gt; <code class="highlighter-rouge">jatos.groupSession.setAll(myObject);</code></p>
   </li>
   <li>
-    <p>Run the study once: easiest is as a JATOS worker (just click ‘Run’ on the study bar, not on any of the component bars).</p>
+    <p>Reading: <code class="highlighter-rouge">var myObject = jatos.groupSessionData;</code> -&gt; <code class="highlighter-rouge">jatos.groupSession.getAll();</code></p>
   </li>
-  <li>
-    <p>The first component will prompt you for a name. It will then write the name you enter here into the <strong>Study Session</strong>. Because all components have access to the Study Session, the second component can read it and use your name in a chat window.</p>
+</ul>
 
-    <p><img src="images/ChatExample_1.png" alt="First component screenshot" /></p>
-  </li>
-  <li>
-    <p>When you click on ‘Next’, the second component will load. Here you will see two chat windows: The left one is called the group chat because it uses the Group Session; the right one is called batch chat because it uses the Batch Session. For now you’re alone in these chat rooms. So, without closing this run and from new browser tabs, <strong>run the study 2 more times (at least)</strong>. You can choose any worker type you want. Additional runs with the JATOS worker will work but you can also <a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html#worker-setup">use other worker types</a>.</p>
+<p>Another point to consider is that with JATOS 3 comes the <strong>batch session</strong> and things (like <a href="Example-Studies.html#randomize-conditions-between-participants-go---no-go-task">randomize conditions between participants</a>) that have been done with the group session can be done easier with the batch session now. Handling the batch session doesn’t involve joining a group first - the batch channel is opened automatically by jatos.js for you.</p>
 
-    <p><img src="images/ChatExample_2.png" alt="Second component screenshot" /></p>
-  </li>
-  <li>
-    <p>Now you have 3 simultaneous study runs. You will notice while writing into the group chat that two of your workers are in the same group - the third one has their own group. Why 2 per group? Because we <a href="Group-Study-Properties.html#group-settings-in-each-batchs-properties">set the groups to a maximum of 2 members each</a>. The group chat will use the <strong>Group Session</strong> to allow the 2 members of each group to communicate with each other. Members of other groups will not have access to the chats of this group. However, anything written into the <strong>Batch Session</strong> will be accesssible by all workers that are members of this batch, regardless of the group they’re in.</p>
+<h2 id="update-your-local-jatos-installation">Update your local JATOS installation</h2>
 
-    <p><img src="images/ChatExample_3.png" alt="Second component screenshot" />
-<img src="images/ChatExample_4.png" alt="Second component screenshot" /></p>
-  </li>
-</ol>
+<p>Just follow <a href="Update-JATOS.html">Update JATOS</a> - remember to stop JATOS and to make backups before doing anything.</p>
+
+<h2 id="update-your-server-jatos-installation">Update your server JATOS installation</h2>
+
+<p>Follow <a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a>.</p>
+
+<p>With JATOS 3 now it is mandatory to support <strong>WebSockets</strong> (otherwise the batch and group session wouldn’t work). So if you use a proxy in front of JATOS it has to be configured accordingly. You can find examples for <a href="JATOS-with-Apache.html">Apache</a> and <a href="JATOS-with-Nginx.html">Nginx</a> in this documentation.</p>
 
 
 
@@ -607,7 +509,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 10 June 2017
+<span>Page last updated:</span> 18 June 2017
                 </div>
             </div>
 </footer>

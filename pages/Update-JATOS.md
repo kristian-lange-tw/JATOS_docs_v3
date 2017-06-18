@@ -17,6 +17,8 @@ We'll periodically update JATOS with new features and bug fixes. We recommend yo
 
 To be absolutely safe you can install the new JATOS version and keep the old one untouched. This way you can switch back if something fails. Just remember that only one JATOS can run at the same time. Always end JATOS before starting another one.
 
+After updating you can check the new JATOS with the build-in test page [localhost:9000/jatos/test](http://localhost:9000/jatos/test) in the browser. All tests should be OK.
+
 You can update your local JATOS instance in two main ways:
  
 ### First, easy way: discarding your result data

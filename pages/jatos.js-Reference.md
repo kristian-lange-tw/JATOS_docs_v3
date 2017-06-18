@@ -437,7 +437,7 @@ Returns true if all active members of the group have an open group channel. It's
 
 ## Functions to access the group session
 
-The group session is one of three way to communicate between members of a group (see also [Session Data - Three Types](Session-Data-Three-Types.html)). The others are direct messaging (with [jatos.sendGroupMsgTo](#jatossendgroupmsgtorecipient-msg)) and broadcast messaging ([jatos.sendGroupMsg](#jatossendgroupmsgmsg)).
+The group session is one of three way to communicate between members of a group. The others are direct messaging (with [jatos.sendGroupMsgTo](#jatossendgroupmsgtorecipient-msg)) and broadcast messaging ([jatos.sendGroupMsg](#jatossendgroupmsgmsg)) (or: [more general information about the different session types](/Session-Data-Three-Types.html)).
 
 In difference to the [batch session](#functions-to-access-the-batch-session) the group session doesn't work from the start of a component. To use the group session you have to join a group ([with jatos.joinGroup](#jatosjoingroupcallbacks)). There you can also define a `onGroupSession` callback that gets called each time the group session changes regardless of the origin of the change.
 
