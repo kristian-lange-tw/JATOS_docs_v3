@@ -37,6 +37,6 @@ With JATOS 3 now requires (it's no longer optional) support for WebSockets (othe
 
 ## Keep your database with the update
 
-The schema of the database changed from JATOS 2 to JATOS 3. JATOS does this automatically. But keep in mind that this is irreversible: once JATOS updated the database it can't be used an JATOS 2 anymore. So always back up your database in a safe place before upgrading, in case anything goes wrong.
+The schema of the database changed from JATOS 2 to JATOS 3. JATOS does this automatically. But keep in mind that this is irreversible: once JATOS updated the database it can't be used in JATOS 2 anymore. So always back up your database in a safe place before upgrading, in case anything goes wrong.
 
 
