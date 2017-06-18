@@ -11,7 +11,7 @@ last_updated: 24 May 2017
 
 JATOS (Just Another Tool for Online Studies) helps you set up and run your online studies on your own server.
 
-This is the Documentation for JATOS 3 - Are you looking for the docs of [JATOS 2](http://v2.jatos.org/Whats-JATOS.html)?
+This is the documentation for JATOS 3 - Are you looking for the docs of [JATOS 2](http://v2.jatos.org/Whats-JATOS.html)?
 
 We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-v2-to-v3.html).
 
