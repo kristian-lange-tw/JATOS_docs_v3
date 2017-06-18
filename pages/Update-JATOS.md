@@ -10,7 +10,7 @@ toc: true
 last_updated: 27 Apr 2017
 ---
 
-For the [migration from JATOS 2 to 3](Migrate-from-v2-to-v3.html) we have an extra page with additional information about changes in jatos.js and maybe the JavaScript of your studies.
+**For the [migration from JATOS 2 to 3](Migrate-from-v2-to-v3.html) we have an extra page with additional information about changes in jatos.js and maybe the JavaScript of your studies.**
 
 We'll periodically update JATOS with new features and bug fixes. We recommend you stay up to date with the [latest release](https://github.com/JATOS/JATOS/releases). However if you are currently running a study it's always safest to keep the same JATOS version throughout the whole experiment.
 
