@@ -33,7 +33,7 @@ Just follow [Update JATOS](Update-JATOS.html) - remember to stop JATOS and to ma
 
 Follow [Updating a JATOS server installation](Updating-a-JATOS-server-installation.html).
 
-With JATOS 3 now requires (it's no longer optional) support for WebSockets (otherwise the batch and Group Session wouldn't work). So if you use a proxy in front of JATOS it has to be configured accordingly. You can find examples for [Apache](JATOS-with-Apache.html) and [Nginx](JATOS-with-Nginx.html) in this documentation.
+With JATOS 3 now requires (it's no longer optional) support for WebSockets (otherwise the Batch and Group Session wouldn't work). So if you use a proxy in front of JATOS it has to be configured accordingly. You can find examples for [Apache](JATOS-with-Apache.html) and [Nginx](JATOS-with-Nginx.html) in this documentation.
 
 ## Keep your database with the update
 
