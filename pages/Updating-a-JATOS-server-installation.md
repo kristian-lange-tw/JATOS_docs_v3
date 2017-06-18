@@ -16,7 +16,7 @@ To be absolutely safe you can install the new JATOS version and keep the old one
 
 Note: If you are using a MySQL database and to be on the safe side in case something goes wrong, make a backup of your MySQL database. Dump the database using `mysqldump -u yourUserName -p yourDatabaseName > yourDatabaseName.out`.
 
-As when [updating of a local JATOS installation](Update-JATOS.html) you have two options: 1. Keep your studies but discard all your result data and batches. 2. Keep everything, including your studies and result data (might not always be possible).
+As with [updating of a local JATOS installation](Update-JATOS.html) you have two options: 1. Keep your studies but discard all your result data and batches. 2. Keep everything, including your studies and result data (might not always be possible).
 
 After updating you can check the new JATOS installation with the test page `my-address/jatos/test` in the browser. All tests should be OK.
 
