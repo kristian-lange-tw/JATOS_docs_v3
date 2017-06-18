@@ -13,6 +13,8 @@ JATOS (Just Another Tool for Online Studies) helps you set up and run your onlin
 
 This is the Documentation for JATOS 3 - Are you looking for the docs of [JATOS 2](http://v2.jatos.org/Whats-JATOS.html)?
 
+We have a [migration page for JATOS 2 to 3](Migrate-from-v2-to-v3.html).
+
 ### JATOS at a glance: 
 * Run studies on your **own server**. This means that you keep complete control over who can access your result data and can comply with your ethics.
 * Studies run on **mobile phones, tablets, desktops, and lab computers** - any device with a browser.
