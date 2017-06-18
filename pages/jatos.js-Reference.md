@@ -96,9 +96,9 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 
 ### ~~Group's session data~~
 
-**Removed** - As of JATOS v3 the group session data can be accessed via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
+**Removed** - As of JATOS v3 the Group Session data can be accessed via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
 
-~~* `jatos.groupSessionData` - Group session data shared in between members of the group (see also [Session Data - Three Types](Session-Data-Three-Types.html))~~
+~~* `jatos.groupSessionData` - Group Session data shared in between members of the group (see also [Session Data - Three Types](Session-Data-Three-Types.html))~~
 
 
 ### Other variables
@@ -226,15 +226,15 @@ Posts study session data to the JATOS server. This function is called automatica
 * _@return {jQuery.deferred.promise}_
 
 
-## Functions to access the batch session
+## Functions to access the Batch Session
 
-The batch session is stored in JATOS' database on the server side (see also [Session Data - Three Types](Session-Data-Three-Types.html)). That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
+The Batch Session is stored in JATOS' database on the server side (see also [Session Data - Three Types](Session-Data-Three-Types.html)). That means that all changes in the Batch Session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
 
-On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
+On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the Batch Session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
 
-Additionally to the reading and writing functions the calback function `jatos.onJatosBatchSession(path)` offers a way to get notified whenever the batch session changes in the JATOS' database regardless of the origin of the change. This way, you can have the client of each worker react to changes in the batch that were done by another worker in the batch. 
+Additionally to the reading and writing functions the calback function `jatos.onJatosBatchSession(path)` offers a way to get notified whenever the Batch Session changes in the JATOS' database regardless of the origin of the change. This way, you can have the client of each worker react to changes in the batch that were done by another worker in the batch. 
 
-Accessing the batch session is done via [JSON Patches (RFC 6902)](https://tools.ietf.org/html/rfc6902) and 
+Accessing the Batch Session is done via [JSON Patches (RFC 6902)](https://tools.ietf.org/html/rfc6902) and 
 [JSON Pointer (RFC 6901)](https://tools.ietf.org/html/rfc6901). An introduction can be found under [jsonpatch.com](http://jsonpatch.com/). For JSON Patches jatos.js uses the [JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch) library from Joachim Wester and for JSON Pointers the [jsonpointer.js](https://github.com/alexeykuzmin/jsonpointer.js) library from Alexey Kuzmin.
 
 
@@ -297,14 +297,14 @@ JSON Patch test operation: Tests that the specified value is set in the document
 
 ### `jatos.batchSession.get(name)`
 
-Convenience function: like 'jatos.batchSession.find' but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the batch session and returns the matching value.  For all other levels of the object tree use jatos.batchSession.find. Gets the object from the locally stored copy of the session and does not call the server.
+Convenience function: like 'jatos.batchSession.find' but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Batch Session and returns the matching value.  For all other levels of the object tree use jatos.batchSession.find. Gets the object from the locally stored copy of the session and does not call the server.
 
 * _@param {string} name_ - name of the field 
 * _@return {object}_
 
 ### `jatos.batchSession.set(name, value, onSuccess, onFail)`
 
-Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the batch session's object tree.
+Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the Batch Session's object tree.
 
 * _@param {string} name_ - name of the field 
 * _@param {object} value_ - value to be stored
@@ -314,14 +314,14 @@ Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a n
 
 ### `jatos.batchSession.find(path)`
 
-Gets a field in the batch session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.
+Gets a field in the Batch Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.
 
 * _@param {string} path_ - JSON pointer path 
 * _@return {object}_
 
 ### `jatos.batchSession.getAll()`
 
-Returns the complete batch session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
+Returns the complete Batch Session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
 
 * _@return {object}_
 
@@ -336,7 +336,7 @@ Replaces the whole session data (might be bad performance-wise)
 
 ### `jatos.batchSession.clear(onSuccess, onFail)`
 
-Clears the whole batch session data and sets it to an empty object
+Clears the whole Batch Session data and sets it to an empty object
 
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
@@ -344,9 +344,9 @@ Clears the whole batch session data and sets it to an empty object
 
 ### `jatos.onJatosBatchSession(path)`
 
-Defines a callback function that is called every time the batch session changes on the JATOS server side.
+Defines a callback function that is called every time the Batch Session changes on the JATOS server side.
 
-* _@param {string} path_ - JSON pointer path to the changed field in the batch session
+* _@param {string} path_ - JSON pointer path to the changed field in the Batch Session
 
 
 ## Functions for group studies
@@ -358,19 +358,19 @@ Tries to join a group (actually a group result) and if it succeeds opens the gro
 * _@param {Object} callbacks_ - Defining callback functions for group events. All callbacks are optional. These callbacks functions are:
   * **onOpen**: Is called when the group channel is successfully opened
   * **onClose**: Is be called when the group channel is closed
-  * **onError**: Is called if an error during opening of the group channel's WebSocket occurs or if an error is received via the group channel (e.g. the group session data couldn't be updated). If this function is not defined jatos.js will try to call the global _onJatosError_ function.
+  * **onError**: Is called if an error during opening of the group channel's WebSocket occurs or if an error is received via the group channel (e.g. the Group Session data couldn't be updated). If this function is not defined jatos.js will try to call the global _onJatosError_ function.
   * **onMessage(msg)**: Is called if a message from another group member is received. It gets the message as a parameter.
   * **onMemberJoin(memberId)**: Is called when another member (not the worker running this study) joined the group. It gets the group member ID as a parameter.
   * **onMemberOpen(memberId)**: Is called when another member (not the worker running this study) opened a group channel. It gets the group member ID as a parameter.
   * **onMemberLeave(memberId)**: Is called when another member (not the worker running his study) left the group. It gets the group member ID as a parameter.
   * **onMemberClose(memberId)**: Is called when another member (not the worker running this study) closed his group channel. It gets the group member ID as a parameter.
-  * **onGroupSession(path)**: Is called every time the group session changes on the JATOS server side. It gets the JSON pointer path to the changed field in the batch session as a parameter.
+  * **onGroupSession(path)**: Is called every time the Group Session changes on the JATOS server side. It gets the JSON pointer path to the changed field in the Batch Session as a parameter.
   * **onUpdate()**: Combines several other callbacks. It's called if one of the following is called: _onMemberJoin_, _onMemberOpen_, _onMemberLeave_, _onMemberClose_, or _onGroupSession_.
 * _@return {jQuery.deferred.promise}_
 
 ### `jatos.sendGroupMsg(msg)`
 
-Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the [group session](#functions-to-access-the-group-session) instead. Compared to the transmission via group session the group messaging is fast but less reliable. 
+Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the [Group Session](#functions-to-access-the-group-session) instead. Compared to the transmission via Group Session the group messaging is fast but less reliable. 
 
 * _@param {Object} msg_ - Any JavaScript object
 
@@ -399,9 +399,9 @@ Asks the JATOS server to reassign this study run to a different group. It offers
 
 ### ~~`jatos.setGroupSessionData(groupSessionData, onError)`~~
 
-**Removed** - As of JATOS v3 the group session data can be access via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
+**Removed** - As of JATOS v3 the Group Session data can be access via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
 
-~~Sends the group session data via the group channel to the JATOS server where it's stored and broadcasted to all members of this group. It either takes an Object as parameter or uses _jatos.groupSessionData_ if the groupSessionData isn't provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the _onError_ callback. In this way it is more reliable but slower compared to _jatos.sendGroupMsg_ or _jatos.sendGroupMsgTo_. Since the group session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.~~
+~~Sends the Group Session data via the group channel to the JATOS server where it's stored and broadcasted to all members of this group. It either takes an Object as parameter or uses _jatos.groupSessionData_ if the groupSessionData isn't provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the _onError_ callback. In this way it is more reliable but slower compared to _jatos.sendGroupMsg_ or _jatos.sendGroupMsgTo_. Since the Group Session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.~~
 
 * ~~_@param {optional Object} groupSessionData_ - An object in JSON; If it's not given take _jatos.groupSessionData_~~
 * ~~_@param {optional Object} onError_ - Function to be called if this upload was unsuccessful~~
@@ -435,17 +435,17 @@ Returns true if the group has reached the maximum amount of active members like 
 Returns true if all active members of the group have an open group channel. It's not necessary that the group has reached its minimum or maximum active member size.
 
 
-## Functions to access the group session
+## Functions to access the Group Session
 
-The group session is one of three way to communicate between members of a group. The others are direct messaging (with [jatos.sendGroupMsgTo](#jatossendgroupmsgtorecipient-msg)) and broadcast messaging ([jatos.sendGroupMsg](#jatossendgroupmsgmsg)) (or: [more general information about the different session types](/Session-Data-Three-Types.html)).
+The Group Session is one of three way to communicate between members of a group. The others are direct messaging (with [jatos.sendGroupMsgTo](#jatossendgroupmsgtorecipient-msg)) and broadcast messaging ([jatos.sendGroupMsg](#jatossendgroupmsgmsg)) (or: [more general information about the different session types](/Session-Data-Three-Types.html)).
 
-In difference to the [batch session](#functions-to-access-the-batch-session) the group session doesn't work from the start of a component. To use the group session you have to join a group ([with jatos.joinGroup](#jatosjoingroupcallbacks)). There you can also define a `onGroupSession` callback that gets called each time the group session changes regardless of the origin of the change.
+In difference to the [Batch Session](#functions-to-access-the-batch-session) the Group Session doesn't work from the start of a component. To use the Group Session you have to join a group ([with jatos.joinGroup](#jatosjoingroupcallbacks)). There you can also define a `onGroupSession` callback that gets called each time the Group Session changes regardless of the origin of the change.
 
-The group session is stored in JATOS' database on the server side. That means that all changes in the group session have to be synchronized between the client and the server. This is done via the group channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.groupSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
+The Group Session is stored in JATOS' database on the server side. That means that all changes in the Group Session have to be synchronized between the client and the server. This is done via the group channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.groupSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
 
-On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the group session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
+On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the Group Session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
 
-Accessing the group session is done via [JSON Patches (RFC 6902)](https://tools.ietf.org/html/rfc6902) and 
+Accessing the Group Session is done via [JSON Patches (RFC 6902)](https://tools.ietf.org/html/rfc6902) and 
 [JSON Pointer (RFC 6901)](https://tools.ietf.org/html/rfc6901). An introduction can be found under [jsonpatch.com](http://jsonpatch.com/). For JSON Patches jatos.js uses the [JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch) library from Joachim Wester and for JSON Pointers the [jsonpointer.js](https://github.com/alexeykuzmin/jsonpointer.js) library from Alexey Kuzmin.
 
 ### `jatos.groupSession.add(path, value, onSuccess, onFail)`
@@ -507,14 +507,14 @@ JSON Patch test operation: Tests that the specified value is set in the document
 
 ### `jatos.groupSession.get(name)`
 
-Convenience function: like 'jatos.groupSession.find' but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the group session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
+Convenience function: like 'jatos.groupSession.find' but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Group Session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
 
 * _@param {string} name_ - name of the field 
 * _@return {object}_
 
 ### `jatos.groupSession.set(name, value, onSuccess, onFail)`
 
-Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the group session's object tree.
+Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the Group Session's object tree.
 
 * _@param {string} name_ - name of the field 
 * _@param {object} value_ - value to be stored
@@ -524,14 +524,14 @@ Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a n
 
 ### `jatos.groupSession.find(path)`
 
-Gets a field in the group session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.
+Gets a field in the Group Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.
 
 * _@param {string} path_ - JSON pointer path 
 * _@return {object}_
 
 ### `jatos.groupSession.getAll()`
 
-Returns the complete group session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
+Returns the complete Group Session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
 
 * _@return {object}_
 
@@ -546,7 +546,7 @@ Replaces the whole session data (might be bad performance-wise)
 
 ### `jatos.groupSession.clear(onSuccess, onFail)`
 
-Clears the whole group session data and sets it to an empty object
+Clears the whole Group Session data and sets it to an empty object
 
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed

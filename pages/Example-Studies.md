@@ -191,7 +191,7 @@ In this example we show JATOS' three different session types in action (see [Ses
 
 ### Group Chat
 
-Let members of a group study talk to each other: Here is a chat example. It uses the group session. 
+Let members of a group study talk to each other: Here is a chat example. It uses the Group Session. 
 
 ![Screenshot Group Chat](images/example-studies/Screenshot_chat.png){:width="300"}
 
@@ -201,7 +201,7 @@ Let members of a group study talk to each other: Here is a chat example. It uses
 
 ### Batch Chat
 
-Let members of a batch talk to each other: Here is a chat example. It uses the batch session. 
+Let members of a batch talk to each other: Here is a chat example. It uses the Batch Session. 
 
 ![Screenshot Group Chat](images/example-studies/Screenshot_chat.png){:width="300"}
 

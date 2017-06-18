@@ -589,9 +589,9 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="groups-session-data"><del>Group’s session data</del></h3>
 
-<p><strong>Removed</strong> - As of JATOS v3 the group session data can be accessed via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
+<p><strong>Removed</strong> - As of JATOS v3 the Group Session data can be accessed via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
 
-<p><del>* <code class="highlighter-rouge">jatos.groupSessionData</code> - Group session data shared in between members of the group (see also <a href="Session-Data-Three-Types.html">Session Data - Three Types</a>)</del></p>
+<p><del>* <code class="highlighter-rouge">jatos.groupSessionData</code> - Group Session data shared in between members of the group (see also <a href="Session-Data-Three-Types.html">Session Data - Three Types</a>)</del></p>
 
 <h3 id="other-variables">Other variables</h3>
 
@@ -739,15 +739,15 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<h2 id="functions-to-access-the-batch-session">Functions to access the batch session</h2>
+<h2 id="functions-to-access-the-batch-session">Functions to access the Batch Session</h2>
 
-<p>The batch session is stored in JATOS’ database on the server side (see also <a href="Session-Data-Three-Types.html">Session Data - Three Types</a>). That means that all changes in the batch session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (<code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">remove</code>, <code class="highlighter-rouge">clear</code>, <code class="highlighter-rouge">replace</code>, <code class="highlighter-rouge">copy</code>, <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">set</code>, <code class="highlighter-rouge">setAll</code>) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to <code class="highlighter-rouge">jatos.batchSession.[function_name]</code> or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>.</p>
+<p>The Batch Session is stored in JATOS’ database on the server side (see also <a href="Session-Data-Three-Types.html">Session Data - Three Types</a>). That means that all changes in the Batch Session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (<code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">remove</code>, <code class="highlighter-rouge">clear</code>, <code class="highlighter-rouge">replace</code>, <code class="highlighter-rouge">copy</code>, <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">set</code>, <code class="highlighter-rouge">setAll</code>) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to <code class="highlighter-rouge">jatos.batchSession.[function_name]</code> or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>.</p>
 
-<p>On the other side for all reading functions (<code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">getAll</code>, <code class="highlighter-rouge">test</code>) there is no need to sync data between client and server, because jatos.js keeps a copy of the batch session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.</p>
+<p>On the other side for all reading functions (<code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">getAll</code>, <code class="highlighter-rouge">test</code>) there is no need to sync data between client and server, because jatos.js keeps a copy of the Batch Session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.</p>
 
-<p>Additionally to the reading and writing functions the calback function <code class="highlighter-rouge">jatos.onJatosBatchSession(path)</code> offers a way to get notified whenever the batch session changes in the JATOS’ database regardless of the origin of the change. This way, you can have the client of each worker react to changes in the batch that were done by another worker in the batch.</p>
+<p>Additionally to the reading and writing functions the calback function <code class="highlighter-rouge">jatos.onJatosBatchSession(path)</code> offers a way to get notified whenever the Batch Session changes in the JATOS’ database regardless of the origin of the change. This way, you can have the client of each worker react to changes in the batch that were done by another worker in the batch.</p>
 
-<p>Accessing the batch session is done via <a href="https://tools.ietf.org/html/rfc6902">JSON Patches (RFC 6902)</a> and 
+<p>Accessing the Batch Session is done via <a href="https://tools.ietf.org/html/rfc6902">JSON Patches (RFC 6902)</a> and 
 <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer (RFC 6901)</a>. An introduction can be found under <a href="http://jsonpatch.com/">jsonpatch.com</a>. For JSON Patches jatos.js uses the <a href="https://github.com/Starcounter-Jack/JSON-Patch">JSON-Patch</a> library from Joachim Wester and for JSON Pointers the <a href="https://github.com/alexeykuzmin/jsonpointer.js">jsonpointer.js</a> library from Alexey Kuzmin.</p>
 
 <h3 id="jatosbatchsessionaddpath-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.add(path, value, onSuccess, onFail)</code></h3>
@@ -821,7 +821,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosbatchsessiongetname"><code class="highlighter-rouge">jatos.batchSession.get(name)</code></h3>
 
-<p>Convenience function: like ‘jatos.batchSession.find’ but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session’s object tree. It takes a name of an field within the batch session and returns the matching value.  For all other levels of the object tree use jatos.batchSession.find. Gets the object from the locally stored copy of the session and does not call the server.</p>
+<p>Convenience function: like ‘jatos.batchSession.find’ but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session’s object tree. It takes a name of an field within the Batch Session and returns the matching value.  For all other levels of the object tree use jatos.batchSession.find. Gets the object from the locally stored copy of the session and does not call the server.</p>
 
 <ul>
   <li><em>@param {string} name</em> - name of the field</li>
@@ -830,7 +830,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosbatchsessionsetname-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.set(name, value, onSuccess, onFail)</code></h3>
 
-<p>Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the batch session’s object tree.</p>
+<p>Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the Batch Session’s object tree.</p>
 
 <ul>
   <li><em>@param {string} name</em> - name of the field</li>
@@ -842,7 +842,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosbatchsessionfindpath"><code class="highlighter-rouge">jatos.batchSession.find(path)</code></h3>
 
-<p>Gets a field in the batch session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.</p>
+<p>Gets a field in the Batch Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.</p>
 
 <ul>
   <li><em>@param {string} path</em> - JSON pointer path</li>
@@ -851,7 +851,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosbatchsessiongetall"><code class="highlighter-rouge">jatos.batchSession.getAll()</code></h3>
 
-<p>Returns the complete batch session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.</p>
+<p>Returns the complete Batch Session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.</p>
 
 <ul>
   <li><em>@return {object}</em></li>
@@ -870,7 +870,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosbatchsessionclearonsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.clear(onSuccess, onFail)</code></h3>
 
-<p>Clears the whole batch session data and sets it to an empty object</p>
+<p>Clears the whole Batch Session data and sets it to an empty object</p>
 
 <ul>
   <li><em>@param {optional callback} onSuccess</em> - Function to be called if this patch was successfully applied on the server and the client side</li>
@@ -880,10 +880,10 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosonjatosbatchsessionpath"><code class="highlighter-rouge">jatos.onJatosBatchSession(path)</code></h3>
 
-<p>Defines a callback function that is called every time the batch session changes on the JATOS server side.</p>
+<p>Defines a callback function that is called every time the Batch Session changes on the JATOS server side.</p>
 
 <ul>
-  <li><em>@param {string} path</em> - JSON pointer path to the changed field in the batch session</li>
+  <li><em>@param {string} path</em> - JSON pointer path to the changed field in the Batch Session</li>
 </ul>
 
 <h2 id="functions-for-group-studies">Functions for group studies</h2>
@@ -897,13 +897,13 @@ $('#toc').on('click', 'a', function() {
     <ul>
       <li><strong>onOpen</strong>: Is called when the group channel is successfully opened</li>
       <li><strong>onClose</strong>: Is be called when the group channel is closed</li>
-      <li><strong>onError</strong>: Is called if an error during opening of the group channel’s WebSocket occurs or if an error is received via the group channel (e.g. the group session data couldn’t be updated). If this function is not defined jatos.js will try to call the global <em>onJatosError</em> function.</li>
+      <li><strong>onError</strong>: Is called if an error during opening of the group channel’s WebSocket occurs or if an error is received via the group channel (e.g. the Group Session data couldn’t be updated). If this function is not defined jatos.js will try to call the global <em>onJatosError</em> function.</li>
       <li><strong>onMessage(msg)</strong>: Is called if a message from another group member is received. It gets the message as a parameter.</li>
       <li><strong>onMemberJoin(memberId)</strong>: Is called when another member (not the worker running this study) joined the group. It gets the group member ID as a parameter.</li>
       <li><strong>onMemberOpen(memberId)</strong>: Is called when another member (not the worker running this study) opened a group channel. It gets the group member ID as a parameter.</li>
       <li><strong>onMemberLeave(memberId)</strong>: Is called when another member (not the worker running his study) left the group. It gets the group member ID as a parameter.</li>
       <li><strong>onMemberClose(memberId)</strong>: Is called when another member (not the worker running this study) closed his group channel. It gets the group member ID as a parameter.</li>
-      <li><strong>onGroupSession(path)</strong>: Is called every time the group session changes on the JATOS server side. It gets the JSON pointer path to the changed field in the batch session as a parameter.</li>
+      <li><strong>onGroupSession(path)</strong>: Is called every time the Group Session changes on the JATOS server side. It gets the JSON pointer path to the changed field in the Batch Session as a parameter.</li>
       <li><strong>onUpdate()</strong>: Combines several other callbacks. It’s called if one of the following is called: <em>onMemberJoin</em>, <em>onMemberOpen</em>, <em>onMemberLeave</em>, <em>onMemberClose</em>, or <em>onGroupSession</em>.</li>
     </ul>
   </li>
@@ -912,7 +912,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatossendgroupmsgmsg"><code class="highlighter-rouge">jatos.sendGroupMsg(msg)</code></h3>
 
-<p>Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the <a href="#functions-to-access-the-group-session">group session</a> instead. Compared to the transmission via group session the group messaging is fast but less reliable.</p>
+<p>Sends a message to all group members with an open group channel. Like with most transmissions in the Internet these messages are send on a best effort basis. This means that if everything (e.g. network, browser, script) works fine the message gets delivered - but if the message transmission encounters a problem and is not delivered neither the sender nor the receiver will be notified. If you want more reliable message transmission use the <a href="#functions-to-access-the-group-session">Group Session</a> instead. Compared to the transmission via Group Session the group messaging is fast but less reliable.</p>
 
 <ul>
   <li><em>@param {Object} msg</em> - Any JavaScript object</li>
@@ -949,9 +949,9 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatossetgroupsessiondatagroupsessiondata-onerror"><del><code class="highlighter-rouge">jatos.setGroupSessionData(groupSessionData, onError)</code></del></h3>
 
-<p><strong>Removed</strong> - As of JATOS v3 the group session data can be access via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
+<p><strong>Removed</strong> - As of JATOS v3 the Group Session data can be access via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
 
-<p><del>Sends the group session data via the group channel to the JATOS server where it’s stored and broadcasted to all members of this group. It either takes an Object as parameter or uses <em>jatos.groupSessionData</em> if the groupSessionData isn’t provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the <em>onError</em> callback. In this way it is more reliable but slower compared to <em>jatos.sendGroupMsg</em> or <em>jatos.sendGroupMsgTo</em>. Since the group session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.</del></p>
+<p><del>Sends the Group Session data via the group channel to the JATOS server where it’s stored and broadcasted to all members of this group. It either takes an Object as parameter or uses <em>jatos.groupSessionData</em> if the groupSessionData isn’t provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the <em>onError</em> callback. In this way it is more reliable but slower compared to <em>jatos.sendGroupMsg</em> or <em>jatos.sendGroupMsgTo</em>. Since the Group Session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.</del></p>
 
 <ul>
   <li><del><em>@param {optional Object} groupSessionData</em> - An object in JSON; If it’s not given take <em>jatos.groupSessionData</em></del></li>
@@ -988,17 +988,17 @@ $('#toc').on('click', 'a', function() {
 
 <p>Returns true if all active members of the group have an open group channel. It’s not necessary that the group has reached its minimum or maximum active member size.</p>
 
-<h2 id="functions-to-access-the-group-session">Functions to access the group session</h2>
+<h2 id="functions-to-access-the-group-session">Functions to access the Group Session</h2>
 
-<p>The group session is one of three way to communicate between members of a group. The others are direct messaging (with <a href="#jatossendgroupmsgtorecipient-msg">jatos.sendGroupMsgTo</a>) and broadcast messaging (<a href="#jatossendgroupmsgmsg">jatos.sendGroupMsg</a>) (or: <a href="/Session-Data-Three-Types.html">more general information about the different session types</a>).</p>
+<p>The Group Session is one of three way to communicate between members of a group. The others are direct messaging (with <a href="#jatossendgroupmsgtorecipient-msg">jatos.sendGroupMsgTo</a>) and broadcast messaging (<a href="#jatossendgroupmsgmsg">jatos.sendGroupMsg</a>) (or: <a href="/Session-Data-Three-Types.html">more general information about the different session types</a>).</p>
 
-<p>In difference to the <a href="#functions-to-access-the-batch-session">batch session</a> the group session doesn’t work from the start of a component. To use the group session you have to join a group (<a href="#jatosjoingroupcallbacks">with jatos.joinGroup</a>). There you can also define a <code class="highlighter-rouge">onGroupSession</code> callback that gets called each time the group session changes regardless of the origin of the change.</p>
+<p>In difference to the <a href="#functions-to-access-the-batch-session">Batch Session</a> the Group Session doesn’t work from the start of a component. To use the Group Session you have to join a group (<a href="#jatosjoingroupcallbacks">with jatos.joinGroup</a>). There you can also define a <code class="highlighter-rouge">onGroupSession</code> callback that gets called each time the Group Session changes regardless of the origin of the change.</p>
 
-<p>The group session is stored in JATOS’ database on the server side. That means that all changes in the group session have to be synchronized between the client and the server. This is done via the group channel. Therefore all writing functions (<code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">remove</code>, <code class="highlighter-rouge">clear</code>, <code class="highlighter-rouge">replace</code>, <code class="highlighter-rouge">copy</code>, <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">set</code>, <code class="highlighter-rouge">setAll</code>) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to <code class="highlighter-rouge">jatos.groupSession.[function_name]</code> or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>.</p>
+<p>The Group Session is stored in JATOS’ database on the server side. That means that all changes in the Group Session have to be synchronized between the client and the server. This is done via the group channel. Therefore all writing functions (<code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">remove</code>, <code class="highlighter-rouge">clear</code>, <code class="highlighter-rouge">replace</code>, <code class="highlighter-rouge">copy</code>, <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">set</code>, <code class="highlighter-rouge">setAll</code>) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to <code class="highlighter-rouge">jatos.groupSession.[function_name]</code> or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>.</p>
 
-<p>On the other side for all reading functions (<code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">getAll</code>, <code class="highlighter-rouge">test</code>) there is no need to sync data between client and server, because jatos.js keeps a copy of the group session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.</p>
+<p>On the other side for all reading functions (<code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">getAll</code>, <code class="highlighter-rouge">test</code>) there is no need to sync data between client and server, because jatos.js keeps a copy of the Group Session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.</p>
 
-<p>Accessing the group session is done via <a href="https://tools.ietf.org/html/rfc6902">JSON Patches (RFC 6902)</a> and 
+<p>Accessing the Group Session is done via <a href="https://tools.ietf.org/html/rfc6902">JSON Patches (RFC 6902)</a> and 
 <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer (RFC 6901)</a>. An introduction can be found under <a href="http://jsonpatch.com/">jsonpatch.com</a>. For JSON Patches jatos.js uses the <a href="https://github.com/Starcounter-Jack/JSON-Patch">JSON-Patch</a> library from Joachim Wester and for JSON Pointers the <a href="https://github.com/alexeykuzmin/jsonpointer.js">jsonpointer.js</a> library from Alexey Kuzmin.</p>
 
 <h3 id="jatosgroupsessionaddpath-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.add(path, value, onSuccess, onFail)</code></h3>
@@ -1072,7 +1072,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosgroupsessiongetname"><code class="highlighter-rouge">jatos.groupSession.get(name)</code></h3>
 
-<p>Convenience function: like ‘jatos.groupSession.find’ but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session’s object tree. It takes a name of an field within the group session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.</p>
+<p>Convenience function: like ‘jatos.groupSession.find’ but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session’s object tree. It takes a name of an field within the Group Session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.</p>
 
 <ul>
   <li><em>@param {string} name</em> - name of the field</li>
@@ -1081,7 +1081,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosgroupsessionsetname-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.set(name, value, onSuccess, onFail)</code></h3>
 
-<p>Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the group session’s object tree.</p>
+<p>Like JSON Patch add operation, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the Group Session’s object tree.</p>
 
 <ul>
   <li><em>@param {string} name</em> - name of the field</li>
@@ -1093,7 +1093,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosgroupsessionfindpath"><code class="highlighter-rouge">jatos.groupSession.find(path)</code></h3>
 
-<p>Gets a field in the group session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.</p>
+<p>Gets a field in the Group Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server.</p>
 
 <ul>
   <li><em>@param {string} path</em> - JSON pointer path</li>
@@ -1102,7 +1102,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosgroupsessiongetall"><code class="highlighter-rouge">jatos.groupSession.getAll()</code></h3>
 
-<p>Returns the complete group session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.</p>
+<p>Returns the complete Group Session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.</p>
 
 <ul>
   <li><em>@return {object}</em></li>
@@ -1121,7 +1121,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosgroupsessionclearonsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.clear(onSuccess, onFail)</code></h3>
 
-<p>Clears the whole group session data and sets it to an empty object</p>
+<p>Clears the whole Group Session data and sets it to an empty object</p>
 
 <ul>
   <li><em>@param {optional callback} onSuccess</em> - Function to be called if this patch was successfully applied on the server and the client side</li>

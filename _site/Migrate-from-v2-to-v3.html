@@ -465,24 +465,26 @@
 
     
 
-  <p>Although JATOS 3 has some nice new features (like the batch session or the user manager) there is not much to do when it comes to update your local or your server JATOS installation. Your studies should work on JATOS 3 if they worked on JATOS 2 - unless you used the group session. The access to the group session changed together with the introduction of the batch session.</p>
+  <p>Updating from JATOS 2 to JATOS 3 in either your local or server installation is mostly straightforward: most studies you wrote for JATOS 2 will work for JATOS 3 out of the box. (Although we added some nice new features like the Batch Session or the user manager). The only exception are studies that used the Group Session: you’ll have to change a couple of functions to access the Group Session.</p>
 
 <h2 id="update-your-studies---changes-in-jatosjs">Update your studies - changes in jatos.js</h2>
 
-<p>Like mentioned the access to the <strong>group session</strong> changed quite a bit. We abolished the direct access to the group session data with <code class="highlighter-rouge">jatos.groupSessionData</code>. Now it can be accessed via several functions:  <code class="highlighter-rouge">jatos.groupSession.[functionName]</code>, e.g. <code class="highlighter-rouge">jatos.groupSession.get()</code> and <code class="highlighter-rouge">jatos.groupSession.set()</code>. More information can be found directly under the <a href="jatos.js-Reference.html#functions-to-access-the-group-session">jatos.js Reference / Functions to access the group session</a>, or in <a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a>, or in <a href="Session-Data-Three-Types.html">Session Data - Three Types</a>.</p>
-
-<p>Just a short example: Here is what you could do to make you JATOS 2 code run in JATOS 3 again. Although be aware that the group session offers much finer access with other functions. Additionally it’s recommended to use the callback / promise functions in case something fails.</p>
+<p>If you used the <strong>Group Session</strong>, you’ll have to change a couple of lines in your JavaScript. To get your JATOS 2 code running in JATOS 3, simply change:</p>
 
 <ul>
   <li>
-    <p>Writing: <code class="highlighter-rouge">jatos.groupSessionData = myObject;</code> -&gt; <code class="highlighter-rouge">jatos.groupSession.setAll(myObject);</code></p>
+    <p>Writing to the Group Session: <code class="highlighter-rouge">jatos.groupSessionData = myObject;</code> -&gt; <code class="highlighter-rouge">jatos.groupSession.setAll(myObject);</code></p>
   </li>
   <li>
-    <p>Reading: <code class="highlighter-rouge">var myObject = jatos.groupSessionData;</code> -&gt; <code class="highlighter-rouge">jatos.groupSession.getAll();</code></p>
+    <p>Reading from the Group Session: <code class="highlighter-rouge">var myObject = jatos.groupSessionData;</code> -&gt; <code class="highlighter-rouge">jatos.groupSession.getAll();</code></p>
   </li>
 </ul>
 
-<p>Another point to consider is that with JATOS 3 comes the <strong>batch session</strong> and things (like <a href="Example-Studies.html#randomize-conditions-between-participants-go---no-go-task">randomize conditions between participants</a>) that have been done with the group session can be done easier with the batch session now. Handling the batch session doesn’t involve joining a group first - the batch channel is opened automatically by jatos.js for you.</p>
+<p>But consider going beyond this quick fix: the new Group Session offers much finer access with other functions, not just the <code class="highlighter-rouge">setAll</code> and <code class="highlighter-rouge">getAll</code> (which is why we changed them, not <em>just</em> to annoy you!). Additionally, we recommend to use the callback / promise functions in case something fails.</p>
+
+<p>To improve the Group Session, we abolished the direct access to the Group Session data with <code class="highlighter-rouge">jatos.groupSessionData</code>. Now you can only access it via several functions with the form: <code class="highlighter-rouge">jatos.groupSession.[functionName]</code>, e.g. <code class="highlighter-rouge">jatos.groupSession.get()</code> and <code class="highlighter-rouge">jatos.groupSession.set()</code>. Find details about the jatos.js functions to access the Group Session in the <a href="jatos.js-Reference.html#functions-to-access-the-group-session">jatos.js Reference / Functions to access the Group Session</a> and examples of how to use them in <a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a>.</p>
+
+<p>Also, consider that JATOS 3 includes the <strong>Batch Session</strong> and things (like <a href="Example-Studies.html#randomize-conditions-between-participants-go---no-go-task">randomize conditions between participants</a>) that have you previously did with the Group Session can be now done easier with the Batch Session. Handling the Batch Session doesn’t involve joining a group first - the batch channel is opened automatically by jatos.js for you. Check out the differences between the group- and Batch Sessions in <a href="Session-Data-Three-Types.html">Session Data - Three Types</a> to decide which session type is best for your needs.</p>
 
 <h2 id="update-your-local-jatos-installation">Update your local JATOS installation</h2>
 
@@ -492,7 +494,11 @@
 
 <p>Follow <a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a>.</p>
 
-<p>With JATOS 3 now it is mandatory to support <strong>WebSockets</strong> (otherwise the batch and group session wouldn’t work). So if you use a proxy in front of JATOS it has to be configured accordingly. You can find examples for <a href="JATOS-with-Apache.html">Apache</a> and <a href="JATOS-with-Nginx.html">Nginx</a> in this documentation.</p>
+<p>With JATOS 3 now requires (it’s no longer optional) support for WebSockets (otherwise the batch and Group Session wouldn’t work). So if you use a proxy in front of JATOS it has to be configured accordingly. You can find examples for <a href="JATOS-with-Apache.html">Apache</a> and <a href="JATOS-with-Nginx.html">Nginx</a> in this documentation.</p>
+
+<h2 id="keep-your-database-with-the-update">Keep your database with the update</h2>
+
+<p>The structure of the database changed from JATOS 2 to JATOS 3. Upgrading it is not difficult, but keep in mind that this is irreversible: while JATOS 3 can read result data exported from JATOS 2, the opposite direction won’t work. So always back up your database in a safe place before upgrading, in case anything goes wrong.</p>
 
 
 

@@ -497,7 +497,7 @@ $('#toc').on('click', 'a', function() {
 <ul>
   <li><a href="jatos.js-Reference.html#functions-for-group-studies">jatos.js functions for group studies</a></li>
   <li><a href="jatos.js-Reference.html#group-variables">jatos.js group variables</a></li>
-  <li><a href="jatos.js-Reference.html#groups-session-data">jatos.js group session</a></li>
+  <li><a href="jatos.js-Reference.html#functions-to-access-the-group-session">jatos.js Group Session functions</a></li>
 </ul>
 
 <h3 id="joining-a-group-and-opening-group-channels">Joining a group and opening group channels</h3>
@@ -549,7 +549,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="communication-between-group-members">Communication between group members</h2>
 
-<p>JATOS provides three ways for communicating within the group: direct messaging, broadcast messaging and via the group session.</p>
+<p>JATOS provides three ways for communicating within the group: direct messaging, broadcast messaging and via the Group Session.</p>
 
 <h3 id="direct-messaging">Direct messaging</h3>
 <p>Members can send direct messages to a single other member of the same group with the <a href="jatos.js-Reference.html#jatossendgroupmsgtorecipient-msg"><em>jatos.sendGroupMsgTo</em></a> function. Like broadcast messaging this way of group communication is fast but can be unreliable in case of an unstable network connection. We use direct messaging in the <a href="Example-Studies.html#snake">Snake example</a> to send the coordinates of the snakes on every step. Here, speed is more critical than reliability in the messages, because a few dropped frames will probably go unnoticed.</p>
@@ -558,7 +558,7 @@ $('#toc').on('click', 'a', function() {
 <p>Members can send messages to all other members of the same group with the <a href="jatos.js-Reference.html#jatossendgroupmsgmsg"><em>jatos.sendGroupMsg</em></a> function. Like direct messaging this way of group communication is fast but can be unreliable in case of an unstable network connection.</p>
 
 <h3 id="group-session">Group session</h3>
-<p>The Group Session is one of the <a href="Session-Data-Three-Types.html">three types of session that JATOS provides</a>. Members can access the group session data with the <a href="jatos.js-Reference.html#functions-to-access-the-group-session">group session functions</a>. The group session data are stored in JATOS’ database <strong>only while the group is active. It is deleted when the group is finished.</strong> Communication via group session is slower, but more reliable than group messaging. If one member has an unstable internet connection or does a page reload, the group session will be automatically restored after the member reopens the group channel. Workers communicate via the group session data in the <a href="Example-Studies.html#prisoners-dilemma">Prisoner’s Example study</a>, because here one dropped message would lead to important information loss.</p>
+<p>The Group Session is one of the <a href="Session-Data-Three-Types.html">three types of session that JATOS provides</a>. Members can access the Group Session data with the <a href="jatos.js-Reference.html#functions-to-access-the-group-session">Group Session functions</a>. The Group Session data are stored in JATOS’ database <strong>only while the group is active. It is deleted when the group is finished.</strong> Communication via Group Session is slower, but more reliable than group messaging. If one member has an unstable internet connection or does a page reload, the Group Session will be automatically restored after the member reopens the group channel. Workers communicate via the Group Session data in the <a href="Example-Studies.html#prisoners-dilemma">Prisoner’s Example study</a>, because here one dropped message would lead to important information loss.</p>
 
 
     <div class="tags">

@@ -20,7 +20,7 @@ For all worker types except Jatos and MTurk you'll need to generate links to sen
 
 **In the same browser one can run studies in up to 10 different tabs**
 
-If more than 10 studies run in the same browser in parallel the oldest study is finished automatically. Of course this limitation doesn't apply with different browsers. One could ask why it's necessary to run several studies at once in the same browser - usually a worker should run only one?! This is actually very useful for developing and testing group studies or studies that use the batch session. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 "different" workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group. 
+If more than 10 studies run in the same browser in parallel the oldest study is finished automatically. Of course this limitation doesn't apply with different browsers. One could ask why it's necessary to run several studies at once in the same browser - usually a worker should run only one?! This is actually very useful for developing and testing group studies or studies that use the Batch Session. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 "different" workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group. 
 
 ## Batch Manager
 
