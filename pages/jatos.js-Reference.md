@@ -209,7 +209,7 @@ Ends study.
 
 ### `jatos.submitResultData(resultData, onSuccess, onError)`
 
-Posts result data back to the JATOS server. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be overwritten. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer. This function is usually called in the end of a component life cycle shortly before going to the next component (e.g. `jatos.submitResultData(myResultData, jatos.startNextComponent);`.
 
 * _@param {Object} resultData_ - String to be submitted
 * _@param {optional Function} success_ - Function to be called in case of successful submit
