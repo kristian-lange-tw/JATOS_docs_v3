@@ -10,7 +10,7 @@ toc: false
 last_updated: 28 Apr 2017
 ---
 
-We've made an video: [Introduction into JATOS](https://youtu.be/H1tR8gPt6bA)
+### We've made an video: [Introduction into JATOS](https://youtu.be/H1tR8gPt6bA)
 
 <object style="width:100%;height:100%;width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;" data="http://www.youtube.com/embed/H1tR8gPt6bA">
 </object>
