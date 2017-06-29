@@ -57,7 +57,49 @@ Most admins tend to use an additional HTTP server in front of JATOS for encrypti
 
 ### 7. [Optional] Auto-start JATOS
 
-It's nice to have JATOS starts automatically after a start or a reboot of your machine. It's easy to turn the `loader.sh` script into an init script for a daemon.
+It's nice to have JATOS starts automatically after a start or a reboot of your machine. Choose between one of the two possibilities: 1) via a systemd service (recommended) or 2) via a init.d script.
+
+#### 1) Via systemd service (recommended)
+
+Create a systemd service file for JATOS 
+```shell
+sudo vim /etc/systemd/system/jatos.service
+```
+and copy the following content inside. 
+```shell
+[Unit]
+Description=JATOS
+After=network-online.target
+# If you use JATOS with an MySQL database use
+#After=network-online.target mysql.service
+
+[Service]
+Type=forking
+PIDFile=/my/path/to/jatos/RUNNING_PID
+User=my-jatos-user
+ExecStart=/my/path/to/jatos/loader.sh start
+ExecStop=/bin/kill $MAINPID
+ExecStopPost=/bin/rm -f /my/path/to/jatos/RUNNING_PID
+ExecRestart=/bin/kill $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+Change the paths and the user according to your JATOS path and the user you want to start JATOS with.
+
+Then enable the service to start automatically:
+```shell
+systemctl enable
+```
+That's it.
+
+Additionally you can manually start JATOS now with `systemctl start` and stop with `shell systemctl stop`.
+
+You can disable the service with `systemctl disable`. If you change the service file you need `systemctl daemon-reload` to let the system know.
+
+#### 2) Via /etc/init.d script
+It's easy to turn the `loader.sh` script into an init script for a daemon.
 
 1. Copy the `loader.sh` script to `/etc/init.d/`
 1. Rename it to `jatos`
