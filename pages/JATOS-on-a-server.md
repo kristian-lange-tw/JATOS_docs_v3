@@ -57,9 +57,9 @@ Most admins tend to use an additional HTTP server in front of JATOS for encrypti
 
 ### 7. [Optional] Auto-start JATOS
 
-It's nice to have JATOS starts automatically after a start or a reboot of your machine. Choose between one of the two possibilities: 1) via a systemd service (recommended) or 2) via a init.d script.
+It's nice to have JATOS starts automatically after a start or a reboot of your machine. Choose between one of the two possibilities: 1) via a systemd service (JATOS version >= 3.1.6, recommended), or 2) via a init.d script.
 
-#### 1) Via systemd service (recommended)
+#### 1) Via systemd service (JATOS version >= 3.1.6, recommended)
 
 Create a systemd service file for JATOS 
 ```shell
