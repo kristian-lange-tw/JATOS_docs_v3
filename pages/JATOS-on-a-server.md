@@ -94,7 +94,7 @@ systemctl enable
 ```
 That's it.
 
-Additionally you can manually start JATOS now with `systemctl start` and stop with `shell systemctl stop`.
+Additionally you can manually start JATOS now with `systemctl start` and stop with `systemctl stop`.
 
 You can disable the service with `systemctl disable`. If you change the service file you need `systemctl daemon-reload` to let the system know.
 
