@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 30 Apr 2017
+last_updated: 4 July 2017
 ---
 
 Two [bits of code](Mandatory-lines-in-your-components-HTML.html) are mandatory in all your components' HTML files. One of them is the following line in the head section: `<script src="/assets/javascripts/jatos.js"></script>` which includes the jatos.js library into your HTML file. 
@@ -212,6 +212,17 @@ Ends study.
 Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be overwritten. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer. This function is usually called in the end of a component life cycle shortly before going to the next component (e.g. `jatos.submitResultData(myResultData, jatos.startNextComponent);`.
 
 * _@param {Object} resultData_ - String to be submitted
+* _@param {optional Function} success_ - Function to be called in case of successful submit
+* _@param {optional Function} error_ - Function to be called in case of error
+* _@return {jQuery.deferred.promise}_
+
+### `jatos.appendResultData(resultData, onSuccess, onError)
+
+**Since JATOS version >= 3.1.7**
+
+Appends result data to the already posted result data. Contrary to jatos.submitResultData it does not overwrite the result data. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer. This function can be used several times during an component run to incrementally save result data.
+
+* _@param {Object} resultData_ - String to be appended
 * _@param {optional Function} success_ - Function to be called in case of successful submit
 * _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
