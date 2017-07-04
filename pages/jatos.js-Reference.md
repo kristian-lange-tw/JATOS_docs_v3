@@ -216,7 +216,7 @@ Posts result data for the currently running component back to the JATOS server. 
 * _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
-### `jatos.appendResultData(resultData, onSuccess, onError)
+### `jatos.appendResultData(resultData, onSuccess, onError)`
 
 **Since JATOS version >= 3.1.7**
 
