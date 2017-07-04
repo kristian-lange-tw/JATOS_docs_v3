@@ -65,7 +65,7 @@ Create a systemd service file for JATOS
 ```shell
 sudo vim /etc/systemd/system/jatos.service
 ```
-and copy the following content inside. 
+and put the following text inside. 
 ```shell
 [Unit]
 Description=JATOS
