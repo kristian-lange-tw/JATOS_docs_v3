@@ -12,8 +12,6 @@ last_updated: 24 May 2017
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
 
-At the bottom of the page is a section of [group study examples](Example-Studies.html#group-study-examples).
-
 Since JATOS cares mostly for the server side it gives you the freedom to use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [jQuery](https://jquery.com/), [AngularJS](https://angularjs.org/), [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/) or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)).
 
 You can easily import/export study in JATOS. There is an 'Import Study' button in the header of each page and each study has an 'Export Study' button hidden under the 'More' button.
