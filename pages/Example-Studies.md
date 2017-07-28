@@ -56,29 +56,29 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 [Download Lexical Decision](https://github.com/JATOS/JATOS_examples/raw/master/examples/lexical_decision_(using_jspsych).zip)
 
-### SurveyJS Example
+### Demographic and Survey questions (using SurveyJS library)
 
 [SurveyJS](http://surveyjs.org) is an easy to use library to create online surveys similar to jQuery UI. Have a look at [surveyjs.org/examples/jquery/questiontype-text](http://surveyjs.org/examples/jquery/questiontype-text/) to see what is possible.
 
 ![Screenshot SurveyJS Example](images/example-studies/survey-js-screenshot.png){:width="300"}
 
-**Needs JATOS version 2.1.7 or newer**
+**Needs JATOS version 3.1.1 or newer**
 
 [Download SurveyJS Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/survey.js_ui_example.zip)
 
 ### jQuery UI Example
 
-The Basic example study has simple text and is visually not very attractive. With [jQuery UI](https://jqueryui.com/) it's quite simple to add common (and pretty!) GUI elements to your study, like a date picker, a sortable list or a slider.
+With [jQuery UI](https://jqueryui.com/) it's quite simple to add common (and pretty!) GUI elements to your study, like a date picker, a sortable list or a slider.
 
 ![Screenshot jQuery UI Example](images/example-studies/Screenshot_jqueryuiExample_personalData.png){:width="300"}
 
-**Needs JATOS version 3.1.1 or newer**
+**Needs JATOS version 2.1.7 or newer**
 
 [Download jQuery UI Example Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/jquery_ui_example_study.zip)
 
 ### p5.js Example
 
-[p5.js](https://p5js.org/) is graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, or capture from the webcam or the mic. Have a look at their [example section](https://p5js.org/examples/).
+[p5.js](https://p5js.org/) is a graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, video, sound, or capture from the webcam or the mic. Have a look at their [example section](https://p5js.org/examples/).
 
 ![Screenshot p5.js Example](images/example-studies/p5-js-screenshot3.png){:width="300"}
 
