@@ -62,7 +62,7 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 ![Screenshot SurveyJS Example](images/example-studies/survey-js-screenshot.png){:width="300"}
 
-**Needs JATOS version 3.1.1 or newer**
+**Needs JATOS version 2.1.7 or newer**
 
 [Download SurveyJS Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/survey.js_ui_example.zip)
 
@@ -72,6 +72,8 @@ The Basic example study has simple text and is visually not very attractive. Wit
 
 ![Screenshot jQuery UI Example](images/example-studies/Screenshot_jqueryuiExample_personalData.png){:width="300"}
 
+**Needs JATOS version 3.1.1 or newer**
+
 [Download jQuery UI Example Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/jquery_ui_example_study.zip)
 
 ### p5.js Example
@@ -79,6 +81,8 @@ The Basic example study has simple text and is visually not very attractive. Wit
 [p5.js](https://p5js.org/) is graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, or capture from the webcam or the mic. Have a look at their [example section](https://p5js.org/examples/).
 
 ![Screenshot p5.js Example](images/example-studies/p5-js-screenshot3.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
 
 [Download p5.js Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/p5.js_examples.zip)
 
