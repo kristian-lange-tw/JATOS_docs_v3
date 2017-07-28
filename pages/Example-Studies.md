@@ -74,6 +74,14 @@ The Basic example study has simple text and is visually not very attractive. Wit
 
 [Download jQuery UI Example Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/jquery_ui_example_study.zip)
 
+### p5.js Example
+
+[p5.js](https://p5js.org/) is graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, or capture from the webcam or the mic. Have a look at their [example section](https://p5js.org/examples/).
+
+![Screenshot p5.js Example](images/example-studies/p5-js-screenshot3.png){:width="300"}
+
+[Download p5.js Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/p5.js_examples.zip)
+
 ### Video Example
 
 Shows how to embed a video with HTML 5 by using the browsers video player, YouTube, or the [video.js](http://www.videojs.com/) JavaScript library.
