@@ -1,6 +1,6 @@
 ---
 title: Example Studies
-keywords: examples, jspsych, javascript
+keywords: examples, jspsych, javascript, bootstrap, jquery, pure, css, highchart, survey
 tags:
 summary: These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and presentation, messaging in group studies). They are not meant to show what JATOS itself does (since JATOS doesn't care for the browser side).
 sidebar: mydoc_sidebar
@@ -58,7 +58,7 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 ### SurveyJS Example
 
-[SurveyJS](surveyjs.org) is an easy to use library to create online surveys similar to jQuery UI. Have a look at [surveyjs.org/examples/jquery/questiontype-text](http://surveyjs.org/examples/jquery/questiontype-text/) to see what is possible.
+[SurveyJS](http://surveyjs.org) is an easy to use library to create online surveys similar to jQuery UI. Have a look at [surveyjs.org/examples/jquery/questiontype-text](http://surveyjs.org/examples/jquery/questiontype-text/) to see what is possible.
 
 ![Screenshot SurveyJS Example](images/example-studies/survey-js-screenshot.png){:width="300"}
 
