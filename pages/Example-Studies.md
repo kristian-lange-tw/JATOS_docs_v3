@@ -58,7 +58,7 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 ### SurveyJS Example
 
-SurveyJS is an easy to use library to create online surveys including. Have a look at http://surveyjs.org/examples/jquery/questiontype-text/ to see what is possible.
+[SurveyJS](surveyjs.org) is an easy to use library to create online surveys similar to jQuery UI. Have a look at [surveyjs.org/examples/jquery/questiontype-text](http://surveyjs.org/examples/jquery/questiontype-text/) to see what is possible.
 
 ![Screenshot SurveyJS Example](images/example-studies/survey-js-screenshot.png){:width="300"}
 
