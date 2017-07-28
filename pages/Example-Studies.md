@@ -12,7 +12,7 @@ last_updated: 24 May 2017
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
 
-Since JATOS cares mostly for the server side it gives you the freedom to use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [jQuery](https://jquery.com/), [AngularJS](https://angularjs.org/), [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/) or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)).
+Since JATOS cares mostly for the server side it gives you the freedom to use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [jQuery](https://jquery.com/), [AngularJS](https://angularjs.org/), [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/), [p5](https://p5js.org/), or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)).
 
 You can easily import/export study in JATOS. There is an 'Import Study' button in the header of each page and each study has an 'Export Study' button hidden under the 'More' button.
 
@@ -55,6 +55,16 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 **Needs JATOS version 2.1.7 or newer**
 
 [Download Lexical Decision](https://github.com/JATOS/JATOS_examples/raw/master/examples/lexical_decision_(using_jspsych).zip)
+
+### SurveyJS Example
+
+SurveyJS is an easy to use library to create online surveys including. Have a look at http://surveyjs.org/examples/jquery/questiontype-text/ to see what is possible.
+
+![Screenshot SurveyJS Example](images/example-studies/survey-js-screenshot.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download SurveyJS Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/survey.js_ui_example.zip)
 
 ### jQuery UI Example
 
