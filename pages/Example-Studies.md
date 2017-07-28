@@ -58,7 +58,7 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 ### Demographic and Survey questions (using SurveyJS library)
 
-[SurveyJS](http://surveyjs.org) is an easy to use library to create online surveys similar to jQuery UI. Have a look at [surveyjs.org/examples/jquery/questiontype-text](http://surveyjs.org/examples/jquery/questiontype-text/) to see what is possible.
+[SurveyJS](http://surveyjs.org) is an easy to use library to create simple forms or complex surveys and questionaires. Have a look at [surveyjs.org/examples/jquery/questiontype-text](http://surveyjs.org/examples/jquery/questiontype-text/) to see what is possible.
 
 ![Screenshot SurveyJS Example](images/example-studies/survey-js-screenshot.png){:width="300"}
 
