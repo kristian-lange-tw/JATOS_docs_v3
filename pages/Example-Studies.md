@@ -80,7 +80,7 @@ With [jQuery UI](https://jqueryui.com/) it's quite simple to add common (and pre
 
 [p5.js](https://p5js.org/) is a graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, video, sound, or capture from the webcam or the mic. Have a look at their [example section](https://p5js.org/examples/).
 
-![Screenshot p5.js Example](images/example-studies/p5-js-screenshot3.png){:width="300"}
+![Screenshot p5.js Example](images/example-studies/p5-js-screenshot4.png){:width="300"}
 
 **Needs JATOS version 3.1.1 or newer**
 
