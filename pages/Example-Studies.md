@@ -191,7 +191,7 @@ This is a standard visual metacognition task. It is uses the **jsPsych** library
 
 ### Potato Compass (using interact.js)
 
-Example how to use interact.js (http://interactjs.io/) to achieve draggable elements (drag & drop).
+Example how to use [interact.js](http://interactjs.io/) to achieve draggable elements (drag & drop).
 
 ![Screenshot Potato Compass (using interact.js)](images/example-studies/Screenshot_potatoCompass.png){:width="300"}
 
