@@ -72,7 +72,7 @@
 {
 "title": "Example Studies",
 "tags": "",
-"keywords": "examples, jspsych, javascript",
+"keywords": "examples, jspsych, javascript, bootstrap, jquery, pure, css, highchart, survey",
 "url": "Example-Studies.html",
 "summary": "These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and presentation, messaging in group studies). They are not meant to show what JATOS itself does (since JATOS doesn't care for the browser side)."
 }
@@ -329,7 +329,7 @@
 "tags": "",
 "keywords": "reference, jatos.js",
 "url": "jatos.js-Reference.html",
-"summary": "jatos.js is a small JavaScript library that helps you to communicate from JavaScript with your JATOS server (in more technical terms, it wraps calls to JATOS' public REST API). Below we list and describe the variables and functions of the jatos.js library."
+"summary": "jatos.js is a small JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library."
 }
 ,
 
