@@ -538,6 +538,35 @@ deferred.fail(function () {
 });
 ```
 
+### `jatos.batchSession.find(path)`
+
+Gets a field in the Batch Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server. Contrary to `jatos.batchSession.get` it allows to get values from all levels of the Batch Session's object tree.
+
+* _@param {string} path_ - JSON pointer path 
+* _@return {object}_ - the value that is stored in path
+
+Example: If the internal Batch Session is `{"a": {"a1": "foo", "a2": "bar"}, "b": 999}`
+
+```javascript
+jatos.batchSession.find("/a/a1"); // returns "foo"
+jatos.batchSession.find("/b"); // returns 999
+```
+
+### `jatos.batchSession.defined(path)`
+
+**Since JATOS version >= 3.1.8**
+
+Checks in the Batch Session whether a field under the given path exists. Returns true if the field is defined and false otherwise. It's equivalent to `!jatos.batchSession.test(path, undefined)`.
+
+* _@param {string} path_ - JSON pointer path to be checked
+* _@return {boolean}_
+
+Example:
+
+```javascript
+jatos.batchSession.defined("/a"); // returns true if the pointer '/a' exists
+```
+
 ### `jatos.batchSession.test(path, value)`
 
 JSON Patch test operation: Tests that the specified value is set in the document (see [jsonpatch.com](http://jsonpatch.com/)).
@@ -617,20 +646,6 @@ deferred.done(function () {
 deferred.fail(function () {
   alert("Batch Session synchronization failed");
 });
-```
-
-### `jatos.batchSession.find(path)`
-
-Gets a field in the Batch Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server. Contrary to `jatos.batchSession.get` it allows to get values from all levels of the Batch Session's object tree.
-
-* _@param {string} path_ - JSON pointer path 
-* _@return {object}_ - the value that is stored in path
-
-Example: If the internal Batch Session is `{"a": {"a1": "foo", "a2": "bar"}, "b": 999}`
-
-```javascript
-jatos.batchSession.find("/a/a1"); // returns "foo"
-jatos.batchSession.find("/b"); // returns 999
 ```
 
 ### `jatos.batchSession.getAll()`
@@ -1124,6 +1139,35 @@ deferred.fail(function () {
 });
 ```
 
+### `jatos.groupSession.find(path)`
+
+Gets a field in the Group Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server. Contrary to `jatos.groupSession.get` it allows to get values from all levels of the Group Session's object tree.
+
+* _@param {string} path_ - JSON pointer path 
+* _@return {object}_ - the value that is stored in path
+
+Example: If the internal Group Session is `{"a": {"a1": "foo", "a2": "bar"}, "b": 999}`
+
+```javascript
+jatos.groupSession.find("/a/a1"); // returns "foo"
+jatos.groupSession.find("/b"); // returns 999
+```
+
+### `jatos.groupSession.defined(path)`
+
+**Since JATOS version >= 3.1.8**
+
+Checks in the Group Session whether a field under the given path exists. Returns true if the field is defined and false otherwise. It's equivalent to `!jatos.groupSession.test(path, undefined)`.
+
+* _@param {string} path_ - JSON pointer path to be checked
+* _@return {boolean}_
+
+Example:
+
+```javascript
+jatos.groupSession.defined("/a"); // returns true if the pointer '/a' exists
+```
+
 ### `jatos.groupSession.test(path, value)`
 
 JSON Patch test operation: Tests that the specified value is set in the document (see [jsonpatch.com](http://jsonpatch.com/)).
@@ -1138,16 +1182,6 @@ Example: If the internal Group Session is `{"a": 123, "b": {"b1": "flowers", "b2
 jatos.groupSession.test("/a", 123); // returns true
 jatos.groupSession.test("/a", 10); // returns false
 jatos.groupSession.test("/b/b1", "flowers"); // returns true
-```
-
-Example: If you want to know the existence of a path in the Group Session you can test against `undefined`:
-
-```javascript
-if (!jatos.groupSession.test("/c", undefined)) {
-  // Path "/c" exists
-} else {
-  // Path "/c" doesn't exist
-}
 ```
 
 ### `jatos.groupSession.get(name)`
@@ -1203,20 +1237,6 @@ deferred.done(function () {
 deferred.fail(function () {
   alert("Group Session synchronization failed");
 });
-```
-
-### `jatos.groupSession.find(path)`
-
-Gets a field in the Group Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server. Contrary to `jatos.groupSession.get` it allows to get values from all levels of the Group Session's object tree.
-
-* _@param {string} path_ - JSON pointer path 
-* _@return {object}_ - the value that is stored in path
-
-Example: If the internal Group Session is `{"a": {"a1": "foo", "a2": "bar"}, "b": 999}`
-
-```javascript
-jatos.groupSession.find("/a/a1"); // returns "foo"
-jatos.groupSession.find("/b"); // returns 999
 ```
 
 ### `jatos.groupSession.getAll()`
