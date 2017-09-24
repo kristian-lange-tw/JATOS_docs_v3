@@ -56,6 +56,20 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 [Download Lexical Decision](https://github.com/JATOS/JATOS_examples/raw/master/examples/lexical_decision_(using_jspsych).zip)
 
+### Random Dot Kinematogram (with jsPsych 5.0.3)
+
+By _Sivananda Rajananda, Hakwan Lau, Brian Odegaard_
+
+A random dot kinematogram (RDK) for online visual psychophysics and the use in web browsers. This fully-customizable RDK offers options to implement several different types of noise (random position, random walk, random direction) and parameters to control aperture shape, coherence level, the number of dots, and many other features.
+
+Source code: https://github.com/vrsivananda/RDK
+
+![Screenshot RDK](images/example-studies/Screenshot_rdk.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download RDK Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/rdk.zip)
+
 ### Demographic and Survey questions (using SurveyJS library)
 
 [SurveyJS](http://surveyjs.org) is an easy to use library to create simple forms or complex surveys and questionaires. Have a look at [surveyjs.org/examples/jquery/questiontype-text](http://surveyjs.org/examples/jquery/questiontype-text/) to see what is possible.
