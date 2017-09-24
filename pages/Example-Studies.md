@@ -58,11 +58,12 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 ### Random Dot Kinematogram (with jsPsych 5.0.3)
 
-By _Sivananda Rajananda, Hakwan Lau, Brian Odegaard_
+By _Sivananda Rajananda, Hakwan Lau, Brian Odegaard_ [preprint](https://www.biorxiv.org/content/early/2017/09/21/192377)
+Source code: [github.com/vrsivananda/RDK](https://github.com/vrsivananda/RDK)
 
-A random dot kinematogram (RDK) for online visual psychophysics and the use in web browsers. This fully-customizable RDK offers options to implement several different types of noise (random position, random walk, random direction) and parameters to control aperture shape, coherence level, the number of dots, and many other features.
+A random dot kinematogram (RDK) for online visual psychophysics and the use in web browsers. 
 
-Source code: https://github.com/vrsivananda/RDK
+> This fully-customizable RDK offers options to implement several different types of noise (random position, random walk, random direction) and parameters to control aperture shape, coherence level, the number of dots, and many other features.
 
 ![Screenshot RDK](images/example-studies/Screenshot_rdk.png){:width="300"}
 
