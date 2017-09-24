@@ -58,7 +58,8 @@ Taken from [http://www.factorsdb.org/](http://www.factorsdb.org/) using **jsPsyc
 
 ### Random Dot Kinematogram (with jsPsych 5.0.3)
 
-By _Sivananda Rajananda, Hakwan Lau, Brian Odegaard_ [preprint](https://www.biorxiv.org/content/early/2017/09/21/192377)
+By _Sivananda Rajananda, Hakwan Lau, Brian Odegaard_ ([preprint](https://www.biorxiv.org/content/early/2017/09/21/192377))
+
 Source code: [github.com/vrsivananda/RDK](https://github.com/vrsivananda/RDK)
 
 A random dot kinematogram (RDK) for online visual psychophysics and the use in web browsers. 
