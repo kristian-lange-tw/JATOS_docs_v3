@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: true
-last_updated: 24 May 2017
+last_updated: 3 Oct 2017
 ---
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
@@ -16,7 +16,7 @@ Since JATOS cares mostly for the server side it gives you the freedom to use in 
 
 You can easily import/export study in JATOS. There is an 'Import Study' button in the header of each page and each study has an 'Export Study' button hidden under the 'More' button.
 
-Another set of examples of psychological experiments is the [Experiment Factory](https://expfactory.github.io/table.html). All those experiments there are easily jatosifyable - like we did with the [Example-Studies.html#self-regulation-survey-from-the-experiment-factory](Self Regulation Survey).
+Another library of examples of psychological experiments is the [Experiment Factory](https://expfactory.github.io/table.html). All those experiments there are easily jatosifyable - like we did with the [http://www.jatos.org/Example-Studies.html#self-regulation-survey-from-the-experiment-factory](Self Regulation Survey).
 
 <b>If you have trouble downloading a study (common in Safari browsers) check [this troubleshooting tip](Troubleshooting.html#downloading-a-study--exporting-a-study-fails-eg-in-safari-browsers).</b>
 
