@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 28 Apr 2017
+last_updated: 8 Oct 2017
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
@@ -90,13 +90,13 @@ Change the paths and the user according to your JATOS path and the user you want
 
 Then enable the service to start automatically:
 ```shell
-systemctl enable
+systemctl enable jatos.service
 ```
 That's it.
 
-Additionally you can manually start JATOS now with `systemctl start` and stop with `systemctl stop`.
+Additionally you can manually start JATOS now with `systemctl start jatos.service` and stop with `systemctl stop jatos.service`.
 
-You can disable the service with `systemctl disable`. If you change the service file you need `systemctl daemon-reload` to let the system know.
+You can disable the service with `systemctl disable jatos.service`. If you change the service file you need `systemctl daemon-reload jatos.service` to let the system know.
 
 #### 2) Via /etc/init.d script
 It's easy to turn the `loader.sh` script into an init script for a daemon.
