@@ -107,6 +107,7 @@ Additional to the [database](#Database) and the [study assets root path](#study-
 
 * `jatos.userSession.timeout` - time in minutes a user stays logged in (default is 1440 = 1 day)
 * `jatos.userSession.inactivity` - defines the time in minutes a user is automatically logged out after inactivity (default is 60)
+* `jatos.userSession.validation` - toggles user session validation: set to false to switch it off (default is true) - WARNING: Turning off the user session validation reduces JATOS security!
 * `play.http.session.secure` - secure session cookie: set true to restrict user access to HTTPS (default is false)
 
 Apart from those all [configuration properties possible in the Play Framework](https://www.playframework.com/documentation/latest/Configuration) are possible in JATOS production.conf too. 
