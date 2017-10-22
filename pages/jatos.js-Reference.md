@@ -116,6 +116,18 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
   ```javascript
   jatos.httpTimeout = 30000; // Sets HTTP timeout to 30 seconds
   ```
+  
+* `jatos.httpRetry` - Some jatos functions (e.g. `jatos.sendResultData`) send an Ajax request to the JATOS server. If this request was not successful (e.g. network problems) jatos.js retries it. With this variable one can change the number of retries. The default is 5. 
+
+  ```javascript
+  jatos.httpRetry = 2; // Attempts 2 retries of failed Ajax requests
+  ```
+  
+* `jatos.httpRetryWait` - Same as `jatos.httpRetry` but this variable defines the waiting time between the retries. The default is 1000 ms.
+  
+  ```javascript
+  jatos.httpRetryWait = 5000; // Sets Ajax retry waiting time to 5 seconds
+  ```
 
 * `jatos.jQuery` - You can always use jatos.js own jQuery if you want to save some bandwidth
 
