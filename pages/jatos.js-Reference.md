@@ -58,7 +58,7 @@ There's a convenient function that adds all these IDs to a given object. See fun
 * `jatos.urlQueryParameters` - Original query string parameters of the URL that starts the study. It is provided as a JavaScript object. This might be useful to pass on information from outside of JATOS into a study run, e.g. if you want to pass on information like gender and age. However if you know the information beforehand it's easier to put them in the
 Study's or Component's JSON input.
 
-E.g. one has this link to start a Personal Single Run `http://localhost:9000/publix/50/start?batchId=47&personalSingleWorkerId=506`. Now one could add parameters to the URL's query string to pass on external information into the study run. E.g. the URL `http://localhost:9000/publix/50/start?batchId=47&personalSingleWorkerId=506&foo=bar&a=123` would add the parameters 'foo' with the value 'bar' and 'a' with the value '123'. Then those parameter will be accessible during the study run in `jatos.urlQueryParameters` as `{a: "123", foo: "bar"}`.
+  E.g. one has this link to start a Personal Single Run `http://localhost:9000/publix/50/start?batchId=47&personalSingleWorkerId=506`. Now one could add parameters to the URL's query string to pass on external information into the study run. E.g. the URL `http://localhost:9000/publix/50/start?batchId=47&personalSingleWorkerId=506&foo=bar&a=123` would add the parameters 'foo' with the value 'bar' and 'a' with the value '123'. Then those parameter will be accessible during the study run in `jatos.urlQueryParameters` as `{a: "123", foo: "bar"}`.
 
 ### Component variables
 
