@@ -53,7 +53,7 @@ There's a convenient function that adds all these IDs to a given object. See fun
 * `jatos.studyJsonInput` - The JSON input you entered in the study's properties.
 * `jatos.studyLength` - Number of component this study has
 
-#### Original URL query parameters
+### Original URL query parameters
 
 * `jatos.urlQueryParameters` - Original query string parameters of the URL that starts the study. It is provided as a JavaScript object. This might be useful to pass on information from outside of JATOS into a study run, e.g. if you want to pass on information like gender and age. However if you know the information beforehand it's easier to put them in the
 Study's or Component's JSON input.
