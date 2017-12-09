@@ -18,7 +18,7 @@ As an additional security measurement you can uncomment the `location /jatos` an
 
 ~~~ shell
 user www-data;
-worker_processes 1;
+worker_processes auto;
 pid /run/nginx.pid;
 
 events {
