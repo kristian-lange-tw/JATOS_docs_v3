@@ -26,6 +26,8 @@ We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-
 * Manage workers, to e.g. make sure that each participant does your study only once.
 * **Export/Import** studies to facilitate exchange with other researchers.
 
+You can try out JATOS on our test server: [https://cortex.jatos.org](https://cortex.jatos.org) (log in with _test@jatos.org_ and _abc123_)
+
 The whole documentation is available as <a target="_blank" class="noCrossRef" href="https://github.com/JATOS/JATOS_docs_v3/raw/gh-pages/pdf/jatos-docs.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
 
 Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130834) if you use JATOS for your research.
