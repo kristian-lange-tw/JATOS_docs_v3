@@ -51,6 +51,10 @@ entries:
       url: /Data-Privacy-and-Ethics.html
       output: web, pdf
 
+    - title: JATOS Tryout Server
+      url: /JATOS-Tryout-Server.html
+      output: web, pdf
+
   - title: Write your study
     output: web, pdf
     folderitems:

@@ -147,6 +147,28 @@
 
 
 {
+"title": "JATOS Tryout Server",
+"tags": "",
+"keywords": "try out, example, server",
+"url": "JATOS-Tryout-Server.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "JATOS Tryout Server",
+"tags": "",
+"keywords": "try out, example, server",
+"url": "JATOS-tryout-server.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "JATOS with Apache",
 "tags": "",
 "keywords": "apache, server, httpd, installation, websocket, proxy, mod_proxy_wstunnel module",
@@ -174,17 +196,6 @@
 "keywords": "results",
 "url": "Manage-results.html",
 "summary": "The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g. worker ID, start time etc.)."
-}
-,
-
-
-
-{
-"title": "Pass on parameters into a study run",
-"tags": "",
-"keywords": "mandatory, HTML, jatos.js",
-"url": "Mandatory-lines-in-your-components-HTML.html",
-"summary": ""
 }
 ,
 
