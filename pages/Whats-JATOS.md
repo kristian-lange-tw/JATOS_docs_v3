@@ -6,7 +6,7 @@ summary:
 sidebar: mydoc_sidebar
 permalink: Whats-JATOS.html
 toc: false
-last_updated: 24 May 2017
+last_updated: 10 Dec 2017
 ---
 
 JATOS (Just Another Tool for Online Studies) helps you set up and run your online studies on your own server.
@@ -26,7 +26,7 @@ We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-
 * Manage workers, to e.g. make sure that each participant does your study only once.
 * **Export/Import** studies to facilitate exchange with other researchers.
 
-You can try out JATOS on _cortex_, our test server: [https://cortex.jatos.org](https://cortex.jatos.org) (log in with _test@jatos.org_ and _abc123_). But keep in mind that this server is for testing only and cannot be used for any real experiments.
+You can try out [JATOS on _cortex_, our test server](JATOS-Tryout-Server.html).
 
 The whole documentation is available as <a target="_blank" class="noCrossRef" href="https://github.com/JATOS/JATOS_docs_v3/raw/gh-pages/pdf/jatos-docs.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
 
