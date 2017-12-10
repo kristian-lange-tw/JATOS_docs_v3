@@ -16,6 +16,6 @@ Cortex is a running JATOS server where you can try out JATOS in the Internet ins
 
 This is a normal JATOS installation with many example studies already imported. You can run the examples or import your own studies if you want to test them in a JATOS running in an online environment. 
 
-But be aware that every day **at 8:00 UTC this JATOS server will be reset** to its inital state and all changes will be lost. With other words this JATOS is not meant to run your studies online.
+But be aware that every day **at 8:00 UTC this JATOS server will be reset** to its inital state and all changes will be lost. In other words this JATOS is not meant to run your studies online.
 
 
