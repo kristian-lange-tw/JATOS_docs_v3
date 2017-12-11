@@ -63,7 +63,7 @@ It's nice to have JATOS starts automatically after a start or a reboot of your m
 
 Create a systemd service file for JATOS 
 ```shell
-sudo vim /etc/systemd/system/jatos.service
+vim /etc/systemd/system/jatos.service
 ```
 and put the following text inside. 
 ```shell
@@ -82,19 +82,28 @@ ExecStop=/bin/kill $MAINPID
 ExecStopPost=/bin/rm -f /my/path/to/jatos/RUNNING_PID
 ExecRestart=/bin/kill $MAINPID
 Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
 ```
 Change the paths and the user according to your JATOS path and the user you want to start JATOS with.
 
-Then enable the service to start automatically:
+Secondly, notify systemd of the new service file:
+```shell
+systemctl daemon-reload
+```
+and enable it, so it runs on boot:
 ```shell
 systemctl enable jatos.service
 ```
 That's it.
 
-Additionally you can manually start JATOS now with `systemctl start jatos.service` and stop with `systemctl stop jatos.service`.
+Additionally you can manually start/stop JATOS now with:
+* `systemctl start jatos.service`
+* `systemctl stop jatos.service`
+* `systemctl restart jatos.service`
+* `systemctl status jatos.service`
 
 You can disable the service with `systemctl disable jatos.service`. If you change the service file you need `systemctl daemon-reload jatos.service` to let the system know.
 
