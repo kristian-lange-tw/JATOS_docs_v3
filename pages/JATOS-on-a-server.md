@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 8 Oct 2017
+last_updated: 11 Dec 2017
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
