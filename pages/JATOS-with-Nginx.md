@@ -6,7 +6,7 @@ summary:
 sidebar: mydoc_sidebar
 permalink: JATOS-with-Nginx.html
 folder:
-toc: true
+toc: false
 last_updated: 27 Apr 2017
 ---
 
