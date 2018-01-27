@@ -26,16 +26,26 @@ Everything starts with a Hello World!
 
 [Download Hello World example](https://github.com/JATOS/JATOS_examples/raw/master/examples/hello_world.zip).
 
-### Go- / No-Go Task (with jsPsych 5.0.3)
+### Go- / No-Go Task (with jsPsych 6.0.1)
 
 Standard Go- / No-Go experiment.
 This study illustrates the compatibility between JATOS and the excellent **jsPsych** library ([www.jspsych.org](http://www.jspsych.org/)). With jsPsych one can program the actual experiment while JATOS cares for the server-side.
 
+![Screenshot Go- / No-Go Task](images/example-studies/Screenshot_gonogo_jspsych6.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_6).zip)
+
+### Go- / No-Go Task (with jsPsych 5.0.3)
+
+Same experiment but with an older version of jsPsych (5.0.3).
+
 ![Screenshot Go- / No-Go Task](images/example-studies/Screenshot_gonogo.png){:width="300"}
 
-**Needs JATOS version 2.1.7 or newer**
+**Needs JATOS version 3.1.1 or newer**
 
-[Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych).zip)
+[Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_5).zip)
 
 ### Randomize conditions between participants (Go- / No-Go Task)
 
