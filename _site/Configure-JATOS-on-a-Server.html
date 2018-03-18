@@ -3,7 +3,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database and...">
+<meta name="description" content="If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, ch...">
 <meta name="keywords" content=" server, configuration, MySQL, H2, database, study assets, study assets root, port">
 <title>Configure JATOS on a Server | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
@@ -462,7 +462,7 @@
 <div class="post-content">
 
    
-    <div class="summary">If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database and change the path of the study assets root folder.</div>
+    <div class="summary">If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions.</div>
    
 
     
@@ -581,7 +581,7 @@ $('#toc').on('click', 'a', function() {
     </div>
   </li>
   <li>
-    <p>Via production.conf (description analog to 1.)</p>
+    <p>Via <code class="highlighter-rouge">conf/production.conf</code> (description analog to 1.)</p>
 
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>db.default.url<span class="o">=</span><span class="s2">"jdbc:mysql://localhost/MyDatabase?characterEncoding=UTF-8"</span>
 db.default.user<span class="o">=</span>myusername
@@ -608,7 +608,23 @@ jpa.default<span class="o">=</span>mysqlPersistenceUnit
   </li>
 </ol>
 
-<h3 id="productionconf">production.conf</h3>
+<h3 id="password-restrictions">Password restrictions</h3>
+
+<p>By default JATOS’ keeps it simple and relies on the users to choose save passwords: it just enforces a length of at least 7 characters. But this can be changed in the <code class="highlighter-rouge">conf/production.conf</code> with the following two properties.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.user.password.length</code> - Set with an positive integer (default is 7)</li>
+  <li><code class="highlighter-rouge">jatos.user.password.strength</code> - Set to 0, 1, 2, or 3 (default is 0)
+    <ul>
+      <li><code class="highlighter-rouge">0</code>: No restrictions on characters</li>
+      <li><code class="highlighter-rouge">1</code>: At least one Latin letter and one number</li>
+      <li><code class="highlighter-rouge">2</code>: At least one Latin letter, one number and one special character (<code class="highlighter-rouge">#?!@$%^&amp;*-</code>)</li>
+      <li><code class="highlighter-rouge">3</code>: At least one uppercase Latin letter, one lowercase Latin letter, one number and one special character (<code class="highlighter-rouge">#?!@$%^&amp;*-</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="other-configuration-in-productionconf">Other configuration in production.conf</h3>
 
 <p>Additional to the <a href="#Database">database</a> and the <a href="#study-assets-root-path">study assets root path</a> some other properties can be configured in the <code class="highlighter-rouge">conf/production.conf</code>.</p>
 
@@ -636,7 +652,7 @@ jpa.default<span class="o">=</span>mysqlPersistenceUnit
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 29 Dec 2016
+<span>Page last updated:</span> 18 Mar 2018
                 </div>
             </div>
 </footer>

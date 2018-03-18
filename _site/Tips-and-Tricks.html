@@ -504,11 +504,9 @@ Testing studies posted in MTurk is especially cumbersome, because you should mak
 
 <p>Here are some concrete examples:</p>
 
-<p>To run the study with the ID 4 on a local JATOS use <code class="highlighter-rouge">http://localhost:9000/publix/4/start?workerId=123456&amp;assignmentId=abcdef</code>.</p>
+<p>To run the study with ID 4 and batch with ID 2 with an <strong>MTurk</strong> worker on a local JATOS use <code class="highlighter-rouge">http://localhost:9000/publix/4/start?batchId=2&amp;workerId=123456&amp;assignmentId=abcdef</code>. You can use any arbitrary value in the query strings <code class="highlighter-rouge">workerId</code> and <code class="highlighter-rouge">assignmentId</code> (in this example, <code class="highlighter-rouge">workerId = 12345</code> and <code class="highlighter-rouge">assignmentId = abcdef</code>).</p>
 
-<p>To imitate a run from <strong>MTurk’s Sandbox</strong>, use any arbitrary values in the query strings <code class="highlighter-rouge">workerId</code> and <code class="highlighter-rouge">assignmentId</code> (In this example, <code class="highlighter-rouge">workerId = 12345</code> and <code class="highlighter-rouge">assignmentId = abcdef</code>). Also, set <code class="highlighter-rouge">turkSubmitTo</code> to the value ‘sandbox’.</p>
-
-<p><code class="highlighter-rouge">http://localhost:9000/publix/4/start?workerId=123456&amp;assignmentId=abcdef&amp;turkSubmitTo=sandbox</code></p>
+<p>To imitate a run from <strong>MTurk’s Sandbox</strong> additionally set <code class="highlighter-rouge">turkSubmitTo</code> to the value ‘sandbox’ <code class="highlighter-rouge">http://localhost:9000/publix/4/start?batchId=2&amp;workerId=123456&amp;assignmentId=abcdef&amp;turkSubmitTo=sandbox</code></p>
 
 <h3 id="lock-your-studies-before-running-them">Lock your studies before running them</h3>
 

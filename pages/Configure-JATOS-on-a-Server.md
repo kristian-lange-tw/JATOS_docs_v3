@@ -2,12 +2,12 @@
 title: Configure JATOS on a Server
 keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port
 tags:
-summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database and change the path of the study assets root folder.
+summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions.
 sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:
 toc: true
-last_updated: 29 Dec 2016
+last_updated: 18 Mar 2018
 ---
 
 **Restart JATOS after making any changes to the configuration (`loader.sh restart`)**
@@ -78,7 +78,7 @@ There are three ways to set up the database.
    ~~~ bash
    loader.sh start -DJATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_JPA=mysqlPersistenceUnit -DJATOS_DB_DRIVER=com.mysql.jdbc.Driver
    ~~~
-1. Via production.conf (description analog to 1.)
+1. Via `conf/production.conf` (description analog to 1.)
 
    ~~~ bash
    db.default.url="jdbc:mysql://localhost/MyDatabase?characterEncoding=UTF-8"
@@ -101,7 +101,18 @@ There are three ways to set up the database.
    export JATOS_DB_URL='jdbc:mysql://localhost/jatos?characterEncoding=UTF-8' JATOS_DB_USERNAME='jatosuser' JATOS_DB_PASSWORD='mypassword' JATOS_DB_DRIVER=com.mysql.jdbc.Driver JATOS_JPA=mysqlPersistenceUnit
    ~~~
 
-### production.conf
+### Password restrictions
+
+By default JATOS' keeps it simple and relies on the users to choose save passwords: it just enforces a length of at least 7 characters. But this can be changed in the `conf/production.conf` with the following two properties.
+
+* `jatos.user.password.length` - Set with an positive integer (default is 7)
+* `jatos.user.password.strength` - Set to 0, 1, 2, or 3 (default is 0)
+  * `0`: No restrictions on characters
+  * `1`: At least one Latin letter and one number
+  * `2`: At least one Latin letter, one number and one special character (`#?!@$%^&*-`)
+  * `3`: At least one uppercase Latin letter, one lowercase Latin letter, one number and one special character (`#?!@$%^&*-`)
+
+### Other configuration in production.conf
 
 Additional to the [database](#Database) and the [study assets root path](#study-assets-root-path) some other properties can be configured in the `conf/production.conf`.
 

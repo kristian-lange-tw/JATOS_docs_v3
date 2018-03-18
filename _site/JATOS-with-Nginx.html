@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" nginx, server, installation">
+<meta name="keywords" content=" nginx, server, installation, encryption, HTTPS">
 <title>JATOS with Nginx | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
@@ -464,29 +464,6 @@
    
 
     
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-  // Handler for .ready() called.
-
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
-
-/* this offset helps account for the space taken up by the floating toolbar. */
-$('#toc').on('click', 'a', function() {
-  var target = $(this.getAttribute('href'))
-    , scroll_target = target.offset().top
-
-  $(window).scrollTop(scroll_target - 10);
-  return false
-})
-  
-});
-</script>
-
-<div id="toc"></div>
-
-    
 
 
     
@@ -495,11 +472,15 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <p>This is an example for a configuration of <a href="https://www.nginx.com/">Nginx</a> as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it’s common. It supports encryption (HTTPS) and WebSockets for JATOS’ group studies.</p>
+  <p>These are examples for configurations of <a href="https://www.nginx.com/">Nginx</a> as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it’s common. They support WebSockets for JATOS’ group studies.</p>
 
-<p>The following is the content of <code class="highlighter-rouge">/etc/nginx/nginx.conf</code>. Change it to your needs. You probably want to change your servers address (<code class="highlighter-rouge">www.example.com</code> in the example) and the path to the SSL certificate and its key. Those <code class="highlighter-rouge">proxy_set_header X-Forwarded-*</code> and <code class="highlighter-rouge">proxy_set_header X-Real-IP</code> are necessary to tell JATOS the real requester’s IP address.</p>
+<p>The following two configs are the content of <code class="highlighter-rouge">/etc/nginx/nginx.conf</code>. Change them to your needs. You probably want to change your servers address (<code class="highlighter-rouge">www.example.com</code> in the example) and the path to the SSL certificate and its key. Those <code class="highlighter-rouge">proxy_set_header X-Forwarded-*</code> and <code class="highlighter-rouge">proxy_set_header X-Real-IP</code> are necessary to tell JATOS the real requester’s IP address - please leave them unchanged.</p>
 
 <p>As an additional security measurement you can uncomment the <code class="highlighter-rouge">location /jatos</code> and config your local network. This will restrict the access to JATOS’ GUI (every URL starting with <code class="highlighter-rouge">/jatos</code>) to the local network.</p>
+
+<p>A JATOS server that handles sensitive or private data should always use encryption (HTTPS).</p>
+
+<h2 id="with-https">With HTTPS</h2>
 
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>user www-data;
 worker_processes auto;
@@ -559,6 +540,81 @@ http <span class="o">{</span>
 
                 keepalive_timeout    70;
                 server_name www.example.com;
+
+                <span class="c"># websocket location (JATOS' group and batch channel and the test page)</span>
+                location ~ <span class="s2">"^/(jatos/testWebSocket|publix/[</span><span class="se">\d</span><span class="s2">]+/(group/join|batch/open))"</span> <span class="o">{</span>
+                        proxy_pass              http://jatos-backend;
+                        proxy_http_version      1.1;
+                        proxy_set_header        Upgrade <span class="nv">$http_upgrade</span>;
+                        proxy_set_header        Connection <span class="nv">$connection_upgrade</span>;
+                        proxy_connect_timeout   7d; <span class="c"># keep open for 7 days even without any transmission</span>
+                        proxy_send_timeout      7d;
+                        proxy_read_timeout      7d;
+                <span class="o">}</span>
+
+                <span class="c"># restrict access to JATOS' GUI to local network</span>
+                <span class="c">#location /jatos {</span>
+                <span class="c">#       allow   192.168.1.0/24;</span>
+                <span class="c">#       deny    all;</span>
+                <span class="c">#}</span>
+
+                <span class="c"># all other traffic</span>
+                location / <span class="o">{</span>
+                        proxy_pass              http://jatos-backend;
+                <span class="o">}</span>
+        <span class="o">}</span>
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        include /etc/nginx/conf.d/<span class="k">*</span>.conf;
+        include /etc/nginx/sites-enabled/<span class="k">*</span>;
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="simple-without-encryption">Simple without encryption</h2>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events <span class="o">{</span>
+        worker_connections 768;
+        <span class="c"># multi_accept on;</span>
+<span class="o">}</span>
+
+http <span class="o">{</span>
+        sendfile on;
+        keepalive_timeout 65;
+        client_max_body_size 500M;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        proxy_buffering    off;
+        proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span>;
+        proxy_set_header   X-Forwarded-Proto http;
+        proxy_set_header   X-Forwarded-Ssl on;
+        proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span>;
+        proxy_set_header   Host <span class="nv">$http_host</span>;
+        proxy_http_version 1.1;
+
+        upstream jatos-backend <span class="o">{</span>
+                server 127.0.0.1:9000;
+        <span class="o">}</span>
+
+        <span class="c"># needed for websockets</span>
+        map <span class="nv">$http_upgrade</span> <span class="nv">$connection_upgrade</span> <span class="o">{</span>
+                default upgrade;
+                <span class="s1">''</span>      close;
+        <span class="o">}</span>
+
+        server <span class="o">{</span>
+                listen               80;
+
+                keepalive_timeout    70;
+                server_name          www.example.com;
 
                 <span class="c"># websocket location (JATOS' group and batch channel and the test page)</span>
                 location ~ <span class="s2">"^/(jatos/testWebSocket|publix/[</span><span class="se">\d</span><span class="s2">]+/(group/join|batch/open))"</span> <span class="o">{</span>

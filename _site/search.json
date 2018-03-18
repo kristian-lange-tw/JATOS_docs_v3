@@ -19,7 +19,7 @@
 "tags": "",
 "keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port",
 "url": "Configure-JATOS-on-a-Server.html",
-"summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database and change the path of the study assets root folder."
+"summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions."
 }
 ,
 
@@ -125,6 +125,17 @@
 
 
 {
+"title": "JATOS Tryout Server",
+"tags": "",
+"keywords": "try out, example, server",
+"url": "JATOS-Tryout-Server.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "JATOS in Amazon&#39;s Cloud (without Docker)",
 "tags": "",
 "keywords": "cloud, aws, amazon, installation, server",
@@ -141,17 +152,6 @@
 "keywords": "server, installation, test, config, configuration, backup, proxy",
 "url": "JATOS-on-a-server.html",
 "summary": "To run studies online, e.g. with Mechanical Turk, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
-}
-,
-
-
-
-{
-"title": "JATOS Tryout Server",
-"tags": "",
-"keywords": "try out, example, server",
-"url": "JATOS-Tryout-Server.html",
-"summary": ""
 }
 ,
 
@@ -182,7 +182,7 @@
 {
 "title": "JATOS with Nginx",
 "tags": "",
-"keywords": "nginx, server, installation",
+"keywords": "nginx, server, installation, encryption, HTTPS",
 "url": "JATOS-with-Nginx.html",
 "summary": ""
 }

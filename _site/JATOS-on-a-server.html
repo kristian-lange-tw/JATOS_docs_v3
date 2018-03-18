@@ -558,7 +558,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Create a systemd service file for JATOS 
 <code class="highlighter-rouge">shell
-sudo vim /etc/systemd/system/jatos.service
+vim /etc/systemd/system/jatos.service
 </code>
 and put the following text inside. 
 ```shell
@@ -576,20 +576,29 @@ ExecStart=/my/path/to/jatos/loader.sh start
 ExecStop=/bin/kill $MAINPID
 ExecStopPost=/bin/rm -f /my/path/to/jatos/RUNNING_PID
 ExecRestart=/bin/kill $MAINPID
-Restart=on-failure</p>
+Restart=on-failure
+RestartSec=5</p>
 
 <p>[Install]
 WantedBy=multi-user.target
 ```
 Change the paths and the user according to your JATOS path and the user you want to start JATOS with.</p>
 
-<p>Then enable the service to start automatically:
+<p>Secondly, notify systemd of the new service file:
+<code class="highlighter-rouge">shell
+systemctl daemon-reload
+</code>
+and enable it, so it runs on boot:
 <code class="highlighter-rouge">shell
 systemctl enable jatos.service
 </code>
 That’s it.</p>
 
-<p>Additionally you can manually start JATOS now with <code class="highlighter-rouge">systemctl start jatos.service</code> and stop with <code class="highlighter-rouge">systemctl stop jatos.service</code>.</p>
+<p>Additionally you can manually start/stop JATOS now with:
+* <code class="highlighter-rouge">systemctl start jatos.service</code>
+* <code class="highlighter-rouge">systemctl stop jatos.service</code>
+* <code class="highlighter-rouge">systemctl restart jatos.service</code>
+* <code class="highlighter-rouge">systemctl status jatos.service</code></p>
 
 <p>You can disable the service with <code class="highlighter-rouge">systemctl disable jatos.service</code>. If you change the service file you need <code class="highlighter-rouge">systemctl daemon-reload jatos.service</code> to let the system know.</p>
 
@@ -671,7 +680,7 @@ That’s it.</p>
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 8 Oct 2017
+<span>Page last updated:</span> 11 Dec 2017
                 </div>
             </div>
 </footer>
