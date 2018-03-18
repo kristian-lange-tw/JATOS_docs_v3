@@ -15,6 +15,17 @@
 
 
 {
+"title": "Change study&#39;s members",
+"tags": "",
+"keywords": "user, member, email",
+"url": "Change-studys-members.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Configure JATOS on a Server",
 "tags": "",
 "keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port",
@@ -303,7 +314,7 @@
 {
 "title": "Manage JATOS users",
 "tags": "",
-"keywords": "user manager, user, password, admin rights, admin",
+"keywords": "user manager, user, member, password, admin rights, admin",
 "url": "User-Manager.html",
 "summary": ""
 }

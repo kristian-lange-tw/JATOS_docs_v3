@@ -1,13 +1,13 @@
 ---
 title: Manage JATOS users
-keywords: user manager, user, password, admin rights, admin
+keywords: user manager, user, member, password, admin rights, admin
 tags:
 summary:
 sidebar: mydoc_sidebar
 permalink: User-Manager.html
 folder:
 toc: true
-last_updated: 27 April 2017
+last_updated: 18 Mar 2018
 ---
 
 Each experimenter with access to the JATOS server (though the GUI) is a JATOS User. Users can create, modify and delete the studies they are members of.
@@ -32,6 +32,6 @@ This will delete all studies, along with their result data, that this user is th
 
 ![User manager screenshot](images/user_manager2.png)
 
-Finally, admins can also change the password of other users. To change the password you'll need to enter your own (admin) password, along with the new desired password for the user.   
+Finally, admins can also change the password of other users. To change the password you'll need to enter your own (admin) password, along with the new desired password for the user.
 
 ![Change Password screenshot](images/user_manager_change_pw.png)

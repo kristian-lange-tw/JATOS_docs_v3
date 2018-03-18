@@ -107,6 +107,10 @@ entries:
       url: /User-Manager.html
       output: web, pdf
 
+    - title: Change study's members
+      url: /Change-studys-members.html
+      output: web, pdf
+
     - title: Update JATOS
       url: /Update-JATOS.html
       output: web, pdf
