@@ -31,8 +31,15 @@ We've produced multiple versions of JATOS. The simplest version is JATOS alone, 
 ### 2. Install JATOS
 
 1. [Download JATOS](https://github.com/JATOS/JATOS/releases)
+
+   E.g. with _wget_ for the version 3.2.1:
+   
+   `wget https://github.com/JATOS/JATOS/releases/download/v3.2.1/jatos-3.2.1.zip`
+
 1. JATOS comes zipped. Unpack this file at a location in your server's file system where JATOS should be installed.
+
 1. Check that the file `loader.sh` in the JATOS folder is executable.
+
 1. Check that JATOS starts with `loader.sh start|restart|stop`
 
 ### 3. Configuration
