@@ -94,6 +94,10 @@ entries:
     - title: Manage results
       url: /Manage-results.html
       output: web, pdf
+
+    - title: Study Log
+      url: /Study-Log.html
+      output: web, pdf
       
     - title: Tips & Tricks
       url: /Tips-and-Tricks.html

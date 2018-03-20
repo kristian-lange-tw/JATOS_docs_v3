@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" try out, example, server">
-<title>JATOS Tryout Server | JATOS 3 Documentation</title>
+<meta name="keywords" content=" study log, log, logging, logger">
+<title>Study Log | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="JATOS Tryout Server">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Study Log">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -300,7 +300,7 @@
             
             
             
-            <li><a href="Study-Log.html">Study Log</a></li>
+            <li class="active"><a href="Study-Log.html">Study Log</a></li>
             
             
             
@@ -468,7 +468,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">JATOS Tryout Server</h1>
+   <h1 class="post-title-main">Study Log</h1>
 </div>
 
 
@@ -478,23 +478,42 @@
    
 
     
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
 
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//JATOS-tryout-server.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Study-Log.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <p>Cortex is a running JATOS server where you can try out JATOS in the Internet instead of your local computer.</p>
+  <p>Each study has a log in JATOS.</p>
 
-<p><a href="https://cortex.jatos.org">https://cortex.jatos.org</a></p>
+<p><img src="images/study_log_pretty.png" alt="Study Log pretty" /></p>
 
-<p>Log in with <em>test@jatos.org</em> and <em>abc123</em>.</p>
-
-<p>This is a normal JATOS installation with many example studies already imported. You can run the examples or import your own studies if you want to test them in a JATOS running in an online environment.</p>
-
-<p>But be aware that every day <strong>at 8:00 UTC this JATOS server will be reset</strong> to its inital state and all changes will be lost. With other words this JATOS is not meant to run your studies online. If you want to your own JATOS server online have a look at <a href="JATOS-on-a-server.html">Install JATOS on a server</a>.</p>
+<p><img src="images/study_log_raw.png" alt="Study Log raw" /></p>
 
 
 
@@ -511,7 +530,7 @@
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 10 Dec 2017
+<span>Page last updated:</span> 20 Mar 2018
                 </div>
             </div>
 </footer>
