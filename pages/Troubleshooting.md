@@ -36,7 +36,7 @@ Here is how it should look if JATOS started successfully:
  
 ### Read log file in the browser
 
-In a perfect world, JATOS always works smoothly and, when it doesn't, it describes the problem in an error message. Unfortunately we aren't in a perfect world: every now and then something will go wrong and you might not get any clear error messages, or no message at all. In these (rare) cases, you can look into JATOS' log file to try to find what the problem might be.  
+In a perfect world, JATOS always works smoothly and, when it doesn't, it describes the problem in an error message. Unfortunately we aren't in a perfect world: every now and then something will go wrong and you might not get any clear error messages, or no message at all. In these (rare) cases, you can look into JATOS' log file (not to be confused with the [study log](http://www.jatos.org/Study-Log.html)) to try to find what the problem might be.  
 
 The standard way to read the log file is directly on the server. You'll find your complete log file in `jatos_directory/logs/application.log`. Because JATOS is designed to avoid the command line interface, we offer a way to view your log file directly in your browser.
 
