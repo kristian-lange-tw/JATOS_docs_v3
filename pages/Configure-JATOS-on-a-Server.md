@@ -1,6 +1,6 @@
 ---
 title: Configure JATOS on a Server
-keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port
+keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port, password
 tags:
 summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions.
 sidebar: mydoc_sidebar
@@ -51,9 +51,18 @@ By default the study assets root folder (where all your study's HTML, JavaScript
    export JATOS_STUDY_ASSETS_ROOT_PATH="/path/to/my/assets/root/folder"
    ~~~
      
-### Database
+### External Database
 
-By default JATOS uses an embedded H2 database, but it can be easily configured to work with an external H2 or a MySQL database. 
+By default JATOS uses an embedded H2 database and no further setup is necessary but it can be easily configured to work with a MySQL database.
+
+Possible scenarios why one would use an external database are
+* the expected traffic is rather high and many users will run studies with many participants and the studies will store a lot of data in the database
+* to be able to do a regular database backup
+* higher trust in the reliability of a MySQL database (although we never had problems with H2)
+
+One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.
+
+Appart from giving JATOS access to the external database it is not necessary to set it up any further, e.g. to create any tables inside database - JATOS is doing this automatically.
 
 You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your JDBC URL).
 
@@ -65,7 +74,7 @@ You can confirm that JATOS is accessing the correct database by looking in the l
 
 Note: If you want to use a MySQL database consider using the [_utf8mb4_ Character Set with 4-Byte UTF-8 Unicode Encoding](https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html). Only this character set contains the whole unicode and you won't run into issues like [this one](https://github.com/JATOS/JATOS/issues/111). 
 
-There are three ways to set up the database.
+There are three ways to set up JATOS to work with an external database:
 
 1. Via command-line arguments:
    * `-DJATOS_DB_URL` - specifies the JDBC URL to the database
