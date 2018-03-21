@@ -22,11 +22,11 @@ Then the log looks similar to this:
 
 **A few more details:**
 * The study log won't be necessary in most cases. Just nice to have. Just in case.
-* In the GUI you will see only the last 100 entries of the study log but you can get the whole log by downloading it.
-* The following events are logged: create/delete study, run/finish study, save/delete/export results. 
-* In case of result exports additionally to hashes for single component result data the hash of the whole exported file is being logged. Since a hash changes if a result is altered or deleted, this can prove data integrity should it ever being questioned. It uses the hash algorithm [SHA-256](https://en.wikipedia.org/wiki/SHA-2).
+* In the GUI you will see only the **last 100 entries** of the study log but you can get the whole log by downloading it. In the GUI the log is in **reversed** order - the downloaded one has normal order.
+* The following events are logged: **create/delete study**, **run/finish study**, **save/delete/export results**. 
+* In case of result exports additionally to hashes for single component result data the hash of the whole exported file is being logged. Since a hash changes if a result is altered or deleted, this can prove **data integrity** should it ever being questioned. It uses the hash algorithm [SHA-256](https://en.wikipedia.org/wiki/SHA-2).
 * The study log is only as safe as the server machine on which JATOS is running. Anybody with access to the server can potentially modify the study log file and e.g. hide that data has been deleted. We can't prevent this, so it's important to have a safe server that only admins can access.
-* The study log is in JSON format. Choose between _pretty_ (like in the screenshot above) or _raw_ (in the one below). 
+* The study log is in JSON format. Choose between **pretty** (like in the screenshot above) or **raw** (in the one below). 
 
 ![Study Log raw](images/study_log_raw.png)
 
