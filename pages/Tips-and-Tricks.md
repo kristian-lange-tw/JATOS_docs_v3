@@ -35,7 +35,7 @@ Each Study bar has a button that toggles between the  'Unlocked' and 'Locked' st
 
 The problem here is that a General Single Run is intended to work only once in the same browser. Although this is a feature to limit participants doing the same study twice, it can be a hassle for you as a study developer who just want to try out the General Single Run a second time. Luckily there is an easy way around: Since for a General Single Run all studies that the worker already participated in are stored in a browser cookie, it can be easily removed. Just **remove the cookie with the name JATOS_GENERALSINGLE_UUIDS** in your browser. You can find this cookie in every webpage hosted by a JATOS server. If it doesn't exist you probably never did a General Single run yet.
 
-### Continue a study that was already started in the past but never finished
+### Continue an abandoned study
 
 Sometimes worker stop working in the middle of a study. Maybe their internet connection was down, maybe they just left for the next pub. Now the worker wants to continue the study from where it was left. If they use the initial run link it will start a new study run or give an error message depending on the worker type. But how can this worker continue this abandoned study?
 
