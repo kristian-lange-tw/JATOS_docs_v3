@@ -39,13 +39,11 @@ The problem here is that a General Single Run is intended to work only once in t
 
 Sometimes worker stop working in the middle of a study. Maybe their internet connection was down, maybe they just left for the next pub. Now the worker wants to continue the study from where it was left. If they use the initial run link it will start a new study run or give an error message depending on the worker type. But how can this worker continue this abandoned study?
 
-There is a way: you could send the worker another link from which they can continue at least from the component where they left the study.
+There is a way. You can send the worker another link from which they continue from the component where they left the study.
 
 For this you need three IDs: 1) _study ID_, 2) _component ID_ of the component from where to restart, and 3) the _study result ID_. All three IDs are quite easy to get in JATOS' GUI. The component ID can be found in the component table of the study. The study result ID is shown in the study result table. The study ID is part of the URL of every study view, e.g. if the URL of the study view is https://cortex.jatos.org/jatos/19 then the study ID is 19.
 
-Then the worker who abandoned the study can continue it with the link
-
-ht<span>tps://</span>my-domain-name/publix/<_study ID_\>/\<_component ID_\>/start?srid=\<_study result ID_\>.
+Then the worker who abandoned the study can continue it with the link: ht<span>tps://</span>my-domain-name/publix/<_study ID_\>/\<_component ID_\>/start?srid=\<_study result ID_\>.
 
 E.g. 
 * study ID: `31`
@@ -53,7 +51,7 @@ E.g.
 * study result ID: `816`
 * domain name and protocol is `https://cortex.jatos.org`
 
-Then the URL is: `https://cortex.jatos.org/publix/31/167/start?srid=816`
+  Then the URL is: `https://cortex.jatos.org/publix/31/167/start?srid=816`
 
 But there is a catch: This works only under three conditions:
 1. the component is set to 'reloadable'
