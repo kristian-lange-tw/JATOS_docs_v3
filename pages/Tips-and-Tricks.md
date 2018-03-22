@@ -1,13 +1,13 @@
 ---
 title: Tips & Tricks
-keywords: tips, tricks, Mechanical Turk, MTurk, lock
+keywords: tips, tricks, Mechanical Turk, MTurk, lock, continue
 tags:
 summary:
 sidebar: mydoc_sidebar
 permalink: Tips-and-Tricks.html
 folder:
 toc: true
-last_updated: 28 Dec 2016
+last_updated: 22 Mar 2018
 ---
 
 ### Imitate a run from Mechanical Turk
@@ -34,3 +34,30 @@ Each Study bar has a button that toggles between the  'Unlocked' and 'Locked' st
 ### Do a General Single Run more than once in the same browser 
 
 The problem here is that a General Single Run is intended to work only once in the same browser. Although this is a feature to limit participants doing the same study twice, it can be a hassle for you as a study developer who just want to try out the General Single Run a second time. Luckily there is an easy way around: Since for a General Single Run all studies that the worker already participated in are stored in a browser cookie, it can be easily removed. Just **remove the cookie with the name JATOS_GENERALSINGLE_UUIDS** in your browser. You can find this cookie in every webpage hosted by a JATOS server. If it doesn't exist you probably never did a General Single run yet.
+
+### Continue a study that was already started in the past but never finished
+
+Sometimes worker stop working in the middle of a study. Maybe their internet connection was down, maybe they just left for the next pub. Now the worker wants to continue the study from where it was left. If they use the initial run link it will start a new study run or give an error message depending on the worker type. But how can this worker continue this abandoned study?
+
+There is a way: you could send the worker another link from which they can continue at least from the component where they left the study.
+
+For this you need three IDs: 1) _study ID_, 2) _component ID_ of the component from where to restart, and 3) the _study result ID_. All three IDs are quite easy to get in JATOS' GUI. The component ID can be found in the component table of the study. The study result ID is shown in the study result table. The study ID is part of the URL of every study view, e.g. if the URL of the study view is https://cortex.jatos.org/jatos/19 then the study ID is 19.
+
+Then the worker who abandoned the study can continue it with the link
+
+ht<span>tps://</span>my-domain-name/publix/<_study ID_\>/\<_component ID_\>/start?srid=\<_study result ID_\>.
+
+E.g. 
+* study ID: `31`
+* component ID: `167`
+* study result ID: `816`
+* domain name and protocol is `https://cortex.jatos.org`
+
+Then the URL is: `https://cortex.jatos.org/publix/31/167/start?srid=816`
+
+But there is a catch: This works only under three conditions:
+1. the component is set to 'reloadable'
+1. the worker uses the same browser on the same computer and didn't delete JATOS' cookies
+1. the worker didn't start more than 10 JATOS studies at the same time in parallel after starting study 31
+
+Condition 3 is very unlikely a problem and for 1 you can just check the 'reloadable' checkbox in the component's settings. Condition 2 is more difficult, it demands the worker to return to the computer and browser they run the study before.
