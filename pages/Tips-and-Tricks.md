@@ -37,11 +37,11 @@ The problem here is that a General Single Run is intended to work only once in t
 
 ### Continue an abandoned study
 
-Sometimes worker stop working in the middle of a study. Maybe their internet connection was down, maybe they just left for the next pub. Now the worker wants to continue the study from where it was left. If they use the initial run link it will start a new study run or give an error message depending on the worker type. But how can this worker continue this abandoned study?
+Sometimes workers leave in the middle of a study. Maybe their internet connection was down, maybe they just left for the next pub and closed the browser tab. Suppose they now want to continue from where they left it. Using the initial run link will not do what they want: it will either start a new study run, or give an error message, depending on the worker type. 
 
-There is a way. You can send the worker another link from which they continue from the component where they left the study.
+But there is a way (you'll need to send the worker a new link). 
 
-For this you need three IDs: 1) _study ID_, 2) _component ID_ of the component from where to restart, and 3) the _study result ID_. All three IDs are quite easy to get in JATOS' GUI. The component ID can be found in the component table of the study. The study result ID is shown in the study result table. The study ID is part of the URL of every study view, e.g. if the URL of the study view is https://cortex.jatos.org/jatos/19 then the study ID is 19.
+You'll need three IDs: 1) _study ID_, 2) _component ID_ of the component from where to restart, and 3) the _study result ID_. All three IDs are quite easy to get from JATOS' GUI. The component ID can be found in the component table of the study. The study result ID is shown in the study result table. The study ID is part of the URL of every study view, e.g. if the URL of the study view is https://cortex.jatos.org/jatos/19 then the study ID is 19.
 
 Then the worker who abandoned the study can continue it with the link: ht<span>tps://</span>my-domain-name/publix/<_study ID_\>/\<_component ID_\>/start?srid=\<_study result ID_\>.
 
@@ -53,7 +53,7 @@ E.g.
 
   Then the URL is: `https://cortex.jatos.org/publix/31/167/start?srid=816`
 
-But there is a catch: This works only under three conditions:
+But there is a catch! This works only under three conditions:
 1. the component is set to 'reloadable'
 1. the worker uses the same browser on the same computer and didn't delete JATOS' cookies
 1. the worker didn't start more than 10 JATOS studies at the same time in parallel after running the abandoned study
