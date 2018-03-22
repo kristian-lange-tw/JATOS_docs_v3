@@ -56,6 +56,6 @@ E.g.
 But there is a catch: This works only under three conditions:
 1. the component is set to 'reloadable'
 1. the worker uses the same browser on the same computer and didn't delete JATOS' cookies
-1. the worker didn't start more than 10 JATOS studies at the same time in parallel after starting study 31
+1. the worker didn't start more than 10 JATOS studies at the same time in parallel after running the abandoned study
 
 Condition 3 is very unlikely a problem and for 1 you can just check the 'reloadable' checkbox in the component's settings. Condition 2 is more difficult, it demands the worker to return to the computer and browser they run the study before.
