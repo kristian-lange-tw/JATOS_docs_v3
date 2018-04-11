@@ -359,6 +359,15 @@ var resultData = { "a": 123, "b": 789, "c": 100};
 jatos.submitResultData(JSON.stringify(resultData), jatos.startNextComponent);
 ```
 
+Or together with `jatos.startComponentByPos` to start a particular component (here at position 4):
+
+```javascript
+var resultData = { "a": 123, "b": 789, "c": 100};
+jatos.submitResultData(resultJson, function () {
+  jatos.startComponentByPos(4);
+});
+```
+
 ### `jatos.appendResultData(resultData, onSuccess, onError)`
 
 **Since JATOS version >= 3.1.7**
