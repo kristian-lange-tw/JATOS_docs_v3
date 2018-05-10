@@ -1,60 +1,510 @@
 <!DOCTYPE html>
-<html lang="en">
-<html>
 <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" privacy, ethics">
-<title>Data Privacy and Ethics  | JATOS 3 Documentation</title>
+<meta name="keywords" content=" privacy, ethics, cookies, security">
+<title>Data Privacy and Ethics | JATOS 3 Documentation</title>
+<link rel="stylesheet" href="css/syntax.css">
 
 
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/syntax.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/modern-business.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/lavish-bootstrap.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/customstyles.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/theme-green.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/syntax.css">
-<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-blue.css">
 
-<script>
-    Prince.addScriptFunc("datestamp", function() {
-        return "PDF last generated: May 10, 2018";
-    });
-</script>
-
-<script>
-    Prince.addScriptFunc("guideName", function() {
-        return "JATOS Documentation";
-    });
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
 
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
 
+<link rel="shortcut icon" href="images/favicon.ico">
 
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
 
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
 
 </head>
-
-<body class=" print">
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Whats-JATOS.html"><img src="images/jatos_logo_color.svg" height="20">&nbsp;<span class="projectTitle"> JATOS 3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://github.com/JATOS/JATOS/releases" target="_blank">Download</a></li>
+                
+                
+                
+                <li><a href="Example-Studies.html" target="_blank">Example Studies</a></li>
+                
+                
+                
+                <li><a href="http://blog.jatos.org" target="_blank">Blog</a></li>
+                
+                
+                
+                <li><a href="Contact-us.html">Contact</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Data Privacy and Ethics">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
 
 <!-- Page Content -->
 <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle"> </li>
+    
+    
+    
+        
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="Whats-JATOS.html">What's JATOS</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a href="Installation.html">Installation</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Get-started.html">Get started</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Write your study</a>
+        <ul>
+            
+            
+            
+            <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Run your study</a>
+        <ul>
+            
+            
+            
+            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Worker & Batch Manager</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Worker-Types.html">Worker Types</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Manage-results.html">Manage results</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Manage your JATOS</a>
+        <ul>
+            
+            
+            
+            <li><a href="User-Manager.html">Manage JATOS users</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Change-studys-members.html">Change study's members</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Update-JATOS.html">Update JATOS</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Troubleshooting.html">Troubleshooting</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Group Studies</a>
+        <ul>
+            
+            
+            
+            <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Group-Study-Properties.html">Group Study Properties</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">For admins</a>
+        <ul>
+            
+            
+            
+            <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Reference</a>
+        <ul>
+            
+            
+            
+            <li><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
     <!-- Content Column -->
     <div class="col-md-9">
-
         <div class="post-header">
-    <h1 class="post-title-main" id="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</h1>
+   <h1 class="post-title-main">Data Privacy and Ethics</h1>
 </div>
+
+
 
 <div class="post-content">
 
+   
+
     
-    <p>Data privacy is a critical issue in online studies. You should be careful when collecting, storing and handling data, regardless of which platform you use to run your studies.</p>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Data-Privacy-and-Ethics.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+  <h3 id="what-does-jatos-store">What does JATOS store?</h3>
+
+<p>Data privacy is a critical issue in online studies. You should be careful when collecting, storing and handling data, regardless of which platform you use to run your studies.</p>
 
 <p>We developed JATOS with data privacy in mind, preventing any breaches of the standard ethical principles in research. However, ultimately you are responsible for the data you collect and what you do with it.</p>
 
@@ -66,19 +516,16 @@
 
 <ul>
   <li>
-    <p>JATOS’ main advantage is that you can store your participants’ data in your own server, and not in a commercial server like Amazon or Qualtrics. This means that you have full control over the data stored in your database, and no commercial company has access to it.</p>
+    <p>JATOS’ main advantage is that you can store your participants’ data in your own server, and not in a commercial server like Amazon or Qualtrics. This means that you have full control over the data stored in your database, and no commercial company has access to it. JATOS does not share any data (except of course during a study run with the participant’s browsers). Each JATOS installation is completely independent of any other JATOS installation.</p>
   </li>
   <li>By default, JATOS stores the following data:
     <ul>
       <li>time (of the server running JATOS) at which the study -and each of its components- was started and finished</li>
       <li>the <a href="Worker-Types.html">worker type</a> (MTurk, General single, Personal multiple, etc)</li>
-      <li>in cases of MTurk workers, the confirmation code AND the MTurk worker ID. In these cases, if an MTurk worker participated in two of your studies, running in the same JATOS instance, <b>you will be able to associate the data across these two studies</b>. This is an important issue: MTurk workers might not be aware that you are the same researcher, and will not know that you have the chance to associate data from different studies. The best way to avoid this is to export all your study’s data and delete it from the JATOS database once you are done with it. In this way, JATOS won’t know that a worker already participated in another study and will create a new worker ID for them.</li>
+      <li>in cases of MTurk workers, the confirmation code AND the MTurk worker ID. In these cases, if an MTurk worker participated in two of your studies, running in the same JATOS instance, <strong>you will be able to associate the data across these two studies</strong>. This is an important issue: MTurk workers might not be aware that you are the same researcher, and will not know that you have the chance to associate data from different studies. The best way to avoid this is to export all your study’s data and delete it from the JATOS database once you are done with it. In this way, JATOS won’t know that a worker already participated in another study and will create a new worker ID for them.</li>
     </ul>
   </li>
-  <li>
-    <p>JATOS will <b>not</b> store information like IP address or browser type. However, you could access and store this information through your JavaScripts. You could also record whether workers are actively on the browser tab running your study, or whether they have left it to go to another tab, window or program. If you collect any of these data, you should let your workers know.</p>
-  </li>
-  <li>Bear in mind: Every file within your study assets folders is public to the Internet. Anybody can in principle read any file in this folder, regardless of how secure your server is. <strong>Thus, you should never store any private data, such as participants’ details in the study assets folders.</strong></li>
+  <li>JATOS will <strong>not</strong> store information like IP address or browser type (or any other HTTP header field).</li>
 </ul>
 
 <h3 id="things-you-should-consider-in-your-studies">Things you should consider in your studies</h3>
@@ -90,15 +537,108 @@
   <li>
     <p>Use <strong>encryption</strong> with your <a href="JATOS-on-a-server.html">server instance</a>. Only with encryption no one else in the internet can read the private data from your study’s participants.</p>
   </li>
+  <li>
+    <p>JATOS will <strong>not</strong> store information like IP address or browser type (nor any other HTTP header field). However, you could access and store this information through your JavaScripts. You could also record whether workers are actively on the browser tab running your study, or whether they have left it to go to another tab, window or program. If you collect any of these data, you should let your workers know.</p>
+  </li>
+  <li>
+    <p>Bear in mind: Every file within your study assets folders is public to the Internet. Anybody can in principle read any file in this folder, regardless of how secure your server is. <strong>Thus, you should never store any private data, such as participants’ details in the study assets folders.</strong></p>
+  </li>
+  <li>
+    <p><strong>Do not store private information in the Batch Session or Group Session.</strong> Both sessions are shared between all members of a batch or group respectively. If you store private data any other member of this batch or group could potentially access it. Since the Study Session is only shared within the same study run it is not a problem to store private information there.</p>
+  </li>
 </ul>
+
+<h3 id="cookies-used-by-jatos">Cookies used by JATOS</h3>
+
+<p>Sometimes it is neccessary to specify which cookies are stored in a participants browser. JATOS knows three types of cookies and only two of them are stored in a participants browser.</p>
+
+<h4 id="up-to-ten-jatos-id-cookies-with-cookie-name-jatosids--can-be-a-number-from-0-to-9">1. Up to ten JATOS ID cookies with cookie name JATOS_IDS_* (* can be a number from 0 to 9)</h4>
+
+<p>These cookies store values about each study run. JATOS allows up to 10 study runs in parallel per browser - therefore there are up to 10 JATOS ID cookies.</p>
+
+<p>All IDs are used only by JATOS internally and do not allow the identification of the worker.</p>
+
+<p>The cookie virtually never expires (actually far in the future, around the year 2086).</p>
+
+<p><a href="https://www.owasp.org/index.php/HttpOnly">HttpOnly</a> is set to true (this means, it can’t be read by JavaScript within the browser).</p>
+
+<p>This cookie contains these parameters:</p>
+
+<ul>
+  <li><em>studyId</em>: identifier of the study</li>
+  <li><em>batchId</em>: batch ID</li>
+  <li><em>componentId</em>: component ID</li>
+  <li><em>componentPos</em>: position of the component within the study</li>
+  <li><em>workerId</em>: an worker ID used internally to identify the worker anonymously</li>
+  <li><em>workerType</em>: there are <a href="http://www.jatos.org/Worker-Types.html">5 worker types with different use cases in JATOS</a></li>
+  <li><em>componentResultId</em>: used to store data of this component run (e.g. result data)</li>
+  <li><em>studyResultId</em>: used to store data of this study run (e.g. study session)</li>
+  <li><em>groupResultId</em>: used to store data of the group (only if group study)</li>
+  <li><em>creationTime</em>: timestamp (epoch time) of this cookie’s creation</li>
+  <li><em>studyAssets</em>: Name of the directory where the study’s assets are stored</li>
+  <li><em>jatosRun</em>: State of a study run with a JatosWorker. If this run doesn’t belong to a JatosWorker this field is null. It’s mainly used to distinguish between a full study run and just a component run.</li>
+</ul>
+
+<p>E.g. JATOS_IDS_0:”batchId=108&amp;componentId=306&amp;componentPos=2&amp;componentResultId=3867&amp;creationTime=1524941205992&amp;studyAssets=batch_chat_cambridge_workshop&amp;jatosRun=RUN_COMPONENT_FINISHED&amp;groupResultId=null&amp;studyId=101&amp;studyResultId=1346&amp;workerId=1&amp;workerType=Jatos”</p>
+
+<h4 id="cookie-jatosgeneralsingleuuids">2. Cookie JATOS_GENERALSINGLE_UUIDS</h4>
+
+<p>This cookie is used by JATOS to store which study runs with a <a href="http://www.jatos.org/Worker-Types.html#general-single-worker">General Single worker</a> already happened in this browser. It only stores a list of IDs that universally identifies a study (UUID).</p>
+
+<h4 id="play-framework-session-cookie-named-playsession">3. Play Framework session cookie named PLAY_SESSION</h4>
+
+<p>This cookie is used only by JATOS’ GUI and provides session and user info. It is <strong>not</strong> set during a study run and therefore does <strong>not</strong> store any worker related information.</p>
+
+<p>The cookie’s expires header field is set to Session, which mean that after the browser is closed the cookie will be deleted.</p>
+
+<p><a href="https://www.owasp.org/index.php/HttpOnly">HttpOnly</a> is set to true (this means, it can’t be read by JavaScript within the browser).</p>
+
+<p>This cookie contains the parameters:</p>
+
+<ul>
+  <li><em>userEmail</em>: username of the logged-in user (an email)</li>
+  <li><em>sessionID</em>: Play’s session ID</li>
+  <li><em>loginTime</em>: user’s login time in the GUI as a timestamp</li>
+  <li><em>lastActivityTime</em>: user’s last activity time in the GUI as a timestamp</li>
+</ul>
+
+<p>Additionally Play stores a hash of the whole cookie’s data to check integrity of the cookie’s data.</p>
+
+<p>E.g. PLAY_SESSION:”b6c01f2fa796603491aaed94168651b54b154ca1-userEmail=admin&amp;sessionID=4k1atg9ugeavmegk88n41stfr4&amp;loginTime=1524935558364&amp;lastActivityTime=1524947602543”</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
 
 </div>
 
-    </div>
+<hr class="shaded"/>
 
-</div>    <!-- /.container -->
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+<span>Page last updated:</span> 10 May 2018
+                </div>
+            </div>
+</footer>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
 
 </body>
 
-</html>
+<!-- the google_analytics_id gets auto inserted from the config file -->
 
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57013276-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+</html>
