@@ -272,7 +272,7 @@
             
             
             
-            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Batch Manager & Worker Setup</a></li>
+            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Worker & Batch Manager</a></li>
             
             
             
@@ -294,13 +294,6 @@
             
             
             <li><a href="Manage-results.html">Manage results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Study-Log.html">Study Log</a></li>
             
             
             
@@ -534,10 +527,22 @@ $('#toc').on('click', 'a', function() {
 <h3 id="install-jatos">2. Install JATOS</h3>
 
 <ol>
-  <li><a href="https://github.com/JATOS/JATOS/releases">Download JATOS</a></li>
-  <li>JATOS comes zipped. Unpack this file at a location in your server’s file system where JATOS should be installed.</li>
-  <li>Check that the file <code class="highlighter-rouge">loader.sh</code> in the JATOS folder is executable.</li>
-  <li>Check that JATOS starts with <code class="highlighter-rouge">loader.sh start|restart|stop</code></li>
+  <li>
+    <p><a href="https://github.com/JATOS/JATOS/releases">Download JATOS</a></p>
+
+    <p>E.g. with <em>wget</em> for the version 3.2.1:</p>
+
+    <p><code class="highlighter-rouge">wget https://github.com/JATOS/JATOS/releases/download/v3.2.1/jatos-3.2.1.zip</code></p>
+  </li>
+  <li>
+    <p>JATOS comes zipped. Unpack this file at a location in your server’s file system where JATOS should be installed.</p>
+  </li>
+  <li>
+    <p>Check that the file <code class="highlighter-rouge">loader.sh</code> in the JATOS folder is executable.</p>
+  </li>
+  <li>
+    <p>Check that JATOS starts with <code class="highlighter-rouge">loader.sh start|restart|stop</code></p>
+  </li>
 </ol>
 
 <h3 id="configuration">3. Configuration</h3>

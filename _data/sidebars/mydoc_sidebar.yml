@@ -79,7 +79,7 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: Run your Study with Batch Manager & Worker Setup
+    - title: Run your Study with Worker & Batch Manager
       url: /Run-your-Study-with-Batch-Manager-and-Worker-Setup.html
       output: web, pdf
 

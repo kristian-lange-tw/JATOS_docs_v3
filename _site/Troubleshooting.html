@@ -272,7 +272,7 @@
             
             
             
-            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Batch Manager & Worker Setup</a></li>
+            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Worker & Batch Manager</a></li>
             
             
             
@@ -294,13 +294,6 @@
             
             
             <li><a href="Manage-results.html">Manage results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Study-Log.html">Study Log</a></li>
             
             
             
@@ -535,7 +528,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="read-log-file-in-the-browser">Read log file in the browser</h3>
 
-<p>In a perfect world, JATOS always works smoothly and, when it doesn’t, it describes the problem in an error message. Unfortunately we aren’t in a perfect world: every now and then something will go wrong and you might not get any clear error messages, or no message at all. In these (rare) cases, you can look into JATOS’ log file to try to find what the problem might be.</p>
+<p>In a perfect world, JATOS always works smoothly and, when it doesn’t, it describes the problem in an error message. Unfortunately we aren’t in a perfect world: every now and then something will go wrong and you might not get any clear error messages, or no message at all. In these (rare) cases, you can look into JATOS’ log file (not to be confused with the <a href="http://www.jatos.org/Study-Log.html">study log</a>) to try to find what the problem might be.</p>
 
 <p>The standard way to read the log file is directly on the server. You’ll find your complete log file in <code class="highlighter-rouge">jatos_directory/logs/application.log</code>. Because JATOS is designed to avoid the command line interface, we offer a way to view your log file directly in your browser.</p>
 
@@ -549,7 +542,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="a-file-library-image--included-in-the-html-fails-to-load">A file (library, image, …) included in the HTML fails to load?</h3>
 
-<p>There is a common mistake Windows users make that might prevent files in the HTML from loading: Any URL or file path in a HTML file should only use ‘/’ as a file path separator - even on Windows systems. So it should always be e.g. <code class="highlighter-rouge">&lt;script src="/study_assets/mystudy/jsPsych-5.0.3/jspsych.js"&gt;&lt;/script&gt;</code> and not <code class="highlighter-rouge">&lt;script src="\study_assets\mystudy\jsPsych-5.0.3\jspsych.js"&gt;&lt;/script&gt;</code>.</p>
+<p>There is a common mistake Windows users make that might prevent files in the HTML from loading: Any URL or file path in a HTML file should only use ‘/’ as a file path separator - even on Windows systems. So it should always be e.g. <code class="highlighter-rouge">&lt;script src="/study_assets/mystudy/jsPsych-5.0.3/myscript.js"&gt;&lt;/script&gt;</code> and <strong>not</strong> <code class="highlighter-rouge">&lt;script src="\study_assets\mystudy\jsPsych-5.0.3\myscript.js"&gt;&lt;/script&gt;</code>. And since version 3.2.3 you can leave out the path’s first part and just write <code class="highlighter-rouge">&lt;script src="myscript.js"&gt;&lt;/script&gt;</code>.</p>
 
 <h3 id="database-is-corrupted">Database is corrupted?</h3>
 
@@ -579,7 +572,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 27 April 2017
+<span>Page last updated:</span> 09 May 2018
                 </div>
             </div>
 </footer>

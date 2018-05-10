@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" jatos.js, jatosify, javascript, jsPsych, initialize, study_assets_root, study_assets">
+<meta name="keywords" content=" jatos.js, jatosify, javascript, jsPsych, initialize, study_assets_root, study_assets, relative, absolute, path">
 <title>Adapt Pre written Code to run it in JATOS (Jatosify) | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
@@ -272,7 +272,7 @@
             
             
             
-            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Batch Manager & Worker Setup</a></li>
+            <li><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Worker & Batch Manager</a></li>
             
             
             
@@ -294,13 +294,6 @@
             
             
             <li><a href="Manage-results.html">Manage results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Study-Log.html">Study Log</a></li>
             
             
             
@@ -520,14 +513,29 @@ $('#toc').on('click', 'a', function() {
   <li>Copy all your files (HTML, JavaScripts, images, audio, …) into your new study folder.</li>
   <li>Back in the JATOS GUI, and within the newly created study, create a <strong>new component</strong> by clicking ‘Components’ and then ‘New’. Choose a component title and set the HTML file name, to the name of the HTML file you just copied into the study folder.</li>
   <li>
-    <p>In your HTML and JavaScripts, change all paths to your <strong>study assets</strong> folder: Always use the prefix <code class="highlighter-rouge">/study_assets/</code> and then the study assets name you specified in your study’s properties when you created it.</p>
+    <p>In your HTML, CSS and JavaScripts, for your paths you can choose between 1) relative paths or 2) absolute paths. Relative paths are usually shorter and easier to handle but are only available since JATOS version 3.2.3.</p>
 
-    <ul>
-      <li>E.g. if you load the CSS file <code class="highlighter-rouge">snake.css</code> and the study’s assets name is <code class="highlighter-rouge">group_snake</code> use <code class="highlighter-rouge">&lt;link rel="stylesheet" type="text/css" href="/study_assets/group_snake/snake.css" /&gt;</code></li>
-      <li>Or if you want to load some JavaScript from your local study assets with the name <code class="highlighter-rouge">prisoner_dilemma</code>, e.g. the jQuery library, use <code class="highlighter-rouge">&lt;script src="/study_assets/prisoner_dilemma/jquery-1.11.1.min.js"&gt;&lt;/script&gt;</code></li>
-    </ul>
+    <ol>
+      <li><strong>Relative paths (only since version 3.2.3))</strong> Just use the relative path within your study’s folder.
+        <ul>
+          <li>E.g. a file in your local filesystem <code class="highlighter-rouge">/path_to_your_JATOS/study_assets_root/group_snake/snake.css</code> turns to just <code class="highlighter-rouge">snake.css</code></li>
+          <li>E.g. in a subfolder <code class="highlighter-rouge">/path_to_your_JATOS/study_assets_root/group_snake/subfolder/snake.css</code> turns to <code class="highlighter-rouge">subfolder/snake.css</code></li>
+        </ul>
 
-    <p>✰  Make sure you understand the difference between the <code class="highlighter-rouge">study_assets_root</code> folder and the placeholder <code class="highlighter-rouge">study_assets</code> in your path names. <code class="highlighter-rouge">study_assets_root</code> is the folder in your system (or in the server) where the assets (HTML, JS, CSS, images, etc) of <strong>all</strong> your JATOS studies will be stored. You can <a href="Configure-JATOS-on-a-Server.html#study-assets-root-path">configure</a> the location of this folder. <code class="highlighter-rouge">study_assets</code>, on the other hand, is just a placeholder that will go in your HTML files. JATOS will interpret this and replace the placeholder with the path, (specific to the study) that you entered in the field ‘Study assets directory name’ in your Study’s Properties. The advantage of this is that you can change the location or name of the assets for any study, or export-import a study into a different computer, and the study will still run without having to make any changes in the HTML code.</p>
+        <p>If you want to reference a file in a higher folder use <code class="highlighter-rouge">../</code> in front (like in a normal filesystem). 
+* E.g. your referencing file is <code class="highlighter-rouge">subfolder/myscript.js</code> and you want to reference <code class="highlighter-rouge">css/snake.css</code> use <code class="highlighter-rouge">../css/snake.css</code>.</p>
+      </li>
+      <li>
+        <p><strong>Absolute paths)</strong> Always use the prefix <code class="highlighter-rouge">/study_assets/</code> and then the study assets name you specified in your study’s properties when you created it.</p>
+
+        <ul>
+          <li>E.g. if you load the CSS file <code class="highlighter-rouge">snake.css</code> and the study’s assets name is <code class="highlighter-rouge">group_snake</code> use <code class="highlighter-rouge">&lt;link rel="stylesheet" type="text/css" href="/study_assets/group_snake/snake.css" /&gt;</code></li>
+          <li>Or if you want to load some JavaScript from your local study assets with the name <code class="highlighter-rouge">prisoner_dilemma</code>, e.g. the jQuery library, use <code class="highlighter-rouge">&lt;script src="/study_assets/prisoner_dilemma/jquery-1.11.1.min.js"&gt;&lt;/script&gt;</code></li>
+        </ul>
+
+        <p>✰  For absolute paths make sure you understand the difference between the <code class="highlighter-rouge">study_assets_root</code> folder and the placeholder <code class="highlighter-rouge">study_assets</code> in your path names. <code class="highlighter-rouge">study_assets_root</code> is the folder in your system (or in the server) where the assets (HTML, JS, CSS, images, etc) of <strong>all</strong> your JATOS studies will be stored. You can <a href="Configure-JATOS-on-a-Server.html#study-assets-root-path">configure</a> the location of this folder. <code class="highlighter-rouge">study_assets</code>, on the other hand, is just a placeholder that will go in your HTML files. JATOS will interpret this and replace the placeholder with the path, (specific to the study) that you entered in the field ‘Study assets directory name’ in your Study’s Properties. The advantage of this is that you can change the location or name of the assets for any study, or export-import a study into a different computer, and the study will still run without having to make any changes in the HTML code.</p>
+      </li>
+    </ol>
   </li>
   <li>Now it’s time for a first glimpse: Click the ‘<strong>Run</strong>’ button in either the study’s or the component’s toolbar. Your experiment should run like it did before without JATOS. Use the browser’s developer tools to check for eventually missing files and other occurring errors.</li>
 </ol>
@@ -614,7 +622,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 27 April 2017
+<span>Page last updated:</span> 09 May 2018
                 </div>
             </div>
 </footer>

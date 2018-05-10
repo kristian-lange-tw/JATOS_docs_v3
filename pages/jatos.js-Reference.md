@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 4 July 2017
+last_updated: 8 May 2018
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -218,14 +218,23 @@ jatos.setHeartbeatPeriod(60000); // Sets to a heartbeat every minute
 
 ### `jatos.startComponent(componentId)`
 
-Finishes the currently running component and starts the component with the given ID.
+Finishes the currently running component and starts the component with the given ID. Though often it's better to use `jatos.startComponentByPos` instead because it keeps working even after an export/import of the study.
 
 * _@param {Number} componentId_ - ID of the component to start
 
-Example:
+Examples:
 
 ```javascript
 jatos.startComponent(23); // Jumps to component with ID 23
+```
+
+It's often used together with `jatos.submitResultData` to first submit result data back to the JATOS server and afterwards jump to another component:
+
+```javascript
+var resultData = "my important result data";
+jatos.submitResultData(resultData, function() {
+  jatos.startComponent(23);
+});
 ```
 
 ### `jatos.startComponentByPos(componentPos)`
@@ -234,17 +243,26 @@ Finishes the currently running component and starts the component with the given
 
 * _@param {Number} componentPos_ - Position of the component to start
 
-Example:
+Examples:
 
 ```javascript
 jatos.startComponentByPos(3); // Jumps to component with position 3
+```
+
+It's often used together with `jatos.submitResultData` to first submit result data back to the JATOS server and afterwards jump to another component:
+
+```javascript
+var resultData = "my important result data";
+jatos.submitResultData(resultData, function() {
+  jatos.startComponentByPos(3);
+});
 ```
 
 ### `jatos.startNextComponent()`
 
 Finishes the currently running component and starts the next component of this study. The next component is the one with position + 1. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, ...).
 
-Example:
+Examples:
 
 ```javascript
 jatos.startNextComponent(); // Jumps to the next component
@@ -345,7 +363,7 @@ Posts result data for the currently running component back to the JATOS server. 
 * _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
-Example:
+Examples:
 
 ```javascript
 var resultData = { "a": 123, "b": 789, "c": 100};
@@ -379,11 +397,27 @@ Appends result data to the already posted result data. Contrary to jatos.submitR
 * _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
-Example:
+Examples:
 
 ```javascript
 var resultData = { "a": 123, "b": 789, "c": 100};
 jatos.appendResultData(JSON.stringify(resultData));
+```
+
+You can use it together with `jatos.startNextComponent` to first append result data and afterwards jump to the next component:
+
+```javascript
+var resultData = { "a": 123, "b": 789, "c": 100};
+jatos.appendResultData(JSON.stringify(resultData), jatos.startNextComponent);
+```
+
+Or together with `jatos.startComponentByPos` to start a particular component (here at position 4):
+
+```javascript
+var resultData = { "a": 123, "b": 789, "c": 100};
+jatos.appendResultData(resultJson, function () {
+  jatos.startComponentByPos(4);
+});
 ```
 
 ### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`

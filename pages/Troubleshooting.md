@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Troubleshooting.html
 folder:
 toc: true
-last_updated: 27 April 2017
+last_updated: 09 May 2018
 ---
 
 ### JATOS test page
@@ -50,7 +50,7 @@ By default, JATOS will display the last 1000 lines of the application.log file. 
 
 ### A file (library, image, ...) included in the HTML fails to load?
 
-There is a common mistake Windows users make that might prevent files in the HTML from loading: Any URL or file path in a HTML file should only use '/' as a file path separator - even on Windows systems. So it should always be e.g. `<script src="/study_assets/mystudy/jsPsych-5.0.3/jspsych.js"></script>` and not `<script src="\study_assets\mystudy\jsPsych-5.0.3\jspsych.js"></script>`. 
+There is a common mistake Windows users make that might prevent files in the HTML from loading: Any URL or file path in a HTML file should only use '/' as a file path separator - even on Windows systems. So it should always be e.g. `<script src="/study_assets/mystudy/jsPsych-5.0.3/myscript.js"></script>` and **not** `<script src="\study_assets\mystudy\jsPsych-5.0.3\myscript.js"></script>`. And since version 3.2.3 you can leave out the path's first part and just write `<script src="myscript.js"></script>`. 
 
 
 ### Database is corrupted?

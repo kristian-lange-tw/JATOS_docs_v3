@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Connect-to-Mechanical-Turk.html
 folder:
 toc: false
-last_updated: 28 Dec 2016
+last_updated: 9 May 2018
 ---
 
 Connecting your JATOS study to the Mturk is easy, although a fair amount of clicking is required. 
@@ -29,7 +29,7 @@ The steps to create a project are part of the MTurk interface.
 
    ![MTurk Schreenshot](images/Screen Shot 2014-09-26 at 17.31.00.png)
 
-1. In JATOS, go to the Study Toolbar ---> Batch Manager ---> Worker Setup ---> MTurk Worker row ---> Source Code.
+1. In JATOS, go to the Study Toolbar ---> Worker & Batch Manager ---> Worker Setup ---> MTurk Worker row ---> Source Code.
 
    ![JATOS GUI screenshot](images/Screenshot from 2016-03-09 21:30:34.png){:width="200"}
 

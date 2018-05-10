@@ -6,7 +6,7 @@
 {
 "title": "Adapt Pre written Code to run it in JATOS (Jatosify)",
 "tags": "",
-"keywords": "jatos.js, jatosify, javascript, jsPsych, initialize, study_assets_root, study_assets",
+"keywords": "jatos.js, jatosify, javascript, jsPsych, initialize, study_assets_root, study_assets, relative, absolute, path",
 "url": "Adapt-Pre-written-Code-to-run-it-in-JATOS.html",
 "summary": ""
 }
@@ -28,7 +28,7 @@
 {
 "title": "Configure JATOS on a Server",
 "tags": "",
-"keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port",
+"keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port, password",
 "url": "Configure-JATOS-on-a-Server.html",
 "summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions."
 }
@@ -235,9 +235,9 @@
 
 
 {
-"title": "Run your Study with Batch Manager &amp; Worker Setup",
+"title": "Run your Study with Worker &amp; Batch Manager",
 "tags": "",
-"keywords": "batch manager, worker setup, worker, batch properties, worker setup, group properties",
+"keywords": "batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch properties, worker setup, group properties",
 "url": "Run-your-Study-with-Batch-Manager-and-Worker-Setup.html",
 "summary": ""
 }
@@ -281,7 +281,7 @@
 {
 "title": "Tips &amp; Tricks",
 "tags": "",
-"keywords": "tips, tricks, Mechanical Turk, MTurk, lock",
+"keywords": "tips, tricks, Mechanical Turk, MTurk, lock, continue",
 "url": "Tips-and-Tricks.html",
 "summary": ""
 }

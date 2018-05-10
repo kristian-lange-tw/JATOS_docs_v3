@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" batch manager, worker setup, worker, batch properties, worker setup, group properties">
-<title>Run your Study with Batch Manager & Worker Setup | JATOS 3 Documentation</title>
+<meta name="keywords" content=" batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch properties, worker setup, group properties">
+<title>Run your Study with Worker & Batch Manager | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Run your Study with Batch Manager & Worker Setup">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Run your Study with Worker & Batch Manager">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -272,7 +272,7 @@
             
             
             
-            <li class="active"><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Batch Manager & Worker Setup</a></li>
+            <li class="active"><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Worker & Batch Manager</a></li>
             
             
             
@@ -294,13 +294,6 @@
             
             
             <li><a href="Manage-results.html">Manage results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Study-Log.html">Study Log</a></li>
             
             
             
@@ -468,7 +461,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Run your Study with Batch Manager & Worker Setup</h1>
+   <h1 class="post-title-main">Run your Study with Worker & Batch Manager</h1>
 </div>
 
 
@@ -511,33 +504,33 @@ $('#toc').on('click', 'a', function() {
 
   <p>If you run a study during development from within the JATOS GUI you will do so as a Jatos worker. There are <a href="Worker-Types.html">other worker types</a> to distribute to real participants.</p>
 
-<p>A worker in JATOS is a person who runs a study. A batch organizes workers and their study runs and results. Each study has a Batch Manager.</p>
+<p>A worker in JATOS is a person who runs a study. A batch organizes workers and their study runs and results. Each study has a Worker &amp; Batch Manager.</p>
 
 <p><strong>Generate links to send to your workers</strong></p>
 
-<p>For all worker types except Jatos and MTurk you’ll need to generate links to send to your potential workers, which they can follow to access and run your study. Those links are generated in the <strong>Worker Setup</strong> (Batch Manager –&gt; Worker Setup).</p>
+<p>For all worker types except Jatos and MTurk you’ll need to generate links to send to your potential workers, which they can follow to access and run your study. Those links are generated in the <strong>Worker Setup</strong> (Worker &amp; Batch Manager –&gt; Worker Setup).</p>
 
 <p><strong>In the same browser one can run studies in up to 10 different tabs</strong></p>
 
 <p>If more than 10 studies run in the same browser in parallel the oldest study is finished automatically. Of course this limitation doesn’t apply with different browsers. One could ask why it’s necessary to run several studies at once in the same browser - usually a worker should run only one?! This is actually very useful for developing and testing group studies or studies that use the Batch Session. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 “different” workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group.</p>
 
-<h2 id="batch-manager">Batch Manager</h2>
+<h2 id="worker--batch-manager">Worker &amp; Batch Manager</h2>
 
-<p><strong>A batch is mostly some properties together with a collection of workers</strong></p>
+<p><strong>A batch is mostly a collection of workers together with some properties</strong></p>
 
 <p>Since JATOS 2 you run studies in batches. A batch consists of its properties and a collection of workers that do the study. Using different batches is useful to organize your study runs, separate their results and vary their setup. E.g. you could separate a pilot run from the ‘proper’ experiment, or you could use different batches for different worker types.</p>
 
-<p>Batches are organized in the Batch Manager. Here you can create and delete batches and access each batch’s properties, worker setup and study results.</p>
+<p>Batches are organized in the Worker &amp; Batch Manager. Here you can create and delete batches and access each batch’s properties, worker setup and study results.</p>
 
 <p>Each study comes with a ‘Default’ batch.</p>
 
-<p><img src="images/batch_manager.png" alt="Batch manager screenshot" /></p>
+<p><img src="images/batch_manager.png" alt="Worker &amp; Batch manager screenshot" /></p>
 
 <h3 id="batch-properties">Batch Properties</h3>
 
 <p>For each batch, you can limit the maximum number of workers that will ever be able to run a study in this batch by setting the <strong>Maximum Total Workers</strong>.</p>
 
-<p><img src="images/batch_properties.png" alt="Batch manager screenshot" /></p>
+<p><img src="images/batch_properties.png" alt="Worker &amp; Batch manager screenshot" /></p>
 
 <p>Additionally you can switch on or off worker types in the <strong>Allowed Worker Types</strong>. Forbidden worker types are not able to run a study. Always check before you send out links to study runs that the corresponding worker types are switched on. You can do the same in the Worker Setup.</p>
 
@@ -571,7 +564,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 28 Dec 2016
+<span>Page last updated:</span> 9 May 2018
                 </div>
             </div>
 </footer>
