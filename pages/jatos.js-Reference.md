@@ -298,7 +298,7 @@ Finishes component. Usually this is not necessary because the last component is 
 
 ### `jatos.abortStudyAjax(message, success, error)`
 
-Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS' end page. All previously submitted result data will be deleted. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the aborting.
+Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS' end page. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the aborting.
 
 * _@param {optional String} message_ - Message that should be logged
 * _@param {optional Function} success_ - Function to be called in case of successful submit
@@ -313,7 +313,7 @@ jatos.abortStudyAjax("Aborted study: user pressed abort button");
 
 ### `jatos.abortStudy(message)`
 
-Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page.
+Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page. Data stored in the Batch Session or Group Session are uneffected by this.
 
 * _@param {optional String} message_ - Message that should be logged
 

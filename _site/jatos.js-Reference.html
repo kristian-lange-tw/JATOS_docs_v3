@@ -830,7 +830,7 @@ Study’s or Component’s JSON input.</p>
 
 <h3 id="jatosabortstudyajaxmessage-success-error"><code class="highlighter-rouge">jatos.abortStudyAjax(message, success, error)</code></h3>
 
-<p>Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS’ end page. All previously submitted result data will be deleted. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the aborting.</p>
+<p>Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS’ end page. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the aborting.</p>
 
 <ul>
   <li><em>@param {optional String} message</em> - Message that should be logged</li>
@@ -847,7 +847,7 @@ Study’s or Component’s JSON input.</p>
 
 <h3 id="jatosabortstudymessage"><code class="highlighter-rouge">jatos.abortStudy(message)</code></h3>
 
-<p>Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page.</p>
+<p>Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page. Data stored in the Batch Session or Group Session are uneffected by this.</p>
 
 <ul>
   <li><em>@param {optional String} message</em> - Message that should be logged</li>
