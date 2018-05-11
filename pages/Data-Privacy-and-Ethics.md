@@ -60,16 +60,16 @@ The cookie virtually never expires (actually far in the future, around the year 
 This cookie contains these parameters:
 
 * _studyId_: identifier of the study
-* _batchId_: batch ID
-* _componentId_: component ID
+* _batchId_: identifier of the batch
+* _componentId_: identifier of the component
 * _componentPos_: position of the component within the study
-* _workerId_: an worker ID used internally to identify the worker anonymously
+* _workerId_: identifier of the worker used internally to identify the worker anonymously
 * _workerType_: there are [5 worker types with different use cases in JATOS](http://www.jatos.org/Worker-Types.html)
-* _componentResultId_: used to store data of this component run (e.g. result data)
-* _studyResultId_: used to store data of this study run (e.g. study session)
-* _groupResultId_: used to store data of the group (only if group study)
+* _componentResultId_: identifier of the component result (a component result is used to store data of the component run)
+* _studyResultId_: identifier of the study result (a study result is used to store data of this study run)
+* _groupResultId_: identifier of the group this worker belongs to (null if it isn't a group study)
 * _creationTime_: timestamp (epoch time) of this cookie's creation
-* _studyAssets_: Name of the directory where the study's assets are stored
+* _studyAssets_: name of the directory where the study's assets are stored on the JATOS server
 * _jatosRun_: State of a study run with a JatosWorker. If this run doesn't belong to a JatosWorker this field is null. It's mainly used to distinguish between a full study run and just a component run.
 
 E.g. JATOS_IDS_0:"batchId=108&componentId=306&componentPos=2&componentResultId=3867&creationTime=1524941205992&studyAssets=batch_chat_cambridge_workshop&jatosRun=RUN_COMPONENT_FINISHED&groupResultId=null&studyId=101&studyResultId=1346&workerId=1&workerType=Jatos"
