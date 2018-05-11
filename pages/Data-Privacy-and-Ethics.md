@@ -72,7 +72,7 @@ This cookie contains these parameters:
 * _studyAssets_: name of the directory where the study's assets are stored on the JATOS server
 * _jatosRun_: State of a study run with a JatosWorker. If this run doesn't belong to a JatosWorker this field is null. It's mainly used to distinguish between a full study run and just a component run.
 
-E.g. JATOS_IDS_0:"batchId=108&componentId=306&componentPos=2&componentResultId=3867&creationTime=1524941205992&studyAssets=batch_chat_cambridge_workshop&jatosRun=RUN_COMPONENT_FINISHED&groupResultId=null&studyId=101&studyResultId=1346&workerId=1&workerType=Jatos"
+E.g. `JATOS_IDS_0:"batchId=108&componentId=306&componentPos=2&componentResultId=3867&creationTime=1524941205992&studyAssets=batch_chat_cambridge_workshop&jatosRun=RUN_COMPONENT_FINISHED&groupResultId=null&studyId=101&studyResultId=1346&workerId=1&workerType=Jatos"`
 
 #### 2. Cookie JATOS_GENERALSINGLE_UUIDS
 
@@ -95,4 +95,4 @@ This cookie contains the parameters:
 
 Additionally Play stores a hash of the whole cookie's data to check integrity of the cookie's data.
 
-E.g. PLAY_SESSION:"b6c01f2fa796603491aaed94168651b54b154ca1-userEmail=admin&sessionID=4k1atg9ugeavmegk88n41stfr4&loginTime=1524935558364&lastActivityTime=1524947602543"
+E.g. `PLAY_SESSION:"b6c01f2fa796603491aaed94168651b54b154ca1-userEmail=admin&sessionID=4k1atg9ugeavmegk88n41stfr4&loginTime=1524935558364&lastActivityTime=1524947602543"`
