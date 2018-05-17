@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Update-JATOS.html
 folder:
 toc: true
-last_updated: 27 Apr 2017
+last_updated: 17 May 2018
 ---
 
 **For the [migration from JATOS 2 to 3](Migrate-from-v2-to-v3.html) we have an extra page with additional information about changes in jatos.js and maybe the JavaScript of your studies.**
@@ -43,6 +43,7 @@ If you don't care about result data stored in JATOS:
 1. **All result data will be lost**
 1. All workers in all batches (including Default batch)
 1. All batches other than the Default batch
+1. All study logs
 
 ### Second way: keeping everything (including your result data)
 
@@ -52,7 +53,7 @@ If you do want to keep your studies, batches, and your result data you'll have t
 
 1. Stop JATOS (on Unix systems, type `$ ./loader.sh stop` on the terminal. On Windows MS, close your command window)
 1. Go to the folder of your old JATOS installation. From there copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called `study_assets_root` and lays in the JATOS folder but you might have changed this. You can find the location and name in `conf/production.conf`. It is specified in the line beginning with `jatos.studyAssetsRootPath=`.)
-1. From your the folder of your old JATOS installation copy the folder `database` to the new JATOS installation.
+1. From the folder of your old JATOS installation copy the folders `database` and `study_logs` to the folder of the new JATOS installation.
 1. If you had changed the `conf/production.conf` file in your old JATOS instance (for example to set a custom location for your `study_assets_root` folder) you'll have to do this again in the new JATOS version. We recommend re-editing the new version of the file, rather than just overwriting the new with the old version, in case anything in the `production.conf` file has changed.
 1. That's it! Start the new JATOS.
 
@@ -61,6 +62,7 @@ If you do want to keep your studies, batches, and your result data you'll have t
 1. Files and subfolders in study assets folder
 1. All your study and components properties
 1. All batches, together with their workers, generated links, and results
+1. All study logs
 
 **What will be lost:**
 nothing
