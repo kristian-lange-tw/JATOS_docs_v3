@@ -37,6 +37,7 @@ This means that we have to configure the MySQL database or copy the H2 database 
 1. Database
    * H2 - If you are using the default H2 database: From your the folder of your old JATOS installation copy the folder `database` to the new JATOS installation. [Remember to stop JATOS before copying the folder](Troubleshooting.html#database-is-corrupted).
    * MySQL - For MySQL you don't have to change anything on the database side.
+1. From the old JATOS installation copy the folder `study_logs` to the new JATOS installation
 1. [Configure the new JATOS like the old one](Configure-JATOS-on-a-Server.html)
 1. That's it! Start the new JATOS using `./loader.sh start`
  
