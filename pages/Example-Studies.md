@@ -217,6 +217,16 @@ This is a standard visual metacognition task. It is uses the **jsPsych** library
 
 [Download Perceptual Metacognition Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/perceptual_metacognition_(jatosified).zip)
 
+### Clock Drawing (using jsPsych 6)
+
+Example study to save images in JATOS. It uses [**jsPsych 6.0.0**](http://www.jspsych.org/)  with the 'canvas-drawing-circle' plugin-in. It saves the drawn image in JATOS (by turning the image into text using a base64 encoding).
+
+![Screenshot Clock Drawing](images/example-studies/Screenshot_clock_drawing.png){:width="300"}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download Clock Drawing Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/clock_drawing.zip)
+
 ### Potato Compass (using interact.js)
 
 Example how to use [interact.js](http://interactjs.io/) to achieve draggable elements (drag & drop).
