@@ -40,7 +40,7 @@ That's all. If you additionally want to send your result data to JATOS read on.
 
 ### Send jsPsych's result data back to JATOS
 
-Here we use jsPsych's function `jsPsych.data.getData()` to collect the data into a variable and then 'stringify' the JSON format into a simple string.
+Here we use jsPsych's function `jsPsych.data.get().json()` to collect the data into a JSON-formatted string.
 Then we use JATOS' function `jatos.submitResultData` to send your result to JATOS and asks JATOS to move to the next component, if there is one.
 
 ~~~ javascript
@@ -48,7 +48,7 @@ jatos.onload(function() {
   jsPsych.init( {
     // ...
     on_finish: function() {
-      var resultJson = JSON.stringify(jsPsych.data.getData());
+      var resultJson = jsPsych.data.get().json()
       jatos.submitResultData(resultJson, jatos.startNextComponent);
     }
   });
