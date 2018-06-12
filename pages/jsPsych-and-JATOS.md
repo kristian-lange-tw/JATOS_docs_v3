@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jsPsych-and-JATOS.html
 folder:
 toc: true
-last_updated: 29 Dec 2016
+last_updated: 12 June 2018
 ---
 
 JATOS basically cares for the server side: it stores result data, does worker management etc. JATOS doesn't care so much for what happens in the browser itself - your HTML, JavaScript and CSS. Of course you can write this all yourself, but you could also use a framework for this. A very good one is [jsPsych](http://www.jspsych.org/).
@@ -40,8 +40,23 @@ That's all. If you additionally want to send your result data to JATOS read on.
 
 ### Send jsPsych's result data back to JATOS
 
-Here we use jsPsych's function `jsPsych.data.get().json()` to collect the data into a JSON-formatted string.
-Then we use JATOS' function `jatos.submitResultData` to send your result to JATOS and asks JATOS to move to the next component, if there is one.
+Here we use jsPsych's function `jsPsych.data.getData()` (jsPsych 5) or `jsPsych.data.get().json()` (jsPsych 6) to collect the data into a JSON-formatted string. Then we use JATOS' function `jatos.submitResultData` to send your result to JATOS and asks JATOS to move to the next component, if there is one.
+
+#### jsPsych 5
+
+~~~ javascript
+jatos.onload(function() {
+  jsPsych.init( {
+    // ...
+    on_finish: function() {
+      var resultJson = JSON.stringify(jsPsych.data.getData());
+      jatos.submitResultData(resultJson, jatos.startNextComponent);
+    }
+  }
+});
+~~~
+
+#### jsPsych 6
 
 ~~~ javascript
 jatos.onload(function() {
