@@ -63,7 +63,7 @@ jatos.onload(function() {
   jsPsych.init( {
     // ...
     on_finish: function() {
-      var resultJson = jsPsych.data.get().json()
+      var resultJson = jsPsych.data.get().json();
       jatos.submitResultData(resultJson, jatos.startNextComponent);
     }
   });
