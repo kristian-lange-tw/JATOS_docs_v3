@@ -47,15 +47,15 @@ Same experiment but with an older version of jsPsych (5.0.3).
 
 [Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_5).zip)
 
-### Randomize conditions between participants (Go- / No-Go Task)
+### Randomize Conditions Between Participants
 
-Standard Go- / No-Go experiment with two different conditions. Half of the participants are assigned to condition A, the other half to condition B. Uses the Batch Session. 
+Template to randomly assign participants to conditions A, B, or C (with fixed numbers for each condition).
 
-![Screenshot Go- / No-Go Task](images/example-studies/Screenshot_gonogo.png){:width="300"}
+![Screenshot Randomization between participants](images/example-studies/Screenshot_randomization_between_workers.png){:width="300"}
 
-**Needs JATOS version 3.1.1 or newer**
+**Needs JATOS version 3.3.1 or newer**
 
-[Download Randomization with Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-no-go_task_(randomize_between_workers).zip)
+[Download Randomize Tasks Between Workers](https://github.com/JATOS/JATOS_examples/raw/master/examples/randomize_tasks_between_workers.zip)
 
 ### Lexical Decision (with jsPsych 5.0.3)
 
