@@ -26,14 +26,14 @@ Everything starts with a Hello World!
 
 [Download Hello World example](https://github.com/JATOS/JATOS_examples/raw/master/examples/hello_world.zip).
 
-### Go- / No-Go Task (with jsPsych 6.0.1)
+### Go- / No-Go Task (with jsPsych 6.0.4)
 
 Standard Go- / No-Go experiment.
 This study illustrates the compatibility between JATOS and the excellent **jsPsych** library ([www.jspsych.org](http://www.jspsych.org/)). With jsPsych one can program the actual experiment while JATOS cares for the server-side.
 
-![Screenshot Go- / No-Go Task](images/example-studies/Screenshot_gonogo_jspsych6.png){:width="300"}
+![Screenshot Go- / No-Go Task](images/example-studies/Screenshot_gonogo.png){:width="300"}
 
-**Needs JATOS version 3.1.1 or newer**
+**Needs JATOS version 3.3.1 or newer**
 
 [Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_6).zip)
 
