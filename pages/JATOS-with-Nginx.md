@@ -81,7 +81,7 @@ http {
                 server_name www.example.com;
 
                 # websocket location (JATOS' group and batch channel and the test page)
-                location ~ "^/(jatos/testWebSocket|publix/[\d]+/(group/join|batch/open))" {
+                location ~ "/(jatos/testWebSocket|publix/[\d]+/(group/join|batch/open))" {
                         proxy_pass              http://jatos-backend;
                         proxy_http_version      1.1;
                         proxy_set_header        Upgrade $http_upgrade;
