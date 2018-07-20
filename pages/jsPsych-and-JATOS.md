@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jsPsych-and-JATOS.html
 folder:
 toc: true
-last_updated: 12 June 2018
+last_updated: 20 July 2018
 ---
 
 JATOS basically cares for the server side: it stores result data, does worker management etc. JATOS doesn't care so much for what happens in the browser itself - your HTML, JavaScript and CSS. Of course you can write this all yourself, but you could also use a framework for this. A very good one is [jsPsych](http://www.jspsych.org/).
@@ -69,3 +69,36 @@ jatos.onload(function() {
   });
 });
 ~~~ 
+
+### Adding a cancel button or other HTML snippets
+
+jsPsych has the habit of cleaning the HTML's body and fill it with it's own code. This means that whatever you write between the `<body>` tags will be ignored. But sometimes one want to add some additional HTML element like a cancel button to the page without changing the jsPsych plugin or writing a new one. How can this be done?
+
+Luckily jsPsych offers a [callback function on_load](https://www.jspsych.org/overview/callbacks/#on_load). Whatever we write in there is called after jsPsych did its body cleansing and for instance one could add a cancel button in there.
+
+Supposed you are using jQuery it could look like:
+~~~ javascript
+var my_trial = {
+  type: 'some-plugin',
+  on_load: function() {
+    $("body").append('<button onclick="jatos.abortStudy()">Cancel Study</button>');
+  },
+  ...
+~~~
+
+And without jQuery it's more cumbersome:
+~~~javascript
+var my_trial = {
+  type: 'some-plugin',
+  on_load: function() {
+    var button = document.createElement("button");
+    button.innerHTML = "Cancel Study";
+    document.body.appendChild(button);
+    button.addEventListener("click", function() {
+      jatos.abortStudy();
+    });
+  },
+  ...
+~~~
+
+You probably want to add some styling but this is how it works in principle.  
