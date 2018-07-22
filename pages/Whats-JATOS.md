@@ -23,7 +23,7 @@ We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-
 * It’s GUI-based, so there's no need to use the terminal to talk to your server. 
 * Recruit participents via **Amazon Mechanical Turk**, **Prolific** etc.
 * It's **open-source and free** to use.
-* Manage workers, to e.g. make sure that each participant does your study only once.
+* **Manage workers**, to e.g. make sure that each participant does your study only **once**.
 * **Export/Import** studies to facilitate exchange with other researchers.
 
 You can try out [JATOS on _cortex_, our test server](JATOS-Tryout-Server.html).
