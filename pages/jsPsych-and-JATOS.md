@@ -40,7 +40,7 @@ That's all. If you additionally want to send your result data to JATOS read on.
 
 ### Send jsPsych's result data back to JATOS
 
-Here we use jsPsych's function `jsPsych.data.getData()` (jsPsych 5) or `jsPsych.data.get().json()` (jsPsych 6) to collect the data into a JSON-formatted string. Then we use JATOS' function `jatos.submitResultData` to send your result to JATOS and asks JATOS to move to the next component, if there is one.
+Here we use jsPsych's function `jsPsych.data.getData()` (jsPsych 5) or `jsPsych.data.get().json()` (jsPsych 6) to collect the data into a JSON-formatted string. Then we use JATOS' function `jatos.submitResultData` to send your result to JATOS and ask JATOS to move to the next component, if there is one.
 
 #### jsPsych 5
 
@@ -72,7 +72,7 @@ jatos.onload(function() {
 
 ### Adding additional HTML snippets to a jPsych code (e.g. cancel button) 
 
-jsPsych has the habit of cleaning the HTML's body and fill it with it's own code. This means that whatever you write between the `<body>` tags will be ignored. But sometimes one want to add some additional HTML element like a cancel button to the page without changing the jsPsych plugin or writing a new one. How can this be done?
+jsPsych has the habit of cleaning the HTML's body and fill it with its own code. This means that whatever you write between the `<body>` tags will be ignored. But sometimes one want to add some additional HTML element like a cancel button to the page without changing the jsPsych plugin or writing a new one. How can this be done?
 
 Luckily jsPsych offers a [callback function on_load](https://www.jspsych.org/overview/callbacks/#on_load). Whatever we write in there is called after jsPsych did its body clean-up. So you could add your extra HTML elements in there.
 
