@@ -21,7 +21,7 @@ We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-
 * Write your studies in **HTML / JavaScript / CSS** - you have full control over what runs in the browser. 
 * **Run group studies** where multiple workers interact with each other in real-time.
 * It’s GUI-based, so there's no need to use the terminal to talk to your server. 
-* Recruit participents via **[Amazon Mechanical Turk](https://www.mturk.com)**, [Prolific](https://www.prolific.ac/) etc.
+* Recruit participents via **Amazon Mechanical Turk**, **Prolific** etc.
 * It's **open-source and free** to use.
 * Manage workers, to e.g. make sure that each participant does your study only once.
 * **Export/Import** studies to facilitate exchange with other researchers.
