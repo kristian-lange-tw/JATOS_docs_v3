@@ -70,13 +70,13 @@ jatos.onload(function() {
 });
 ~~~ 
 
-### Adding a cancel button or other HTML snippets
+### Adding additional HTML snippets to a jPsych code (e.g. cancel button) 
 
 jsPsych has the habit of cleaning the HTML's body and fill it with it's own code. This means that whatever you write between the `<body>` tags will be ignored. But sometimes one want to add some additional HTML element like a cancel button to the page without changing the jsPsych plugin or writing a new one. How can this be done?
 
-Luckily jsPsych offers a [callback function on_load](https://www.jspsych.org/overview/callbacks/#on_load). Whatever we write in there is called after jsPsych did its body cleansing and for instance one could add a cancel button in there.
+Luckily jsPsych offers a [callback function on_load](https://www.jspsych.org/overview/callbacks/#on_load). Whatever we write in there is called after jsPsych did its body clean-up. So you could add your extra HTML elements in there.
 
-Supposed you are using jQuery it could look like:
+Here's an example (you need jQuery for this one to work):
 ~~~ javascript
 var my_trial = {
   type: 'some-plugin',
