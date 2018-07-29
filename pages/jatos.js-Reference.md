@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 8 May 2018
+last_updated: 28 July 2018
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -55,10 +55,9 @@ There's a convenient function that adds all these IDs to a given object. See fun
 
 ### Original URL query parameters
 
-* `jatos.urlQueryParameters` - Original query string parameters of the URL that starts the study. It is provided as a JavaScript object. This might be useful to pass on information from outside of JATOS into a study run, e.g. if you want to pass on information like gender and age. However if you know the information beforehand it's easier to put them in the
-Study's or Component's JSON input.
+* `jatos.urlQueryParameters` - Original query string parameters of the URL that starts the study. It is provided as a JavaScript object. This might be useful to pass on information from outside of JATOS into a study run, e.g. if you want to pass on information like gender and age. However if you know the information beforehand it's easier to put them in the Study's or Component's JSON input. Another example is MTurk which passes on it's worker's ID via a URL query parameter.
 
-  E.g. one has this link to start a Personal Single Run:
+  Example: One has this link to start a Personal Single Run:
   
   `http://localhost:9000/publix/50/start?batchId=47&personalSingleWorkerId=506`
   
@@ -67,6 +66,8 @@ Study's or Component's JSON input.
   `http://localhost:9000/publix/50/start?batchId=47&personalSingleWorkerId=506&foo=bar&a=123`
   
   Then those parameter will be accessible during the study run in `jatos.urlQueryParameters` as `{a: "123", foo: "bar"}`.
+
+  Example: MTurk uses for its worker ID the URL query parameter 'workerId' and this is accessible via `jatos.urlQueryParameters.workerId`.
 
 ### Component variables
 
@@ -216,11 +217,15 @@ jatos.setHeartbeatPeriod(60000); // Sets to a heartbeat every minute
 
 ## Functions to control study flow
 
-### `jatos.startComponent(componentId)`
+### `jatos.startComponent(componentId, resultData, onError)`
 
-Finishes the currently running component and starts the component with the given ID. Though often it's better to use `jatos.startComponentByPos` instead because it keeps working even after an export/import of the study.
+(Before v3.3.1 `jatos.startComponent(componentId)`)
+
+Finishes the currently running component and starts the component with the given ID. Though often it's better to use `jatos.startComponentByPos` instead because it keeps working even after an export/import of the study. Since v3.3.1 one can additionally send result data back to the JATOS server.
 
 * _@param {Number} componentId_ - ID of the component to start
+* _@param {optional Object} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify). 
+* _@param {optional Function} onError_ - Callback function if fail
 
 Examples:
 
@@ -237,11 +242,22 @@ jatos.submitResultData(resultData, function() {
 });
 ```
 
-### `jatos.startComponentByPos(componentPos)`
+Since v3.3.1 it's possible to use the shorter way to achieve the same:
 
-Finishes the currently running component and starts the component with the given position. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, ...).
+```javascript
+var resultData = "my important result data";
+jatos.startComponent(23, resultData);
+```
+
+### `jatos.startComponentByPos(componentPos, resultData, onError)`
+
+(Before v3.3.1 `jatos.startComponentByPos(componentPos)`)
+
+Finishes the currently running component and starts the component with the given position. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, ...). Since v3.3.1 one can additionally send result data back to the JATOS server.
 
 * _@param {Number} componentPos_ - Position of the component to start
+* _@param {optional Object} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify). 
+* _@param {optional Function} onError_ - Callback function if fail
 
 Examples:
 
@@ -258,9 +274,21 @@ jatos.submitResultData(resultData, function() {
 });
 ```
 
-### `jatos.startNextComponent()`
+Since v3.3.1 it's possible to use the shorter way to achieve the same:
 
-Finishes the currently running component and starts the next component of this study. The next component is the one with position + 1. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, ...).
+```javascript
+var resultData = "my important result data";
+jatos.startComponentByPos(3, resultData);
+```
+
+### `jatos.startNextComponent(resultData, onError)`
+
+(Before v3.3.1 `jatos.startNextComponent()`)
+
+Finishes the currently running component and starts the next component of this study. The next component is the one with position + 1. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, ...). Since v3.3.1 one can additionally send result data back to the JATOS server.
+
+* _@param {optional Object} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify). 
+* _@param {optional Function} onError_ - Callback function if fail
 
 Examples:
 
@@ -275,9 +303,21 @@ var resultData = "my important result data";
 jatos.submitResultData(resultData, jatos.startNextComponent);
 ```
 
-### `jatos.startLastComponent()`
+Since v3.3.1 it's possible to use the shorter way to achieve the same:
 
-Finishes the current component and starts the last component of this study. If the last component is inactive it starts the component with the highest position that is active. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, ...).
+```javascript
+var resultData = "my important result data";
+jatos.startNextComponent(resultData);
+```
+
+### `jatos.startLastComponent(resultData, onError)`
+
+(Before v3.3.1 `jatos.startLastComponent()`)
+
+Finishes the current component and starts the last component of this study. If the last component is inactive it starts the component with the highest position that is active. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, ...). Since v3.3.1 one can additionally send result data back to the JATOS server.
+
+* _@param {optional Object} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify). 
+* _@param {optional Function} onError_ - Callback function if fail
 
 Example:
 
@@ -285,50 +325,44 @@ Example:
 jatos.startLastComponent(); // Jumps to the last component
 ```
 
-### `jatos.endComponent(successful, errorMsg, onSuccess, onError)`
-
-**Deprecated**: Will be removed in future versions. Use `jatos.startComponent`, `jatos.startComponentByPos`, `jatos.startNextComponent`, or `jatos.startLastComponent` instead.
-
-Finishes component. Usually this is not necessary because the last component is automatically finished if the new component is started. Nevertheless it's useful to explicitly tell about a FAIL and submit an error message. Finishing the component doesn't finish the study.
-
-* _@param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
-* _@param {optional String} errorMsg_ - Error message that should be logged.
-* _@param {optional Function} onSuccess_ - Function to be called in case of successful submit
-* _@param {optional Function} onError_ - Function to be called in case of error
-
-### `jatos.abortStudyAjax(message, success, error)`
-
-Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS' end page. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the aborting.
-
-* _@param {optional String} message_ - Message that should be logged
-* _@param {optional Function} success_ - Function to be called in case of successful submit
-* _@param {optional Function} error_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
-
-Example:
+It's often used together with `jatos.submitResultData` to first submit result data back to the JATOS server and afterwards jump to the next component:
 
 ```javascript
-jatos.abortStudyAjax("Aborted study: user pressed abort button");
+var resultData = "my important result data";
+jatos.submitResultData(resultData, jatos.startLastComponent);
+```
+
+Since v3.3.1 it's possible to use the shorter way to achieve the same:
+
+```javascript
+var resultData = "my important result data";
+jatos.startLastComponent(resultData);
 ```
 
 ### `jatos.abortStudy(message)`
 
 Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page. Data stored in the Batch Session or Group Session are uneffected by this.
 
-* _@param {optional String} message_ - Message that should be logged
+* _@param {optional String} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
 
 Example:
 
 ```javascript
-jatos.abortStudy("Aborted study: user pressed abort button");
+jatos.abortStudy();
 ```
 
-### `jatos.endStudyAjax(successful, errorMsg, onSuccess, onError)`
+Or:
+
+```javascript
+jatos.abortStudy("participant aborted by pressing abort button");
+```
+
+### `jatos.endStudyAjax(successful, message, onSuccess, onError)`
 
 Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
 * _@param {optional Boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
-* _@param {optional String} errorMsg_ - Error message that should be logged.
+* _@param {optional String} message - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
 * _@param {optional Function} onSuccess_ - Function to be called in case of successful submit
 * _@param {optional Function} onError_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
@@ -336,20 +370,44 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
 Example:
 
 ```javascript
+jatos.endStudyAjax();
+```
+
+Or:
+
+```javascript
+jatos.endStudyAjax("everything worked fine");
+```
+
+Or to indicate a failure:
+
+```javascript
 jatos.endStudyAjax(false, "internal JS error");
 ```
 
-### `jatos.endStudy(successful, errorMsg)`
+### `jatos.endStudy(successful, message)`
 
 Ends study. Redirects the worker to the study end page afterwards.
 
 * _@param {optional Boolean} successful_ - 'true' if study should finish successfully, 'false' otherwise. Default is true.
-* _@param {optional String} errorMsg_ - Error message that should be logged.
+* _@param {optional String} msg_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
 
 Example:
 
 ```javascript
 jatos.endStudy();
+```
+
+Or:
+
+```javascript
+jatos.endStudy("everything worked fine");
+```
+
+Or to indicate a failure:
+
+```javascript
+jatos.endStudyAjax(false, "internal JS error");
 ```
 
 ## Functions for Study Session and result data
@@ -358,7 +416,7 @@ jatos.endStudy();
 
 Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be **overwritten**. If you want to append result data use `jatos.appendResultData` instead. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
-* _@param {String} resultData_ - String to be submitted
+* _@param {Object} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON.
 * _@param {optional Function} success_ - Function to be called in case of successful submit
 * _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
@@ -366,25 +424,34 @@ Posts result data for the currently running component back to the JATOS server. 
 Examples:
 
 ```javascript
-var resultData = { "a": 123, "b": 789, "c": 100};
+var resultData = {"a": 123, "b": 789, "c": 100};
 jatos.submitResultData(JSON.stringify(resultData));
 ```
 
 It's often used together with `jatos.startNextComponent` to first submit result data back to the JATOS server and afterwards jump to the next component:
 
 ```javascript
-var resultData = { "a": 123, "b": 789, "c": 100};
+var resultData = {"a": 123, "b": 789, "c": 100};
 jatos.submitResultData(JSON.stringify(resultData), jatos.startNextComponent);
 ```
+
 
 Or together with `jatos.startComponentByPos` to start a particular component (here at position 4):
 
 ```javascript
-var resultData = { "a": 123, "b": 789, "c": 100};
-jatos.submitResultData(resultJson, function () {
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.submitResultData(JSON.stringify(resultData), function () {
   jatos.startComponentByPos(4);
 });
 ```
+
+Since v3.3.1 it's possible to leave out the JSON serialization:
+
+```javascript
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.submitResultData(resultData, jatos.startNextComponent);
+```
+
 
 ### `jatos.appendResultData(resultData, onSuccess, onError)`
 
@@ -392,7 +459,7 @@ jatos.submitResultData(resultJson, function () {
 
 Appends result data to the already posted result data. Contrary to jatos.submitResultData it does not overwrite the result data. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer. This function can be used several times during an component run to incrementally save result data.
 
-* _@param {String} resultData_ - String to be appended
+* _@param {String} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).
 * _@param {optional Function} success_ - Function to be called in case of successful submit
 * _@param {optional Function} error_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
@@ -415,9 +482,23 @@ Or together with `jatos.startComponentByPos` to start a particular component (he
 
 ```javascript
 var resultData = { "a": 123, "b": 789, "c": 100};
-jatos.appendResultData(resultJson, function () {
+jatos.appendResultData(JSON.stringify(resultData), function () {
   jatos.startComponentByPos(4);
 });
+```
+
+Since v3.3.1 it's possible to use the shorter way to achieve the same:
+
+```javascript
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.startNextComponent(resultData);
+```
+
+Or:
+
+```javascript
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.startComponentByPos(3, resultData);
 ```
 
 ### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`
@@ -792,13 +873,15 @@ deferred.fail(function () {
 
 Defines a callback function that is called every time the Batch Session changes on the JATOS server side (that includes updates in the session originating from other workers that run the study in parallel).
 
-* _@param {Function} path_ - Callback function that is called each time the Batch Session gets updated. The function has one parameter: the JSON pointer path to the changed field in the Batch Session.
+The callback function has two parameter (before v3.3.1 one parameter):
+* _@param {String} path_ - JSON pointer to the changed field in the Batch Session
+* _@param {String} op_ - (version >= 3.3.1) JSON patch operation ('add', 'remove', 'clear', ...) that was applied
 
 Example:
 
 ```javascript
-jatos.onBatchSession(function(path){
-  alert("Batch Session was updated in path " + path);
+jatos.onBatchSession(function(path, op){
+  alert("Batch Session was updated in path " + path + " with operation " + op);
 });
 ```
 
@@ -806,13 +889,8 @@ Example: `onBatchSession` is often used together with `jatos.batchSession.find` 
 
 ```javascript
 jatos.onBatchSession(function(path){
-  var o = jatos.batchSession.find(path);
-  if (typeof o != 'undefined') {
-    alert("Batch Session was updated in path " + path + " to " + JSON.stringify(o));
-  } else {
-    // If the object under path was removed (e.g. with jatos.batchSession.remove) it can't be retrieved anymore
-    alert("Batch Session was updated in path " + path);
-  }
+  var changedObj = jatos.batchSession.find(path);
+  alert("The changed object is " + JSON.stringify(changedObj));
 });
 ```
 
@@ -831,7 +909,7 @@ Tries to join a group and if it succeeds opens the group channel (which is mostl
   * `onMemberOpen(memberId)`: Is called when another member (not the worker running this study) opened a group channel. It gets the group member ID as a parameter.
   * `onMemberLeave(memberId)`: Is called when another member (not the worker running his study) left the group. It gets the group member ID as a parameter.
   * `onMemberClose(memberId)`: Is called when another member (not the worker running this study) closed his group channel. It gets the group member ID as a parameter.
-  * `onGroupSession(path)`: Is called every time the Group Session changes on the JATOS server side. It gets the JSON pointer path to the changed field in the Group Session as a parameter.
+  * `onGroupSession(path, op)`: Is called every time the Group Session changes on the JATOS server side. It gets two parameters (before v3.3.1 only one): 1) JSON pointer path to the changed field in the Group Session as a parameter, and 2) JSON patch operation.
   * `onUpdate()`: Combines several other callbacks. It's called if one of the following is called: `onMemberJoin`, `onMemberOpen`, `onMemberLeave`, `onMemberClose`, or `onGroupSession`.
 * _@return {jQuery.deferred.promise}_
 
@@ -842,9 +920,9 @@ jatos.joinGroup({
   "onGroupSession": onGroupSession
 });
 
-function onGroupSession(path) {
-   var o = jatos.groupSession.find(path);
-   alert("Group Session was updated in path " + path + " to " + JSON.stringify(o));
+function onGroupSession(path, op) {
+   var changedObj = jatos.groupSession.find(path);
+   alert("Group Session was updated in path " + path + " with operation " + op + " to " + JSON.stringify(changedObj));
 }
 ```
 

@@ -293,7 +293,7 @@
             
             
             
-            <li><a href="Manage-results.html">Manage results</a></li>
+            <li><a href="Manage-Results.html">Manage Results</a></li>
             
             
             
@@ -566,20 +566,20 @@ $('#toc').on('click', 'a', function() {
 
 <ul>
   <li><em>studyId</em>: identifier of the study</li>
-  <li><em>batchId</em>: batch ID</li>
-  <li><em>componentId</em>: component ID</li>
+  <li><em>batchId</em>: identifier of the batch</li>
+  <li><em>componentId</em>: identifier of the component</li>
   <li><em>componentPos</em>: position of the component within the study</li>
-  <li><em>workerId</em>: an worker ID used internally to identify the worker anonymously</li>
+  <li><em>workerId</em>: identifier of the worker used internally to identify the worker anonymously</li>
   <li><em>workerType</em>: there are <a href="http://www.jatos.org/Worker-Types.html">5 worker types with different use cases in JATOS</a></li>
-  <li><em>componentResultId</em>: used to store data of this component run (e.g. result data)</li>
-  <li><em>studyResultId</em>: used to store data of this study run (e.g. study session)</li>
-  <li><em>groupResultId</em>: used to store data of the group (only if group study)</li>
+  <li><em>componentResultId</em>: identifier of the component result (a component result is used to store data of the component run)</li>
+  <li><em>studyResultId</em>: identifier of the study result (a study result is used to store data of this study run)</li>
+  <li><em>groupResultId</em>: identifier of the group this worker belongs to (null if it isn’t a group study)</li>
   <li><em>creationTime</em>: timestamp (epoch time) of this cookie’s creation</li>
-  <li><em>studyAssets</em>: Name of the directory where the study’s assets are stored</li>
+  <li><em>studyAssets</em>: name of the directory where the study’s assets are stored on the JATOS server</li>
   <li><em>jatosRun</em>: State of a study run with a JatosWorker. If this run doesn’t belong to a JatosWorker this field is null. It’s mainly used to distinguish between a full study run and just a component run.</li>
 </ul>
 
-<p>E.g. JATOS_IDS_0:”batchId=108&amp;componentId=306&amp;componentPos=2&amp;componentResultId=3867&amp;creationTime=1524941205992&amp;studyAssets=batch_chat_cambridge_workshop&amp;jatosRun=RUN_COMPONENT_FINISHED&amp;groupResultId=null&amp;studyId=101&amp;studyResultId=1346&amp;workerId=1&amp;workerType=Jatos”</p>
+<p>E.g. <code class="highlighter-rouge">JATOS_IDS_0:"batchId=108&amp;componentId=306&amp;componentPos=2&amp;componentResultId=3867&amp;creationTime=1524941205992&amp;studyAssets=batch_chat_cambridge_workshop&amp;jatosRun=RUN_COMPONENT_FINISHED&amp;groupResultId=null&amp;studyId=101&amp;studyResultId=1346&amp;workerId=1&amp;workerType=Jatos"</code></p>
 
 <h4 id="cookie-jatosgeneralsingleuuids">2. Cookie JATOS_GENERALSINGLE_UUIDS</h4>
 
@@ -604,7 +604,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Additionally Play stores a hash of the whole cookie’s data to check integrity of the cookie’s data.</p>
 
-<p>E.g. PLAY_SESSION:”b6c01f2fa796603491aaed94168651b54b154ca1-userEmail=admin&amp;sessionID=4k1atg9ugeavmegk88n41stfr4&amp;loginTime=1524935558364&amp;lastActivityTime=1524947602543”</p>
+<p>E.g. <code class="highlighter-rouge">PLAY_SESSION:"b6c01f2fa796603491aaed94168651b54b154ca1-userEmail=admin&amp;sessionID=4k1atg9ugeavmegk88n41stfr4&amp;loginTime=1524935558364&amp;lastActivityTime=1524947602543"</code></p>
 
 
     <div class="tags">

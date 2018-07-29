@@ -202,11 +202,11 @@
 
 
 {
-"title": "Manage results",
+"title": "Manage Results",
 "tags": "",
-"keywords": "results",
-"url": "Manage-results.html",
-"summary": "The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g. worker ID, start time etc.)."
+"keywords": "results, result data, metadata",
+"url": "Manage-Results.html",
+"summary": "The results pages (study, component, batch or worker) present all the data that were collected during the study runs, including the result data and metadata (e.g. worker ID, start time etc.)."
 }
 ,
 

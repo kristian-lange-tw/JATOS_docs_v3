@@ -293,7 +293,7 @@
             
             
             
-            <li><a href="Manage-results.html">Manage results</a></li>
+            <li><a href="Manage-Results.html">Manage Results</a></li>
             
             
             
@@ -549,7 +549,7 @@ http <span class="o">{</span>
                 server_name www.example.com;
 
                 <span class="c"># websocket location (JATOS' group and batch channel and the test page)</span>
-                location ~ <span class="s2">"^/(jatos/testWebSocket|publix/[</span><span class="se">\d</span><span class="s2">]+/(group/join|batch/open))"</span> <span class="o">{</span>
+                location ~ <span class="s2">"/(jatos/testWebSocket|publix/[</span><span class="se">\d</span><span class="s2">]+/(group/join|batch/open))"</span> <span class="o">{</span>
                         proxy_pass              http://jatos-backend;
                         proxy_http_version      1.1;
                         proxy_set_header        Upgrade <span class="nv">$http_upgrade</span>;

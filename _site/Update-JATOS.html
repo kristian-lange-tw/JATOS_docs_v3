@@ -293,7 +293,7 @@
             
             
             
-            <li><a href="Manage-results.html">Manage results</a></li>
+            <li><a href="Manage-Results.html">Manage Results</a></li>
             
             
             
@@ -540,6 +540,7 @@ $('#toc').on('click', 'a', function() {
   <li><strong>All result data will be lost</strong></li>
   <li>All workers in all batches (including Default batch)</li>
   <li>All batches other than the Default batch</li>
+  <li>All study logs</li>
 </ol>
 
 <h3 id="second-way-keeping-everything-including-your-result-data">Second way: keeping everything (including your result data)</h3>
@@ -551,7 +552,7 @@ $('#toc').on('click', 'a', function() {
 <ol>
   <li>Stop JATOS (on Unix systems, type <code class="highlighter-rouge">$ ./loader.sh stop</code> on the terminal. On Windows MS, close your command window)</li>
   <li>Go to the folder of your old JATOS installation. From there copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called <code class="highlighter-rouge">study_assets_root</code> and lays in the JATOS folder but you might have changed this. You can find the location and name in <code class="highlighter-rouge">conf/production.conf</code>. It is specified in the line beginning with <code class="highlighter-rouge">jatos.studyAssetsRootPath=</code>.)</li>
-  <li>From your the folder of your old JATOS installation copy the folder <code class="highlighter-rouge">database</code> to the new JATOS installation.</li>
+  <li>From the folder of your old JATOS installation copy the folders <code class="highlighter-rouge">database</code> and <code class="highlighter-rouge">study_logs</code> to the folder of the new JATOS installation.</li>
   <li>If you had changed the <code class="highlighter-rouge">conf/production.conf</code> file in your old JATOS instance (for example to set a custom location for your <code class="highlighter-rouge">study_assets_root</code> folder) you’ll have to do this again in the new JATOS version. We recommend re-editing the new version of the file, rather than just overwriting the new with the old version, in case anything in the <code class="highlighter-rouge">production.conf</code> file has changed.</li>
   <li>That’s it! Start the new JATOS.</li>
 </ol>
@@ -562,6 +563,7 @@ $('#toc').on('click', 'a', function() {
   <li>Files and subfolders in study assets folder</li>
   <li>All your study and components properties</li>
   <li>All batches, together with their workers, generated links, and results</li>
+  <li>All study logs</li>
 </ol>
 
 <p><strong>What will be lost:</strong>
@@ -581,7 +583,7 @@ nothing</p>
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 27 Apr 2017
+<span>Page last updated:</span> 17 May 2018
                 </div>
             </div>
 </footer>

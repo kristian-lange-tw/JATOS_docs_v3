@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g....">
-<meta name="keywords" content=" results">
-<title>Manage results | JATOS 3 Documentation</title>
+<meta name="description" content="The results pages (study, component, batch or worker) present all the data that were collected during the study runs, including the result data and metadata ...">
+<meta name="keywords" content=" results, result data, metadata">
+<title>Manage Results | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Manage results">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Manage Results">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -293,7 +293,7 @@
             
             
             
-            <li class="active"><a href="Manage-results.html">Manage results</a></li>
+            <li class="active"><a href="Manage-Results.html">Manage Results</a></li>
             
             
             
@@ -461,7 +461,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Manage results</h1>
+   <h1 class="post-title-main">Manage Results</h1>
 </div>
 
 
@@ -469,7 +469,7 @@
 <div class="post-content">
 
    
-    <div class="summary">The results pages (study, component or worker) presents all the data that were collected during the study runs, including the result data and meta data (e.g. worker ID, start time etc.).</div>
+    <div class="summary">The results pages (study, component, batch or worker) present all the data that were collected during the study runs, including the result data and metadata (e.g. worker ID, start time etc.).</div>
    
 
     
@@ -500,67 +500,89 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Manage-results.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Manage-Results.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <h3 id="results-view">Results View</h3>
+  <h2 id="results-pages">Results Pages</h2>
 
-<p>Once you collected data for a study, you can see and manage the results by clicking on the study <em>Results</em> button. The component Results view is similar, so we describe the study Results view only.</p>
+<p>Once you collected data for a study, you can see and manage the results by clicking on one of the <em>Results</em> buttons.</p>
 
 <p><img src="images/ResultsLink.png" alt="Results Link" /></p>
 
-<p>The image below is an example of the results for the Prisonner’s Dilemma example study. There’s quite a lot of information here, so we’ll go through each piece.</p>
+<p>The image below is an example of a study results page. There’s quite a lot of information here, so we’ll go through each piece.</p>
 
-<p><img src="images/ResultsView Screenshot.png" alt="Results View screenshot" /></p>
+<p><img src="images/ResultsView Screenshot2.png" alt="Results View screenshot" /></p>
 
-<h3 id="interacting-with-the-results-table">Interacting With The Results Table</h3>
-<p>JATOS displays results in the form of interactive tables. Here’s what you can do in them:</p>
+<h2 id="interacting-with-the-results-table">Interacting With The Results Table</h2>
 
-<h4 id="selecting-results">Selecting Results</h4>
-<p>You’ll notice that the first two results are selected (in dark blue) in the example. You can select/deselect specific results by clicking anywhere on the row. You can also use the buttons on the bar above to select all results in the table.</p>
+<h3 id="view-result-data">View Result Data</h3>
 
-<h4 id="filter-results">Filter Results</h4>
-<p>The filter lets you search all text in the whole results table (excluding the actual result data).<br />
-If you type, for example, “Personal Single” in the <em>Filter Results</em> field, only the results ran by a Personal Single worker will appear on the table. You can then click on <em>Select Filtered</em> to select and then export only those results that you’re interested in. All fields in the table are searchable and you can combine fields (e.g. by filtering for “Personal Single Finished”).</p>
+<p>Each study result has an arrow on the left. If you click on it, the result data for this study run will be displayed underneath the row. Since a study can have several components and each component produces its own result data there can be several result data each in its own row (like in the screenshot below).</p>
 
-<h4 id="view-component-results">View Component Results</h4>
-<p>Each study result has a little arrow on the left. If you click on it, the individual component results for the study will be displayed like in the bottom-most result of the screenshot above.</p>
+<p><img src="images/ResultsView Screenshot3.png" alt="Results View screenshot" /></p>
 
-<h4 id="export">Export</h4>
-<p>Once you selected the results you’re interested in, click <em>Export</em> and your browser will download a text file that contains your results in whatever format (text, csv, json) you stored them. Then read this text file with SPSS, Excel, Matlab, R or whatever program you use to analyze results.</p>
+<h3 id="selecting-results">Selecting Results</h3>
 
-<h4 id="delete">Delete</h4>
-<p>You can click <em>Delete</em> to remove all or only some selected results. Keep in mind <strong>there’s no undo function for this</strong>.</p>
+<p>Prior to JATOS version 3.3.1 you could select/deselect a specific result by clicking anywhere on the row. Selected results change color to dark blue.</p>
 
-<h3 id="table-columns">Table Columns</h3>
+<p>From 3.3.1 on there is a checkbox on the left side of each row.</p>
+
+<p>You can also use the buttons on the bar above to select/deselect all results in the table or select only all filtered ones.</p>
+
+<h3 id="filter-results">Filter Results</h3>
+
+<p>The filter lets you search all all fields in the results table (the metadata) and from JATOS version 3.3.1 on also in the result data themselves.</p>
+
+<p>If you type, for example, “Personal Single” in the <em>Filter Results</em> field, only the results ran by a Personal Single worker will appear on the table. You can then click on <em>Select Filtered</em> to select and then export only those results that you’re interested in.</p>
+
+<h3 id="export-result-data">Export Result Data</h3>
+
+<p>Once you selected the results you’re interested in, click <em>Export Results</em> and your browser will download a text file that contains your results in whatever format (text, csv, json) you stored them. Then read this text file with SPSS, Excel, Matlab, R or whatever program you use to analyze results.</p>
+
+<h3 id="export-metadata-jatos-version--331">Export Metadata (JATOS version &gt;= 3.3.1)</h3>
+
+<p>Sometimes one is also interested in the metadata, that is what’s in the actual table fields (“Result ID”, “Start Time” , “Last Seen”, …). For this click on <em>Export Metadata</em> and the metadata of the selected results will be downloaded in CSV format.</p>
+
+<h3 id="delete-results">Delete Results</h3>
+
+<p>You can click <em>Delete</em> to remove all or only some selected results (result data + metadata). Keep in mind <strong>there’s no undo function for this</strong>.</p>
+
+<h2 id="table-columns">Table Columns</h2>
+
 <p>You can show and hide the columns displayed in the table with the drop-down menu under the <em>Display Columns</em> button.</p>
 
-<h4 id="result-id">Result ID</h4>
-<p>An identifier assigned by JATOS to each study result. A study result is actually a set of component results, each of them with their own (different) <em>Component ID</em>.</p>
+<h3 id="result-id">Result ID</h3>
+<p>An identifier assigned by JATOS to each study result. A study result is actually a set of component results, each of them with their own (different) <em>Component Result ID</em>.</p>
 
-<h4 id="start-time">Start Time</h4>
+<h3 id="start-time">Start Time</h3>
 <p>Time (set at the server’s time zone) at which the first component of the study was started.</p>
 
-<h4 id="last-seen">Last Seen</h4>
-<p>JATOS records by default a “heartbeat” from each RUNNING component. Last Seen is the time of the last heartbeat received. The heartbeat is sent as long as the component runs in the worker’s browser and stops either when the study is finished or when the browser tab is closed. The default period of the heartbeat is 2 minutes but you can change it through a <a href="jatos.js-Reference.html#jatossetheartbeatperiodheartbeatperiod">jatos.js function</a>.</p>
+<h3 id="end-time">End Time</h3>
+<p>Time (set at the server’s time zone) at which the last component of the study was finished.</p>
 
-<h4 id="duration">Duration</h4>
-<p>Simply the time difference between the start of the first study component and the end of last component. It will display ‘not yet’ for studies that are not yet finished.</p>
+<h3 id="last-seen">Last Seen</h3>
+<p>Each component running in a worker’s browser sends a “heartbeat” regularly back to JATOS. Last Seen is the time of the last heartbeat received. The heartbeat stops either when the study is finished or when the browser tab is closed. The default period of the heartbeat is 2 minutes but you can change it through a <a href="jatos.js-Reference.html#jatossetheartbeatperiodheartbeatperiod">jatos.js function</a>.</p>
 
-<h4 id="worker-id">Worker ID</h4>
+<h3 id="duration">Duration</h3>
+<p>Simply the time difference between the start and end time.</p>
+
+<h3 id="batch">Batch</h3>
+<p>Name of the batch the worker belongs to.</p>
+
+<h3 id="worker-id">Worker ID</h3>
 <p>Assigned by JATOS. Each worker has its own Worker ID. JATOS’ admin user will always have Worker ID 1. You can click on a Worker ID to see all the worker’s results.</p>
 
-<h4 id="worker-type">Worker Type</h4>
+<h3 id="worker-type">Worker Type</h3>
 <p>Displays the <a href="Worker-Types.html">Worker type</a> that ran the study.</p>
 
-<h4 id="mturk-worker-id">MTurk Worker ID</h4>
-<p>Only applies to studies run by MTurk workers. An identifier given by Amazon Mechanical Turk’s, not by JATOS.</p>
+<h3 id="mturk-worker-id-confirmation-code">MTurk Worker ID (Confirmation Code)</h3>
+<p>Only applies to studies run by MTurk workers. An identifier given by Amazon Mechanical Turk’s, not by JATOS. The Confirmation Code is generated by JATOS and given to the worker as proof of his work.</p>
 
-<h4 id="group-id">Group ID</h4>
+<h3 id="group-id">Group ID</h3>
 <p>Only available for group studies. It identifies the group.</p>
 
-<h4 id="state">State</h4>
+<h3 id="state">State</h3>
 
 <p>Possible states for study results are:</p>
 
@@ -585,9 +607,8 @@ If you type, for example, “Personal Single” in the <em>Filter Results</em> f
   <li>FAIL - Something went wrong</li>
 </ul>
 
-<h4 id="messages">Messages</h4>
-
-<p>Either an error message if the study failed (can be set by <a href="jatos.js-Reference.html#jatosendstudysuccessful-errormsg">jatos.endStudy</a>) or a message if the study was aborted (can be set via <a href="jatos.js-Reference.html#jatosabortstudymessage">jatos.abortStudy</a>).</p>
+<h3 id="messages">Messages</h3>
+<p>A message that can be set together with <a href="jatos.js-Reference.html#jatosendstudysuccessful-message">jatos.endStudy</a> or <a href="jatos.js-Reference.html#jatosabortstudymessage">jatos.abortStudy</a>.</p>
 
 
     <div class="tags">
@@ -603,7 +624,7 @@ If you type, for example, “Personal Single” in the <em>Filter Results</em> f
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 3 Mar 2017
+<span>Page last updated:</span> 28 July 2018
                 </div>
             </div>
 </footer>

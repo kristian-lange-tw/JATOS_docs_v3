@@ -293,7 +293,7 @@
             
             
             
-            <li><a href="Manage-results.html">Manage results</a></li>
+            <li><a href="Manage-Results.html">Manage Results</a></li>
             
             
             
@@ -556,10 +556,9 @@ $('#toc').on('click', 'a', function() {
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">jatos.urlQueryParameters</code> - Original query string parameters of the URL that starts the study. It is provided as a JavaScript object. This might be useful to pass on information from outside of JATOS into a study run, e.g. if you want to pass on information like gender and age. However if you know the information beforehand it’s easier to put them in the
-Study’s or Component’s JSON input.</p>
+    <p><code class="highlighter-rouge">jatos.urlQueryParameters</code> - Original query string parameters of the URL that starts the study. It is provided as a JavaScript object. This might be useful to pass on information from outside of JATOS into a study run, e.g. if you want to pass on information like gender and age. However if you know the information beforehand it’s easier to put them in the Study’s or Component’s JSON input. Another example is MTurk which passes on it’s worker’s ID via a URL query parameter.</p>
 
-    <p>E.g. one has this link to start a Personal Single Run:</p>
+    <p>Example: One has this link to start a Personal Single Run:</p>
 
     <p><code class="highlighter-rouge">http://localhost:9000/publix/50/start?batchId=47&amp;personalSingleWorkerId=506</code></p>
 
@@ -568,6 +567,8 @@ Study’s or Component’s JSON input.</p>
     <p><code class="highlighter-rouge">http://localhost:9000/publix/50/start?batchId=47&amp;personalSingleWorkerId=506&amp;foo=bar&amp;a=123</code></p>
 
     <p>Then those parameter will be accessible during the study run in <code class="highlighter-rouge">jatos.urlQueryParameters</code> as <code class="highlighter-rouge"><span class="p">{</span><span class="err">a:</span><span class="w"> </span><span class="nt">"123"</span><span class="err">,</span><span class="w"> </span><span class="err">foo</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">}</span></code>.</p>
+
+    <p>Example: MTurk uses for its worker ID the URL query parameter ‘workerId’ and this is accessible via <code class="highlighter-rouge">jatos.urlQueryParameters.workerId</code>.</p>
   </li>
 </ul>
 
@@ -742,12 +743,16 @@ Study’s or Component’s JSON input.</p>
 
 <h2 id="functions-to-control-study-flow">Functions to control study flow</h2>
 
-<h3 id="jatosstartcomponentcomponentid"><code class="highlighter-rouge">jatos.startComponent(componentId)</code></h3>
+<h3 id="jatosstartcomponentcomponentid-resultdata-onerror"><code class="highlighter-rouge">jatos.startComponent(componentId, resultData, onError)</code></h3>
 
-<p>Finishes the currently running component and starts the component with the given ID. Though often it’s better to use <code class="highlighter-rouge">jatos.startComponentByPos</code> instead because it keeps working even after an export/import of the study.</p>
+<p>(Before v3.3.1 <code class="highlighter-rouge">jatos.startComponent(componentId)</code>)</p>
+
+<p>Finishes the currently running component and starts the component with the given ID. Though often it’s better to use <code class="highlighter-rouge">jatos.startComponentByPos</code> instead because it keeps working even after an export/import of the study. Since v3.3.1 one can additionally send result data back to the JATOS server.</p>
 
 <ul>
   <li><em>@param {Number} componentId</em> - ID of the component to start</li>
+  <li><em>@param {optional Object} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).</li>
+  <li><em>@param {optional Function} onError</em> - Callback function if fail</li>
 </ul>
 
 <p>Examples:</p>
@@ -765,12 +770,23 @@ Study’s or Component’s JSON input.</p>
 </code></pre>
 </div>
 
-<h3 id="jatosstartcomponentbyposcomponentpos"><code class="highlighter-rouge">jatos.startComponentByPos(componentPos)</code></h3>
+<p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<p>Finishes the currently running component and starts the component with the given position. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, …).</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponent</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="jatosstartcomponentbyposcomponentpos-resultdata-onerror"><code class="highlighter-rouge">jatos.startComponentByPos(componentPos, resultData, onError)</code></h3>
+
+<p>(Before v3.3.1 <code class="highlighter-rouge">jatos.startComponentByPos(componentPos)</code>)</p>
+
+<p>Finishes the currently running component and starts the component with the given position. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, …). Since v3.3.1 one can additionally send result data back to the JATOS server.</p>
 
 <ul>
   <li><em>@param {Number} componentPos</em> - Position of the component to start</li>
+  <li><em>@param {optional Object} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).</li>
+  <li><em>@param {optional Function} onError</em> - Callback function if fail</li>
 </ul>
 
 <p>Examples:</p>
@@ -788,9 +804,23 @@ Study’s or Component’s JSON input.</p>
 </code></pre>
 </div>
 
-<h3 id="jatosstartnextcomponent"><code class="highlighter-rouge">jatos.startNextComponent()</code></h3>
+<p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<p>Finishes the currently running component and starts the next component of this study. The next component is the one with position + 1. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, …).</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="jatosstartnextcomponentresultdata-onerror"><code class="highlighter-rouge">jatos.startNextComponent(resultData, onError)</code></h3>
+
+<p>(Before v3.3.1 <code class="highlighter-rouge">jatos.startNextComponent()</code>)</p>
+
+<p>Finishes the currently running component and starts the next component of this study. The next component is the one with position + 1. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, …). Since v3.3.1 one can additionally send result data back to the JATOS server.</p>
+
+<ul>
+  <li><em>@param {optional Object} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).</li>
+  <li><em>@param {optional Function} onError</em> - Callback function if fail</li>
+</ul>
 
 <p>Examples:</p>
 
@@ -805,9 +835,23 @@ Study’s or Component’s JSON input.</p>
 </code></pre>
 </div>
 
-<h3 id="jatosstartlastcomponent"><code class="highlighter-rouge">jatos.startLastComponent()</code></h3>
+<p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<p>Finishes the current component and starts the last component of this study. If the last component is inactive it starts the component with the highest position that is active. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, …).</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="jatosstartlastcomponentresultdata-onerror"><code class="highlighter-rouge">jatos.startLastComponent(resultData, onError)</code></h3>
+
+<p>(Before v3.3.1 <code class="highlighter-rouge">jatos.startLastComponent()</code>)</p>
+
+<p>Finishes the current component and starts the last component of this study. If the last component is inactive it starts the component with the highest position that is active. The component position is the count of the component within the study like shown in the study overview page (1st component has position 1, 2nd component position 2, …). Since v3.3.1 one can additionally send result data back to the JATOS server.</p>
+
+<ul>
+  <li><em>@param {optional Object} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).</li>
+  <li><em>@param {optional Function} onError</em> - Callback function if fail</li>
+</ul>
 
 <p>Example:</p>
 
@@ -815,33 +859,17 @@ Study’s or Component’s JSON input.</p>
 </code></pre>
 </div>
 
-<h3 id="jatosendcomponentsuccessful-errormsg-onsuccess-onerror"><code class="highlighter-rouge">jatos.endComponent(successful, errorMsg, onSuccess, onError)</code></h3>
+<p>It’s often used together with <code class="highlighter-rouge">jatos.submitResultData</code> to first submit result data back to the JATOS server and afterwards jump to the next component:</p>
 
-<p><strong>Deprecated</strong>: Will be removed in future versions. Use <code class="highlighter-rouge">jatos.startComponent</code>, <code class="highlighter-rouge">jatos.startComponentByPos</code>, <code class="highlighter-rouge">jatos.startNextComponent</code>, or <code class="highlighter-rouge">jatos.startLastComponent</code> instead.</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startLastComponent</span><span class="p">);</span>
+</code></pre>
+</div>
 
-<p>Finishes component. Usually this is not necessary because the last component is automatically finished if the new component is started. Nevertheless it’s useful to explicitly tell about a FAIL and submit an error message. Finishing the component doesn’t finish the study.</p>
+<p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<ul>
-  <li><em>@param {optional Boolean} successful</em> - ‘true’ if study should finish successful and the participant should get the confirmation code - ‘false’ otherwise.</li>
-  <li><em>@param {optional String} errorMsg</em> - Error message that should be logged.</li>
-  <li><em>@param {optional Function} onSuccess</em> - Function to be called in case of successful submit</li>
-  <li><em>@param {optional Function} onError</em> - Function to be called in case of error</li>
-</ul>
-
-<h3 id="jatosabortstudyajaxmessage-success-error"><code class="highlighter-rouge">jatos.abortStudyAjax(message, success, error)</code></h3>
-
-<p>Aborts study via an Ajax call - afterwards the study is not redirected to the JATOS’ end page. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the aborting.</p>
-
-<ul>
-  <li><em>@param {optional String} message</em> - Message that should be logged</li>
-  <li><em>@param {optional Function} success</em> - Function to be called in case of successful submit</li>
-  <li><em>@param {optional Function} error</em> - Function to be called in case of error</li>
-  <li><em>@return {jQuery.deferred.promise}</em></li>
-</ul>
-
-<p>Example:</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudyAjax</span><span class="p">(</span><span class="s2">"Aborted study: user pressed abort button"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">startLastComponent</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
 </code></pre>
 </div>
 
@@ -850,22 +878,28 @@ Study’s or Component’s JSON input.</p>
 <p>Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page. Data stored in the Batch Session or Group Session are uneffected by this.</p>
 
 <ul>
-  <li><em>@param {optional String} message</em> - Message that should be logged</li>
+  <li><em>@param {optional String} message</em> - Message that will be stored together with the study results and is accessible via JATOS’ GUI result pages. The message can be max 255 characters long.</li>
 </ul>
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudy</span><span class="p">(</span><span class="s2">"Aborted study: user pressed abort button"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudy</span><span class="p">();</span>
 </code></pre>
 </div>
 
-<h3 id="jatosendstudyajaxsuccessful-errormsg-onsuccess-onerror"><code class="highlighter-rouge">jatos.endStudyAjax(successful, errorMsg, onSuccess, onError)</code></h3>
+<p>Or:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudy</span><span class="p">(</span><span class="s2">"participant aborted by pressing abort button"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h3 id="jatosendstudyajaxsuccessful-message-onsuccess-onerror"><code class="highlighter-rouge">jatos.endStudyAjax(successful, message, onSuccess, onError)</code></h3>
 
 <p>Ends study with an Ajax call - afterwards the study is not redirected to the JATOS’ end page. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the ending.</p>
 
 <ul>
   <li><em>@param {optional Boolean} successful</em> - ‘true’ if study should finish successful and the participant should get the confirmation code - ‘false’ otherwise.</li>
-  <li><em>@param {optional String} errorMsg</em> - Error message that should be logged.</li>
+  <li>_@param {optional String} message - Message that will be stored together with the study results and is accessible via JATOS’ GUI result pages. The message can be max 255 characters long.</li>
   <li><em>@param {optional Function} onSuccess</em> - Function to be called in case of successful submit</li>
   <li><em>@param {optional Function} onError</em> - Function to be called in case of error</li>
   <li><em>@return {jQuery.deferred.promise}</em></li>
@@ -873,22 +907,46 @@ Study’s or Component’s JSON input.</p>
 
 <p>Example:</p>
 
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Or:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Or to indicate a failure:</p>
+
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
 </code></pre>
 </div>
 
-<h3 id="jatosendstudysuccessful-errormsg"><code class="highlighter-rouge">jatos.endStudy(successful, errorMsg)</code></h3>
+<h3 id="jatosendstudysuccessful-message"><code class="highlighter-rouge">jatos.endStudy(successful, message)</code></h3>
 
 <p>Ends study. Redirects the worker to the study end page afterwards.</p>
 
 <ul>
   <li><em>@param {optional Boolean} successful</em> - ‘true’ if study should finish successfully, ‘false’ otherwise. Default is true.</li>
-  <li><em>@param {optional String} errorMsg</em> - Error message that should be logged.</li>
+  <li><em>@param {optional String} msg</em> - Message that will be stored together with the study results and is accessible via JATOS’ GUI result pages. The message can be max 255 characters long.</li>
 </ul>
 
 <p>Example:</p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Or:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Or to indicate a failure:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
 </code></pre>
 </div>
 
@@ -899,7 +957,7 @@ Study’s or Component’s JSON input.</p>
 <p>Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be <strong>overwritten</strong>. If you want to append result data use <code class="highlighter-rouge">jatos.appendResultData</code> instead. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the transfer.</p>
 
 <ul>
-  <li><em>@param {String} resultData</em> - String to be submitted</li>
+  <li><em>@param {Object} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON.</li>
   <li><em>@param {optional Function} success</em> - Function to be called in case of successful submit</li>
   <li><em>@param {optional Function} error</em> - Function to be called in case of error</li>
   <li><em>@return {jQuery.deferred.promise}</em></li>
@@ -907,24 +965,31 @@ Study’s or Component’s JSON input.</p>
 
 <p>Examples:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">));</span>
 </code></pre>
 </div>
 
 <p>It’s often used together with <code class="highlighter-rouge">jatos.startNextComponent</code> to first submit result data back to the JATOS server and afterwards jump to the next component:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
 </code></pre>
 </div>
 
 <p>Or together with <code class="highlighter-rouge">jatos.startComponentByPos</code> to start a particular component (here at position 4):</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultJson</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Since v3.3.1 it’s possible to leave out the JSON serialization:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
 </code></pre>
 </div>
 
@@ -935,7 +1000,7 @@ Study’s or Component’s JSON input.</p>
 <p>Appends result data to the already posted result data. Contrary to jatos.submitResultData it does not overwrite the result data. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the transfer. This function can be used several times during an component run to incrementally save result data.</p>
 
 <ul>
-  <li><em>@param {String} resultData</em> - String to be appended</li>
+  <li><em>@param {String} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).</li>
   <li><em>@param {optional Function} success</em> - Function to be called in case of successful submit</li>
   <li><em>@param {optional Function} error</em> - Function to be called in case of error</li>
   <li><em>@return {jQuery.deferred.promise}</em></li>
@@ -958,9 +1023,23 @@ Study’s or Component’s JSON input.</p>
 <p>Or together with <code class="highlighter-rouge">jatos.startComponentByPos</code> to start a particular component (here at position 4):</p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">resultJson</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Or:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
 </code></pre>
 </div>
 
@@ -1362,14 +1441,14 @@ Study’s or Component’s JSON input.</p>
 
 <p>Defines a callback function that is called every time the Batch Session changes on the JATOS server side (that includes updates in the session originating from other workers that run the study in parallel).</p>
 
-<ul>
-  <li><em>@param {Function} path</em> - Callback function that is called each time the Batch Session gets updated. The function has one parameter: the JSON pointer path to the changed field in the Batch Session.</li>
-</ul>
+<p>The callback function has two parameter (before v3.3.1 one parameter):
+* <em>@param {String} path</em> - JSON pointer to the changed field in the Batch Session
+* <em>@param {String} op</em> - (version &gt;= 3.3.1) JSON patch operation (‘add’, ‘remove’, ‘clear’, …) that was applied</p>
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onBatchSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">){</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onBatchSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">op</span><span class="p">){</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span> <span class="o">+</span> <span class="s2">" with operation "</span> <span class="o">+</span> <span class="nx">op</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
 </div>
@@ -1377,13 +1456,8 @@ Study’s or Component’s JSON input.</p>
 <p>Example: <code class="highlighter-rouge">onBatchSession</code> is often used together with <code class="highlighter-rouge">jatos.batchSession.find</code> to get the updated value:</p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onBatchSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">){</span>
-  <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">o</span> <span class="o">!=</span> <span class="s1">'undefined'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">o</span><span class="p">));</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// If the object under path was removed (e.g. with jatos.batchSession.remove) it can't be retrieved anymore</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="kd">var</span> <span class="nx">changedObj</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s2">"The changed object is "</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">changedObj</span><span class="p">));</span>
 <span class="p">});</span>
 </code></pre>
 </div>
@@ -1405,7 +1479,7 @@ Study’s or Component’s JSON input.</p>
       <li><code class="highlighter-rouge">onMemberOpen(memberId)</code>: Is called when another member (not the worker running this study) opened a group channel. It gets the group member ID as a parameter.</li>
       <li><code class="highlighter-rouge">onMemberLeave(memberId)</code>: Is called when another member (not the worker running his study) left the group. It gets the group member ID as a parameter.</li>
       <li><code class="highlighter-rouge">onMemberClose(memberId)</code>: Is called when another member (not the worker running this study) closed his group channel. It gets the group member ID as a parameter.</li>
-      <li><code class="highlighter-rouge">onGroupSession(path)</code>: Is called every time the Group Session changes on the JATOS server side. It gets the JSON pointer path to the changed field in the Group Session as a parameter.</li>
+      <li><code class="highlighter-rouge">onGroupSession(path, op)</code>: Is called every time the Group Session changes on the JATOS server side. It gets two parameters (before v3.3.1 only one): 1) JSON pointer path to the changed field in the Group Session as a parameter, and 2) JSON patch operation.</li>
       <li><code class="highlighter-rouge">onUpdate()</code>: Combines several other callbacks. It’s called if one of the following is called: <code class="highlighter-rouge">onMemberJoin</code>, <code class="highlighter-rouge">onMemberOpen</code>, <code class="highlighter-rouge">onMemberLeave</code>, <code class="highlighter-rouge">onMemberClose</code>, or <code class="highlighter-rouge">onGroupSession</code>.</li>
     </ul>
   </li>
@@ -1418,9 +1492,9 @@ Study’s or Component’s JSON input.</p>
   <span class="s2">"onGroupSession"</span><span class="p">:</span> <span class="nx">onGroupSession</span>
 <span class="p">});</span>
 
-<span class="kd">function</span> <span class="nx">onGroupSession</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
-   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">o</span><span class="p">));</span>
+<span class="kd">function</span> <span class="nx">onGroupSession</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">op</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">changedObj</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span> <span class="o">+</span> <span class="s2">" with operation "</span> <span class="o">+</span> <span class="nx">op</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">changedObj</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -2008,7 +2082,7 @@ Study’s or Component’s JSON input.</p>
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 8 May 2018
+<span>Page last updated:</span> 28 July 2018
                 </div>
             </div>
 </footer>

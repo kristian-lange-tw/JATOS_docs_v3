@@ -293,7 +293,7 @@
             
             
             
-            <li><a href="Manage-results.html">Manage results</a></li>
+            <li><a href="Manage-Results.html">Manage Results</a></li>
             
             
             
@@ -506,7 +506,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>In <a href="Example-Studies.html">our example studies</a> are a couple of jsPsych ones.</p>
 
-<p>Here are the necessary changes if you want to adapt your jsPsych experiment so that it runs within (and send the result data to) JATOS. Additionally you can have a look at <a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a>.</p>
+<p>Here are the necessary changes if you want to adapt your jsPsych experiment so that it runs within (and sends the result data to) JATOS. Additionally you can have a look at <a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a>.</p>
 
 <h3 id="how-to-turn-your-jspsych-experiment-into-a-jatos-study">How to turn your jsPsych experiment into a JATOS study</h3>
 
@@ -537,8 +537,9 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="send-jspsychs-result-data-back-to-jatos">Send jsPsych’s result data back to JATOS</h3>
 
-<p>Here we use jsPsych’s function <code class="highlighter-rouge">jsPsych.data.getData()</code> to collect the data into a variable and then ‘stringify’ the JSON format into a simple string.
-Then we use JATOS’ function <code class="highlighter-rouge">jatos.submitResultData</code> to send your result to JATOS and asks JATOS to move to the next component, if there is one.</p>
+<p>Here we use jsPsych’s function <code class="highlighter-rouge">jsPsych.data.getData()</code> (jsPsych 5) or <code class="highlighter-rouge">jsPsych.data.get().json()</code> (jsPsych 6) to collect the data into a JSON-formatted string. Then we use JATOS’ function <code class="highlighter-rouge">jatos.submitResultData</code> to send your result to JATOS and ask JATOS to move to the next component, if there is one.</p>
+
+<h4 id="jspsych-5">jsPsych 5</h4>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onload</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">jsPsych</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span>
@@ -547,10 +548,57 @@ Then we use JATOS’ function <code class="highlighter-rouge">jatos.submitResult
       <span class="kd">var</span> <span class="nx">resultJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jsPsych</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">getData</span><span class="p">());</span>
       <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultJson</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
     <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h4 id="jspsych-6">jsPsych 6</h4>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onload</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">jsPsych</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="na">on_finish</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">resultJson</span> <span class="o">=</span> <span class="nx">jsPsych</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">().</span><span class="nx">json</span><span class="p">();</span>
+      <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultJson</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
+    <span class="p">}</span>
   <span class="p">});</span>
 <span class="p">});</span>
 </code></pre>
 </div>
+
+<h3 id="adding-additional-html-snippets-to-a-jpsych-code-eg-cancel-button">Adding additional HTML snippets to a jPsych code (e.g. cancel button)</h3>
+
+<p>jsPsych has the habit of cleaning the HTML’s body and fill it with its own code. This means that whatever you write between the <code class="highlighter-rouge">&lt;body&gt;</code> tags will be ignored. But you might want to add some additional HTML element like a cancel button to the page without changing the jsPsych plugin or writing a new one. How can this be done?</p>
+
+<p>Luckily jsPsych offers a <a href="https://www.jspsych.org/overview/callbacks/#on_load">callback function on_load</a>. Whatever we write in there is called after jsPsych did its body clean-up. So you could add your extra HTML elements in there.</p>
+
+<p>Here’s an example (you need jQuery for this one to work):
+~~~ javascript
+var my_trial = {
+  type: ‘some-plugin’,
+  on_load: function() {
+    $(“body”).append(‘<button onclick="jatos.abortStudy()">Cancel Study</button>’);
+  },
+  …
+~~~</p>
+
+<p>And without jQuery it’s more cumbersome:
+~~~javascript
+var my_trial = {
+  type: ‘some-plugin’,
+  on_load: function() {
+    var button = document.createElement(“button”);
+    button.innerHTML = “Cancel Study”;
+    document.body.appendChild(button);
+    button.addEventListener(“click”, function() {
+      jatos.abortStudy();
+    });
+  },
+  …
+~~~</p>
+
+<p>You probably want to add some styling but this is how it works in principle.</p>
 
 
     <div class="tags">
@@ -566,7 +614,7 @@ Then we use JATOS’ function <code class="highlighter-rouge">jatos.submitResult
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 29 Dec 2016
+<span>Page last updated:</span> 20 July 2018
                 </div>
             </div>
 </footer>
