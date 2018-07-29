@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Tips-and-Tricks.html
 folder:
 toc: true
-last_updated: 22 Mar 2018
+last_updated: 29 July 2018
 ---
 
 ### Imitate a run from Mechanical Turk
@@ -59,3 +59,14 @@ But there is a catch! This works only under three conditions:
 1. the worker didn't start more than 10 JATOS studies at the same time in parallel after running the abandoned study
 
 Condition 3 is very unlikely a problem and for 1 you can just check the 'reloadable' checkbox in the component's settings. Condition 2 is more difficult, it demands the worker to return to the computer and browser they run the study before.
+
+### Abort study and keep a message
+
+If the `jatos.abortStudy` function is called, usually after the worker clicks some "Cancel" button, all result data that was sent to JATOS during this study run is deleted. That includes result data from prior components of this study run. But sometimes one want to save a bit of information that is not going to be deleted. One example could be that you want to pay the worker anyway although they cancelled the study but for this you need their email address - but unfortunately the email address is gone with the survey data in component x.
+
+One can send a message together with `jatos.abortStudy` as a parameter and this message is not deleted together with the other result data. E.g. `jatos.abortStudy("participants ID is 12345678");`. This message can then be seen in every result page in the 'Message' column.
+
+### How to let a Personal Single Worker redo his study?
+
+A Personal Single Worker is only allowed to run their study once. But sometimes you want to allow them to do it a second time (maybe they accidentally clicked the 'Cancel' button). One way would be to just create another Personal Single Link and hand it to the worker in question. But there is another way without creating a second Link: by just deleting the result belonging to this worker in one of the result pages. This allows this Personal Single worker to redo this study.
+

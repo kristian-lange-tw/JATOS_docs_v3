@@ -528,6 +528,29 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ol>
 
+<h3 id="url-base-path-jatos--331">URL base path (JATOS &gt;= 3.3.1)</h3>
+
+<p>JATOS can be configured to use an base path. E.g we have the host “www.example.org” and let JATOS run under “mybasepath” so that JATOS’ URL all start with “www.example.org/mybasepath/”. This can be achieved in two ways:</p>
+
+<ol>
+  <li>
+    <p>Via the command-line argument <code class="highlighter-rouge">-DJATOS_URL_BASE_PATH</code>, e.g.</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>loader.sh start -DJATOS_URL_BASE_PATH<span class="o">=</span><span class="s2">"/mybasepath/"</span>
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Via <code class="highlighter-rouge">conf/production.conf</code>: change <code class="highlighter-rouge">play.http.context</code></p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>play.http.context <span class="o">=</span> <span class="s2">"/mybasepath/"</span>
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p><strong>The path always has to start and end with a “/”.</strong> And keep in mind that if you add a base path to JATOS’ URL you have to adjust all absolute paths in the study assets (HTML and JavaScript files) too - <a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html#create-the-study-in-jatos">or use relative paths</a>.</p>
+
 <h3 id="study-assets-root-path">Study assets root path</h3>
 
 <p>By default the study assets root folder (where all your study’s HTML, JavaScript files etc. are stored) is located within JATOS installation’s folder in <code class="highlighter-rouge">study_assets_root</code>. There are three ways to change this path:</p>
