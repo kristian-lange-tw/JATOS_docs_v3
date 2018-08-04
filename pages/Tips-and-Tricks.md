@@ -62,11 +62,11 @@ Condition 3 is very unlikely a problem and for 1 you can just check the 'reloada
 
 ### Abort study and keep a message
 
-If the `jatos.abortStudy` function is called, usually after the worker clicks some "Cancel" button, all result data that was sent to JATOS during this study run is deleted. That includes result data from prior components of this study run. But sometimes one want to save a bit of information that is not going to be deleted. One example could be that you want to pay the worker anyway although they cancelled the study but for this you need their email address - but unfortunately the email address is gone with the survey data in component x.
+If the `jatos.abortStudy` function is called (usually after the worker clicks a "Cancel" button) all result data that had been sent to JATOS during this study run will be deleted. This includes result data from prior components of the study run. But sometimes you'll want to save a bit of information that should not be deleted: you might need the worker's email address to pay them -even if they cancelled the study-. So you need a way to delete the result data but keep their email. 
 
-One can send a message together with `jatos.abortStudy` as a parameter and this message is not deleted together with the other result data. E.g. `jatos.abortStudy("participants ID is 12345678");`. This message can then be seen in every result page in the 'Message' column.
+To do this, you can send a message together with `jatos.abortStudy` as a parameter. This message won't be deleted together with the other result data. E.g. `jatos.abortStudy("participants ID is 12345678");`. This message can then be seen in every Study Result page in the 'Message' column.
 
 ### How to let a Personal Single Worker redo his study?
 
-A Personal Single Worker is only allowed to run their study once. But sometimes you want to allow them to do it a second time (maybe they accidentally clicked the 'Cancel' button). One way would be to just create another Personal Single Link and hand it to the worker in question. But there is another way without creating a second Link: by just deleting the result belonging to this worker in one of the result pages. This allows this Personal Single worker to redo this study.
+A Personal Single Worker is only allowed to run their study once. But sometimes you want to allow them to do it a second time (maybe they accidentally clicked the 'Cancel' button). One way would be to just create another Personal Single Link and hand it to the worker. But there is another way without creating a second Link: you can simply delete the worker's result from one of the result pages. This will allow this Personal Single worker to redo this study.
 
