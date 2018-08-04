@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-in-Amazons-Cloud-without-Docker.html
 folder:
 toc: false
-last_updated: 29 Dec 2016
+last_updated: 1 Aug 2018
 ---
 
 On this page is additional information in how to install JATOS on a server in Amazon's Web Services. All general installation advice is in [JATOS on a server](JATOS-on-a-server.html) and applies here too.
@@ -19,6 +19,7 @@ On this page is additional information in how to install JATOS on a server in Am
 1. Get the latest JATOS bundled with Java (exchange x.x.x with the version you want) `wget https://github.com/JATOS/JATOS/releases/download/vx.x.x/jatos-x.x.x-linux_java.zip`
 1. `unzip jatos-x.x.x-linux_java.zip` (You probably have to install 'unzip' first with `sudo apt-get install unzip`.)
 1. Configure IP and port in `jatos.sh`: Use the '**Private IP**' from your instance description (the one that starts with 172.x.x.x) and port 80
+1. Allow inbound HTTP/HTTPS traffic: [This is done in AWS GUI](https://aws.amazon.com/premiumsupport/knowledge-center/connect-http-https-ec2/).
 1. (Optional) [auto-start JATOS](JATOS-on-a-server.html#7-optional-auto-start-jatos)
 1. Change JATOS' admin password
 
