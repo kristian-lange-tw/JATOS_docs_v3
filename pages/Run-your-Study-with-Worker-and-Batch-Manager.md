@@ -4,10 +4,10 @@ keywords: batch manager, Worker and Batch Manager, Worker & Batch Manager, worke
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: Run-your-Study-with-Batch-Manager-and-Worker-Setup.html
+permalink: Run-your-Study-with-Worker-and-Batch-Manager.html
 folder:
 toc: true
-last_updated: 9 May 2018
+last_updated: 31 July 2018
 ---
 
 If you run a study during development from within the JATOS GUI you will do so as a Jatos worker. There are [other worker types](Worker-Types.html) to distribute to real participants.

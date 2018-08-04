@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" privacy, ethics, cookies, security">
-<title>Data Privacy and Ethics | JATOS 3 Documentation</title>
+<meta name="keywords" content=" batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch properties, worker setup, group properties">
+<title>Run your Study with Worker & Batch Manager | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Data Privacy and Ethics">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Run your Study with Worker & Batch Manager">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -214,7 +214,7 @@
             
             
             
-            <li class="active"><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+            <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
             
             
             
@@ -272,7 +272,7 @@
             
             
             
-            <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
+            <li class="active"><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
             
             
             
@@ -461,7 +461,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Data Privacy and Ethics</h1>
+   <h1 class="post-title-main">Run your Study with Worker & Batch Manager</h1>
 </div>
 
 
@@ -498,113 +498,57 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Data-Privacy-and-Ethics.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Run-your-Study-with-Worker-and-Batch-Manager.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <h3 id="what-does-jatos-store">What does JATOS store?</h3>
+  <p>If you run a study during development from within the JATOS GUI you will do so as a Jatos worker. There are <a href="Worker-Types.html">other worker types</a> to distribute to real participants.</p>
 
-<p>Data privacy is a critical issue in online studies. You should be careful when collecting, storing and handling data, regardless of which platform you use to run your studies.</p>
+<p>A worker in JATOS is a person who runs a study. A batch organizes workers and their study runs and results. Each study has a Worker &amp; Batch Manager.</p>
 
-<p>We developed JATOS with data privacy in mind, preventing any breaches of the standard ethical principles in research. However, ultimately you are responsible for the data you collect and what you do with it.</p>
+<p><strong>Generate links to send to your workers</strong></p>
 
-<p><img src="images/IMG_1376.JPG" alt="GUI Screenshot" /></p>
+<p>For all worker types except Jatos and MTurk you’ll need to generate links to send to your potential workers, which they can follow to access and run your study. Those links are generated in the <strong>Worker Setup</strong> (Worker &amp; Batch Manager –&gt; Worker Setup).</p>
 
-<p>(copyright 2006 John klossner, www.jklossner.com)</p>
+<p><strong>In the same browser one can run studies in up to 10 different tabs</strong></p>
 
-<p>Here are a few advantages and limitations of JATOS with regards to data privacy. Please read them carefully before you run any study, and please <a href="Contact-us.html">contact us</a> if you find that these are not sufficient, or have suggestions for improvement.</p>
+<p>If more than 10 studies run in the same browser in parallel the oldest study is finished automatically. Of course this limitation doesn’t apply with different browsers. One could ask why it’s necessary to run several studies at once in the same browser - usually a worker should run only one?! This is actually very useful for developing and testing group studies or studies that use the Batch Session. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 “different” workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group.</p>
 
-<ul>
-  <li>
-    <p>JATOS’ main advantage is that you can store your participants’ data in your own server, and not in a commercial server like Amazon or Qualtrics. This means that you have full control over the data stored in your database, and no commercial company has access to it. JATOS does not share any data (except of course during a study run with the participant’s browsers). Each JATOS installation is completely independent of any other JATOS installation.</p>
-  </li>
-  <li>By default, JATOS stores the following data:
-    <ul>
-      <li>time (of the server running JATOS) at which the study -and each of its components- was started and finished</li>
-      <li>the <a href="Worker-Types.html">worker type</a> (MTurk, General single, Personal multiple, etc)</li>
-      <li>in cases of MTurk workers, the confirmation code AND the MTurk worker ID. In these cases, if an MTurk worker participated in two of your studies, running in the same JATOS instance, <strong>you will be able to associate the data across these two studies</strong>. This is an important issue: MTurk workers might not be aware that you are the same researcher, and will not know that you have the chance to associate data from different studies. The best way to avoid this is to export all your study’s data and delete it from the JATOS database once you are done with it. In this way, JATOS won’t know that a worker already participated in another study and will create a new worker ID for them.</li>
-    </ul>
-  </li>
-  <li>JATOS will <strong>not</strong> store information like IP address or browser type (or any other HTTP header field).</li>
-</ul>
+<h2 id="worker--batch-manager">Worker &amp; Batch Manager</h2>
 
-<h3 id="things-you-should-consider-in-your-studies">Things you should consider in your studies</h3>
+<p><strong>A batch is mostly a collection of workers together with some properties</strong></p>
 
-<ul>
-  <li>
-    <p>You should consider to add some button in your study pages to abort the study. Some ethics demand that any participant should have the <strong>right to withdraw</strong> at any time, without explanation. In this case all data of the participant gathered during the study should be deleted. Conveniently jatos.js offers an <a href="jatos.js-Reference.html#jatosabortstudymessage">abortStudy method</a> that does exactly that.</p>
-  </li>
-  <li>
-    <p>Use <strong>encryption</strong> with your <a href="JATOS-on-a-server.html">server instance</a>. Only with encryption no one else in the internet can read the private data from your study’s participants.</p>
-  </li>
-  <li>
-    <p>JATOS will <strong>not</strong> store information like IP address or browser type (nor any other HTTP header field). However, you could access and store this information through your JavaScripts. You could also record whether workers are actively on the browser tab running your study, or whether they have left it to go to another tab, window or program. If you collect any of these data, you should let your workers know.</p>
-  </li>
-  <li>
-    <p>Bear in mind: Every file within your study assets folders is public to the Internet. Anybody can in principle read any file in this folder, regardless of how secure your server is. <strong>Thus, you should never store any private data, such as participants’ details in the study assets folders.</strong></p>
-  </li>
-  <li>
-    <p><strong>Do not store private information in the Batch Session or Group Session.</strong> Both sessions are shared between all members of a batch or group respectively. If you store private data any other member of this batch or group could potentially access it. Since the Study Session is only shared within the same study run it is not a problem to store private information there.</p>
-  </li>
-</ul>
+<p>Since JATOS 2 you run studies in batches. A batch consists of its properties and a collection of workers that do the study. Using different batches is useful to organize your study runs, separate their results and vary their setup. E.g. you could separate a pilot run from the ‘proper’ experiment, or you could use different batches for different worker types.</p>
 
-<h3 id="cookies-used-by-jatos">Cookies used by JATOS</h3>
+<p>Batches are organized in the Worker &amp; Batch Manager. Here you can create and delete batches and access each batch’s properties, worker setup and study results.</p>
 
-<p>Sometimes it is neccessary to specify which cookies are stored in a participants browser. JATOS knows three types of cookies and only two of them are stored in a participants browser.</p>
+<p>Each study comes with a ‘Default’ batch.</p>
 
-<h4 id="up-to-ten-jatos-id-cookies-with-cookie-name-jatosids--can-be-a-number-from-0-to-9">1. Up to ten JATOS ID cookies with cookie name JATOS_IDS_* (* can be a number from 0 to 9)</h4>
+<p><img src="images/batch_manager.png" alt="Worker &amp; Batch manager screenshot" /></p>
 
-<p>These cookies store values about each study run. JATOS allows up to 10 study runs in parallel per browser - therefore there are up to 10 JATOS ID cookies.</p>
+<h3 id="batch-properties">Batch Properties</h3>
 
-<p>All IDs are used only by JATOS internally and do not allow the identification of the worker.</p>
+<p>For each batch, you can limit the maximum number of workers that will ever be able to run a study in this batch by setting the <strong>Maximum Total Workers</strong>.</p>
 
-<p>The cookie virtually never expires (actually far in the future, around the year 2086).</p>
+<p><img src="images/batch_properties.png" alt="Worker &amp; Batch manager screenshot" /></p>
 
-<p><a href="https://www.owasp.org/index.php/HttpOnly">HttpOnly</a> is set to true (this means, it can’t be read by JavaScript within the browser).</p>
+<p>Additionally you can switch on or off worker types in the <strong>Allowed Worker Types</strong>. Forbidden worker types are not able to run a study. Always check before you send out links to study runs that the corresponding worker types are switched on. You can do the same in the Worker Setup.</p>
 
-<p>This cookie contains these parameters:</p>
+<p>The <strong>Group Properties</strong> relate to <a href="Group-Study-Properties.html">group studies</a>.</p>
 
-<ul>
-  <li><em>studyId</em>: identifier of the study</li>
-  <li><em>batchId</em>: identifier of the batch</li>
-  <li><em>componentId</em>: identifier of the component</li>
-  <li><em>componentPos</em>: position of the component within the study</li>
-  <li><em>workerId</em>: identifier of the worker used internally to identify the worker anonymously</li>
-  <li><em>workerType</em>: there are <a href="http://www.jatos.org/Worker-Types.html">5 worker types with different use cases in JATOS</a></li>
-  <li><em>componentResultId</em>: identifier of the component result (a component result is used to store data of the component run)</li>
-  <li><em>studyResultId</em>: identifier of the study result (a study result is used to store data of this study run)</li>
-  <li><em>groupResultId</em>: identifier of the group this worker belongs to (null if it isn’t a group study)</li>
-  <li><em>creationTime</em>: timestamp (epoch time) of this cookie’s creation</li>
-  <li><em>studyAssets</em>: name of the directory where the study’s assets are stored on the JATOS server</li>
-  <li><em>jatosRun</em>: State of a study run with a JatosWorker. If this run doesn’t belong to a JatosWorker this field is null. It’s mainly used to distinguish between a full study run and just a component run.</li>
-</ul>
+<h3 id="worker-setup">Worker Setup</h3>
 
-<p>E.g. <code class="highlighter-rouge">JATOS_IDS_0:"batchId=108&amp;componentId=306&amp;componentPos=2&amp;componentResultId=3867&amp;creationTime=1524941205992&amp;studyAssets=batch_chat_cambridge_workshop&amp;jatosRun=RUN_COMPONENT_FINISHED&amp;groupResultId=null&amp;studyId=101&amp;studyResultId=1346&amp;workerId=1&amp;workerType=Jatos"</code></p>
+<p><img src="images/worker_setup.png" alt="Worker types" /></p>
 
-<h4 id="cookie-jatosgeneralsingleuuids">2. Cookie JATOS_GENERALSINGLE_UUIDS</h4>
+<p>This is the place where you generate the links to study runs for most of your workers types (except for Jatos and MTurk).</p>
 
-<p>This cookie is used by JATOS to store which study runs with a <a href="http://www.jatos.org/Worker-Types.html#general-single-worker">General Single worker</a> already happened in this browser. It only stores a list of IDs that universally identifies a study (UUID).</p>
+<p>For <strong>Personal Single Workers</strong> and <strong>Personal Multiple Workers</strong> click <strong>Add</strong>. You can enter a worker description or identification in the ‘Comments’ box.</p>
 
-<h4 id="play-framework-session-cookie-named-playsession">3. Play Framework session cookie named PLAY_SESSION</h4>
+<p><strong>General Single Workers</strong> only have one link and each link will create a new separate worker. Get this link by clicking on <strong>Link</strong> in its row.</p>
 
-<p>This cookie is used only by JATOS’ GUI and provides session and user info. It is <strong>not</strong> set during a study run and therefore does <strong>not</strong> store any worker related information.</p>
+<p>How to connect to MTurk and create links to run for <strong>MTurk Workers</strong> is described in the page <a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a>.</p>
 
-<p>The cookie’s expires header field is set to Session, which mean that after the browser is closed the cookie will be deleted.</p>
-
-<p><a href="https://www.owasp.org/index.php/HttpOnly">HttpOnly</a> is set to true (this means, it can’t be read by JavaScript within the browser).</p>
-
-<p>This cookie contains the parameters:</p>
-
-<ul>
-  <li><em>userEmail</em>: username of the logged-in user (an email)</li>
-  <li><em>sessionID</em>: Play’s session ID</li>
-  <li><em>loginTime</em>: user’s login time in the GUI as a timestamp</li>
-  <li><em>lastActivityTime</em>: user’s last activity time in the GUI as a timestamp</li>
-</ul>
-
-<p>Additionally Play stores a hash of the whole cookie’s data to check integrity of the cookie’s data.</p>
-
-<p>E.g. <code class="highlighter-rouge">PLAY_SESSION:"b6c01f2fa796603491aaed94168651b54b154ca1-userEmail=admin&amp;sessionID=4k1atg9ugeavmegk88n41stfr4&amp;loginTime=1524935558364&amp;lastActivityTime=1524947602543"</code></p>
+<p>The differences between the worker types is explained in the <a href="Worker-Types.html">Worker Types page</a>.</p>
 
 
     <div class="tags">
@@ -620,7 +564,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 10 May 2018
+<span>Page last updated:</span> 31 July 2018
                 </div>
             </div>
 </footer>

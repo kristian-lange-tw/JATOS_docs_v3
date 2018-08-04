@@ -4,8 +4,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch properties, worker setup, group properties">
-<title>Run your Study with Worker & Batch Manager | JATOS 3 Documentation</title>
+<meta name="keywords" content=" batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch, batch properties, worker setup, group properties, group session, batch session, results">
+<title>Run your Study with Worker & Batch Manager (JATOS version >= 3.3.1) | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Run your Study with Worker & Batch Manager">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Run your Study with Worker & Batch Manager (JATOS version >= 3.3.1)">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -272,7 +272,7 @@
             
             
             
-            <li class="active"><a href="Run-your-Study-with-Batch-Manager-and-Worker-Setup.html">Run your Study with Worker & Batch Manager</a></li>
+            <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
             
             
             
@@ -461,7 +461,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Run your Study with Worker & Batch Manager</h1>
+   <h1 class="post-title-main">Run your Study with Worker & Batch Manager (JATOS version >= 3.3.1)</h1>
 </div>
 
 
@@ -498,33 +498,69 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Run-your-Study-with-Batch-Manager-and-Worker-Setup.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Run-your-Study-with-Worker-and-Batch-Manager-version-3-3-1.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
-  <p>If you run a study during development from within the JATOS GUI you will do so as a Jatos worker. There are <a href="Worker-Types.html">other worker types</a> to distribute to real participants.</p>
+  <h2 id="worker--batch-manager">Worker &amp; Batch Manager</h2>
 
-<p>A worker in JATOS is a person who runs a study. A batch organizes workers and their study runs and results. Each study has a Worker &amp; Batch Manager.</p>
+<p>The Worker &amp; Batch Manager is the place where you generate links for your particpants to run the your study and then to organize them into Batches and handle their results.</p>
 
-<p><strong>Generate links to send to your workers</strong></p>
+<p><img src="images/worker_and_batch_manager1.png" alt="Worker &amp; Batch manager screenshot" /></p>
 
-<p>For all worker types except Jatos and MTurk you’ll need to generate links to send to your potential workers, which they can follow to access and run your study. Those links are generated in the <strong>Worker Setup</strong> (Worker &amp; Batch Manager –&gt; Worker Setup).</p>
+<p><em>This is a screenshot of JATOS v3.3.1. In earlier versions it was called Batch Manager and looked a bit simpler. Each row represents a batch which is a collection of workers.</em></p>
 
-<p><strong>In the same browser one can run studies in up to 10 different tabs</strong></p>
+<h2 id="how-to-let-particpants-run-your-study-workers">How to let particpants run your study: Workers</h2>
 
-<p>If more than 10 studies run in the same browser in parallel the oldest study is finished automatically. Of course this limitation doesn’t apply with different browsers. One could ask why it’s necessary to run several studies at once in the same browser - usually a worker should run only one?! This is actually very useful for developing and testing group studies or studies that use the Batch Session. You can open up to 10 different tabs in the same browser (with a personal multiple link or as the jatos worker) and all these 10 “different” workers will interact with each other. Once you open the 11th tab, the first worker will be thrown out of the group.</p>
+<p>During development of your study you would run it usually with the ‘Run’ button in the study page. But then, when you are done developing you want to let others run your study - you want participants (or workers as they are called in JATOS) do it. For this JATOS lets you create links that you can hand out to your workers (e.g. via email or social media).</p>
 
-<h2 id="worker--batch-manager">Worker &amp; Batch Manager</h2>
+<p><strong>Generate links and hand them to your workers</strong></p>
 
-<p><strong>A batch is mostly a collection of workers together with some properties</strong></p>
+<p>JATOS has different worker types each with different properties and those are well explained in its own page: <a href="Worker-Types.html">Worker Types</a>.</p>
 
-<p>Since JATOS 2 you run studies in batches. A batch consists of its properties and a collection of workers that do the study. Using different batches is useful to organize your study runs, separate their results and vary their setup. E.g. you could separate a pilot run from the ‘proper’ experiment, or you could use different batches for different worker types.</p>
+<p>Click on the <span class="glyphicon glyphicon-chevron-right"></span> in the left in each batch row to expand the Worker Setup.</p>
 
-<p>Batches are organized in the Worker &amp; Batch Manager. Here you can create and delete batches and access each batch’s properties, worker setup and study results.</p>
+<h3 id="worker-setup">Worker Setup</h3>
+
+<p><img src="images/worker_and_batch_manager2.png" alt="Worker Setup" /></p>
+
+<p><em>Screenshot of a Worker &amp; Batch Mangager with an open Worker Setup for the second batch. In JATOS version &lt; 3.3.1 it is reachable via the “Worker Setup” button.</em></p>
+
+<p>The Worker Setup is the place where you generate the links for most of your workers types (except for Jatos and MTurk).</p>
+
+<h4 id="get-links">Get Links</h4>
+
+<p>For <strong>Personal Single Workers</strong> and <strong>Personal Multiple Workers</strong> click <strong>Get Links <span class="glyphicon glyphicon-link"></span></strong> (“Add” in older versions). You can enter a description or identification for the worker in the ‘Comments’ box. You can also create several at once.</p>
+
+<p><strong>General Single Workers</strong> only have one link and each link will create a new separate worker. Get this link by clicking on <strong>Get Link <span class="glyphicon glyphicon-link"></span></strong> in its row.</p>
+
+<p>How to connect to MTurk and create links to run with <strong>MTurk Workers</strong> is described in its own page: <a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a>.</p>
+
+<p>Alternatively there is a <strong>Get Worker Links <span class="glyphicon glyphicon-link"></span></strong> button in the top of the Worker &amp; Batch Manger page that is a shortcut to create those links.</p>
+
+<h4 id="see-workers">See Workers</h4>
+
+<p>Click on the <span class="glyphicon glyphicon-chevron-right"></span> in the left in each worker type row to expand it and see all generated workers. The column “Study State” indicates in which <a href="Manage-Results.html#state">state</a> this study run currently is.</p>
+
+<p><img src="images/worker_and_batch_manager4.png" alt="Worker Table" /></p>
+
+<p><em>Screenshot with expanded Personal Single Worker</em></p>
+
+<p>Another way to see your workers is the button <strong>All Workers</strong> in the top of the Worker &amp; Batch Manager page.</p>
+
+<p><img src="images/worker_and_batch_manager6.png" alt="All Workers Table" /></p>
+
+<p><em>Screenshot of All Workers table: Here one can search and filter through all workers of all batches and all types that belong to this study.</em></p>
+
+<h2 id="how-to-organize-your-workers-batches">How to organize your workers: Batches</h2>
+
+<p>A batch is a collection of workers together with some properties. Using different batches is useful to organize your study runs, separate their results and vary their setup. E.g. you could separate a pilot run from the ‘proper’ experiment, or you could use different batches for different worker types.</p>
+
+<p>Batches are organized in the Worker &amp; Batch Manager. Here you can create and delete batches, access each batch’s properties and edit its <strong>Batch Session Data</strong> or look through their results.</p>
 
 <p>Each study comes with a ‘Default’ batch.</p>
 
-<p><img src="images/batch_manager.png" alt="Worker &amp; Batch manager screenshot" /></p>
+<p>One can <strong>deactivate</strong> or <strong>activate</strong> a batch by clicking on the checkbox button in each batch row. A deactivated batch doesn’t allow any study runs.</p>
 
 <h3 id="batch-properties">Batch Properties</h3>
 
@@ -536,19 +572,13 @@ $('#toc').on('click', 'a', function() {
 
 <p>The <strong>Group Properties</strong> relate to <a href="Group-Study-Properties.html">group studies</a>.</p>
 
-<h3 id="worker-setup">Worker Setup</h3>
+<h3 id="groups">Groups</h3>
 
-<p><img src="images/worker_setup.png" alt="Worker types" /></p>
+<p>A batch is also the place where <a href="Write-Your-Own-Group-Studies.html">JATOS Groups</a> are handled. Here you can an get an overview of the Groups that belong to this batch: see what their member workers are or edit the <strong>Group Session Data</strong>.</p>
 
-<p>This is the place where you generate the links to study runs for most of your workers types (except for Jatos and MTurk).</p>
+<p><img src="images/worker_and_batch_manager5.png" alt="Groups table" /></p>
 
-<p>For <strong>Personal Single Workers</strong> and <strong>Personal Multiple Workers</strong> click <strong>Add</strong>. You can enter a worker description or identification in the ‘Comments’ box.</p>
-
-<p><strong>General Single Workers</strong> only have one link and each link will create a new separate worker. Get this link by clicking on <strong>Link</strong> in its row.</p>
-
-<p>How to connect to MTurk and create links to run for <strong>MTurk Workers</strong> is described in the page <a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a>.</p>
-
-<p>The differences between the worker types is explained in the <a href="Worker-Types.html">Worker Types page</a>.</p>
+<p><em>Screenshot of an Groups table: “Active Workers” are the workers that are currently members in the group, “Past Workers” the ones that where member at one point in the past. “Results” shows only the study results that belong to this group. “Group State” can be START, FINISHED, or FIXED.</em></p>
 
 
     <div class="tags">
@@ -564,7 +594,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 9 May 2018
+<span>Page last updated:</span> 4 Aug 2018
                 </div>
             </div>
 </footer>

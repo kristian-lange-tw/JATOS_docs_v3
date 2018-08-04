@@ -80,7 +80,7 @@ entries:
     folderitems:
 
     - title: Run your Study with Worker & Batch Manager
-      url: /Run-your-Study-with-Batch-Manager-and-Worker-Setup.html
+      url: /Run-your-Study-with-Worker-and-Batch-Manager.html
       output: web, pdf
 
     - title: Worker Types

@@ -152,7 +152,13 @@
   
   
   <url>
-    <loc>http://localhost:4000/Run-your-Study-with-Batch-Manager-and-Worker-Setup.html</loc>
+    <loc>http://localhost:4000/Run-your-Study-with-Worker-and-Batch-Manager-version-3-3-1.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/Run-your-Study-with-Worker-and-Batch-Manager.html</loc>
   </url>
   
   
