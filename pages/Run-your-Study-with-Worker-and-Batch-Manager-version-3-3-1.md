@@ -12,19 +12,19 @@ last_updated: 4 Aug 2018
 
 ## Worker & Batch Manager
 
-The Worker & Batch Manager is the place where you generate links for your particpants to run the your study and then to organize them into Batches and handle their results.
+The Worker & Batch Manager is the place where you generate links for your particpants to run the your study, organize them into Batches and handle their results.
 
 ![Worker & Batch manager screenshot](images/worker_and_batch_manager1.png)
 
 _This is a screenshot of JATOS v3.3.1. In earlier versions it was called Batch Manager and looked a bit simpler. Each row represents a batch which in turn is a collection of workers._
 
-## How to let particpants run your study: Workers
+## How to let participants run your study: Workers
 
 During development of your study you would usually run it with the "Run" button in the study page. But then, when you are done developing you want to let others run your study - you want participants (or workers as they are called in JATOS) do it. For this JATOS lets you create links that you can hand out to your workers (e.g. via email or social media).
 
 **Generate links and hand them to your workers**
 
-JATOS has different worker types each with different properties and those are well explained in its own page: [Worker Types](Worker-Types.html).
+JATOS has different worker types (each with different properties). That's well explained in a dedicated page: [Worker Types](Worker-Types.html).
 
 Click on the "<span class="glyphicon glyphicon-chevron-right"></span>" button in the left in each batch row to expand the Worker Setup.
 
@@ -34,13 +34,13 @@ Click on the "<span class="glyphicon glyphicon-chevron-right"></span>" button in
 
 _Screenshot of a Worker & Batch Mangager with an open Worker Setup for the second batch. In JATOS version < 3.3.1 it is reachable via the "Worker Setup" button._
 
-The Worker Setup is the place where you generate the links for most of your workers types (except for Jatos and MTurk).
+The Worker Setup is the place where you generate or view (for Jatos and MTurk workers) the links for all workers types.
 
 #### Get Links
 
 For **Personal Single Workers** and **Personal Multiple Workers** click "**Get Links <span class="glyphicon glyphicon-link"></span>**" ("Add" in older versions). You can enter a description or identification for the worker in the 'Comments' box. You can also create several at once.
 
-**General Single Workers** only have one link and each link will create a new separate worker. Get this link by clicking on "**Get Link <span class="glyphicon glyphicon-link"></span>**" in its row.
+**General Single Workers** only have one link. Each time somebody clicks on the link, JATOS will create a new separate worker. Get this link by clicking on "**Get Link <span class="glyphicon glyphicon-link"></span>**" in its row.
 
 How to connect to MTurk and create links to run with **MTurk Workers** is described in its own page: [Connect to Mechanical Turk](Connect-to-Mechanical-Turk.html).
 
@@ -69,7 +69,7 @@ Batches are organized in the Worker & Batch Manager. Here you can create and del
 
 Each study comes with a "Default" batch.
 
-One can **deactivate** or **activate** a batch by clicking on the checkbox button in each batch row. A deactivated batch doesn't allow any study runs.
+You can **deactivate** or **activate** a batch by clicking on the checkbox button in each batch row. A deactivated batch doesn't allow any study runs.
 
 ### Batch Properties
 
