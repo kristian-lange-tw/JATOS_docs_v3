@@ -30,7 +30,7 @@ Everything starts with a Hello World!
 
 Shows some features of JATOS version 3.3.1 and 3.2.3
 
-![Simple Example JATOS v3.3.1](images/example-studies/Screenshot_simple_example_v-3-3-1){:width="300"}
+![Simple Example JATOS v3.3.1](images/example-studies/Screenshot_simple_example_v-3-3-1.png){:width="300"}
 
 [Download Simple Example JATOS v3.3.1](https://github.com/JATOS/JATOS_examples/raw/master/examples/simple_example_jatos_v3.3.1.zip).
 
