@@ -26,6 +26,15 @@ Everything starts with a Hello World!
 
 [Download Hello World example](https://github.com/JATOS/JATOS_examples/raw/master/examples/hello_world.zip).
 
+### Simple Example JATOS v3.3.1
+
+Shows some features of JATOS version 3.3.1 and 3.2.3
+
+![Simple Example JATOS v3.3.1](images/example-studies/Screenshot_simple_example_v-3-3-1){:width="300"}
+
+[Download Simple Example JATOS v3.3.1](https://github.com/JATOS/JATOS_examples/raw/master/examples/simple_example_jatos_v3.3.1.zip).
+
+
 ### Go- / No-Go Task (with jsPsych 6.0.4)
 
 Standard Go- / No-Go experiment.
