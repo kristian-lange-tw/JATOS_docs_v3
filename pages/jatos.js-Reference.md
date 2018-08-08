@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 28 July 2018
+last_updated: 7 Aug 2018
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -108,13 +108,6 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 * `jatos.groupState` - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)
 * `jatos.groupMembers` - List of member IDs of the current members of the group
 * `jatos.groupChannels` - List of member IDs of the currently open group channels
-
-
-### ~~Group's session data~~
-
-**Removed** - As of JATOS v3 the Group Session data can be accessed via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
-
-~~* `jatos.groupSessionData` - Group Session data shared in between members of the group (see also [Session Data - Three Types](Session-Data-Three-Types.html))~~
 
 
 ### Other variables
@@ -1031,15 +1024,6 @@ deferred.fail(function () {
   alert("Group reassignment failed");
 });
 ```
-
-### ~~`jatos.setGroupSessionData(groupSessionData, onError)`~~
-
-**Removed** - As of JATOS v3 the Group Session data can be access via the [`jatos.groupSession` functions](#functions-to-access-the-group-session).
-
-~~Sends the Group Session data via the group channel to the JATOS server where it's stored and broadcasted to all members of this group. It either takes an Object as parameter or uses `jatos.groupSessionData` if the groupSessionData isn't provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the `onError` callback. In this way it is more reliable but slower compared to `jatos.sendGroupMsg` or `jatos.sendGroupMsgTo`. Since the Group Session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.~~
-
-* ~~_@param {optional Object} groupSessionData_ - An object in JSON; If it's not given take _jatos.groupSessionData_~~
-* ~~_@param {optional Object} onError_ - Function to be called if this upload was unsuccessful~~
 
 ### `jatos.setGroupFixed()`
 

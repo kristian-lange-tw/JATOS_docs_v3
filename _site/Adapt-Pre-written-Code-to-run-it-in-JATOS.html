@@ -504,7 +504,7 @@ $('#toc').on('click', 'a', function() {
 
   <p><strong>Make Your Existing Code Run in JATOS - or How To Jatosify a Study</strong></p>
 
-<p>You might have a  task, experiment, survey, or study running in a browser. You might have all its files like HTML, JavaScripts, images, etc. Maybe you wrote it with <a href="http://www.jspsych.org">jsPsych</a> or got it from <a href="http://expfactory.github.io">The Experiment Factory</a>. Do you want to run it with JATOS? That’s easy!</p>
+<p>You might have a  task, experiment, survey, or study running in a browser. You might have all its files like HTML, JavaScripts, images, etc. Maybe you wrote it with <a href="http://www.jspsych.org">jsPsych</a> or got it from <a href="http://expfactory.github.io">The Experiment Factory</a>. And now you want to run it with JATOS? Then follow this page.</p>
 
 <h3 id="create-the-study-in-jatos">Create the study in JATOS</h3>
 
@@ -516,7 +516,7 @@ $('#toc').on('click', 'a', function() {
     <p>In your HTML, CSS and JavaScripts, for your paths you can choose between 1) relative paths or 2) absolute paths. Relative paths are usually shorter and easier to handle but are only available since JATOS version 3.2.3.</p>
 
     <ol>
-      <li><strong>Relative paths (only since version 3.2.3))</strong> Just use the relative path within your study’s folder.
+      <li><strong>Relative paths (since v3.2.3, recommended))</strong> Just use the relative path within your study’s folder.
         <ul>
           <li>E.g. a file in your local filesystem <code class="highlighter-rouge">/path_to_your_JATOS/study_assets_root/group_snake/snake.css</code> turns to just <code class="highlighter-rouge">snake.css</code></li>
           <li>E.g. in a subfolder <code class="highlighter-rouge">/path_to_your_JATOS/study_assets_root/group_snake/subfolder/snake.css</code> turns to <code class="highlighter-rouge">subfolder/snake.css</code></li>
@@ -548,7 +548,10 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Include the <strong>jatos.js</strong> library in your HTML <code class="highlighter-rouge">&lt;head&gt;</code></p>
 
-    <p>Add the line <code class="highlighter-rouge">&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;</code></p>
+    <ul>
+      <li>JATOS &lt; v3.3.1) Add the line <code class="highlighter-rouge">&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;</code></li>
+      <li>JATOS &gt;= v3.3.1) Add the line <code class="highlighter-rouge">&lt;script src="jatos.js"&gt;&lt;/script&gt;</code></li>
+    </ul>
   </li>
   <li>
     <p>Add <strong><code class="highlighter-rouge">jatos.onload</code></strong></p>
@@ -622,7 +625,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 09 May 2018
+<span>Page last updated:</span> 07 Aug 2018
                 </div>
             </div>
 </footer>

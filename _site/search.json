@@ -246,17 +246,6 @@
 
 
 {
-"title": "Run your Study with Worker &amp; Batch Manager",
-"tags": "",
-"keywords": "batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch properties, worker setup, group properties",
-"url": "Run-your-Study-with-Worker-and-Batch-Manager.html",
-"summary": ""
-}
-,
-
-
-
-{
 "title": "Session Data - Three Types",
 "tags": "",
 "keywords": "session data, study session, group session, batch session",
@@ -292,7 +281,7 @@
 {
 "title": "Tips &amp; Tricks",
 "tags": "",
-"keywords": "tips, tricks, Mechanical Turk, MTurk, lock, continue",
+"keywords": "tips, tricks, Mechanical Turk, MTurk, lock, continue, parallel, testing",
 "url": "Tips-and-Tricks.html",
 "summary": ""
 }

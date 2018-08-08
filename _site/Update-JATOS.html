@@ -547,14 +547,13 @@ $('#toc').on('click', 'a', function() {
 
 <p>If you do want to keep your studies, batches, and your result data you’ll have to move them to the new JATOS.</p>
 
-<p><strong>However: Occasionally (on major version updates such as 1.X.X to 2.1.1) we will make big changes in JATOS, which will require some restructuring of the database. In these cases, the second way described here will not be possible. We will do our best to prevent these big changes and inform you explicitly in the release description.</strong></p>
-
 <ol>
   <li>Stop JATOS (on Unix systems, type <code class="highlighter-rouge">$ ./loader.sh stop</code> on the terminal. On Windows MS, close your command window)</li>
   <li>Go to the folder of your old JATOS installation. From there copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called <code class="highlighter-rouge">study_assets_root</code> and lays in the JATOS folder but you might have changed this. You can find the location and name in <code class="highlighter-rouge">conf/production.conf</code>. It is specified in the line beginning with <code class="highlighter-rouge">jatos.studyAssetsRootPath=</code>.)</li>
   <li>From the folder of your old JATOS installation copy the folders <code class="highlighter-rouge">database</code> and <code class="highlighter-rouge">study_logs</code> to the folder of the new JATOS installation.</li>
   <li>If you had changed the <code class="highlighter-rouge">conf/production.conf</code> file in your old JATOS instance (for example to set a custom location for your <code class="highlighter-rouge">study_assets_root</code> folder) you’ll have to do this again in the new JATOS version. We recommend re-editing the new version of the file, rather than just overwriting the new with the old version, in case anything in the <code class="highlighter-rouge">production.conf</code> file has changed.</li>
-  <li>That’s it! Start the new JATOS.</li>
+  <li>Start the new JATOS (on Unix systems, type <code class="highlighter-rouge">$ ./loader.sh start</code> on the terminal. On Windows double click the <code class="highlighter-rouge">loader.bat</code>)</li>
+  <li>Open JATOS’ test page in a browser <code class="highlighter-rouge">/jatos/test</code> and test that everything is <strong>OK</strong></li>
 </ol>
 
 <p><strong>What will be transferred:</strong></p>
@@ -583,7 +582,7 @@ nothing</p>
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 17 May 2018
+<span>Page last updated:</span> 7 Aug 2018
                 </div>
             </div>
 </footer>

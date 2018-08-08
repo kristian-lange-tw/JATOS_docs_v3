@@ -483,7 +483,7 @@
 
 <ol>
   <li>First you need to register at <a href="https://aws.amazon.com/">AWS (Amazon Web Services)</a> (they’ll want your credit card).</li>
-  <li>In AWS webpage move to EC2 and launch a new instance with Ubuntu (you can use other Linux too - I tested it with Ubuntu 14.04)</li>
+  <li>In AWS webpage move to EC2 and launch a new instance with Ubuntu (you can use other Linux too - I tested it with Ubuntu 14.04 and 16.04)</li>
   <li>During the creation of the new EC2 instance you will be ask whether you want to create a key pair. Do so. Download the file with the key (a *.pem file). Store it in a safe place - with this key you will access your server.</li>
   <li>Login via SSH: <code class="highlighter-rouge">ssh -i /path/to/your/pem_key_file ubuntu@xx.xx.xx.xx</code> (Use your instance’s IP address: In AWS / EC2 / Instances / Description are two IPs ‘Private IP’ and ‘Public IP’. Use the <strong>public</strong> one.)</li>
   <li>Get the latest JATOS bundled with Java (exchange x.x.x with the version you want) <code class="highlighter-rouge">wget https://github.com/JATOS/JATOS/releases/download/vx.x.x/jatos-x.x.x-linux_java.zip</code></li>
@@ -509,7 +509,7 @@
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 1 Aug 2018
+<span>Page last updated:</span> 7 Aug 2018
                 </div>
             </div>
 </footer>

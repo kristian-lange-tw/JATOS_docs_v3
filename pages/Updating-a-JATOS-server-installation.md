@@ -28,8 +28,6 @@ You can just follow the [update instructions for the local installation](Update-
 
 This means that we have to configure the MySQL database or copy the H2 database files.
 
-**However: Occasionally (on major version updates such as 1.X.X to 2.1.1) we will make big changes in JATOS, which will require some restructuring of the database. In these cases, the second way described here will not be possible. We will do our best to prevent these big changes and inform you explicitly in the release description.**
-
 1. Stop the old JATOS using `./loader.sh stop` 
 1. Copy the new JATOS version to your server, e.g. copy it into the same folder where your old JATOS is located. Don't yet remove the old JATOS instance. 
 1. Unzip the new JATOS (`unzip jatos-x.x.x-beta.zip`)
@@ -39,5 +37,6 @@ This means that we have to configure the MySQL database or copy the H2 database 
    * MySQL - For MySQL you don't have to change anything on the database side.
 1. From the old JATOS installation copy the folder `study_logs` to the new JATOS installation
 1. [Configure the new JATOS like the old one](Configure-JATOS-on-a-Server.html) - usually it's enough to copy the `production.conf` from the old `conf` folder into the new one
-1. That's it! Start the new JATOS using `./loader.sh start`
+1. Start the new JATOS using `./loader.sh start`
+1. Open JATOS' test page in a browser `/jatos/test` and test that everything is **OK**
  

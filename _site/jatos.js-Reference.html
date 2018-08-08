@@ -623,12 +623,6 @@ $('#toc').on('click', 'a', function() {
   <li><code class="highlighter-rouge">jatos.groupChannels</code> - List of member IDs of the currently open group channels</li>
 </ul>
 
-<h3 id="groups-session-data"><del>Group’s session data</del></h3>
-
-<p><strong>Removed</strong> - As of JATOS v3 the Group Session data can be accessed via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
-
-<p><del>* <code class="highlighter-rouge">jatos.groupSessionData</code> - Group Session data shared in between members of the group (see also <a href="Session-Data-Three-Types.html">Session Data - Three Types</a>)</del></p>
-
 <h3 id="other-variables">Other variables</h3>
 
 <ul>
@@ -1613,17 +1607,6 @@ $('#toc').on('click', 'a', function() {
 </code></pre>
 </div>
 
-<h3 id="jatossetgroupsessiondatagroupsessiondata-onerror"><del><code class="highlighter-rouge">jatos.setGroupSessionData(groupSessionData, onError)</code></del></h3>
-
-<p><strong>Removed</strong> - As of JATOS v3 the Group Session data can be access via the <a href="#functions-to-access-the-group-session"><code class="highlighter-rouge">jatos.groupSession</code> functions</a>.</p>
-
-<p><del>Sends the Group Session data via the group channel to the JATOS server where it’s stored and broadcasted to all members of this group. It either takes an Object as parameter or uses <code class="highlighter-rouge">jatos.groupSessionData</code> if the groupSessionData isn’t provided. jatos.js tries several times to upload the session data, but if there are many concurrent members updating at the same time it might fail. But jatos.js/JATOS guarantees that it either persists the updated session data or calls the <code class="highlighter-rouge">onError</code> callback. In this way it is more reliable but slower compared to <code class="highlighter-rouge">jatos.sendGroupMsg</code> or <code class="highlighter-rouge">jatos.sendGroupMsgTo</code>. Since the Group Session is stored in the JATOS server it can be retrieved after a page reload or Internet connection problem to continue at the point of the interruption.</del></p>
-
-<ul>
-  <li><del><em>@param {optional Object} groupSessionData</em> - An object in JSON; If it’s not given take <em>jatos.groupSessionData</em></del></li>
-  <li><del><em>@param {optional Object} onError</em> - Function to be called if this upload was unsuccessful</del></li>
-</ul>
-
 <h3 id="jatossetgroupfixed"><code class="highlighter-rouge">jatos.setGroupFixed()</code></h3>
 
 <p>Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the fixing.</p>
@@ -2082,7 +2065,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 28 July 2018
+<span>Page last updated:</span> 7 Aug 2018
                 </div>
             </div>
 </footer>

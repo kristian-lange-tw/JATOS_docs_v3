@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:
 toc: true
-last_updated: 18 Mar 2018
+last_updated: 7 Aug 2018
 ---
 
 **Restart JATOS after making any changes to the configuration (`loader.sh restart`)**
@@ -29,7 +29,7 @@ By default JATOS uses the address 127.0.0.1 and port 9000. There are two ways to
    loader.sh start -Dhttp.address=10.0.0.1 -Dhttp.port=80
    ~~~
      
-### URL base path (JATOS >= 3.3.1)
+### URL base path (JATOS >= v3.3.1)
 
 JATOS can be configured to use an base path. E.g we have the host "www.example.org" and let JATOS run under "mybasepath" so that JATOS' URL all start with "www.example.org/mybasepath/". This can be achieved in two ways:
 
@@ -45,7 +45,7 @@ JATOS can be configured to use an base path. E.g we have the host "www.example.o
    play.http.context = "/mybasepath/"
    ~~~
 
-**The path always has to start and end with a "/".** And keep in mind that if you add a base path to JATOS' URL you have to adjust all absolute paths in the study assets (HTML and JavaScript files) too - [or use relative paths](Adapt-Pre-written-Code-to-run-it-in-JATOS.html#create-the-study-in-jatos).
+**The path always has to start and end with a "/".** And keep in mind that if you add a base path to JATOS' URL you have to adjust all absolute paths to the study assets (in HTML and JavaScript files) too - [or use relative paths](Adapt-Pre-written-Code-to-run-it-in-JATOS.html#create-the-study-in-jatos).
 
 ### Study assets root path
 

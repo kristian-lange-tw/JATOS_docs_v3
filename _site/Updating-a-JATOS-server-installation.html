@@ -520,8 +520,6 @@ $('#toc').on('click', 'a', function() {
 
 <p>This means that we have to configure the MySQL database or copy the H2 database files.</p>
 
-<p><strong>However: Occasionally (on major version updates such as 1.X.X to 2.1.1) we will make big changes in JATOS, which will require some restructuring of the database. In these cases, the second way described here will not be possible. We will do our best to prevent these big changes and inform you explicitly in the release description.</strong></p>
-
 <ol>
   <li>Stop the old JATOS using <code class="highlighter-rouge">./loader.sh stop</code></li>
   <li>Copy the new JATOS version to your server, e.g. copy it into the same folder where your old JATOS is located. Don’t yet remove the old JATOS instance.</li>
@@ -535,7 +533,8 @@ $('#toc').on('click', 'a', function() {
   </li>
   <li>From the old JATOS installation copy the folder <code class="highlighter-rouge">study_logs</code> to the new JATOS installation</li>
   <li><a href="Configure-JATOS-on-a-Server.html">Configure the new JATOS like the old one</a> - usually it’s enough to copy the <code class="highlighter-rouge">production.conf</code> from the old <code class="highlighter-rouge">conf</code> folder into the new one</li>
-  <li>That’s it! Start the new JATOS using <code class="highlighter-rouge">./loader.sh start</code></li>
+  <li>Start the new JATOS using <code class="highlighter-rouge">./loader.sh start</code></li>
+  <li>Open JATOS’ test page in a browser <code class="highlighter-rouge">/jatos/test</code> and test that everything is <strong>OK</strong></li>
 </ol>
 
 

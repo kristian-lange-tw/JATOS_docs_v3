@@ -7,12 +7,12 @@ sidebar: mydoc_sidebar
 permalink: Adapt-Pre-written-Code-to-run-it-in-JATOS.html
 folder:
 toc: true
-last_updated: 09 May 2018
+last_updated: 07 Aug 2018
 ---
 
 **Make Your Existing Code Run in JATOS - or How To Jatosify a Study** 
 
-You might have a  task, experiment, survey, or study running in a browser. You might have all its files like HTML, JavaScripts, images, etc. Maybe you wrote it with [jsPsych](http://www.jspsych.org) or got it from [The Experiment Factory](http://expfactory.github.io). Do you want to run it with JATOS? That's easy! 
+You might have a  task, experiment, survey, or study running in a browser. You might have all its files like HTML, JavaScripts, images, etc. Maybe you wrote it with [jsPsych](http://www.jspsych.org) or got it from [The Experiment Factory](http://expfactory.github.io). And now you want to run it with JATOS? Then follow this page.
 
 ### Create the study in JATOS
 
@@ -21,7 +21,7 @@ You might have a  task, experiment, survey, or study running in a browser. You m
 1. Back in the JATOS GUI, and within the newly created study, create a **new component** by clicking 'Components' and then 'New'. Choose a component title and set the HTML file name, to the name of the HTML file you just copied into the study folder.
 1. In your HTML, CSS and JavaScripts, for your paths you can choose between 1) relative paths or 2) absolute paths. Relative paths are usually shorter and easier to handle but are only available since JATOS version 3.2.3.
 
-   1. **Relative paths (only since version 3.2.3))** Just use the relative path within your study's folder.
+   1. **Relative paths (since v3.2.3, recommended))** Just use the relative path within your study's folder.
       * E.g. a file in your local filesystem `/path_to_your_JATOS/study_assets_root/group_snake/snake.css` turns to just `snake.css`
       * E.g. in a subfolder `/path_to_your_JATOS/study_assets_root/group_snake/subfolder/snake.css` turns to `subfolder/snake.css`
       
@@ -44,7 +44,8 @@ Up to this point JATOS served as a mere provider of your files. Now we want to u
 
 1. Include the **jatos.js** library in your HTML `<head>`
 
-    Add the line `<script src="/assets/javascripts/jatos.js"></script>`
+   * JATOS < v3.3.1) Add the line `<script src="/assets/javascripts/jatos.js"></script>`
+   * JATOS >= v3.3.1) Add the line `<script src="jatos.js"></script>`
 
 1. Add **`jatos.onload`**
 
