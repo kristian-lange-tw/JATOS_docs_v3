@@ -4,10 +4,10 @@ keywords: batch manager, Worker and Batch Manager, Worker & Batch Manager, worke
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: Run-your-Study-with-Worker-and-Batch-Manager-version-3-3-1.html
+permalink: Run-your-Study-with-Worker-and-Batch-Manager.html
 folder:
 toc: true
-last_updated: 4 Aug 2018
+last_updated: 7 Aug 2018
 ---
 
 ## Worker & Batch Manager

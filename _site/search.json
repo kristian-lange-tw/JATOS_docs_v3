@@ -72,7 +72,7 @@
 {
 "title": "Example Group Studies",
 "tags": "",
-"keywords": "group, batch",
+"keywords": "group, batch, snake, prisoner's dilemma",
 "url": "Example-Group-Studies.html",
 "summary": ""
 }
@@ -238,7 +238,7 @@
 "title": "Run your Study with Worker &amp; Batch Manager",
 "tags": "",
 "keywords": "batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch, batch properties, worker setup, group properties, group session, batch session, results",
-"url": "Run-your-Study-with-Worker-and-Batch-Manager-version-3-3-1.html",
+"url": "Run-your-Study-with-Worker-and-Batch-Manager.html",
 "summary": ""
 }
 ,
