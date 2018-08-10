@@ -10,13 +10,13 @@ toc: false
 last_updated: 9 May 2018
 ---
 
-In group studies, the participants can communicate with each other within the group. JATOS supports different kinds of groups. E.g. it can have a fixed set of workers like this [Prisoner's Dilemma](Example-Studies.html#prisoners-dilemma) where exactly two workers play with each other. On the other side of the spectrum is this [Snake game](Example-Studies.html#snake) with an on open, multi-worker approach.
+In group studies, the workers that are part of a group can communicate with each other. JATOS supports different kinds of groups. A group can e.g. have a fixed set of workers like this [Prisoner's Dilemma](Example-Studies.html#prisoners-dilemma) where exactly two workers play with each other. On the other side of the spectrum is this [Snake game](Example-Studies.html#snake) with an on open, multi-worker approach.
 
-**But how to run a group study if you are alone?**
+**How can you check if your group-study JavaScript runs correctly if you're alone?**
 
-JATOS allows [up to 10 study runs](Tips-and-Tricks.html#run-up-to-10-studies-in-the-same-browser-at-the-same-time) at the same time in the same browser. So you can just start the same (group) study multiple times in your browser.
+JATOS allows [up to 10 study runs](Tips-and-Tricks.html#run-up-to-10-studies-in-the-same-browser-at-the-same-time) at the same time in the same browser. So you can just start the same (group) study multiple times in your browser and pretend you're many workers.
 
-Let's go through the Snake Game group study in detail:
+As an example of this, let's go through the Snake Game group study in detail:
 
 1. Download and import the [Snake game](Example-Studies.html#snake)
 1. Open the [Worker & Batch Manager](Run-your-Study-with-Worker-and-Batch-Manager.html)
@@ -29,6 +29,6 @@ Let's go through the Snake Game group study in detail:
 
 ![Snake Game](images/example-studies/Screenshot_snakeGame.png){:width="400"}
 
-Behind the curtain actually happens a lot in a group study. All members of a group are able to communicate in real-time with each other directly or broadcast messages to the whole group.
+There's actually a lot going on behind the curtain of a group study. All members of a group are able to communicate in real-time with each other directly or broadcast messages to the whole group.
 
 Next step: [Write Your Own Group Studies](Write-Your-Own-Group-Studies.html).
