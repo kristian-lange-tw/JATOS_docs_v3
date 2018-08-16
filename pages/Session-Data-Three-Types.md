@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Session-Data-Three-Types.html
 folder:
 toc: true
-last_updated: 10 June 2017
+last_updated: 13 Aug 2018
 ---
 
 ### When to use?
@@ -51,7 +51,7 @@ We have an [example study](Example-Studies.html#study-group-and-batch-session-ex
 
    ![Second component screenshot](images/ChatExample_2.png)
 
-1. Now you have 3 simultaneous study runs. You will notice while writing into the group chat that two of your workers are in the same group - the third one has their own group. Why 2 per group? Because we [set the groups to a maximum of 2 members each](Group-Study-Properties.html#group-settings-in-each-batchs-properties). The group chat will use the **Group Session** to allow the 2 members of each group to communicate with each other. Members of other groups will not have access to the chats of this group. However, anything written into the **Batch Session** will be accesssible by all workers that are members of this batch, regardless of the group they're in.
+1. Now you have 3 simultaneous study runs. You will notice while writing into the group chat that two of your workers are in the same group - the third one has their own group. Why 2 per group? Because we [set the groups to a maximum of 2 members each](Write-Group-Studies-I-Setup.html#group-settings-in-each-batchs-properties). The group chat will use the **Group Session** to allow the 2 members of each group to communicate with each other. Members of other groups will not have access to the chats of this group. However, anything written into the **Batch Session** will be accesssible by all workers that are members of this batch, regardless of the group they're in.
 
    ![Second component screenshot](images/ChatExample_3.png)
    ![Second component screenshot](images/ChatExample_4.png)
