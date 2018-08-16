@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Run-your-Study-with-Worker-and-Batch-Manager.html
 folder:
 toc: true
-last_updated: 7 Aug 2018
+last_updated: 13 Aug 2018
 ---
 
 ## Worker & Batch Manager
@@ -79,11 +79,11 @@ For each batch, you can limit the maximum number of workers that will ever be ab
 
 Additionally you can switch on or off worker types in the **Allowed Worker Types**. Unchecked worker types are not allowed to run a study. Always check before you send out links to study runs that the corresponding worker types are switched on.
 
-The **Group Properties** relate to [group studies](Group-Study-Properties.html).
+The **Group Properties** relate to [group studies](Write-Group-Studies-I-Setup.html#group-settings-in-each-batchs-properties).
 
 ### Groups (since v3.3.1)
 
-A batch is also the place where [JATOS Groups](Write-Your-Own-Group-Studies.html) are handled. Here you can an get an overview of the Groups that belong to this batch: see what their member workers are or edit the **Group Session Data**.
+A batch is also the place where [JATOS groups](Write-Group-Studies-I-Setup.html) are handled. Here you can an get an overview of the Groups that belong to this batch: see what their member workers are or edit the **Group Session Data**.
 
 ![Groups table](images/worker_and_batch_manager5.png)
 

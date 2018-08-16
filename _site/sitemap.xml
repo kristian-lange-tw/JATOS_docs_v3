@@ -80,12 +80,6 @@
   
   
   <url>
-    <loc>http://localhost:4000/Group-Study-Properties.html</loc>
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:4000/Install-JATOS-via-Docker.html</loc>
   </url>
   
@@ -218,7 +212,13 @@
   
   
   <url>
-    <loc>http://localhost:4000/Write-Your-Own-Group-Studies.html</loc>
+    <loc>http://localhost:4000/Write-Group-Studies-I-Setup.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/Write-Group-Studies-II-JavaScript-and-Messaging.html</loc>
   </url>
   
   

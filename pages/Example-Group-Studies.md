@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Group-Studies.html
 folder:
 toc: false
-last_updated: 9 May 2018
+last_updated: 13 Aug 2018
 ---
 
 In group studies, the workers that are part of a group can communicate with each other. JATOS supports different kinds of groups. A group can e.g. have a fixed set of workers like this [Prisoner's Dilemma](Example-Studies.html#prisoners-dilemma) where exactly two workers play with each other. On the other side of the spectrum is this [Snake game](Example-Studies.html#snake) with an on open, multi-worker approach.
@@ -26,9 +26,9 @@ As an example of this, let's go through the Snake Game group study in detail:
 1. In both tabs: click through the introduction until you arrive in the waiting room. Click **Join** and then **Ready**.
 1. Voilà! You'll see two snakes moving around: each tab represents one worker who is running the Snake Game - but they are in the same group
 1. Optional: Add more snakes by adding more workers. You can try every worker type you want - it's of course not limited to Jatos Workers.
-
-![Snake Game](images/example-studies/Screenshot_snakeGame.png){:width="400"}
+1. Optional: Have a look at your [Group in the Worker & and Batch Manager](Run-your-Study-with-Worker-and-Batch-Manager.html#groups-since-v331) add see who the member workers are.
+   ![Snake Game](images/example-studies/Screenshot_snakeGame.png){:width="400"}
 
 There's actually a lot going on behind the curtain of a group study. All members of a group are able to communicate in real-time with each other directly or broadcast messages to the whole group.
 
-Next step: [Write Your Own Group Studies](Write-Your-Own-Group-Studies.html).
+Next step: [Write Your Own Group Studies](Write-Group-Studies-I-Setup.html).

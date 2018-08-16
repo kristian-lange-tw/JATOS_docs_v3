@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
+<meta name="description" content="Learn how to use jatos.js to join groups and manage them. Learn about the three different way of sending messages within a group.">
 <meta name="keywords" content=" group, group session, WebSocket, group channel, messaging">
-<title>Write Your Own Group Studies | JATOS 3 Documentation</title>
+<title>Write Group Studies II - JavaScript and Messaging | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Write Your Own Group Studies">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Write Group Studies II - JavaScript and Messaging">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -358,14 +358,14 @@
             
             
             
-            <li><a href="Group-Study-Properties.html">Group Study Properties</a></li>
+            <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
             
             
             
             
             
             
-            <li class="active"><a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a></li>
+            <li class="active"><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
             
             
             
@@ -461,13 +461,15 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Write Your Own Group Studies</h1>
+   <h1 class="post-title-main">Write Group Studies II - JavaScript and Messaging</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary">Learn how to use jatos.js to join groups and manage them. Learn about the three different way of sending messages within a group.</div>
    
 
     
@@ -498,7 +500,7 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Write-Your-Own-Group-Studies.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Write-Group-Studies-II-JavaScript-and-Messaging.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
@@ -553,6 +555,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Notice that by calling <em><a href="jatos.js-Reference.html#jatosjoingroupcallbacks">jatos.joinGroup</a></em> in the second and third component JATOS does not let workers join a new group but just  opens a group channel in the already joined group. To make a worker leave a group,  use the function <a href="jatos.js-Reference.html#jatosleavegrouponsuccess-onerror"><em>jatos.leaveGroup</em></a>.</p>
 
+<p>Every know and then you probably would like to know who the members of your groups are. This and other stats you can get by clicking on your batch’s <a href="/Run-your-Study-with-Worker-and-Batch-Manager.html#groups-since-v331"><strong>Groups</strong> button in the Worker &amp; Batch Manger</a>.</p>
+
 <h3 id="reassigning-to-a-different-group">Reassigning to a different group</h3>
 
 <p>To move a worker from one group to a different one, use <a href="jatos.js-Reference.html#jatosreassigngrouponsuccess-onfail"><em>jatos.reassignGroup</em></a>. This function will make a worker leave their group and join a different one. JATOS can only reassign to a different group if there is another group available. If there is no other group JATOS will not start a new one but put the worker into the same old group again.</p>
@@ -588,7 +592,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 29 Apr 2017
+<span>Page last updated:</span> 13 Aug 2018
                 </div>
             </div>
 </footer>

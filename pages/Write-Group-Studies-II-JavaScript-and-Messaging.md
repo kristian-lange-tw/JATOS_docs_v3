@@ -1,13 +1,13 @@
 ---
-title: Write Your Own Group Studies
+title: Write Group Studies II - JavaScript and Messaging
 keywords: group, group session, WebSocket, group channel, messaging
 tags:
-summary:
+summary: Learn how to use jatos.js to join groups and manage them. Learn about the three different way of sending messages within a group.
 sidebar: mydoc_sidebar
-permalink: Write-Your-Own-Group-Studies.html
+permalink: Write-Group-Studies-II-JavaScript-and-Messaging.html
 folder:
 toc: true
-last_updated: 29 Apr 2017
+last_updated: 13 Aug 2018
 ---
 
 ## Writing JavaScripts for group studies
@@ -47,6 +47,8 @@ Component 3
   * _jatos.endStudy_ -> closes group channel, leaves group, ends component, and ends study
 
 Notice that by calling _[jatos.joinGroup](jatos.js-Reference.html#jatosjoingroupcallbacks)_ in the second and third component JATOS does not let workers join a new group but just  opens a group channel in the already joined group. To make a worker leave a group,  use the function [_jatos.leaveGroup_](jatos.js-Reference.html#jatosleavegrouponsuccess-onerror).
+
+Every know and then you probably would like to know who the members of your groups are. This and other stats you can get by clicking on your batch's [**Groups** button in the Worker & Batch Manger](/Run-your-Study-with-Worker-and-Batch-Manager.html#groups-since-v331).
 
 ### Reassigning to a different group
 

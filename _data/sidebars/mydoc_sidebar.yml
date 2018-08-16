@@ -127,12 +127,12 @@ entries:
       url: /Example-Group-Studies.html
       output: web, pdf
       
-    - title: Group Study Properties
-      url: /Group-Study-Properties.html
+    - title: Write Group Studies I - Setup
+      url: /Write-Group-Studies-I-Setup.html
       output: web, pdf
 
-    - title: Write Your Own Group Studies
-      url: /Write-Your-Own-Group-Studies.html
+    - title: Write Group Studies II - JavaScript and Messaging
+      url: /Write-Group-Studies-II-JavaScript-and-Messaging.html
       output: web, pdf
 
   - title: For admins

@@ -103,17 +103,6 @@
 
 
 {
-"title": "Group Study Properties",
-"tags": "",
-"keywords": "group, properties",
-"url": "Group-Study-Properties.html",
-"summary": "Lern how to set up a group study and the different ways in how to assign workers to groups."
-}
-,
-
-
-
-{
 "title": "Install JATOS via Docker",
 "tags": "",
 "keywords": "docker, container, installation, server",
@@ -356,11 +345,22 @@
 
 
 {
-"title": "Write Your Own Group Studies",
+"title": "Write Group Studies I - Setup",
+"tags": "",
+"keywords": "group, properties",
+"url": "Write-Group-Studies-I-Setup.html",
+"summary": "Lern how to set up a group study and the different ways in how to assign workers to groups."
+}
+,
+
+
+
+{
+"title": "Write Group Studies II - JavaScript and Messaging",
 "tags": "",
 "keywords": "group, group session, WebSocket, group channel, messaging",
-"url": "Write-Your-Own-Group-Studies.html",
-"summary": ""
+"url": "Write-Group-Studies-II-JavaScript-and-Messaging.html",
+"summary": "Learn how to use jatos.js to join groups and manage them. Learn about the three different way of sending messages within a group."
 }
 ,
 

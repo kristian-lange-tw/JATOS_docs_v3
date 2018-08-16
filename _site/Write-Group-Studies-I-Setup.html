@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Lern how to set up a group study and the different ways in how to assign workers to groups.">
 <meta name="keywords" content=" group, properties">
-<title>Group Study Properties | JATOS 3 Documentation</title>
+<title>Write Group Studies I - Setup | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -129,7 +129,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Group Study Properties">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Write Group Studies I - Setup">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -358,14 +358,14 @@
             
             
             
-            <li class="active"><a href="Group-Study-Properties.html">Group Study Properties</a></li>
+            <li class="active"><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
             
             
             
             
             
             
-            <li><a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a></li>
+            <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
             
             
             
@@ -461,7 +461,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Group Study Properties</h1>
+   <h1 class="post-title-main">Write Group Studies I - Setup</h1>
 </div>
 
 
@@ -500,7 +500,7 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Group-Study-Properties.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//Write-Group-Studies-I-Setup.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
@@ -509,7 +509,7 @@ $('#toc').on('click', 'a', function() {
 <h2 id="set-up-group-studies">Set up group studies</h2>
 
 <p>First and common to all group setups is to check the Group study checkbox in the study properties. 
-<img src="images/Study_properties_group.png" alt="Groups property" /></p>
+<img src="images/Study_properties_group.png" alt="Group's property" /></p>
 
 <p>If the Group property is checked, JATOS will assign workers into groups. We’ll describe some group properties that you can use to tweak according to whether you want to keep control over worker assignment, or you give JATOS full control.</p>
 
@@ -518,12 +518,14 @@ $('#toc').on('click', 'a', function() {
 <p>You can have multiple batches in JATOS, each one with different group settings. There are three important bits of information for a group study:</p>
 
 <ol>
-  <li><em>Max total workers</em>: This isn’t just a property of group studies but can be used in single-worker studies too. It simply limits the total amount of workers who are allowed to run in this batch.</li>
-  <li><em>Max total members</em>:  This limits the number of members a single group can have. While there can be multiple groups in a batch, the <em>Max total members</em> applies to each separate group.</li>
-  <li><em>Max active members</em>: This limits the number of active members a single group can have. An active member is in the group at this time - in opposite to a past member who already left the group. This number applies to each group separately. Example: In the Prisoner’s Dilemma study, you would limit the active members to 2.</li>
+  <li><strong>Max total workers</strong>: This isn’t just a properties of group studies but can be used in single-worker studies too. It simply limits the total amount of workers who are allowed to run in this batch</li>
+  <li><strong>Max total members</strong>:  This limits the number of members a single group can have. While there can be multiple groups in a batch, the <em>Max total members</em> field applies to each separate group.</li>
+  <li><strong>Max active members</strong>: This limits the number of active members a single group can have. An active member is in the group at this time - in opposite to a past member who already left the group. This number applies to each group separately. Example: In the Prisoner’s Dilemma study, you would limit the active members to 2.</li>
 </ol>
 
 <p>By default, all properties have no upper limit.</p>
+
+<p><img src="images/batch_properties.png" alt="Worker &amp; Batch manager screenshot" /></p>
 
 <h2 id="group-assignment">Group assignment</h2>
 
@@ -543,13 +545,15 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="scenario-3-one-open-world">Scenario 3: One open world</h3>
 
-<p>This scenario is basically the opposite of the first one. By limiting neither the <em>Max total worker</em> nor the <em>Max total members</em>, nor the <em>Max active members</em> JATOS will sort all workers in one single group that is potentially of unlimited size. Now –to keep it completely open– just create one General Single worker and publish its link (e.g. via a mailing list or on a website). But keep in mind: this way many workers might access your study at the same time and this might overload your JATOS server.</p>
+<p>This scenario is basically the opposite of the first one. By limiting neither the <em>Max total worker</em> nor the <em>Max total members</em>, nor the <em>Max active members</em> JATOS will sort all workers into one single group that is potentially of unlimited size. Now –to keep it completely open– just create one General Single worker and publish its link (e.g. via a mailing list or on a website). But keep in mind: this way many workers might access your study at the same time and this might overload your JATOS server.</p>
 
 <h3 id="scenario-4-multiple-open-worlds-with-limited-active-members">Scenario 4: Multiple open worlds with limited active members</h3>
 
 <p>Say you want to have groups with up to 3 members, interacting <em>at the same time</em>. But you don’t want to actually limit the total number of members per group: you want to allow new workers to join a group if one of its members left. This way each group can have a flow of workers joining and leaving - the only constraint is the maximum members per group at any given time. You also want to let JATOS set the number of groups depending on the available workers. To set up this just use one batch, set the <em>Max active members</em> to 3, and leave <em>Max total worker</em> and <em>Max total members</em> unlimited.</p>
 
 <p><img src="images/snake example.png" alt="Snake example" /></p>
+
+<p>(Continue with <a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a>)</p>
 
 
     <div class="tags">
@@ -565,7 +569,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 28 Dec 2016
+<span>Page last updated:</span> 13 Aug 2018
                 </div>
             </div>
 </footer>

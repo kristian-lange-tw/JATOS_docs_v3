@@ -358,14 +358,14 @@
             
             
             
-            <li><a href="Group-Study-Properties.html">Group Study Properties</a></li>
+            <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
             
             
             
             
             
             
-            <li><a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a></li>
+            <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
             
             
             
@@ -479,13 +479,13 @@
 
     
 
-  <p>In group studies, the participants can communicate with each other within the group. JATOS supports different kinds of groups. E.g. it can have a fixed set of workers like this <a href="Example-Studies.html#prisoners-dilemma">Prisoner’s Dilemma</a> where exactly two workers play with each other. On the other side of the spectrum is this <a href="Example-Studies.html#snake">Snake game</a> with an on open, multi-worker approach.</p>
+  <p>In group studies, the workers that are part of a group can communicate with each other. JATOS supports different kinds of groups. A group can e.g. have a fixed set of workers like this <a href="Example-Studies.html#prisoners-dilemma">Prisoner’s Dilemma</a> where exactly two workers play with each other. On the other side of the spectrum is this <a href="Example-Studies.html#snake">Snake game</a> with an on open, multi-worker approach.</p>
 
-<p><strong>But how to run a group study if you are alone?</strong></p>
+<p><strong>How can you try-out a group-study if you’re alone but want to simulate multiple workers?</strong></p>
 
-<p>JATOS allows <a href="Tips-and-Tricks.html#run-up-to-10-studies-in-the-same-browser-at-the-same-time">up to 10 study runs</a> at the same time in the same browser. So you can just start the same (group) study multiple times in your browser.</p>
+<p>JATOS allows <a href="Tips-and-Tricks.html#run-up-to-10-studies-in-the-same-browser-at-the-same-time">up to 10 study runs</a> at the same time in the same browser. So you can just start the same (group) study multiple times in your browser and pretend you’re many workers.</p>
 
-<p>Let’s go through the Snake Game group study in detail:</p>
+<p>As an example of this, let’s go through the Snake Game group study in detail:</p>
 
 <ol>
   <li>Download and import the <a href="Example-Studies.html#snake">Snake game</a></li>
@@ -496,13 +496,13 @@
   <li>In both tabs: click through the introduction until you arrive in the waiting room. Click <strong>Join</strong> and then <strong>Ready</strong>.</li>
   <li>Voilà! You’ll see two snakes moving around: each tab represents one worker who is running the Snake Game - but they are in the same group</li>
   <li>Optional: Add more snakes by adding more workers. You can try every worker type you want - it’s of course not limited to Jatos Workers.</li>
+  <li>Optional: Have a look at your <a href="Run-your-Study-with-Worker-and-Batch-Manager.html#groups-since-v331">Group in the Worker &amp; and Batch Manager</a> add see who the member workers are.
+<img src="images/example-studies/Screenshot_snakeGame.png" alt="Snake Game" width="400" /></li>
 </ol>
 
-<p><img src="images/example-studies/Screenshot_snakeGame.png" alt="Snake Game" width="400" /></p>
+<p>There’s actually a lot going on behind the curtain of a group study. All members of a group are able to communicate in real-time with each other directly or broadcast messages to the whole group.</p>
 
-<p>Behind the curtain actually happens a lot in a group study. All members of a group are able to communicate in real-time with each other directly or broadcast messages to the whole group.</p>
-
-<p>Next step: <a href="Write-Your-Own-Group-Studies.html">Write Your Own Group Studies</a>.</p>
+<p>Next step: <a href="Write-Group-Studies-I-Setup.html">Write Your Own Group Studies</a>.</p>
 
 
     <div class="tags">
@@ -518,7 +518,7 @@
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 9 May 2018
+<span>Page last updated:</span> 13 Aug 2018
                 </div>
             </div>
 </footer>
