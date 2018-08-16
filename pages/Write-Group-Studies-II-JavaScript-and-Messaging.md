@@ -2,7 +2,7 @@
 title: Write Group Studies II - JavaScript and Messaging
 keywords: group, group session, WebSocket, group channel, messaging
 tags:
-summary: Learn how to use jatos.js to join groups and manage them. Learn about the three different way of sending messages within a group.
+summary: Learn how to use jatos.js to join groups and manage them. Learn about the three different ways of sending messages within a group.
 sidebar: mydoc_sidebar
 permalink: Write-Group-Studies-II-JavaScript-and-Messaging.html
 folder:
