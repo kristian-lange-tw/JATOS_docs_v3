@@ -15,6 +15,6 @@ last_updated: 04 Sep 2018
 
 lab.js and JATOS fit perfectly together: create your experiment with lab.js and then put it online and let it run by particpants with JATOS. And the best: **lab.js directly exports JATOS studies**. So you just import your studies into JATOS and can run them online.
 
-lab.js already has a [great documentation](https://labjs.readthedocs.io/en/latest/index.html) and one page their is solely dedicated to JATOS: [Collecting data with JATOS](https://labjs.readthedocs.io/en/latest/learn/deploy/3c-jatos.html?highlight=jatos).
+lab.js already has a [great documentation](https://labjs.readthedocs.io/en/latest/index.html) and one page their is solely dedicated to JATOS: [Collecting data with JATOS](https://labjs.readthedocs.io/en/latest/learn/deploy/3c-jatos.html).
 
 That's all there is to say. 
