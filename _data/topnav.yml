@@ -4,7 +4,7 @@ topnav:
 - title: Topnav
   items:
     - title: Download
-      external_url: https://github.com/JATOS/JATOS/releases
+      external_url: https://github.com/JATOS/JATOS/releases/latest
     - title: Example Studies
       external_url: Example-Studies.html
     - title: Blog

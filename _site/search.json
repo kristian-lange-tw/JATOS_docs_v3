@@ -360,7 +360,7 @@
 "tags": "",
 "keywords": "group, group session, WebSocket, group channel, messaging",
 "url": "Write-Group-Studies-II-JavaScript-and-Messaging.html",
-"summary": "Learn how to use jatos.js to join groups and manage them. Learn about the three different way of sending messages within a group."
+"summary": "Learn how to use jatos.js to join groups and manage them. Learn about the three different ways of sending messages within a group."
 }
 ,
 
@@ -384,6 +384,17 @@
 "tags": "",
 "keywords": "jsPsych",
 "url": "jsPsych-and-JATOS.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "lab.js and JATOS",
+"tags": "",
+"keywords": "lab.js",
+"url": "labjs-and-JATOS.html",
 "summary": ""
 }
 ,

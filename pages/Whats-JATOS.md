@@ -18,7 +18,7 @@ We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-
 ### JATOS at a glance: 
 * Run studies on your **own server**. This means that you keep complete control over who can access your result data and can comply with your ethics.
 * Studies run on **mobile phones, tablets, desktops, and lab computers** - any device with a browser.
-* Write your studies in **HTML / JavaScript / CSS** - you have full control over what runs in the browser. 
+* Use tools like **jsPsych** or **lab.js** to prepare your study - or write all **HTML / JavaScript / CSS** yourself and have full control.
 * **Run group studies** where multiple workers interact with each other in real-time.
 * It’s GUI-based, so there's no need to use the terminal to talk to your server. 
 * Recruit participants via **Amazon Mechanical Turk**, **Prolific** etc.
@@ -34,4 +34,4 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 JATOS is open-source and released under the [Apache 2 Licence](http://www.apache.org/licenses/LICENSE-2.0.html). The source code is available on [github.com/JATOS/JATOS](https://github.com/JATOS/JATOS).
 
-**[Download the latest release](https://github.com/JATOS/JATOS/releases/)**
+**[Download the latest release](https://github.com/JATOS/JATOS/releases/latest)**
