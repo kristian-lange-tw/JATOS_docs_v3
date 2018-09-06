@@ -226,6 +226,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/jatos.js-Reference.html</loc>
   </url>
   
@@ -243,23 +249,23 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
-    <loc>http://localhost:4000/js/mydoc_scroll.html</loc>
+    <loc>http://localhost:4000/assets/css/style.css</loc>
   </url>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
 </urlset>

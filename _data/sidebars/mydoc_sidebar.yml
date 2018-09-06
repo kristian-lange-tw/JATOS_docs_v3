@@ -67,6 +67,10 @@ entries:
       url: /Adapt-Pre-written-Code-to-run-it-in-JATOS.html
       output: web, pdf
 
+    - title: lab.js and JATOS
+      url: /labjs-and-JATOS.html
+      output: web, pdf
+
     - title: jsPsych and JATOS
       url: /jsPsych-and-JATOS.html
       output: web, pdf

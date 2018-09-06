@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,25 @@
 <title>jatos.js Reference | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
-
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
 <link rel="stylesheet" href="css/modern-business.css">
-<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
 <link rel="stylesheet" href="css/theme-blue.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/jquery.navgoco.min.js"></script>
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="js/toc.js"></script>
 <script src="js/customscripts.js"></script>
@@ -35,7 +41,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="jatos_docs_v3" href="http://localhost:4000/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -74,12 +80,23 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
     
 
 </head>
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
     <div class="container topnavlinks">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -88,11 +105,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Whats-JATOS.html"><img src="images/jatos_logo_color.svg" height="20">&nbsp;<span class="projectTitle"> JATOS 3 Documentation</span></a>
+            <a class="navbar-brand" href="Whats-JATOS.html"><span class="projectTitle"><img src="images/jatos_logo_color.svg" height="20">&nbsp;JATOS 3 Documentation</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <!-- entries without drop-downs appear here -->
+
+
+
+
                 
                 
                 
@@ -145,322 +166,328 @@
 
 <!-- Page Content -->
 <div class="container">
-    <div class="col-lg-12">&nbsp;</div>
+  <div id="main">
     <!-- Content Row -->
     <div class="row">
-        <!-- Sidebar Column -->
-        <div class="col-md-3">
-
-          
-
-
-
-
-
-
-
-
-
-
-
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle"> </li>
-    
-    
-    
-        
-    
-    <li>
-        <a href="#">Overview</a>
-        <ul>
-            
-            
-            
-            <li><a href="Whats-JATOS.html">What's JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            
-            
-            <li><a href="Installation.html">Installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Get-started.html">Get started</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Write your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Run your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Worker-Types.html">Worker Types</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Manage-Results.html">Manage Results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Manage your JATOS</a>
-        <ul>
-            
-            
-            
-            <li><a href="User-Manager.html">Manage JATOS users</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Change-studys-members.html">Change study's members</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Update-JATOS.html">Update JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Troubleshooting.html">Troubleshooting</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Group Studies</a>
-        <ul>
-            
-            
-            
-            <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">For admins</a>
-        <ul>
-            
-            
-            
-            <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Reference</a>
-        <ul>
-            
-            
-            
-            <li class="active"><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-        
-        <!-- if you aren't using the accordion, uncomment this block:
-           <p class="external">
-               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
-           </p>
-           -->
-    </li>
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li><a href="Whats-JATOS.html">What's JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          
+          
+          <li><a href="Installation.html">Installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Get-started.html">Get started</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Write your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="labjs-and-JATOS.html">lab.js and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Run your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Worker-Types.html">Worker Types</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Manage-Results.html">Manage Results</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Manage your JATOS</a>
+      <ul>
+          
+          
+          
+          <li><a href="User-Manager.html">Manage JATOS users</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Change-studys-members.html">Change study's members</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Update-JATOS.html">Update JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Troubleshooting.html">Troubleshooting</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Group Studies</a>
+      <ul>
+          
+          
+          
+          <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">For admins</a>
+      <ul>
+          
+          
+          
+          <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Reference</a>
+      <ul>
+          
+          
+          
+          <li class="active"><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
 </ul>
-</div>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
-    <!-- Content Column -->
-    <div class="col-md-9">
-        <div class="post-header">
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
    <h1 class="post-title-main">jatos.js Reference</h1>
 </div>
 
@@ -504,11 +531,13 @@ $('#toc').on('click', 'a', function() {
 
     
 
+
+    
+
   <p>Have a look at what’s <a href="Mandatory-lines-in-your-components-HTML.html">mandatory in HTML and JavaScript for JATOS components</a>. Always load the jatos.js script in the <code class="highlighter-rouge">&lt;head&gt;</code> section with the following line:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
 
 <p>All variables or calls to jatos.js start with <code class="highlighter-rouge">jatos.</code>. For example, if you want to get the study’s ID you use <code class="highlighter-rouge">jatos.studyId</code>. If you submit result data of your component back to your JATOS server you use <code class="highlighter-rouge">jatos.submitResultData(resultData)</code>, where resultData can be any kind of text.</p>
 
@@ -566,7 +595,7 @@ $('#toc').on('click', 'a', function() {
 
     <p><code class="highlighter-rouge">http://localhost:9000/publix/50/start?batchId=47&amp;personalSingleWorkerId=506&amp;foo=bar&amp;a=123</code></p>
 
-    <p>Then those parameter will be accessible during the study run in <code class="highlighter-rouge">jatos.urlQueryParameters</code> as <code class="highlighter-rouge"><span class="p">{</span><span class="err">a:</span><span class="w"> </span><span class="nt">"123"</span><span class="err">,</span><span class="w"> </span><span class="err">foo</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">}</span></code>.</p>
+    <p>Then those parameter will be accessible during the study run in <code class="highlighter-rouge">jatos.urlQueryParameters</code> as <code class="highlighter-rouge">{a: "123", foo: "bar"}</code>.</p>
 
     <p>Example: MTurk uses for its worker ID the URL query parameter ‘workerId’ and this is accessible via <code class="highlighter-rouge">jatos.urlQueryParameters.workerId</code>.</p>
   </li>
@@ -630,30 +659,26 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p><code class="highlighter-rouge">jatos.channelSendingTimeoutTime</code> (writeable) - Time in ms to wait for an answer after sending a message via a channel (batch or group). Set this variable if you want to change the default value (default is 10 s).</p>
 
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">channelSendingTimeoutTime</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span> <span class="c1">// Sets channel timeout to 20 seconds</span>
-</code></pre>
-    </div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">channelSendingTimeoutTime</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span> <span class="c1">// Sets channel timeout to 20 seconds</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p><code class="highlighter-rouge">jatos.httpTimeout</code> (writeable) - Time in ms to wait for an answer of an HTTP request by jatos.js. Set this variable if you want to change the default value (default is 1 min).</p>
 
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpTimeout</span> <span class="o">=</span> <span class="mi">30000</span><span class="p">;</span> <span class="c1">// Sets HTTP timeout to 30 seconds</span>
-</code></pre>
-    </div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpTimeout</span> <span class="o">=</span> <span class="mi">30000</span><span class="p">;</span> <span class="c1">// Sets HTTP timeout to 30 seconds</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p><code class="highlighter-rouge">jatos.httpRetry</code> - Some jatos functions (e.g. <code class="highlighter-rouge">jatos.sendResultData</code>) send an Ajax request to the JATOS server. If this request was not successful (e.g. network problems) jatos.js retries it. With this variable one can change the number of retries. The default is 5.</p>
 
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpRetry</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// Attempts 2 retries of failed Ajax requests</span>
-</code></pre>
-    </div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpRetry</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// Attempts 2 retries of failed Ajax requests</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p><code class="highlighter-rouge">jatos.httpRetryWait</code> - Same as <code class="highlighter-rouge">jatos.httpRetry</code> but this variable defines the waiting time between the retries. The default is 1000 ms.</p>
 
-    <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpRetryWait</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span> <span class="c1">// Sets Ajax retry waiting time to 5 seconds</span>
-</code></pre>
-    </div>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpRetryWait</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span> <span class="c1">// Sets Ajax retry waiting time to 5 seconds</span>
+</code></pre></div>    </div>
   </li>
   <li><code class="highlighter-rouge">jatos.jQuery</code> - You can always use jatos.js own jQuery if you want to save some bandwidth</li>
 </ul>
@@ -670,11 +695,10 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onLoad</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onLoad</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// Start here with your code that uses jatos.js' variables and functions</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosonerrorcallback"><code class="highlighter-rouge">jatos.onError(callback)</code></h3>
 
@@ -686,11 +710,10 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example that shows the error message in an alert box:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onError</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onError</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosloglogmsg"><code class="highlighter-rouge">jatos.log(logMsg)</code></h3>
 
@@ -702,9 +725,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Log this message in JATOS' log file"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Log this message in JATOS' log file"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h3 id="jatosaddjatosidsobj"><code class="highlighter-rouge">jatos.addJatosIds(obj)</code></h3>
 
@@ -716,10 +738,9 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">addJatosIds</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatossetheartbeatperiodheartbeatperiod"><code class="highlighter-rouge">jatos.setHeartbeatPeriod(heartbeatPeriod)</code></h3>
 
@@ -731,9 +752,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">setHeartbeatPeriod</span><span class="p">(</span><span class="mi">60000</span><span class="p">);</span> <span class="c1">// Sets to a heartbeat every minute</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">setHeartbeatPeriod</span><span class="p">(</span><span class="mi">60000</span><span class="p">);</span> <span class="c1">// Sets to a heartbeat every minute</span>
+</code></pre></div></div>
 
 <h2 id="functions-to-control-study-flow">Functions to control study flow</h2>
 
@@ -751,25 +771,22 @@ $('#toc').on('click', 'a', function() {
 
 <p>Examples:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponent</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span> <span class="c1">// Jumps to component with ID 23</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponent</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span> <span class="c1">// Jumps to component with ID 23</span>
+</code></pre></div></div>
 
 <p>It’s often used together with <code class="highlighter-rouge">jatos.submitResultData</code> to first submit result data back to the JATOS server and afterwards jump to another component:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponent</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponent</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosstartcomponentbyposcomponentpos-resultdata-onerror"><code class="highlighter-rouge">jatos.startComponentByPos(componentPos, resultData, onError)</code></h3>
 
@@ -785,25 +802,22 @@ $('#toc').on('click', 'a', function() {
 
 <p>Examples:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// Jumps to component with position 3</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// Jumps to component with position 3</span>
+</code></pre></div></div>
 
 <p>It’s often used together with <code class="highlighter-rouge">jatos.submitResultData</code> to first submit result data back to the JATOS server and afterwards jump to another component:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosstartnextcomponentresultdata-onerror"><code class="highlighter-rouge">jatos.startNextComponent(resultData, onError)</code></h3>
 
@@ -818,23 +832,20 @@ $('#toc').on('click', 'a', function() {
 
 <p>Examples:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">();</span> <span class="c1">// Jumps to the next component</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">();</span> <span class="c1">// Jumps to the next component</span>
+</code></pre></div></div>
 
 <p>It’s often used together with <code class="highlighter-rouge">jatos.submitResultData</code> to first submit result data back to the JATOS server and afterwards jump to the next component:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosstartlastcomponentresultdata-onerror"><code class="highlighter-rouge">jatos.startLastComponent(resultData, onError)</code></h3>
 
@@ -849,23 +860,20 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startLastComponent</span><span class="p">();</span> <span class="c1">// Jumps to the last component</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">startLastComponent</span><span class="p">();</span> <span class="c1">// Jumps to the last component</span>
+</code></pre></div></div>
 
 <p>It’s often used together with <code class="highlighter-rouge">jatos.submitResultData</code> to first submit result data back to the JATOS server and afterwards jump to the next component:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startLastComponent</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="s2">"my important result data"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">startLastComponent</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosabortstudymessage"><code class="highlighter-rouge">jatos.abortStudy(message)</code></h3>
 
@@ -877,15 +885,13 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudy</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudy</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>Or:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudy</span><span class="p">(</span><span class="s2">"participant aborted by pressing abort button"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">abortStudy</span><span class="p">(</span><span class="s2">"participant aborted by pressing abort button"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h3 id="jatosendstudyajaxsuccessful-message-onsuccess-onerror"><code class="highlighter-rouge">jatos.endStudyAjax(successful, message, onSuccess, onError)</code></h3>
 
@@ -901,21 +907,18 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>Or:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Or to indicate a failure:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h3 id="jatosendstudysuccessful-message"><code class="highlighter-rouge">jatos.endStudy(successful, message)</code></h3>
 
@@ -928,21 +931,18 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>Or:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Or to indicate a failure:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h2 id="functions-for-study-session-and-result-data">Functions for Study Session and result data</h2>
 
@@ -959,33 +959,29 @@ $('#toc').on('click', 'a', function() {
 
 <p>Examples:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">));</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>It’s often used together with <code class="highlighter-rouge">jatos.startNextComponent</code> to first submit result data back to the JATOS server and afterwards jump to the next component:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Or together with <code class="highlighter-rouge">jatos.startComponentByPos</code> to start a particular component (here at position 4):</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since v3.3.1 it’s possible to leave out the JSON serialization:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosappendresultdataresultdata-onsuccess-onerror"><code class="highlighter-rouge">jatos.appendResultData(resultData, onSuccess, onError)</code></h3>
 
@@ -1002,40 +998,35 @@ $('#toc').on('click', 'a', function() {
 
 <p>Examples:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">));</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can use it together with <code class="highlighter-rouge">jatos.startNextComponent</code> to first append result data and afterwards jump to the next component:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Or together with <code class="highlighter-rouge">jatos.startComponentByPos</code> to start a particular component (here at position 4):</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Or:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatossetstudysessiondatastudysessiondata-onsuccess-onfail"><code class="highlighter-rouge">jatos.setStudySessionData(studySessionData, onSuccess, onFail)</code></h3>
 
@@ -1050,10 +1041,9 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">studySessionData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">studySessionData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">setStudySessionData</span><span class="p">(</span><span class="nx">studySessionData</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="functions-to-access-the-batch-session">Functions to access the Batch Session</h2>
 
@@ -1078,26 +1068,24 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": 100}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
-</code></pre>
-</div>
-<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">}</span></code>.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+</code></pre></div></div>
+<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 100, "b": 123}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessionremovepath-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.remove(path, onSuccess, onFail)</code></h3>
 
@@ -1110,27 +1098,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": 100, "b": 123}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">}</span></code>.</p>
+<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 100}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessionreplacepath-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.replace(path, value, onSuccess, onFail)</code></h3>
 
@@ -1144,27 +1130,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": 100, "b": 123}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">789</span><span class="p">}</span></code>.</p>
+<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 100, "b": 789}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessioncopyfrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.copy(from, path, onSuccess, onFail)</code></h3>
 
@@ -1178,27 +1162,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": "jatos"}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code>.</p>
+<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": "jatos", "b": "jatos"}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessionmovefrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.move(from, path, onSuccess, onFail)</code></h3>
 
@@ -1212,27 +1194,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": "jatos"}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code>.</p>
+<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge">{"b": "jatos"}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessionfindpath"><code class="highlighter-rouge">jatos.batchSession.find(path)</code></h3>
 
@@ -1243,12 +1223,11 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {object}</em> - the value that is stored in path</li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"a1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w"> </span><span class="nt">"a2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">},</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">}</span></code></p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": {"a1": "foo", "a2": "bar"}, "b": 999}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"/a/a1"</span><span class="p">);</span> <span class="c1">// returns "foo"</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"/a/a1"</span><span class="p">);</span> <span class="c1">// returns "foo"</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span> <span class="c1">// returns 999</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessiondefinedpath"><code class="highlighter-rouge">jatos.batchSession.defined(path)</code></h3>
 
@@ -1263,9 +1242,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">defined</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">);</span> <span class="c1">// returns true if the pointer '/a' exists</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">defined</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">);</span> <span class="c1">// returns true if the pointer '/a' exists</span>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessiontestpath-value"><code class="highlighter-rouge">jatos.batchSession.test(path, value)</code></h3>
 
@@ -1277,23 +1255,21 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {boolean}</em></li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"b1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flowers"</span><span class="p">,</span><span class="w"> </span><span class="nt">"b2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"animals"</span><span class="p">}}</span></code></p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": 123, "b": {"b1": "flowers", "b2": "animals"}}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span> <span class="c1">// returns true</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span> <span class="c1">// returns true</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// returns false</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/b/b1"</span><span class="p">,</span> <span class="s2">"flowers"</span><span class="p">);</span> <span class="c1">// returns true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Example: If you want to know the existence of a path in the Batch Session you can test against <code class="highlighter-rouge">undefined</code>:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/c"</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">))</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/c"</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">))</span> <span class="p">{</span>
   <span class="c1">// Path "/c" exists</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
   <span class="c1">// Path "/c" doesn't exist</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessiongetname"><code class="highlighter-rouge">jatos.batchSession.get(name)</code></h3>
 
@@ -1304,20 +1280,18 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {object}</em> - the value that is stored under name</li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"watermelon"</span><span class="p">}</span></code></p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": 1000, "b": "watermelon"}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
-<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"b"</span><span class="p">);</span> <span class="c1">// b is "watermelon"</span>
-<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"c"</span><span class="p">);</span> <span class="c1">// c is undefined</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"b"</span><span class="p">);</span> <span class="c1">// b is "watermelon"</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"c"</span><span class="p">);</span> <span class="c1">// c is undefined</span>
+</code></pre></div></div>
 
-<p>Example: With <code class="highlighter-rouge">jatos.batchSession.get</code> you can only access the first level of the object tree - if you want another level use <code class="highlighter-rouge">jatos.batchSession.find</code>. If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"a1"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="nt">"a2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"watermelon"</span><span class="p">}}</span></code></p>
+<p>Example: With <code class="highlighter-rouge">jatos.batchSession.get</code> you can only access the first level of the object tree - if you want another level use <code class="highlighter-rouge">jatos.batchSession.find</code>. If the internal Batch Session is <code class="highlighter-rouge">{"a": {"a1": 123, "a2": "watermelon"}}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"a1"</span><span class="p">);</span> <span class="c1">// a1 is undefined !!!</span>
-<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span> <span class="c1">// a is { "a1": 123, "a2": "watermelon" }</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"a1"</span><span class="p">);</span> <span class="c1">// a1 is undefined !!!</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span> <span class="c1">// a is { "a1": 123, "a2": "watermelon" }</span>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessionsetname-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.set(name, value, onSuccess, onFail)</code></h3>
 
@@ -1331,28 +1305,26 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Batch Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">}</span></code></p>
+<p>Example: If the internal Batch Session is <code class="highlighter-rouge">{"a": 1234}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
-<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"koala"</span><span class="p">}</span></code>.</p>
+<p>then after the Batch Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 1234, "b": "koala"}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessiongetall"><code class="highlighter-rouge">jatos.batchSession.getAll()</code></h3>
 
@@ -1364,9 +1336,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">batchSession</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">getAll</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">batchSession</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">getAll</span><span class="p">();</span>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessionsetallvalue-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.setAll(value, onSuccess, onFail)</code></h3>
 
@@ -1381,16 +1352,15 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span> <span class="c1">// Overwrites the current Batch Session with the object o</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
 <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
@@ -1398,12 +1368,11 @@ $('#toc').on('click', 'a', function() {
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosbatchsessionclearonsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.clear(onSuccess, onFail)</code></h3>
 
-<p>Clears the whole Batch Session data and sets it to an empty object <code class="highlighter-rouge"><span class="p">{}</span></code>.</p>
+<p>Clears the whole Batch Session data and sets it to an empty object <code class="highlighter-rouge">{}</code>.</p>
 
 <ul>
   <li><em>@param {optional callback} onSuccess</em> - Function to be called if this patch was successfully applied on the server and the client side</li>
@@ -1413,48 +1382,46 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosonbatchsessioncallback"><code class="highlighter-rouge">jatos.onBatchSession(callback)</code></h3>
 
 <p>Defines a callback function that is called every time the Batch Session changes on the JATOS server side (that includes updates in the session originating from other workers that run the study in parallel).</p>
 
-<p>The callback function has two parameter (before v3.3.1 one parameter):
-* <em>@param {String} path</em> - JSON pointer to the changed field in the Batch Session
-* <em>@param {String} op</em> - (version &gt;= 3.3.1) JSON patch operation (‘add’, ‘remove’, ‘clear’, …) that was applied</p>
+<p>The callback function has two parameter (before v3.3.1 one parameter):</p>
+<ul>
+  <li><em>@param {String} path</em> - JSON pointer to the changed field in the Batch Session</li>
+  <li><em>@param {String} op</em> - (version &gt;= 3.3.1) JSON patch operation (‘add’, ‘remove’, ‘clear’, …) that was applied</li>
+</ul>
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onBatchSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">op</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onBatchSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">op</span><span class="p">){</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span> <span class="o">+</span> <span class="s2">" with operation "</span> <span class="o">+</span> <span class="nx">op</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Example: <code class="highlighter-rouge">onBatchSession</code> is often used together with <code class="highlighter-rouge">jatos.batchSession.find</code> to get the updated value:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onBatchSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">){</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onBatchSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">){</span>
   <span class="kd">var</span> <span class="nx">changedObj</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"The changed object is "</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">changedObj</span><span class="p">));</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="functions-for-group-studies">Functions for group studies</h2>
 
@@ -1482,7 +1449,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Minimal example that joins a group and receives updates via the Group Session:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">joinGroup</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">joinGroup</span><span class="p">({</span>
   <span class="s2">"onGroupSession"</span><span class="p">:</span> <span class="nx">onGroupSession</span>
 <span class="p">});</span>
 
@@ -1490,12 +1457,11 @@ $('#toc').on('click', 'a', function() {
    <span class="kd">var</span> <span class="nx">changedObj</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was updated in path "</span> <span class="o">+</span> <span class="nx">path</span> <span class="o">+</span> <span class="s2">" with operation "</span> <span class="o">+</span> <span class="nx">op</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">changedObj</span><span class="p">));</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Example that defines the <code class="highlighter-rouge">onOpen</code>, <code class="highlighter-rouge">onMemberOpen</code>, and <code class="highlighter-rouge">onMessage</code> callbacks:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">joinGroup</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">joinGroup</span><span class="p">({</span>
   <span class="s2">"onOpen"</span><span class="p">:</span> <span class="nx">onOpen</span><span class="p">,</span>
   <span class="s2">"onMemberOpen"</span><span class="p">:</span> <span class="nx">onMemberOpen</span><span class="p">,</span>
   <span class="s2">"onMessage"</span><span class="p">:</span> <span class="nx">onMessage</span>
@@ -1512,8 +1478,7 @@ $('#toc').on('click', 'a', function() {
 <span class="kd">function</span> <span class="nx">onMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
    <span class="nx">alert</span><span class="p">(</span><span class="s2">"You received a message: "</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatossendgroupmsgmsg"><code class="highlighter-rouge">jatos.sendGroupMsg(msg)</code></h3>
 
@@ -1527,13 +1492,12 @@ $('#toc').on('click', 'a', function() {
 
 <p>Examples:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">"Message for every group member"</span><span class="p">;</span> <span class="c1">// Send a text message</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">"Message for every group member"</span><span class="p">;</span> <span class="c1">// Send a text message</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">sendGroupMsg</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
 
-<span class="kd">var</span> <span class="nx">objMsg</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"city"</span><span class="p">:</span> <span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"population"</span><span class="p">:</span> <span class="mi">3500000</span><span class="err">"</span><span class="p">};</span> <span class="c1">// Send an object</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">sendGroupMsg</span><span class="p">(</span><span class="nx">objMsg</span><span class="p">)</span>
-</code></pre>
-</div>
+<span class="kd">var</span> <span class="nx">objMsg</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"city"</span><span class="p">:</span> <span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"population"</span><span class="p">:</span> <span class="mi">3500000</span><span class="s2">"}; // Send an object
+jatos.sendGroupMsg(objMsg)
+</span></code></pre></div></div>
 
 <h3 id="jatossendgroupmsgtorecipient-msg"><code class="highlighter-rouge">jatos.sendGroupMsgTo(recipient, msg)</code></h3>
 
@@ -1546,14 +1510,13 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">"Message for group member 1063"</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">"Message for group member 1063"</span><span class="p">;</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">sendGroupMsgTo</span><span class="p">(</span><span class="s2">"1063"</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>In the next example we use the <code class="highlighter-rouge">onMemberOpen</code> callback to send a message right after a new member opened their group channel:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">joinGroup</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">joinGroup</span><span class="p">({</span>
   <span class="s2">"onMemberOpen"</span><span class="p">:</span> <span class="nx">onMemberOpen</span><span class="p">,</span>
   <span class="s2">"onMessage"</span><span class="p">:</span> <span class="nx">onMessage</span>
 <span class="p">});</span>
@@ -1566,8 +1529,7 @@ $('#toc').on('click', 'a', function() {
 <span class="kd">function</span> <span class="nx">onMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
    <span class="nx">alert</span><span class="p">(</span><span class="s2">"You received a message: "</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosleavegrouponsuccess-onerror"><code class="highlighter-rouge">jatos.leaveGroup(onSuccess, onError)</code></h3>
 
@@ -1581,9 +1543,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">leaveGroup</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">leaveGroup</span><span class="p">();</span>
+</code></pre></div></div>
 
 <h3 id="jatosreassigngrouponsuccess-onfail"><code class="highlighter-rouge">jatos.reassignGroup(onSuccess, onFail)</code></h3>
 
@@ -1597,15 +1558,14 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">reassignGroup</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">reassignGroup</span><span class="p">();</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Successful group reassignment: new group ID is "</span> <span class="o">+</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupResultId</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group reassignment failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatossetgroupfixed"><code class="highlighter-rouge">jatos.setGroupFixed()</code></h3>
 
@@ -1619,9 +1579,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">setGroupFixed</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">setGroupFixed</span><span class="p">();</span>
+</code></pre></div></div>
 
 <h3 id="jatoshasjoinedgroup"><code class="highlighter-rouge">jatos.hasJoinedGroup()</code></h3>
 
@@ -1629,13 +1588,12 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">hasJoinedGroup</span><span class="p">())</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">hasJoinedGroup</span><span class="p">())</span> <span class="p">{</span>
   <span class="c1">// We are member in a group</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
   <span class="c1">// We are not member in a group</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatoshasopengroupchannel"><code class="highlighter-rouge">jatos.hasOpenGroupChannel()</code></h3>
 
@@ -1643,13 +1601,12 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">hasOpenGroupChannel</span><span class="p">())</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">hasOpenGroupChannel</span><span class="p">())</span> <span class="p">{</span>
   <span class="c1">// We are member in a group and have an open group channel</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
   <span class="c1">// We do not have an open group channel (but could still be member in a group)</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosismaxactivememberreached"><code class="highlighter-rouge">jatos.isMaxActiveMemberReached()</code></h3>
 
@@ -1657,31 +1614,28 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">isMaxActiveMemberReached</span><span class="p">())</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">isMaxActiveMemberReached</span><span class="p">())</span> <span class="p">{</span>
   <span class="c1">// Maximum number of active members is reached</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosismaxactivememberopen"><code class="highlighter-rouge">jatos.isMaxActiveMemberOpen()</code></h3>
 
 <p>Returns true if the group has reached the maximum amount of active members like specified in the batch properties and each member has an open group channel.</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">isMaxActiveMemberOpen</span><span class="p">())</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">isMaxActiveMemberOpen</span><span class="p">())</span> <span class="p">{</span>
   <span class="c1">// Maximum number of active members is reached and each has an open channel</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosisgroupopen"><code class="highlighter-rouge">jatos.isGroupOpen()</code></h3>
 
 <p>Returns true if all active members of the group have an open group channel and can send and receive data. It’s not necessary that the group has reached its minimum or maximum active member size.</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">isGroupOpen</span><span class="p">())</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">isGroupOpen</span><span class="p">())</span> <span class="p">{</span>
   <span class="c1">// Each of the current members of the group have an open group channel</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="functions-to-access-the-group-session">Functions to access the Group Session</h2>
 
@@ -1708,26 +1662,24 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": 100}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
-</code></pre>
-</div>
-<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">}</span></code>.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+</code></pre></div></div>
+<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 100, "b": 123}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessionremovepath-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.remove(path, onSuccess, onFail)</code></h3>
 
@@ -1740,27 +1692,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": 100, "b": 123}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">}</span></code>.</p>
+<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 100}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessionreplacepath-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.replace(path, value, onSuccess, onFail)</code></h3>
 
@@ -1774,27 +1724,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": 100, "b": 123}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">789</span><span class="p">}</span></code>.</p>
+<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 100, "b": 789}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessioncopyfrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.copy(from, path, onSuccess, onFail)</code></h3>
 
@@ -1808,27 +1756,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": "jatos"}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code>.</p>
+<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": "jatos", "b": "jatos"}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessionmovefrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.move(from, path, onSuccess, onFail)</code></h3>
 
@@ -1842,27 +1788,25 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code> and one calls</p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": "jatos"}</code> and one calls</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jatos"</span><span class="p">}</span></code>.</p>
+<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge">{"b": "jatos"}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessionfindpath"><code class="highlighter-rouge">jatos.groupSession.find(path)</code></h3>
 
@@ -1873,12 +1817,11 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {object}</em> - the value that is stored in path</li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"a1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w"> </span><span class="nt">"a2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">},</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">}</span></code></p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": {"a1": "foo", "a2": "bar"}, "b": 999}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"/a/a1"</span><span class="p">);</span> <span class="c1">// returns "foo"</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"/a/a1"</span><span class="p">);</span> <span class="c1">// returns "foo"</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span> <span class="c1">// returns 999</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessiondefinedpath"><code class="highlighter-rouge">jatos.groupSession.defined(path)</code></h3>
 
@@ -1893,9 +1836,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">defined</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">);</span> <span class="c1">// returns true if the pointer '/a' exists</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">defined</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">);</span> <span class="c1">// returns true if the pointer '/a' exists</span>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessiontestpath-value"><code class="highlighter-rouge">jatos.groupSession.test(path, value)</code></h3>
 
@@ -1907,13 +1849,12 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {boolean}</em></li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"b1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flowers"</span><span class="p">,</span><span class="w"> </span><span class="nt">"b2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"animals"</span><span class="p">}}</span></code></p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": 123, "b": {"b1": "flowers", "b2": "animals"}}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span> <span class="c1">// returns true</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span> <span class="c1">// returns true</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// returns false</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"/b/b1"</span><span class="p">,</span> <span class="s2">"flowers"</span><span class="p">);</span> <span class="c1">// returns true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessiongetname"><code class="highlighter-rouge">jatos.groupSession.get(name)</code></h3>
 
@@ -1924,20 +1865,18 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {object}</em> - the value that is stored under name</li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"watermelon"</span><span class="p">}</span></code></p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": 1000, "b": "watermelon"}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
-<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"b"</span><span class="p">);</span> <span class="c1">// b is "watermelon"</span>
-<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"c"</span><span class="p">);</span> <span class="c1">// c is undefined</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"b"</span><span class="p">);</span> <span class="c1">// b is "watermelon"</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"c"</span><span class="p">);</span> <span class="c1">// c is undefined</span>
+</code></pre></div></div>
 
-<p>Example: With <code class="highlighter-rouge">jatos.groupSession.get</code> you can only access the first level of the object tree - if you want another level use <code class="highlighter-rouge">jatos.groupSession.find</code>. If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"a1"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="nt">"a2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"watermelon"</span><span class="p">}}</span></code></p>
+<p>Example: With <code class="highlighter-rouge">jatos.groupSession.get</code> you can only access the first level of the object tree - if you want another level use <code class="highlighter-rouge">jatos.groupSession.find</code>. If the internal Group Session is <code class="highlighter-rouge">{"a": {"a1": 123, "a2": "watermelon"}}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"a1"</span><span class="p">);</span> <span class="c1">// a1 is undefined !!!</span>
-<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span> <span class="c1">// a is { "a1": 123, "a2": "watermelon" }</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a1</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"a1"</span><span class="p">);</span> <span class="c1">// a1 is undefined !!!</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span> <span class="c1">// a is { "a1": 123, "a2": "watermelon" }</span>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessionsetname-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.set(name, value, onSuccess, onFail)</code></h3>
 
@@ -1951,28 +1890,26 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p>Example: If the internal Group Session is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">}</span></code></p>
+<p>Example: If the internal Group Session is <code class="highlighter-rouge">{"a": 1234}</code></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
-<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Since the parameter is the key's name and not a path it does not start with a "/"</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"koala"</span><span class="p">}</span></code>.</p>
+<p>then after the Group Session is successfully updated the new internal object is <code class="highlighter-rouge">{"a": 1234, "b": "koala"}</code>.</p>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessiongetall"><code class="highlighter-rouge">jatos.groupSession.getAll()</code></h3>
 
@@ -1984,9 +1921,8 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">groupSession</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">getAll</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">groupSession</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">getAll</span><span class="p">();</span>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessionsetallvalue-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.setAll(value, onSuccess, onFail)</code></h3>
 
@@ -2001,16 +1937,15 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span> <span class="c1">// Overwrites the current Group Session with the object o</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
 <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
@@ -2018,12 +1953,11 @@ $('#toc').on('click', 'a', function() {
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="jatosgroupsessionclearonsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.clear(onSuccess, onFail)</code></h3>
 
-<p>Clears the whole Group Session data and sets it to an empty object <code class="highlighter-rouge"><span class="p">{}</span></code>.</p>
+<p>Clears the whole Group Session data and sets it to an empty object <code class="highlighter-rouge">{}</code>.</p>
 
 <ul>
   <li><em>@param {optional callback} onSuccess</em> - Function to be called if this patch was successfully applied on the server and the client side</li>
@@ -2033,30 +1967,29 @@ $('#toc').on('click', 'a', function() {
 
 <p>Example:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>Since there is a slight chance that the session update was not successful it’s a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use <a href="https://api.jquery.com/deferred.promise/">jQuery’ deferred object</a>.</p>
 
 <p>Example with jQuery’s defered:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
     <div class="tags">
         
     </div>
 
-    
+
+
 
 </div>
 
@@ -2071,10 +2004,12 @@ $('#toc').on('click', 'a', function() {
 </footer>
 
 
-    </div>
+        </div>
     <!-- /.row -->
 </div>
 <!-- /.container -->
+</div>
+<!-- /#main -->
     </div>
 
 </body>

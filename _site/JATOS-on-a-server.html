@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,25 @@
 <title>Install JATOS on a server | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
-
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
 <link rel="stylesheet" href="css/modern-business.css">
-<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
 <link rel="stylesheet" href="css/theme-blue.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/jquery.navgoco.min.js"></script>
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="js/toc.js"></script>
 <script src="js/customscripts.js"></script>
@@ -35,7 +41,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="jatos_docs_v3" href="http://localhost:4000/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -74,12 +80,23 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
     
 
 </head>
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
     <div class="container topnavlinks">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -88,11 +105,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Whats-JATOS.html"><img src="images/jatos_logo_color.svg" height="20">&nbsp;<span class="projectTitle"> JATOS 3 Documentation</span></a>
+            <a class="navbar-brand" href="Whats-JATOS.html"><span class="projectTitle"><img src="images/jatos_logo_color.svg" height="20">&nbsp;JATOS 3 Documentation</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <!-- entries without drop-downs appear here -->
+
+
+
+
                 
                 
                 
@@ -145,322 +166,328 @@
 
 <!-- Page Content -->
 <div class="container">
-    <div class="col-lg-12">&nbsp;</div>
+  <div id="main">
     <!-- Content Row -->
     <div class="row">
-        <!-- Sidebar Column -->
-        <div class="col-md-3">
-
-          
-
-
-
-
-
-
-
-
-
-
-
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle"> </li>
-    
-    
-    
-        
-    
-    <li>
-        <a href="#">Overview</a>
-        <ul>
-            
-            
-            
-            <li><a href="Whats-JATOS.html">What's JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            
-            
-            <li><a href="Installation.html">Installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Get-started.html">Get started</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Write your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Run your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Worker-Types.html">Worker Types</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Manage-Results.html">Manage Results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Manage your JATOS</a>
-        <ul>
-            
-            
-            
-            <li><a href="User-Manager.html">Manage JATOS users</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Change-studys-members.html">Change study's members</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Update-JATOS.html">Update JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Troubleshooting.html">Troubleshooting</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Group Studies</a>
-        <ul>
-            
-            
-            
-            <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">For admins</a>
-        <ul>
-            
-            
-            
-            <li class="active"><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Reference</a>
-        <ul>
-            
-            
-            
-            <li><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-        
-        <!-- if you aren't using the accordion, uncomment this block:
-           <p class="external">
-               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
-           </p>
-           -->
-    </li>
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li><a href="Whats-JATOS.html">What's JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          
+          
+          <li><a href="Installation.html">Installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Get-started.html">Get started</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Write your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="labjs-and-JATOS.html">lab.js and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Run your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Worker-Types.html">Worker Types</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Manage-Results.html">Manage Results</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Manage your JATOS</a>
+      <ul>
+          
+          
+          
+          <li><a href="User-Manager.html">Manage JATOS users</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Change-studys-members.html">Change study's members</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Update-JATOS.html">Update JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Troubleshooting.html">Troubleshooting</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Group Studies</a>
+      <ul>
+          
+          
+          
+          <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">For admins</a>
+      <ul>
+          
+          
+          
+          <li class="active"><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Reference</a>
+      <ul>
+          
+          
+          
+          <li><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
 </ul>
-</div>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
-    <!-- Content Column -->
-    <div class="col-md-9">
-        <div class="post-header">
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
    <h1 class="post-title-main">Install JATOS on a server</h1>
 </div>
 
@@ -504,6 +531,9 @@ $('#toc').on('click', 'a', function() {
 
     
 
+
+    
+
   <p>There are several ways to bring JATOS to the internet. You can install it</p>
 
 <ul>
@@ -520,11 +550,11 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="installation-on-a-server">Installation on a server</h2>
 
-<h3 id="install-java">1. Install Java</h3>
+<h3 id="1-install-java">1. Install Java</h3>
 
 <p>We’ve produced multiple versions of JATOS. The simplest version is JATOS alone, but other versions are bundled with Java JRE. On a server, it’s best (though not necessary) to install JATOS without a bundled Java. This will make it easier to upgrade to new Java releases.</p>
 
-<h3 id="install-jatos">2. Install JATOS</h3>
+<h3 id="2-install-jatos">2. Install JATOS</h3>
 
 <ol>
   <li>
@@ -545,10 +575,10 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ol>
 
-<h3 id="configuration">3. Configuration</h3>
+<h3 id="3-configuration">3. Configuration</h3>
 <p>If JATOS runs locally it’s usually not necessary to change the defaults but on a server you probably want to set up the IP and port or maybe use a different database and change the path of the study assets root folder. These docs have an extra page on how to <a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a>.</p>
 
-<h3 id="change-admins-password">4. Change Admin’s password</h3>
+<h3 id="4-change-admins-password">4. Change Admin’s password</h3>
 <p>Every JATOS installation comes with an Admin user that has the default password ‘admin’. You must change it before the server goes live. This can be done in JATOS’ GUI:</p>
 
 <ol>
@@ -558,10 +588,10 @@ $('#toc').on('click', 'a', function() {
   <li>Click ‘Change Password’</li>
 </ol>
 
-<h3 id="check-jatos-test-page">5. Check JATOS’ test page</h3>
+<h3 id="5-check-jatos-test-page">5. Check JATOS’ test page</h3>
 <p>JATOS comes with a handy test page <code class="highlighter-rouge">http://your-domain-or-IP/jatos/test</code>. It shows some of the current configuration and system properties. Above all it does some tests, e.g. WebSockets connections and database connection. Check that all tests show an ‘OK’.</p>
 
-<h3 id="optional-http-server-and-encryption">6. [Optional] HTTP server and encryption</h3>
+<h3 id="6-optional-http-server-and-encryption">6. [Optional] HTTP server and encryption</h3>
 <p>Most admins tend to use an additional HTTP server in front of JATOS for encryption purpose. We provide two example configurations for Nginx and Apache. Both support encryption and WebSockets (keep in mind JATOS relies on WebSockets and it’s necessary to support them).</p>
 
 <ul>
@@ -569,59 +599,57 @@ $('#toc').on('click', 'a', function() {
   <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
 </ul>
 
-<h3 id="optional-auto-start-jatos">7. [Optional] Auto-start JATOS</h3>
+<h3 id="7-optional-auto-start-jatos">7. [Optional] Auto-start JATOS</h3>
 
 <p>It’s nice to have JATOS starts automatically after a start or a reboot of your machine. Choose between one of the two possibilities: 1) via a systemd service (JATOS version &gt;= 3.1.6, recommended), or 2) via a init.d script.</p>
 
-<h4 id="via-systemd-service-jatos-version--316-recommended">1) Via systemd service (JATOS version &gt;= 3.1.6, recommended)</h4>
+<h4 id="1-via-systemd-service-jatos-version--316-recommended">1) Via systemd service (JATOS version &gt;= 3.1.6, recommended)</h4>
 
-<p>Create a systemd service file for JATOS 
-<code class="highlighter-rouge">shell
-vim /etc/systemd/system/jatos.service
-</code>
-and put the following text inside. 
-```shell
-[Unit]
-Description=JATOS
-After=network-online.target
-# If you use JATOS with an MySQL database use
-#After=network-online.target mysql.service</p>
+<p>Create a systemd service file for JATOS</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/systemd/system/jatos.service
+</code></pre></div></div>
+<p>and put the following text inside.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Unit]
+<span class="nv">Description</span><span class="o">=</span>JATOS
+<span class="nv">After</span><span class="o">=</span>network-online.target
+<span class="c"># If you use JATOS with an MySQL database use</span>
+<span class="c">#After=network-online.target mysql.service</span>
 
-<p>[Service]
-Type=forking
-PIDFile=/my/path/to/jatos/RUNNING_PID
-User=my-jatos-user
-ExecStart=/my/path/to/jatos/loader.sh start
-ExecStop=/bin/kill $MAINPID
-ExecStopPost=/bin/rm -f /my/path/to/jatos/RUNNING_PID
-ExecRestart=/bin/kill $MAINPID
-Restart=on-failure
-RestartSec=5</p>
+<span class="o">[</span>Service]
+<span class="nv">Type</span><span class="o">=</span>forking
+<span class="nv">PIDFile</span><span class="o">=</span>/my/path/to/jatos/RUNNING_PID
+<span class="nv">User</span><span class="o">=</span>my-jatos-user
+<span class="nv">ExecStart</span><span class="o">=</span>/my/path/to/jatos/loader.sh start
+<span class="nv">ExecStop</span><span class="o">=</span>/bin/kill <span class="nv">$MAINPID</span>
+<span class="nv">ExecStopPost</span><span class="o">=</span>/bin/rm <span class="nt">-f</span> /my/path/to/jatos/RUNNING_PID
+<span class="nv">ExecRestart</span><span class="o">=</span>/bin/kill <span class="nv">$MAINPID</span>
+<span class="nv">Restart</span><span class="o">=</span>on-failure
+<span class="nv">RestartSec</span><span class="o">=</span>5
 
-<p>[Install]
-WantedBy=multi-user.target
-```
-Change the paths and the user according to your JATOS path and the user you want to start JATOS with.</p>
+<span class="o">[</span>Install]
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div></div>
+<p>Change the paths and the user according to your JATOS path and the user you want to start JATOS with.</p>
 
-<p>Secondly, notify systemd of the new service file:
-<code class="highlighter-rouge">shell
-systemctl daemon-reload
-</code>
-and enable it, so it runs on boot:
-<code class="highlighter-rouge">shell
-systemctl enable jatos.service
-</code>
-That’s it.</p>
+<p>Secondly, notify systemd of the new service file:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl daemon-reload
+</code></pre></div></div>
+<p>and enable it, so it runs on boot:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl <span class="nb">enable </span>jatos.service
+</code></pre></div></div>
+<p>That’s it.</p>
 
-<p>Additionally you can manually start/stop JATOS now with:
-* <code class="highlighter-rouge">systemctl start jatos.service</code>
-* <code class="highlighter-rouge">systemctl stop jatos.service</code>
-* <code class="highlighter-rouge">systemctl restart jatos.service</code>
-* <code class="highlighter-rouge">systemctl status jatos.service</code></p>
+<p>Additionally you can manually start/stop JATOS now with:</p>
+<ul>
+  <li><code class="highlighter-rouge">systemctl start jatos.service</code></li>
+  <li><code class="highlighter-rouge">systemctl stop jatos.service</code></li>
+  <li><code class="highlighter-rouge">systemctl restart jatos.service</code></li>
+  <li><code class="highlighter-rouge">systemctl status jatos.service</code></li>
+</ul>
 
 <p>You can disable the service with <code class="highlighter-rouge">systemctl disable jatos.service</code>. If you change the service file you need <code class="highlighter-rouge">systemctl daemon-reload jatos.service</code> to let the system know.</p>
 
-<h4 id="via-etcinitd-script">2) Via /etc/init.d script</h4>
+<h4 id="2-via-etcinitd-script">2) Via /etc/init.d script</h4>
 <p>It’s easy to turn the <code class="highlighter-rouge">loader.sh</code> script into an init script for a daemon.</p>
 
 <ol>
@@ -636,7 +664,7 @@ That’s it.</p>
 
         <p>The beginning of your <code class="highlighter-rouge">/etc/init.d/jatos</code> should look like:</p>
 
-        <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+        <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
 <span class="c"># JATOS loader for Linux and MacOS X</span>
       
 <span class="c"># Change IP address and port here</span>
@@ -651,8 +679,7 @@ That’s it.</p>
 <span class="c">#dir="$( cd "$( dirname "$0" )" &amp;&amp; pwd )"</span>
 <span class="nv">dir</span><span class="o">=</span><span class="s2">"/path/to/my/JATOS/installation"</span>
 ...
-</code></pre>
-        </div>
+</code></pre></div>        </div>
         <p> </p>
       </li>
     </ol>
@@ -662,7 +689,7 @@ That’s it.</p>
 
 <p>Now JATOS starts automatically when you start your server and stops when you shut it down. You can also use the init script yourself like any other init script with <code class="highlighter-rouge">sudo /etc/init.d/jatos start|stop|restart</code>.</p>
 
-<h3 id="optional-backup">8. [Optional] Backup</h3>
+<h3 id="8-optional-backup">8. [Optional] Backup</h3>
 
 <p>The easiest way to backup is to let JATOS users care themselves for their own data. JATOS has an easy to use <a href="Manage-results.html">export function for result data</a>. So you could just tell everyone to export their data regularily.</p>
 
@@ -690,7 +717,8 @@ That’s it.</p>
         
     </div>
 
-    
+
+
 
 </div>
 
@@ -705,10 +733,12 @@ That’s it.</p>
 </footer>
 
 
-    </div>
+        </div>
     <!-- /.row -->
 </div>
 <!-- /.container -->
+</div>
+<!-- /#main -->
     </div>
 
 </body>

@@ -83,7 +83,7 @@
 {
 "title": "Example Studies",
 "tags": "",
-"keywords": "examples, jspsych, javascript, bootstrap, jquery, pure, css, highchart, survey",
+"keywords": "examples, jspsych, lab.js, labjs, javascript, bootstrap, jquery, pure, css, highchart, survey",
 "url": "Example-Studies.html",
 "summary": "These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and presentation, messaging in group studies). They are not meant to show what JATOS itself does (since JATOS doesn't care for the browser side)."
 }
@@ -336,7 +336,7 @@
 {
 "title": "Worker Types",
 "tags": "",
-"keywords": "worker types, Jatos Worker, Personal Single Worker, Personal Multiple Worker, MTurk Worker, Preview Links",
+"keywords": "worker types, Jatos Worker, Personal Single Worker, Personal Multiple Worker, MTurk Worker, General Single Worker, General Multiple Worker, MTurk Sandbox Worker, MTurk, Sandbox, General, Single, Multiple, Personal, Preview Links",
 "url": "Worker-Types.html",
 "summary": "Following Amazon Mechanical Turk’s terminology, a worker in JATOS is a person who runs a study. Different worker types access a study in different ways. For example, some workers can run the same study multiple times, whereas others can do it only once."
 }
@@ -365,6 +365,17 @@
 ,
 
 
+
+
+
+{
+"title": "Getting started with the Documentation Theme for Jekyll",
+"tags": "getting_started",
+"keywords": "sample homepage",
+"url": "index.html",
+"summary": "These brief instructions will help you get started quickly with the theme. The other topics in this help provide additional information and detail about working with other aspects of this theme and Jekyll."
+}
+,
 
 
 
@@ -401,28 +412,28 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
-"title": "Scroll layout",
-"tags": "special_layouts",
-"keywords": "json, scrolling, scrollto, jquery plugin",
-"url": "jsmydoc_scroll.html",
-"summary": "This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definitions for that particular term. The scenario here is that the JSON blocks are really long, with extensive nesting and subnesting, which makes it difficult for tables below the JSON to adequately explain the term in a usable way."
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "assetscssstyle.css",
+"summary": ""
 }
 ,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -432,7 +443,7 @@
 "title": "Sample post",
 "tags": "newsgetting_started",
 "keywords": "",
-"url": "/samplepost.html",
+"url": "samplepost.html",
 "summary": "This is some summary frontmatter for my sample post."
 }
 ,
@@ -442,7 +453,7 @@
 "title": "Welcome to Jekyll!",
 "tags": "news",
 "keywords": "",
-"url": "/myupdate.html",
+"url": "myupdate.html",
 "summary": ""
 }
 ,
@@ -452,7 +463,7 @@
 "title": "Test post from last year",
 "tags": "news",
 "keywords": "",
-"url": "/test-post-from-last-year.html",
+"url": "test-post-from-last-year.html",
 "summary": ""
 }
 

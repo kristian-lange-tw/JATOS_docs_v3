@@ -1,7 +1,7 @@
 ---
 type: title
 search: exclude
-permalink: /titlepage/
+permalink: /titlepage.html/
 ---
 <div class="printTitleArea">
     <div class="printTitle">{{site.print_title}}</div>
@@ -10,14 +10,11 @@ permalink: /titlepage/
     <hr />
 
     <div class="printTitleImage">
-        <img src="{{site.url}}/{{site.baseurl}}/images/jatos_logo_color.svg"/>
+        <img src="{{site.url}}/{{site.baseurl}}/images/company_logo_big.png" alt="Company Logo"/>
     </div>
 
     <div class="copyrightBoilerplate">
-        <p>&copy; 2016 JATOS. This documentation may be reproduced and distributed in whole or in part, in any medium physical or electronic.
-        </p>
-        <p>
-        NO WARRANTY. The JATOS documentation is licensed and provided "as is" without warranty of any kind, express or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose or a warranty of non-infringement.
+        <p>&copy; {{ site.time | date: "%Y" }} {{site.company_name}}. This is a boilerplate copyright statement... All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
         </p>
 
     </div>

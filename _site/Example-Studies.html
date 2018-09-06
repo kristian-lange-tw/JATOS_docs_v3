@@ -1,27 +1,33 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and...">
-<meta name="keywords" content=" examples, jspsych, javascript, bootstrap, jquery, pure, css, highchart, survey">
+<meta name="keywords" content=" examples, jspsych, lab.js, labjs, javascript, bootstrap, jquery, pure, css, highchart, survey">
 <title>Example Studies | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
-
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
 <link rel="stylesheet" href="css/modern-business.css">
-<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
 <link rel="stylesheet" href="css/theme-blue.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/jquery.navgoco.min.js"></script>
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="js/toc.js"></script>
 <script src="js/customscripts.js"></script>
@@ -35,7 +41,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="jatos_docs_v3" href="http://localhost:4000/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -74,12 +80,23 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
     
 
 </head>
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
     <div class="container topnavlinks">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -88,11 +105,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Whats-JATOS.html"><img src="images/jatos_logo_color.svg" height="20">&nbsp;<span class="projectTitle"> JATOS 3 Documentation</span></a>
+            <a class="navbar-brand" href="Whats-JATOS.html"><span class="projectTitle"><img src="images/jatos_logo_color.svg" height="20">&nbsp;JATOS 3 Documentation</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <!-- entries without drop-downs appear here -->
+
+
+
+
                 
                 
                 
@@ -145,322 +166,328 @@
 
 <!-- Page Content -->
 <div class="container">
-    <div class="col-lg-12">&nbsp;</div>
+  <div id="main">
     <!-- Content Row -->
     <div class="row">
-        <!-- Sidebar Column -->
-        <div class="col-md-3">
-
-          
-
-
-
-
-
-
-
-
-
-
-
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle"> </li>
-    
-    
-    
-        
-    
-    <li>
-        <a href="#">Overview</a>
-        <ul>
-            
-            
-            
-            <li><a href="Whats-JATOS.html">What's JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            
-            
-            <li><a href="Installation.html">Installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Get-started.html">Get started</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Write your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Run your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Worker-Types.html">Worker Types</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Manage-Results.html">Manage Results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Manage your JATOS</a>
-        <ul>
-            
-            
-            
-            <li><a href="User-Manager.html">Manage JATOS users</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Change-studys-members.html">Change study's members</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Update-JATOS.html">Update JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Troubleshooting.html">Troubleshooting</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Group Studies</a>
-        <ul>
-            
-            
-            
-            <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">For admins</a>
-        <ul>
-            
-            
-            
-            <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Reference</a>
-        <ul>
-            
-            
-            
-            <li><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-        
-        <!-- if you aren't using the accordion, uncomment this block:
-           <p class="external">
-               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
-           </p>
-           -->
-    </li>
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li><a href="Whats-JATOS.html">What's JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          
+          
+          <li><a href="Installation.html">Installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Get-started.html">Get started</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Write your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="labjs-and-JATOS.html">lab.js and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Run your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Worker-Types.html">Worker Types</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Manage-Results.html">Manage Results</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Manage your JATOS</a>
+      <ul>
+          
+          
+          
+          <li><a href="User-Manager.html">Manage JATOS users</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Change-studys-members.html">Change study's members</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Update-JATOS.html">Update JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Troubleshooting.html">Troubleshooting</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Group Studies</a>
+      <ul>
+          
+          
+          
+          <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">For admins</a>
+      <ul>
+          
+          
+          
+          <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Reference</a>
+      <ul>
+          
+          
+          
+          <li><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
 </ul>
-</div>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
-    <!-- Content Column -->
-    <div class="col-md-9">
-        <div class="post-header">
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
    <h1 class="post-title-main">Example Studies</h1>
 </div>
 
@@ -504,6 +531,9 @@ $('#toc').on('click', 'a', function() {
 
     
 
+
+    
+
   <p>If you wrote an example study that you’d like to share, please feel free to <a href="Contact-us.html">contact us</a> and we’ll include it in this page!</p>
 
 <p>Since JATOS cares mostly for the server side it gives you the freedom to use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like <a href="https://jquery.com/">jQuery</a>, <a href="https://angularjs.org/">AngularJS</a>, <a href="http://getbootstrap.com/">Bootstrap</a>, <a href="http://www.highcharts.com/">Highcharts</a>, <a href="https://p5js.org/">p5</a>, or <a href="http://www.jspsych.org/">jsPsych</a> are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. <a href="http://purecss.io/">Pure.css</a>, <a href="http://www.google.com/design/spec/material-design/introduction.html">Material Design</a>).</p>
@@ -524,7 +554,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Shows some features of JATOS version 3.3.1 and 3.2.3</p>
 
-<p><img src="images/example-studies/Screenshot_simple_example_v-3-3-1.png" alt="Simple Example JATOS v3.3.1" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_simple_example_v-3-3-1.png" alt="Simple Example JATOS v3.3.1" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><a href="https://github.com/JATOS/JATOS_examples/raw/master/examples/simple_example_jatos_v3.3.1.zip">Download Simple Example JATOS v3.3.1</a>.</p>
 
@@ -533,7 +563,7 @@ $('#toc').on('click', 'a', function() {
 <p>Standard Go- / No-Go experiment.
 This study illustrates the compatibility between JATOS and the excellent <strong>jsPsych</strong> library (<a href="http://www.jspsych.org/">www.jspsych.org</a>). With jsPsych one can program the actual experiment while JATOS cares for the server-side.</p>
 
-<p><img src="images/example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.3.1 or newer</strong></p>
 
@@ -543,7 +573,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Same experiment but with an older version of jsPsych (5.0.3).</p>
 
-<p><img src="images/example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -553,7 +583,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Template to randomly assign participants to conditions A, B, or C (with fixed numbers for each condition).</p>
 
-<p><img src="images/example-studies/Screenshot_randomization_between_workers.png" alt="Screenshot Randomization between participants" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_randomization_between_workers.png" alt="Screenshot Randomization between participants" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.3.1 or newer</strong></p>
 
@@ -561,10 +591,12 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <h3 id="lexical-decision-with-jspsych-503">Lexical Decision (with jsPsych 5.0.3)</h3>
 
-<p>Taken from <a href="http://www.factorsdb.org/">http://www.factorsdb.org/</a> using <strong>jsPsych</strong> library (<a href="http://www.jspsych.org/">www.jspsych.org</a>)
-&gt; In a lexical decision task, participants classify whether a string of letters is a word or a nonword. This version is based on one of the earliest lexical decision tasks, reported in Rubenstein, Garfield, &amp; Millikan, 1970. The experiment tests response time for high and low frequency English words.</p>
+<p>Taken from <a href="http://www.factorsdb.org/">http://www.factorsdb.org/</a> using <strong>jsPsych</strong> library (<a href="http://www.jspsych.org/">www.jspsych.org</a>)</p>
+<blockquote>
+  <p>In a lexical decision task, participants classify whether a string of letters is a word or a nonword. This version is based on one of the earliest lexical decision tasks, reported in Rubenstein, Garfield, &amp; Millikan, 1970. The experiment tests response time for high and low frequency English words.</p>
+</blockquote>
 
-<p><img src="images/example-studies/Screenshot_lexicalDecision_word.png" alt="Screenshot Lexical Decision" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_lexicalDecision_word.png" alt="Screenshot Lexical Decision" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -582,7 +614,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
   <p>This fully-customizable RDK offers options to implement several different types of noise (random position, random walk, random direction) and parameters to control aperture shape, coherence level, the number of dots, and many other features.</p>
 </blockquote>
 
-<p><img src="images/example-studies/Screenshot_rdk.png" alt="Screenshot RDK" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_rdk.png" alt="Screenshot RDK" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -592,7 +624,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p><a href="http://surveyjs.org">SurveyJS</a> is an easy to use library to create simple forms or complex surveys and questionaires. Have a look at <a href="http://surveyjs.org/examples/jquery/questiontype-text/">surveyjs.org/examples/jquery/questiontype-text</a> to see what is possible.</p>
 
-<p><img src="images/example-studies/survey-js-screenshot.png" alt="Screenshot SurveyJS Example" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/survey-js-screenshot.png" alt="Screenshot SurveyJS Example" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -602,7 +634,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>With <a href="https://jqueryui.com/">jQuery UI</a> it’s quite simple to add common (and pretty!) GUI elements to your study, like a date picker, a sortable list or a slider.</p>
 
-<p><img src="images/example-studies/Screenshot_jqueryuiExample_personalData.png" alt="Screenshot jQuery UI Example" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_jqueryuiExample_personalData.png" alt="Screenshot jQuery UI Example" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -612,7 +644,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p><a href="https://p5js.org/">p5.js</a> is a graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, video, sound, or capture from the webcam or the mic. Have a look at their <a href="https://p5js.org/examples/">example section</a>.</p>
 
-<p><img src="images/example-studies/p5-js-screenshot5.gif" alt="Screenshot p5.js Example" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/p5-js-screenshot5.gif" alt="Screenshot p5.js Example" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -622,7 +654,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Shows how to embed a video with HTML 5 by using the browsers video player, YouTube, or the <a href="http://www.videojs.com/">video.js</a> JavaScript library.</p>
 
-<p><img src="images/example-studies/Screenshot_videoExample2.png" alt="Screenshot Video Example" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_videoExample2.png" alt="Screenshot Video Example" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 1.1.11 or newer</strong></p>
 
@@ -632,7 +664,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Simple example of how to store results in CSV format</p>
 
-<p><img src="images/example-studies/Screenshot_csv_example.png" alt="Screenshot Results in CSV Format Example" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_csv_example.png" alt="Screenshot Results in CSV Format Example" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -642,7 +674,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Simple example of a consent form with text and buttons ‘I agree’ and ‘Cancel’.</p>
 
-<p><img src="images/example-studies/Screenshot_consent_form.png" alt="Screenshot Simple Consent Form" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_consent_form.png" alt="Screenshot Simple Consent Form" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -652,17 +684,17 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>This mobile-friendly example just has an introduction component that includes a consent text. With pressing the start button the worker gives his consent. This is also a good showcase for the <a href="Worker-Types.html#preview-links">JATOS’ preview feature</a>.</p>
 
-<p><img src="images/example-studies/Screenshot_preview_showcase.png" alt="Screenshot Preview Showcase (Introduction with Consent)" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_preview_showcase.png" alt="Screenshot Preview Showcase (Introduction with Consent)" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
 <p><a href="https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form_and_introduction_with_preview_feature.zip">Download Consent Form and Introduction with Preview Feature</a></p>
 
-<h3 id="game">2048 Game</h3>
+<h3 id="2048-game">2048 Game</h3>
 
 <p>This addictive game is created by Gabriele Cirulli. Based on 1024 by Veewo Studio and conceptually similar to Threes by Asher Vollmer. The original game is published under the MIT licence. The source code can be found in <a href="https://github.com/gabrielecirulli/2048">GitHub</a>.</p>
 
-<p><img src="images/example-studies/Screenshot_2048Game.png" alt="Screenshot 2048 Game" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_2048Game.png" alt="Screenshot 2048 Game" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 1.1.11 or newer</strong></p>
 
@@ -672,7 +704,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>An example of a (slightly different) use of JATOS. Here, we’re not collecting participants’ data. We’re just using JATOS as a regular server to display an HTML page. In this case, the page uses the <a href="http://www.highcharts.com/">Highcharts library</a> to  display the results from a questionnaire that we ran online in JATOS.</p>
 
-<p><img src="images/example-studies/Screenshot_dataDisplay_scatter.png" alt="Screenshot Data Visualization Example (with Highcharts)" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_dataDisplay_scatter.png" alt="Screenshot Data Visualization Example (with Highcharts)" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 1.1.11 or newer</strong></p>
 
@@ -686,7 +718,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
   <p>In this task, you will participate in a fishing tournament. During this tournament you will play a fishing game for multiple rounds. Each round, you will see a lake which has many fish in it. Your goal is to catch as many fish as possible.</p>
 </blockquote>
 
-<p><img src="images/example-studies/Screenshot_anglingTask.png" alt="Screenshot Angling Risk Task Always Sunny" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_anglingTask.png" alt="Screenshot Angling Risk Task Always Sunny" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -696,7 +728,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>This is an example for standard questionnaire as done by <a href="http://expfactory.github.io/">expfactory.github.io</a>.</p>
 
-<p><img src="images/example-studies/Screenshot_selfRegulationSurvey.png" alt="Screenshot Self Regulation Survey" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_selfRegulationSurvey.png" alt="Screenshot Self Regulation Survey" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -706,7 +738,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>This classical arcade game is an example for a game made with the Phaser framework (<a href="http://phaser.io/">phaser.io</a>). It is taken from their examples at <a href="https://github.com/photonstorm/phaser-examples">github.com/photonstorm/phaser-examples</a>.</p>
 
-<p><img src="images/example-studies/Screenshot_spaceInvaders.png" alt="Screenshot Invaders Game (with Phaser framework)" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_spaceInvaders.png" alt="Screenshot Invaders Game (with Phaser framework)" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -716,7 +748,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>This is a standard visual metacognition task. It is uses the <strong>jsPsych</strong> library (<a href="http://www.jspsych.org/">www.jspsych.org</a>) and is taken from <a href="http://expfactory.github.io/">expfactory.github.io</a>.</p>
 
-<p><img src="images/example-studies/Screenshot_perceptional_metacognition_stumili.png" alt="Screenshot Perceptual Metacognition" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_perceptional_metacognition_stumili.png" alt="Screenshot Perceptual Metacognition" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -726,7 +758,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Example study to save images in JATOS. It uses <a href="http://www.jspsych.org/"><strong>jsPsych 6.0.0</strong></a>  with the ‘canvas-drawing-circle’ plugin-in. It saves the drawn image in JATOS (by turning the image into text using a base64 encoding).</p>
 
-<p><img src="images/example-studies/Screenshot_clock_drawing.png" alt="Screenshot Clock Drawing" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_clock_drawing.png" alt="Screenshot Clock Drawing" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -736,7 +768,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Example how to use <a href="http://interactjs.io/">interact.js</a> to achieve draggable elements (drag &amp; drop).</p>
 
-<p><img src="images/example-studies/Screenshot_potatoCompass.png" alt="Screenshot Potato Compass (using interact.js)" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_potatoCompass.png" alt="Screenshot Potato Compass (using interact.js)" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.7 or newer</strong></p>
 
@@ -746,7 +778,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>In this example we show JATOS’ three different session types in action (see <a href="Session-Data-Three-Types.html">Session Data - Three Types</a> for more information).</p>
 
-<p><img src="images/example-studies/ChatExample_4.png" alt="Screenshot Study, Group, and Batch Session Example Study" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/ChatExample_4.png" alt="Screenshot Study, Group, and Batch Session Example Study" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -756,7 +788,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Let members of a group study talk to each other: Here is a chat example. It uses the Group Session.</p>
 
-<p><img src="images/example-studies/Screenshot_chat.png" alt="Screenshot Group Chat" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_chat.png" alt="Screenshot Group Chat" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -766,7 +798,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>Let members of a batch talk to each other: Here is a chat example. It uses the Batch Session.</p>
 
-<p><img src="images/example-studies/Screenshot_chat.png" alt="Screenshot Group Chat" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_chat.png" alt="Screenshot Group Chat" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -776,7 +808,7 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>This is an implementation of the <a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma">Prisoner’s Dilemma</a> to show the group study feature of JATOS where two workers interact with each other in the same study run.</p>
 
-<p><img src="images/example-studies/Screenshot_prisonersDilemma.png" alt="Screenshot Prisoner's Dilemma" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_prisonersDilemma.png" alt="Screenshot Prisoner's Dilemma" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 3.1.1 or newer</strong></p>
 
@@ -786,19 +818,19 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 
 <p>This is a variant of the <a href="https://en.wikipedia.org/wiki/Snake_(video_game)">Snake game</a> in which one can play against several other players to show the group study feature of JATOS where several workers interact with each other in the same study run.</p>
 
-<p><img src="images/example-studies/Screenshot_snakeGame.png" alt="Screenshot Snake" width="300" /></p>
+<figure><img class="docimage" src="images/example-studies/Screenshot_snakeGame.png" alt="Screenshot Snake" style="max-width: 500px" /><figcaption></figcaption></figure>
 
 <p><strong>Needs JATOS version 2.1.3 or newer</strong></p>
 
 <p><a href="https://github.com/JATOS/JATOS_examples/raw/master/examples/snake_game.zip">Download Snake Game example</a></p>
 
 
-
     <div class="tags">
         
     </div>
 
-    
+
+
 
 </div>
 
@@ -807,16 +839,18 @@ This study illustrates the compatibility between JATOS and the excellent <strong
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 7 Aug 2018
+<span>Page last updated:</span> 6 Sep 2018
                 </div>
             </div>
 </footer>
 
 
-    </div>
+        </div>
     <!-- /.row -->
 </div>
 <!-- /.container -->
+</div>
+<!-- /#main -->
     </div>
 
 </body>

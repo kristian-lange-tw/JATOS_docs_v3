@@ -27,7 +27,7 @@ As an example of this, let's go through the Snake Game group study in detail:
 1. Voilà! You'll see two snakes moving around: each tab represents one worker who is running the Snake Game - but they are in the same group
 1. Optional: Add more snakes by adding more workers. You can try every worker type you want - it's of course not limited to Jatos Workers.
 1. Optional: Have a look at your [Group in the Worker & and Batch Manager](Run-your-Study-with-Worker-and-Batch-Manager.html#groups-since-v331) add see who the member workers are.
-   ![Snake Game](images/example-studies/Screenshot_snakeGame.png){:width="400"}
+   {% include image.html file="example-studies/Screenshot_snakeGame.png" alt="Snake Game" caption="" max-width="500" %}
 
 There's actually a lot going on behind the curtain of a group study. All members of a group are able to communicate in real-time with each other directly or broadcast messages to the whole group.
 

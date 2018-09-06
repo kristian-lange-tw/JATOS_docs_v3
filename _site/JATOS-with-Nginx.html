@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,25 @@
 <title>JATOS with Nginx | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
-
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
 <link rel="stylesheet" href="css/modern-business.css">
-<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
 <link rel="stylesheet" href="css/theme-blue.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/jquery.navgoco.min.js"></script>
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="js/toc.js"></script>
 <script src="js/customscripts.js"></script>
@@ -35,7 +41,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+<link rel="alternate" type="application/rss+xml" title="jatos_docs_v3" href="http://localhost:4000/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -74,12 +80,23 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
     
 
 </head>
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
     <div class="container topnavlinks">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -88,11 +105,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Whats-JATOS.html"><img src="images/jatos_logo_color.svg" height="20">&nbsp;<span class="projectTitle"> JATOS 3 Documentation</span></a>
+            <a class="navbar-brand" href="Whats-JATOS.html"><span class="projectTitle"><img src="images/jatos_logo_color.svg" height="20">&nbsp;JATOS 3 Documentation</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <!-- entries without drop-downs appear here -->
+
+
+
+
                 
                 
                 
@@ -145,322 +166,328 @@
 
 <!-- Page Content -->
 <div class="container">
-    <div class="col-lg-12">&nbsp;</div>
+  <div id="main">
     <!-- Content Row -->
     <div class="row">
-        <!-- Sidebar Column -->
-        <div class="col-md-3">
-
-          
-
-
-
-
-
-
-
-
-
-
-
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle"> </li>
-    
-    
-    
-        
-    
-    <li>
-        <a href="#">Overview</a>
-        <ul>
-            
-            
-            
-            <li><a href="Whats-JATOS.html">What's JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            
-            
-            <li><a href="Installation.html">Installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Get-started.html">Get started</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Write your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Run your study</a>
-        <ul>
-            
-            
-            
-            <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Worker-Types.html">Worker Types</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Manage-Results.html">Manage Results</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Manage your JATOS</a>
-        <ul>
-            
-            
-            
-            <li><a href="User-Manager.html">Manage JATOS users</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Change-studys-members.html">Change study's members</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Update-JATOS.html">Update JATOS</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Troubleshooting.html">Troubleshooting</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Group Studies</a>
-        <ul>
-            
-            
-            
-            <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">For admins</a>
-        <ul>
-            
-            
-            
-            <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
-            
-            
-            
-            
-            
-            
-            <li class="active"><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
-            
-            
-            
-            
-            
-            
-            <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-    
-    <li>
-        <a href="#">Reference</a>
-        <ul>
-            
-            
-            
-            <li><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
-            
-            
-            
-            
-        </ul>
-        
-        
-        
-        <!-- if you aren't using the accordion, uncomment this block:
-           <p class="external">
-               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
-           </p>
-           -->
-    </li>
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li><a href="Whats-JATOS.html">What's JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          
+          
+          <li><a href="Installation.html">Installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Get-started.html">Get started</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Migrate-from-v2-to-v3.html">Migrate from JATOS 2 to JATOS 3</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Write your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="labjs-and-JATOS.html">lab.js and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Run your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Worker-Types.html">Worker Types</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Manage-Results.html">Manage Results</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Manage your JATOS</a>
+      <ul>
+          
+          
+          
+          <li><a href="User-Manager.html">Manage JATOS users</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Change-studys-members.html">Change study's members</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Update-JATOS.html">Update JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Troubleshooting.html">Troubleshooting</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Group Studies</a>
+      <ul>
+          
+          
+          
+          <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">For admins</a>
+      <ul>
+          
+          
+          
+          <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
+          
+          
+          
+          
+          
+          
+          <li class="active"><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Reference</a>
+      <ul>
+          
+          
+          
+          <li><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
 </ul>
-</div>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
-    <!-- Content Column -->
-    <div class="col-md-9">
-        <div class="post-header">
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
    <h1 class="post-title-main">JATOS with Nginx</h1>
 </div>
 
@@ -479,6 +506,9 @@
 
     
 
+
+    
+
   <p>These are examples for configurations of <a href="https://www.nginx.com/">Nginx</a> as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it’s common. They support WebSockets for JATOS’ group studies.</p>
 
 <p>The following two configs are the content of <code class="highlighter-rouge">/etc/nginx/nginx.conf</code>. Change them to your needs. You probably want to change your servers address (<code class="highlighter-rouge">www.example.com</code> in the example) and the path to the SSL certificate and its key. Those <code class="highlighter-rouge">proxy_set_header X-Forwarded-*</code> and <code class="highlighter-rouge">proxy_set_header X-Real-IP</code> are necessary to tell JATOS the real requester’s IP address - please leave them unchanged.</p>
@@ -489,74 +519,74 @@
 
 <h2 id="with-https">With HTTPS</h2>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>user www-data;
-worker_processes auto;
-pid /run/nginx.pid;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user www-data<span class="p">;</span>
+worker_processes auto<span class="p">;</span>
+pid /run/nginx.pid<span class="p">;</span>
 
 events <span class="o">{</span>
-        worker_connections 768;
+        worker_connections 768<span class="p">;</span>
         <span class="c"># multi_accept on;</span>
 <span class="o">}</span>
 
 http <span class="o">{</span>
-        sendfile on;
-        keepalive_timeout 65;
-        client_max_body_size 500M;
+        sendfile on<span class="p">;</span>
+        keepalive_timeout 65<span class="p">;</span>
+        client_max_body_size 500M<span class="p">;</span>
 
-        include /etc/nginx/mime.types;
-        default_type application/octet-stream;
+        include /etc/nginx/mime.types<span class="p">;</span>
+        default_type application/octet-stream<span class="p">;</span>
 
-        proxy_buffering    off;
-        proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span>;
-        proxy_set_header   X-Forwarded-Proto https;
-        proxy_set_header   X-Forwarded-Ssl on;
-        proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span>;
-        proxy_set_header   Host <span class="nv">$http_host</span>;
-        proxy_http_version 1.1;
+        proxy_buffering    off<span class="p">;</span>
+        proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span><span class="p">;</span>
+        proxy_set_header   X-Forwarded-Proto https<span class="p">;</span>
+        proxy_set_header   X-Forwarded-Ssl on<span class="p">;</span>
+        proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+        proxy_set_header   Host <span class="nv">$http_host</span><span class="p">;</span>
+        proxy_http_version 1.1<span class="p">;</span>
 
         upstream jatos-backend <span class="o">{</span>
-                server 127.0.0.1:9000;
+                server 127.0.0.1:9000<span class="p">;</span>
         <span class="o">}</span>
 
         <span class="c"># needed for websockets</span>
         map <span class="nv">$http_upgrade</span> <span class="nv">$connection_upgrade</span> <span class="o">{</span>
-                default upgrade;
-                <span class="s1">''</span>      close;
+                default upgrade<span class="p">;</span>
+                <span class="s1">''</span>      close<span class="p">;</span>
         <span class="o">}</span>
 
         <span class="c"># redirect http to https</span>
         server <span class="o">{</span>
-                listen       80;
-                server_name www.example.com;
-                rewrite ^ https://www.example.com<span class="nv">$request_uri</span>? permanent;
+                listen       80<span class="p">;</span>
+                server_name www.example.com<span class="p">;</span>
+                rewrite ^ https://www.example.com<span class="nv">$request_uri</span>? permanent<span class="p">;</span>
         <span class="o">}</span>
 
         server <span class="o">{</span>
-                listen               443;
-                ssl                  on;
+                listen               443<span class="p">;</span>
+                ssl                  on<span class="p">;</span>
 
                 <span class="c"># http://www.selfsignedcertificate.com/ is useful for development testing</span>
-                ssl_certificate      /etc/ssl/certs/localhost.crt;
-                ssl_certificate_key  /etc/ssl/private/localhost.key;
+                ssl_certificate      /etc/ssl/certs/localhost.crt<span class="p">;</span>
+                ssl_certificate_key  /etc/ssl/private/localhost.key<span class="p">;</span>
 
                 <span class="c"># From https://bettercrypto.org/static/applied-crypto-hardening.pdf</span>
-                ssl_prefer_server_ciphers on;
-                ssl_protocols TLSv1 TLSv1.1 TLSv1.2; <span class="c"># not possible to do exclusive</span>
-                ssl_ciphers <span class="s1">'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA'</span>;
-                add_header Strict-Transport-Security <span class="s2">"max-age=15768000; includeSubDomains"</span>;
+                ssl_prefer_server_ciphers on<span class="p">;</span>
+                ssl_protocols TLSv1 TLSv1.1 TLSv1.2<span class="p">;</span> <span class="c"># not possible to do exclusive</span>
+                ssl_ciphers <span class="s1">'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA'</span><span class="p">;</span>
+                add_header Strict-Transport-Security <span class="s2">"max-age=15768000; includeSubDomains"</span><span class="p">;</span>
 
-                keepalive_timeout    70;
-                server_name www.example.com;
+                keepalive_timeout    70<span class="p">;</span>
+                server_name www.example.com<span class="p">;</span>
 
                 <span class="c"># websocket location (JATOS' group and batch channel and the test page)</span>
                 location ~ <span class="s2">"/(jatos/testWebSocket|publix/[</span><span class="se">\d</span><span class="s2">]+/(group/join|batch/open))"</span> <span class="o">{</span>
-                        proxy_pass              http://jatos-backend;
-                        proxy_http_version      1.1;
-                        proxy_set_header        Upgrade <span class="nv">$http_upgrade</span>;
-                        proxy_set_header        Connection <span class="nv">$connection_upgrade</span>;
-                        proxy_connect_timeout   7d; <span class="c"># keep open for 7 days even without any transmission</span>
-                        proxy_send_timeout      7d;
-                        proxy_read_timeout      7d;
+                        proxy_pass              http://jatos-backend<span class="p">;</span>
+                        proxy_http_version      1.1<span class="p">;</span>
+                        proxy_set_header        Upgrade <span class="nv">$http_upgrade</span><span class="p">;</span>
+                        proxy_set_header        Connection <span class="nv">$connection_upgrade</span><span class="p">;</span>
+                        proxy_connect_timeout   7d<span class="p">;</span> <span class="c"># keep open for 7 days even without any transmission</span>
+                        proxy_send_timeout      7d<span class="p">;</span>
+                        proxy_read_timeout      7d<span class="p">;</span>
                 <span class="o">}</span>
 
                 <span class="c"># restrict access to JATOS' GUI to local network</span>
@@ -567,71 +597,70 @@ http <span class="o">{</span>
 
                 <span class="c"># all other traffic</span>
                 location / <span class="o">{</span>
-                        proxy_pass              http://jatos-backend;
+                        proxy_pass              http://jatos-backend<span class="p">;</span>
                 <span class="o">}</span>
         <span class="o">}</span>
 
-        access_log /var/log/nginx/access.log;
-        error_log /var/log/nginx/error.log;
+        access_log /var/log/nginx/access.log<span class="p">;</span>
+        error_log /var/log/nginx/error.log<span class="p">;</span>
 
-        include /etc/nginx/conf.d/<span class="k">*</span>.conf;
-        include /etc/nginx/sites-enabled/<span class="k">*</span>;
+        include /etc/nginx/conf.d/<span class="k">*</span>.conf<span class="p">;</span>
+        include /etc/nginx/sites-enabled/<span class="k">*</span><span class="p">;</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="simple-without-encryption">Simple without encryption</h2>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>user www-data;
-worker_processes auto;
-pid /run/nginx.pid;
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user www-data<span class="p">;</span>
+worker_processes auto<span class="p">;</span>
+pid /run/nginx.pid<span class="p">;</span>
 
 events <span class="o">{</span>
-        worker_connections 768;
+        worker_connections 768<span class="p">;</span>
         <span class="c"># multi_accept on;</span>
 <span class="o">}</span>
 
 http <span class="o">{</span>
-        sendfile on;
-        keepalive_timeout 65;
-        client_max_body_size 500M;
+        sendfile on<span class="p">;</span>
+        keepalive_timeout 65<span class="p">;</span>
+        client_max_body_size 500M<span class="p">;</span>
 
-        include /etc/nginx/mime.types;
-        default_type application/octet-stream;
+        include /etc/nginx/mime.types<span class="p">;</span>
+        default_type application/octet-stream<span class="p">;</span>
 
-        proxy_buffering    off;
-        proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span>;
-        proxy_set_header   X-Forwarded-Proto http;
-        proxy_set_header   X-Forwarded-Ssl on;
-        proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span>;
-        proxy_set_header   Host <span class="nv">$http_host</span>;
-        proxy_http_version 1.1;
+        proxy_buffering    off<span class="p">;</span>
+        proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span><span class="p">;</span>
+        proxy_set_header   X-Forwarded-Proto http<span class="p">;</span>
+        proxy_set_header   X-Forwarded-Ssl on<span class="p">;</span>
+        proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+        proxy_set_header   Host <span class="nv">$http_host</span><span class="p">;</span>
+        proxy_http_version 1.1<span class="p">;</span>
 
         upstream jatos-backend <span class="o">{</span>
-                server 127.0.0.1:9000;
+                server 127.0.0.1:9000<span class="p">;</span>
         <span class="o">}</span>
 
         <span class="c"># needed for websockets</span>
         map <span class="nv">$http_upgrade</span> <span class="nv">$connection_upgrade</span> <span class="o">{</span>
-                default upgrade;
-                <span class="s1">''</span>      close;
+                default upgrade<span class="p">;</span>
+                <span class="s1">''</span>      close<span class="p">;</span>
         <span class="o">}</span>
 
         server <span class="o">{</span>
-                listen               80;
+                listen               80<span class="p">;</span>
 
-                keepalive_timeout    70;
-                server_name          www.example.com;
+                keepalive_timeout    70<span class="p">;</span>
+                server_name          www.example.com<span class="p">;</span>
 
                 <span class="c"># websocket location (JATOS' group and batch channel and the test page)</span>
                 location ~ <span class="s2">"^/(jatos/testWebSocket|publix/[</span><span class="se">\d</span><span class="s2">]+/(group/join|batch/open))"</span> <span class="o">{</span>
-                        proxy_pass              http://jatos-backend;
-                        proxy_http_version      1.1;
-                        proxy_set_header        Upgrade <span class="nv">$http_upgrade</span>;
-                        proxy_set_header        Connection <span class="nv">$connection_upgrade</span>;
-                        proxy_connect_timeout   7d; <span class="c"># keep open for 7 days even without any transmission</span>
-                        proxy_send_timeout      7d;
-                        proxy_read_timeout      7d;
+                        proxy_pass              http://jatos-backend<span class="p">;</span>
+                        proxy_http_version      1.1<span class="p">;</span>
+                        proxy_set_header        Upgrade <span class="nv">$http_upgrade</span><span class="p">;</span>
+                        proxy_set_header        Connection <span class="nv">$connection_upgrade</span><span class="p">;</span>
+                        proxy_connect_timeout   7d<span class="p">;</span> <span class="c"># keep open for 7 days even without any transmission</span>
+                        proxy_send_timeout      7d<span class="p">;</span>
+                        proxy_read_timeout      7d<span class="p">;</span>
                 <span class="o">}</span>
 
                 <span class="c"># restrict access to JATOS' GUI to local network</span>
@@ -642,25 +671,25 @@ http <span class="o">{</span>
 
                 <span class="c"># all other traffic</span>
                 location / <span class="o">{</span>
-                        proxy_pass              http://jatos-backend;
+                        proxy_pass              http://jatos-backend<span class="p">;</span>
                 <span class="o">}</span>
         <span class="o">}</span>
 
-        access_log /var/log/nginx/access.log;
-        error_log /var/log/nginx/error.log;
+        access_log /var/log/nginx/access.log<span class="p">;</span>
+        error_log /var/log/nginx/error.log<span class="p">;</span>
 
-        include /etc/nginx/conf.d/<span class="k">*</span>.conf;
-        include /etc/nginx/sites-enabled/<span class="k">*</span>;
+        include /etc/nginx/conf.d/<span class="k">*</span>.conf<span class="p">;</span>
+        include /etc/nginx/sites-enabled/<span class="k">*</span><span class="p">;</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
     <div class="tags">
         
     </div>
 
-    
+
+
 
 </div>
 
@@ -675,10 +704,12 @@ http <span class="o">{</span>
 </footer>
 
 
-    </div>
+        </div>
     <!-- /.row -->
 </div>
 <!-- /.container -->
+</div>
+<!-- /#main -->
     </div>
 
 </body>
