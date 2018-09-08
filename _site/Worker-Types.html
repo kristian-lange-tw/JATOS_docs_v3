@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Following Amazon Mechanical Turk’s terminology, a worker in JATOS is a person who runs a study. Different worker types access a study in different ways. For ...">
-<meta name="keywords" content=" worker types, Jatos Worker, Personal Single Worker, Personal Multiple Worker, MTurk Worker, General Single Worker, General Multiple Worker, MTurk Sandbox Worker, MTurk, Sandbox, General, Single, Multiple, Personal, Preview Links">
+<meta name="keywords" content=" worker types, Jatos worker, Personal Single worker, Personal Multiple worker, MTurk worker, General Single worker, General Multiple worker, MTurk Sandbox worker, MTurk, Sandbox, General, Single, Multiple, Personal, Preview Links">
 <title>Worker Types | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
@@ -577,6 +577,15 @@ $('#toc').on('click', 'a', function() {
       <td>On-the-fly after a MTurk worker clicked on the HIT link</td>
     </tr>
     <tr>
+      <td><strong>Repeat the same study with the same link</strong></td>
+      <td>(has no links)</td>
+      <td><span class="glyphicon glyphicon-remove-sign"></span></td>
+      <td><span class="glyphicon glyphicon-ok-sign"></span><br />(keeps the same worker)</td>
+      <td><span class="glyphicon glyphicon-remove-sign"></span></td>
+      <td><span class="glyphicon glyphicon-ok-sign"></span><br />(creates a new worker each time)</td>
+      <td><span class="glyphicon glyphicon-remove-sign"></span></td>
+    </tr>
+    <tr>
       <td><strong>Run different studies with the same worker</strong></td>
       <td><span class="glyphicon glyphicon-ok-sign"></span></td>
       <td><span class="glyphicon glyphicon-remove-sign"></span></td>
@@ -584,15 +593,6 @@ $('#toc').on('click', 'a', function() {
       <td><span class="glyphicon glyphicon-remove-sign"></span></td>
       <td><span class="glyphicon glyphicon-remove-sign"></span></td>
       <td><span class="glyphicon glyphicon-ok-sign"></span></td>
-    </tr>
-    <tr>
-      <td><strong>Repeat the same study with the same link</strong></td>
-      <td>(has no links)</td>
-      <td><span class="glyphicon glyphicon-remove-sign"></span></td>
-      <td><span class="glyphicon glyphicon-ok-sign"></span><br />(keeps the same worker)</td>
-      <td><span class="glyphicon glyphicon-remove-sign"></span></td>
-      <td><span class="glyphicon glyphicon-ok-sign"></span><br />creates a new worker each time)</td>
-      <td><span class="glyphicon glyphicon-remove-sign"></span></td>
     </tr>
     <tr>
       <td><strong>Supports <a href="Worker-Types.html#preview-links">preview of studies</a></strong></td>
@@ -624,36 +624,52 @@ $('#toc').on('click', 'a', function() {
   </tbody>
 </table>
 
-<h3 id="jatos-worker">Jatos Worker</h3>
-<p>Jatos workers run a study (or any of its components individually) by clicking on the <em>Run</em> buttons from the GUI. Jatos workers are usually the researchers trying out their own studies. Each JATOS user (i.e., anybody with a JATOS login) has their own Jatos worker.<br />
-<strong>Jatos workers can run the same study as many times as they want.</strong></p>
+<h3 id="-jatos-worker"><span class="glyphicon glyphicon-wrench glyphicon-jatos"></span> Jatos Worker</h3>
 
-<h3 id="personal-single-worker">Personal Single Worker</h3>
-<p>These are external workers that can <strong>only run the study once</strong> (<a href="#preview-links">*But see Preview Links</a>).
-You send a <em>Personal Single</em> link to workers that you contact individually. Each link can be personalized with a <strong>Comment</strong> you provide while creating it (e.g. by providing a pseudonym). 
-Personalized single links with single access are useful in small studies, where it’s feasible to contact each worker individually, or (e.g.) you want to be able to pair up several results (either from the same or different studies) in a longitudinal design. You can add in bulk up to 100 Personal Single Workers at once by changing the <strong>Amount</strong> value.</p>
+<p><strong>Jatos workers can run any study as many times as they want.</strong></p>
+
+<p>Jatos workers run a study (or any of its components individually) by clicking on the <em>Run</em> buttons in the GUI. Jatos workers are usually the <strong>researchers trying out their own studies</strong>. Each JATOS user (i.e., anybody with a JATOS login) has their own Jatos worker.</p>
+
+<h3 id="-personal-single-worker"><span class="glyphicon glyphicon-leaf glyphicon-personal-single"></span> Personal Single Worker</h3>
+
+<p>With a Personal Single link <strong>a study can be run only once</strong> (<a href="#preview-links">*But see Preview Links</a>). You can see them as <em>personalized links with single access</em>. Each Personal Single link corresponds a Personal Single worker.</p>
+
+<p>Usually you would send a Personal Single link to workers that you contact individually. Each link can be personalized with a <strong>Comment</strong> you provide while creating it (e.g. by providing a pseudonym).</p>
+
+<p>Personal Single links are useful in small studies, where it’s feasible to contact each worker individually, or (e.g.) you want to be able to pair up several results (either from the same or different studies) in a longitudinal design. You can add Personal Single workers in bulk by changing the <strong>Amount</strong> value.</p>
 
 <p><img src="images/create_personal_single_run.png" alt="GUI Screenshot" />
 <img src="images/view_personal_single_run.png" alt="GUI Screenshot" /></p>
 
-<h3 id="personal-multiple-worker-personal-with-multiple-access">Personal Multiple Worker (personal with multiple access)</h3>
-<p>These are external workers that <strong>can run a study as many times as they want</strong>. You could send <em>Personal Multiple</em> links to your pilot workers. Each link can be personalized with a <strong>Comment</strong> you provide while creating it (e.g. by providing a pseudonym). You can add in bulk up to 100 Personal Multiple Workers at once by changing the <strong>Amount</strong> value.</p>
+<h3 id="-personal-multiple-worker"><span class="glyphicon glyphicon-tree-deciduous glyphicon-personal-multiple"></span> Personal Multiple Worker</h3>
 
-<h3 id="mturk-worker">MTurk Worker</h3>
+<p>With a Personal Multiple link the worker can <strong>run a study as many times as they want</strong>. Each Personal Multiple link corresponds a Personal Multiple worker.</p>
+
+<p>You could send <em>Personal Multiple</em> links to your pilot workers. Each link can be personalized with a <strong>Comment</strong> you provide while creating it (e.g. by providing a pseudonym). You can add Personal Multiple workers in bulk by changing the <strong>Amount</strong> value.</p>
+
+<h3 id="-general-single-worker"><span class="glyphicon glyphicon-glass glyphicon-general-single"></span> General Single Worker</h3>
+
+<p>This link type can be used <strong>many times by different participants to run a study but only once per browser</strong> (<a href="#preview-links">*But see Preview Links</a>). Each time the link is used a new General Single worker is created on-the-fly.</p>
+
+<p>You could distribute a <em>General Single</em> link through a mailing list or posting it on a public website. It is essentially useful for cases where you want to collect data from a large number of workers.</p>
+
+<p>Keep in mind, however, that JATOS uses the browser’s cookies to decide whether a worker has already accessed a study. If a worker uses a different computer, a new browser, or simply deletes their browser’s cookies, then JATOS will assume that it’s a new worker. So the same person could (with some effort) use a General Single link several times.</p>
+
+<h3 id="-general-multiple-worker-since-version-332"><span class="glyphicon glyphicon-asterisk glyphicon-general-multiple"></span> General Multiple Worker (since version 3.3.2)</h3>
+
+<p>Similar to a General Single link a General Multiple link can be used <strong>many times by different participants to run a study</strong>. The difference is that the link can be used <strong>even in the same browser</strong> - this link type is the least restrivtive one. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.</p>
+
+<h3 id="-mturk-worker"><span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk Worker</h3>
+
 <p>MTurk workers access a study <strong>only once</strong>, through a link in Amazon’s Mechanical Turk (AMT). Each MTurk worker in JATOS corresponds to a single worker in AMT.</p>
 
-<p><strong>DATA PRIVACY NOTE:</strong> If the same worker from AMT does two of your studies, the two results will be paired with the same MTurk Worker in JATOS. This means that you could gather data from different studies, without your workers ever consenting to it. For this reason, we recommend that you delete your data from JATOS as soon as you finish a study. This way, if the same worker from AMT takes part in a different study, they will get a new MTurk Worker, and you will not be able to automatically link their data between different studies. See our <a href="Data-Privacy-and-Ethics">Data Privacy and Ethics</a> page for more details on this.</p>
-
-<h3 id="general-single-worker">General Single Worker</h3>
-<p>These are external workers that can <strong>run a study only once</strong> (<a href="#preview-links">*But see Preview Links</a>). You could distribute a <em>General Single</em> link through a mailing list or posting it on a public website. It is essentially useful for cases where you want to collect data from a large numbers of workers. Each new worker accessing the study will be assigned a new General Single Worker.</p>
-
-<p>Keep in mind, however, that JATOS uses the browser’s cookies to decide whether a worker has already accessed a study. If a worker uses a different computer, a new browser, or simply deletes their browser’s cookies, then JATOS will assume that it’s a new worker. So the same person can easily use a General Single link several times.</p>
-
-<h3 id="general-multiple-worker-since-version-332">General Multiple Worker (since version 3.3.2)</h3>
-<p>A General Multiple link can be used many times by different participants and even by the same participant using the same browser - a General Multiple link is the least restrivtive one. Each time this link is used a new General Multiple Worker is created on-the-fly.</p>
+<p><strong>DATA PRIVACY NOTE:</strong> If the same worker from AMT does two of your studies, the two results will be paired with the same MTurk worker in JATOS. This means that you could gather data from different studies, without your workers ever consenting to it. For this reason, we recommend that you delete your data from JATOS as soon as you finish a study. This way, if the same worker from AMT takes part in a different study, they will get a new MTurk worker, and you will not be able to automatically link their data between different studies. See our <a href="Data-Privacy-and-Ethics">Data Privacy and Ethics</a> page for more details on this.</p>
 
 <h3 id="preview-links">Preview Links</h3>
-<p>A normal <strong>General Single</strong> or <strong>Personal Single</strong> is restrictive: once a worker clicked on the link - that’s it. JATOS will not let them run the study twice. But in some cases you may want to distribute a link and let your workers preview the first component of your study (where you could e.g. describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later. To allow them to do this, activate the checkbox <strong>Allow preview</strong> (this will add a <code class="highlighter-rouge">&amp;pre</code> to the end of the URL). Now your workers can use the link as often as they want - as long as they don’t go further than the first component. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means another usage of the link will lead to an error.</p>
+
+<p>A normal <strong>General Single</strong> or <strong>Personal Single</strong> link is restrictive: once a worker clicked on the link - that’s it. JATOS will not let them run the study twice. But in some cases you may want to distribute a link and let your workers preview the first component of your study (where you could e.g. describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later.</p>
+
+<p>To allow them to do this, activate the checkbox <strong>Allow preview</strong> (this will add a <code class="highlighter-rouge">&amp;pre</code> to the end of the URL). Now your workers can use the link as often as they want - as long as they don’t go further than the first component. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means another usage of the link will lead to an error.</p>
 
 <p><img src="images/preview_general_single_run.png" alt="GUI Screenshot" /></p>
 
@@ -672,7 +688,7 @@ Personalized single links with single access are useful in small studies, where 
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 04 Sep 2018
+<span>Page last updated:</span> 08 Sep 2018
                 </div>
             </div>
 </footer>
