@@ -33,11 +33,11 @@ Jatos workers run a study (or any of its components individually) by clicking on
 
 ### <span class="glyphicon glyphicon-leaf glyphicon-personal-single"></span> Personal Single Worker 
 
-With a Personal Single link **a study can be run only once** ([*But see Preview Links](#preview-links)). You can see them as _personalized links with single access_. Each Personal Single link corresponds a Personal Single worker.
+With a Personal Single link **a study can be run only once** ([*But see Preview Links](#preview-links)). You can think of them as _personalized links with single access_. Each Personal Single link corresponds a Personal Single worker.
 
 Usually you would send a Personal Single link to workers that you contact individually. Each link can be personalized with a **Comment** you provide while creating it (e.g. by providing a pseudonym).
 
-Personal Single links are useful in small studies, where it's feasible to contact each worker individually, or (e.g.) you want to be able to pair up several results (either from the same or different studies) in a longitudinal design. You can add Personal Single workers in bulk by changing the **Amount** value.
+Personal Single links are useful in small studies, where it's feasible to contact each worker individually, or (e.g.) you want to be able to pair up several results (either from the same or different studies) in a longitudinal design. You can create Personal Single links in bulk by changing the **Amount** value.
 
 ![GUI Screenshot](images/create_personal_single_run.png)
 ![GUI Screenshot](images/view_personal_single_run.png)
@@ -45,23 +45,23 @@ Personal Single links are useful in small studies, where it's feasible to contac
 
 ### <span class="glyphicon glyphicon-tree-deciduous glyphicon-personal-multiple"></span> Personal Multiple Worker
 
-With a Personal Multiple link the worker can **run a study as many times as they want**. Each Personal Multiple link corresponds a Personal Multiple worker.
+With a Personal Multiple link the worker can **run a study as many times as they want**. Each Personal Multiple link corresponds to a Personal Multiple worker.
 
-You could send _Personal Multiple_ links to your pilot workers. Each link can be personalized with a **Comment** you provide while creating it (e.g. by providing a pseudonym). You can add Personal Multiple workers in bulk by changing the **Amount** value.
+You could send _Personal Multiple_ links to your pilot workers. Each link can be personalized with a **Comment** you provide while creating it (e.g. by providing a pseudonym). You can create Personal Multiple links in bulk by changing the **Amount** value.
 
 
 ### <span class="glyphicon glyphicon-glass glyphicon-general-single"></span> General Single Worker
 
 This link type can be used **many times by different participants to run a study but only once per browser** ([*But see Preview Links](#preview-links)). Each time the link is used a new General Single worker is created on-the-fly.
 
-You could distribute a _General Single_ link through a mailing list or posting it on a public website. It is essentially useful for cases where you want to collect data from a large number of workers. 
+You could distribute a _General Single_ link through twitter, a mailing list or posting it on a public website. It is essentially useful for cases where you want to collect data from a large number of workers. 
 
-Keep in mind, however, that JATOS uses the browser's cookies to decide whether a worker has already accessed a study. If a worker uses a different computer, a new browser, or simply deletes their browser's cookies, then JATOS will assume that it's a new worker. So the same person could (with some effort) use a General Single link several times.
+Keep in mind, however, that JATOS uses the browser's cookies to decide whether a worker has already accessed a study. If someone uses a different computer, a new browser, or simply deletes their browser's cookies, then JATOS will assume that it's a new worker. So the same person could (with some effort) use a General Single link several times.
 
 
 ### <span class="glyphicon glyphicon-asterisk glyphicon-general-multiple"></span> General Multiple Worker (since version 3.3.2)
 
-Similar to a General Single link a General Multiple link can be used **many times by different participants to run a study**. The difference is that the link can be used **even in the same browser** - this link type is the least restrivtive one. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.
+A General Multiple link is the least restrictive type and can be used **many times by different participants to run a study**. The difference to a General SIngle is that the General Multiple link can be used repeatedly **even in the same browser**. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.
 
 
 ### <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk Worker
@@ -75,6 +75,6 @@ MTurk workers access a study **only once**, through a link in Amazon's Mechanica
 
 A normal **General Single** or **Personal Single** link is restrictive: once a worker clicked on the link - that's it. JATOS will not let them run the study twice. But in some cases you may want to distribute a link and let your workers preview the first component of your study (where you could e.g. describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later.
 
-To allow them to do this, activate the checkbox **Allow preview** (this will add a `&pre` to the end of the URL). Now your workers can use the link as often as they want - as long as they don't go further than the first component. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means another usage of the link will lead to an error.
+To allow them to do this, activate the checkbox **Allow preview** (this will add a `&pre` to the end of the URL). Now your workers can use the link as often as they want - as long as they don't go further than the first component. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means that you'll get an error if you try to use the link again to access the study.
 
 ![GUI Screenshot](images/preview_general_single_run.png)
