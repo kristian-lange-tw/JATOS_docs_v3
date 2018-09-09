@@ -61,7 +61,7 @@ Keep in mind, however, that JATOS uses the browser's cookies to decide whether a
 
 ### <span class="glyphicon glyphicon-asterisk glyphicon-general-multiple"></span> General Multiple Worker (since version 3.3.2)
 
-A General Multiple link is the least restrictive type and can be used **many times by different participants to run a study**. The difference to a General SIngle is that the General Multiple link can be used repeatedly **even in the same browser**. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.
+A General Multiple link is the least restrictive type and can be used **many times by different participants to run a study**. The difference to a General Single is that the General Multiple link can be used repeatedly **even in the same browser**. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.
 
 
 ### <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk Worker
