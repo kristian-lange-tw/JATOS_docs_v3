@@ -2,7 +2,7 @@
 title: Worker Types
 keywords: worker types, Jatos worker, Personal Single worker, Personal Multiple worker, MTurk worker, General Single worker, General Multiple worker, MTurk Sandbox worker, MTurk, Sandbox, General, Single, Multiple, Personal, Preview Links
 tags:
-summary: Following Amazon Mechanical Turk’s terminology, a worker in JATOS is a person who runs a study. Different worker types access a study in different ways. For example, some workers can run the same study multiple times, whereas others can do it only once. 
+summary: Details of different worker types 
 sidebar: mydoc_sidebar
 permalink: Worker-Types.html
 folder:
@@ -11,6 +11,7 @@ last_updated: 08 Sep 2018
 ---
 
 ### Overview
+Following Amazon Mechanical Turk’s terminology, a worker in JATOS is a person who runs a study. Different worker types access a study in different ways. For example, some workers can run the same study multiple times, whereas others can do it only once.
 
 | | Jatos             | Personal Single   | Personal Multiple | General Single    | General Multiple (since v3.3.2)  | MTurk            |
 |-|-------------------|-------------------|-------------------|-------------------|-------------------|------------------|
