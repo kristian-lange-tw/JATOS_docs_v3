@@ -140,7 +140,7 @@ Use Google Slides to make an quick, easy and versatile instruction page.
 
 **Needs JATOS version 3.1.1 or newer**
 
-[Download jQuery UI Example Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/intro_with_google_slides.zip)
+[Download Instruction with Google Slides Example Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/intro_with_google_slides.zip)
 
 
 
