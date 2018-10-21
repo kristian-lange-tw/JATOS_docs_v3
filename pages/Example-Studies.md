@@ -132,6 +132,18 @@ With [jQuery UI](https://jqueryui.com/) it's quite simple to add common (and pre
 
 
 
+### Easy Instruction Page with embedded Google Slides
+
+Use Google Slides to make an quick, easy and versatile instruction page.
+
+{% include image.html file="example-studies/Screenshot_intro_slides.png" alt="Screenshot Easy instructions with Slides" caption="" max-width="500" %}
+
+**Needs JATOS version 3.1.1 or newer**
+
+[Download jQuery UI Example Study](https://github.com/JATOS/JATOS_examples/raw/master/examples/intro_with_google_slides.zip)
+
+
+
 ### Interactive 2D/3D Graphics (with p5.js library)
 
 [p5.js](https://p5js.org/) is a graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, video, sound, or capture from the webcam or the mic. Have a look at their [example section](https://p5js.org/examples/).
