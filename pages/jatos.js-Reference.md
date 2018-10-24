@@ -47,6 +47,7 @@ There's a convenient function that adds all these IDs to a given object. See fun
   * `jatos.studyProperties.title` - Study's title
   * `jatos.studyProperties.uuid` - Study's UUID
   * `jatos.studyProperties.description` - Study's description
+  * `jatos.studyProperties.descriptionHash` - Hash of study's description
   * `jatos.studyProperties.locked` - Whether the study is locked or not
   * `jatos.studyProperties.dirName` - Study's dir name in the file system of your JATOS installation
   * `jatos.studyProperties.groupStudy` - Whether this is a group study or not
