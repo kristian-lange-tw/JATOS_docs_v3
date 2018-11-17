@@ -107,7 +107,7 @@ http {
         error_log /var/log/nginx/error.log;
 
         include /etc/nginx/conf.d/*.conf;
-        include /etc/nginx/sites-enabled/*;
+        #include /etc/nginx/sites-enabled/*;
 }
 ~~~
 
@@ -182,6 +182,6 @@ http {
         error_log /var/log/nginx/error.log;
 
         include /etc/nginx/conf.d/*.conf;
-        include /etc/nginx/sites-enabled/*;
+        #include /etc/nginx/sites-enabled/*;
 }
 ~~~
