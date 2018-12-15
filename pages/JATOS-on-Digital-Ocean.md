@@ -78,7 +78,7 @@ Now with a domain name you can encrypt your server's communication with HTTPS (H
 
 **Licensing: Caddy is free only for private or academic use** (https://caddyserver.com/products/licenses)
 
-To create a JATOS server with Caddy follow the instructions in the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in **User Data** of _Select additional options_ add the following script.
+To create a JATOS server with Caddy follow the instructions in the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in the **User Data** field of _Select additional options_ add the following script.
 
 ```shell
 #!/bin/bash
