@@ -10,6 +10,8 @@ toc: true
 last_updated: 12 Dec 2018
 ---
 
+* If domain name: Point a and AAAA record to IP4 and IP6
+
 ```shell
 #!/bin/bash
 
