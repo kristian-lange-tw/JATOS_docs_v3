@@ -18,11 +18,15 @@ There are several ways to bring JATOS to the internet. You can install it
 
 The first two are discussed here in this page. The last one has its own [page](Install-JATOS-via-Docker.html).
 
+
+## Some General Advice
+
 One word about IaaS. There are many IaaS providers (Digital Ocean, Microsoft Azure, Google Cloud, Amazon's AWS etc.). They all give you some kind of virtual machine (VM) and the possibility to install an operating system on it. I'd recommend to go with a Linux system like Ubuntu or Debian. Another point is to make sure they have persistent storage and not what is often called 'ephemeral storage' (storage that is deleted after the VM shuts down). Since JATOS stores all study assets in the server's file system persistent storage is needed. But apart from that it's the same JATOS installation like on a dedicated server. In [JATOS in Amazon's Cloud (without Docker)](JATOS-in-Amazons-Cloud-without-Docker.html) we have some advice in how to do it in AWS. 
 
-The actual JATOS instance on a server isn't too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the H2 database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc.
 
 ## Installation on a server
+
+The actual JATOS instance on a server isn't too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the H2 database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc.
 
 ### 1. Install Java
 
