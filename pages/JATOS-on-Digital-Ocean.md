@@ -76,7 +76,7 @@ If you've got a domain name, you have to point it to the IP address of your JATO
 
 Now with a domain name you can encrypt your server's communication with HTTPS (HTTPS works only with a domain name and not with an IP). For this we will use [Caddy](https://caddyserver.com/). Caddy adds encryption out-of-the-box.
 
-**Licensing: Caddy is free only for private or academic use (https://caddyserver.com/products/licenses)**
+**Licensing: Caddy is free only for private or academic use** (https://caddyserver.com/products/licenses)
 
 To create a JATOS server with Caddy follow the instructions in the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in **User Data** of _Select additional options_ add the following script.
 
