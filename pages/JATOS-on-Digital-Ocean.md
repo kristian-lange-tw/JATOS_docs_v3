@@ -10,6 +10,9 @@ toc: true
 last_updated: 15 Dec 2018
 ---
 
+Easy admins and semi-admins
+
+
 [DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like AWS, Google Cloud, Azure) that is comparatively easy to use and has good and exhaustive documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud.
 
 Link to privacy
@@ -21,7 +24,7 @@ Link Server installation to here
 
 ## Prerequisites
 
-Get an account with [DigitalOcean](https://www.digitalocean.com/).
+You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
 
 ## Setup a simple JATOS server on DigitalOcean
 
@@ -61,30 +64,26 @@ Get an account with [DigitalOcean](https://www.digitalocean.com/).
 Voila, you have your own JATOS server. Now you might want to use a nicer address than an IP and add some encryption-safety with HTTPS to your server - then read on.
 
 
-## Add HTTPS with Caddy and use your domain name
+## Add HTTPS with Caddy and use your own domain name
 
-**BYO domain name**: Sorry we can't give you a domain name - you have to get your own. But there are plenty [domain name registrars that help you with this business](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars). Another option is to talk to your Institutes IT department and convince them to give you a subdomain for free.
+This part is optional and is only necessary if you want to have your own domain name instead of an IP and encryption (HTTPS).
 
-If you've got a domain name you have to point this to the IP address of your JATOS server. This involves dealing with things called _A record_ or _AAAA record_ or _DNS_ servers and simply can be quite annoying. Just rem
+**BYO domain name**: Sorry we can't give you a domain name - you have to get your own. But there are plenty [domain name registrars that help you with this business](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars). Another option is to talk to your IT department and convince them to give you a subdomain for free.
 
-* If domain name: Point a and AAAA record to IP4 and IP6
-* HTTPS needs a domain name
+If you've got a domain name, you have to point it to the IP address of your JATOS server. This involves dealing with things like _A records_ or _AAAA records_ or _DNS_ servers and simply can be quite annoying. You can do this with [Digital Ocean](https://www.digitalocean.com/docs/networking/dns/how-to/manage-records/) or your registar. And remember to write both, the A record for your IPv4 address, and the AAAA record for your IPv6 address. 
 
+Now with a domain name you can encrypt your server's communication with HTTPS (HTTPS works only with a domain name and not with an IP). For this we will use [Caddy](https://caddyserver.com/). Caddy adds encryption out-of-the-box.
 
-[Caddy](https://caddyserver.com/) as a proxy: adds encryption (HTTPS) out-of-the-box
+**Licensing: Caddy is free only for private or academic use (https://caddyserver.com/products/licenses)**
 
-Prerequisites:
-* Needs domain name: get one yourself or from your institute or from me(?)
-* Caddy's license: only **free for private or academic use** (https://caddyserver.com/products/licenses)
-
-uses a script to install and run Caddy: https://gist.github.com/kristian-lange/c5a7e0ed5a01b7fd726f873f81b585a5
+To create a JATOS server with Caddy follow the instructions in the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in **User Data** of _Select additional options_ add the following script.
 
 ```shell
 #!/bin/bash
 
-# Write Caddy's config file
+# Write Caddy's config file (Caddyfile)
 cat > /etc/caddy/Caddyfile <<EOF
-neocortex.jatos.org
+<my.domain.name>
 proxy / localhost:9000 {
   transparent
   websocket
@@ -99,3 +98,8 @@ docker pull jatos/jatos:latest
 docker run -d --restart=always -p 9000:9000 jatos/jatos:latest
 ```
 
+You have to exchange <my.domain.name> with your own domain name.
+
+This script calls and runs another script that if you are interested can see under https://gist.github.com/kristian-lange/c5a7e0ed5a01b7fd726f873f81b585a5.
+
+More about Caddy and how to configure it: https://caddyserver.com/docs/proxy. 
