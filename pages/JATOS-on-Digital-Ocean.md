@@ -33,7 +33,7 @@ You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
 
    Your sreen should look similar to this one: Selected One-Click App with Docker on Ubuntu
    
-1. Scroll down to _Choose a size_: JATOS usually runs fine with 1 GB memory and 1 CPU - so the smallest size usually enough (currently it cost 5$/month)
+1. Scroll down to _Choose a size_: JATOS usually runs fine with 1 GB memory and 1 CPU - so the smallest size usually enough (currently it cost $5/month)
 
    Photo
 
