@@ -61,7 +61,9 @@ You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
 
 1. Although not necessary you can access your server via SSH `ssh root@xx.xx.xx.xx` (exchange xx.xx.xx.xx with your IP). The first time it will ask you to change your password.
 
-Voila, you have your own JATOS server. Now you might want to use a nicer address than an IP and add some encryption-safety with HTTPS to your server - then read on.
+**Voila, you have your own JATOS server.**
+
+Now you might want to use a nicer address than an IP and add some encryption-safety with HTTPS to your server - then read on.
 
 
 ## Add HTTPS with Caddy and use your own domain name
