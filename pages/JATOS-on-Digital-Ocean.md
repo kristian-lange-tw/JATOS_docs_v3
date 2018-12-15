@@ -61,6 +61,8 @@ Prerequisites:
 * Needs domain name: get one yourself or from your institute or from me(?)
 * Caddy's license: only **free for private or academic use** (https://caddyserver.com/products/licenses)
 
+uses a script to install and run Caddy: https://gist.github.com/kristian-lange/c5a7e0ed5a01b7fd726f873f81b585a5
+
 ```shell
 #!/bin/bash
 
