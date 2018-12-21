@@ -1,8 +1,8 @@
 ---
 title: JATOS on DigitalOcean
-keywords: install, server, cloud, digitalocean, ocean, caddy, caddyfile, docker, deploy
+keywords: install, server, cloud, digitalocean, droplet, traefik, proxy, reverse, docker, docker-compose, deploy
 tags:
-summary: This page describes how to install JATOS on a server in the cloud with DigitalOcean. Optionally one can enable HTTPS with Caddy which requires a domain name.
+summary: This page describes how to install JATOS on a server in the cloud with DigitalOcean. Optionally one can enable HTTPS with Traefik which requires a domain name.
 sidebar: mydoc_sidebar
 permalink: JATOS-on-DigitalOcean.html
 folder:
@@ -66,42 +66,41 @@ You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
 Now you might want to use a nicer address than an IP and add some encryption-safety with HTTPS to your server - then read on.
 
 
-## Add HTTPS with Caddy and use your own domain name
+## Add HTTPS with Traefik and use your own domain name
 
-This part is optional and is only necessary if you want to have your own domain name instead of an IP and encryption (HTTPS).
+This part is optional and is only necessary if you want to have your own domain name instead of an IP and use encryption (HTTPS).
 
-**BYO domain name**: Sorry we can't give you a domain name - you have to get your own. But there are plenty [domain name registrars that help you with this business](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars). Another option is to talk to your IT department and convince them to give you a subdomain for free.
+We will use [Traefik](https://traefik.io/). Traefik adds encryption out-of-the-box (by using [Let’s Encrypt](https://letsencrypt.org/)). Traefik is [open source](https://github.com/containous/traefik) and free to use. 
 
-If you've got a domain name, you have to point it to the IP address of your JATOS server. This involves dealing with things like _A records_ or _AAAA records_ or _DNS_ servers and simply can be quite annoying. You can do this with [Digital Ocean](https://www.digitalocean.com/docs/networking/dns/how-to/manage-records/) or your registar. And remember to write both, the A record for your IPv4 address, and the AAAA record for your IPv6 address. 
+**BYO domain name**: Sorry, we can't give you a domain name - you have to get your own. But there are plenty [domain name registrars that help you with this business](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars). Another option is to talk to your IT department and convince them to give you a subdomain for free.
 
-Now with a domain name you can encrypt your server's communication with HTTPS (HTTPS works only with a domain name and not with an IP). For this we will use [Caddy](https://caddyserver.com/). Caddy adds encryption out-of-the-box.
+Now with a domain name you can encrypt your server's communication with HTTPS (HTTPS works only with a domain name and not with just an IP).
 
-**Licensing: Caddy is free only for private or academic use** (https://caddyserver.com/products/licenses)
-
-To create a JATOS server with Caddy follow the instructions in the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in the **User Data** field of _Select additional options_ add the following script.
+To create a JATOS server with Traefik follow the instructions in the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in the **User Data** field of _Select additional options_ add the following script:
 
 ```shell
 #!/bin/bash
 
-# Write Caddy's config file (Caddyfile)
-cat > /etc/caddy/Caddyfile <<EOF
-<my.domain.name>
-proxy / localhost:9000 {
-  transparent
-  websocket
-}
-EOF
+DOMAIN_NAME="my.domain.name"
+EMAIL="my.email@foo.com"
 
-# Install a Caddy proxy
-bash <(curl -s https://gist.githubusercontent.com/kristian-lange/c5a7e0ed5a01b7fd726f873f81b585a5/raw/67523ef6f7f2fb9e48436632663259d9db65eb79/caddy.sh)
+curl https://raw.githubusercontent.com/JATOS/JATOS/master/deploy/docker-compose.yaml > /root/docker-compose.yaml
+curl https://raw.githubusercontent.com/JATOS/JATOS/master/deploy/traefik.toml > /root/traefik.toml
 
-# Run JATOS as docker container
-docker pull jatos/jatos:latest
-docker run -d --restart=always -p 9000:9000 jatos/jatos:latest
+sed -i "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" /root/docker-compose.yaml
+sed -i "s/<DOMAIN_NAME>/${DOMAIN_NAME}/g" /root/traefik.toml
+sed -i "s/<EMAIL>/${EMAIL}/g" /root/traefik.toml
+
+touch /root/acme.json
+chmod 600 /root/acme.json
+docker network create proxy
+docker-compose -f /root/docker-compose.yaml up -d
 ```
 
-You have to exchange <my.domain.name> with your own domain name.
+Exchange `my.domain.name` and `my.email@foo.com` with your own domain name and email address.
 
-This script calls and runs another script that if you are interested can see under https://gist.github.com/kristian-lange/c5a7e0ed5a01b7fd726f873f81b585a5.
+This script downloads two config files, one for Traefik and one for Docker Compose. If you are interested you can see them under https://github.com/JATOS/JATOS/blob/master/deploy/docker-compose.yaml and https://github.com/JATOS/JATOS/blob/master/deploy/traefik.toml. Docker Compose will start JATOS' and Traefik's container for us.
 
-More about Caddy and how to configure it: https://caddyserver.com/docs/proxy. 
+After you've created your Droplet you still have to point your domain name to your server's IP address. This involves dealing with things like _A records_ or _AAAA records_ or _DNS_ servers and simply can be quite annoying. You can do this with [Digital Ocean](https://www.digitalocean.com/docs/networking/dns/how-to/manage-records/) or the registar where you got your domain name (they will have some online help). The important thing is to put the the IPv4 address of your server into the _A record_ of your DNS settings (or if you have an IPv6 address the _AAAA record_). And remember, DNS changes can take from some minutes to a day to propagate throughout the Internet - So your domain name might take some time to work (you can use [nslookup](http://www.kloth.net/services/nslookup.php) to check).
+
+Then as a last step, after your domain name points to your server's IP, you have to reset your server (switch off the droplet and back on). Now Traefik can request a certificate for your domain and use HTTPS from now on. 
