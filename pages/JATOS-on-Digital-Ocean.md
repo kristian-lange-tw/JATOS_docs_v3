@@ -32,7 +32,8 @@ We want to set up a simple JATOS server without encryption (HTTPS) or a domain n
 
 1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with Ubuntu and Docker pre-installed. Do not press _Create_ yet - we need to set up things first.
 
-
+   {% include image.html file="Screenshot-DigitalOcean-createDroplet-oneClickApp.png" alt="Selected One-Click App with Docker on Ubuntu" caption="" max-width="500" %}
+   
    Your sreen should look similar to this one: Selected One-Click App with Docker on Ubuntu
    
 1. Scroll down to _Choose a size_: JATOS usually runs fine with 1 GB memory and 1 CPU - so the smallest size usually enough (currently it cost $5/month)
