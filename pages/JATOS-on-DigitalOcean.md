@@ -51,11 +51,11 @@ First we want to set up a simple JATOS server without encryption (HTTPS) or a do
 
 1. Finally click the _Create_ button
 
-1. Try out your JATOS: Now the server is being created which can take a couple seconds. You should get an **email** from DigitalOcean with your _server's (aka Droplet) name_, _IP address_, _username_ and _password_. Copy the IP to your browser and if everything went well, you will see a JATOS login screen.
-
-1. Although usually not necessary, you can access your server via _SSH_: `ssh root@xx.xx.xx.xx` (exchange _xx.xx.xx.xx_ with your IP from the email). Use the password from the email. The first time you will be asked to change your password.
+1. Try out your JATOS: Now the server is being created which can take a couple seconds. You should get an **email** from DigitalOcean with your _server's (aka Droplet) name_, _IP address_, _username_ and _password_. Copy the IP into your browser's address bar and if everything went well, you will see a JATOS login screen.
 
 **Voila, you have your own JATOS server.**
+
+Although usually not necessary, you can also access your server via _SSH_: `ssh root@xx.xx.xx.xx` (exchange _xx.xx.xx.xx_ with your IP from the email). Use the password from the email. The first time you will be asked to change your password.
 
 Now, you might want to use a nicer address than an IP and add some encryption-safety with HTTPS to your server - then read on.
 
