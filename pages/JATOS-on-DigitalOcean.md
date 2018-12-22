@@ -2,7 +2,7 @@
 title: JATOS on DigitalOcean
 keywords: install, server, cloud, digitalocean, droplet, traefik, proxy, reverse, docker, docker-compose, deploy
 tags:
-summary: This page describes how to install JATOS on a cloud-based server in the cloud DigitalOcean. To get encryption, you can enable HTTPS with Traefik, but this requires a domain name.
+summary: This page describes how to install JATOS on a cloud-based server in the cloud DigitalOcean. To use encryption, you can enable HTTPS with Traefik, but this requires a domain name.
 sidebar: mydoc_sidebar
 permalink: JATOS-on-DigitalOcean.html
 folder:
