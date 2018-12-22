@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 11 Dec 2017
+last_updated: 22 Dec 2018
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
@@ -22,6 +22,8 @@ The first two are discussed here in this page. The last one has its own [page](I
 ## Some General Advice
 
 One word about IaaS. There are many IaaS providers (Digital Ocean, Microsoft Azure, Google Cloud, Amazon's AWS etc.). They all give you some kind of virtual machine (VM) and the possibility to install an operating system on it. I'd recommend to go with a Linux system like Ubuntu or Debian. Another point is to make sure they have persistent storage and not what is often called 'ephemeral storage' (storage that is deleted after the VM shuts down). Since JATOS stores all study assets in the server's file system persistent storage is needed. But apart from that it's the same JATOS installation like on a dedicated server. In [JATOS in Amazon's Cloud (without Docker)](JATOS-in-Amazons-Cloud-without-Docker.html) we have some advice in how to do it in AWS. 
+
+Another easy option is to [install JATOS on DigitalOcean](JATOS-on-DigitalOcean.html).
 
 
 ## Installation on a server
