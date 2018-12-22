@@ -7,26 +7,28 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-DigitalOcean.html
 folder:
 toc: true
-last_updated: 15 Dec 2018
+last_updated: 22 Dec 2018
 ---
 
 Easy admins and semi-admins
 
 
-[DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like AWS, Google Cloud, Azure) that is comparatively easy to use and has good and exhaustive documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud.
+[DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like AWS, Google Cloud, Azure etc.) that is comparatively easy to use and has good documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud.
 
 Link to privacy
 Link to AWS docs
 Link AWS to here
 Link Server installation to here
 
-**Danger: Will cost money. A server in the cloud doesn't come for free. And you will need a credit card!**
+**Danger: Will cost money. A server in the cloud doesn't come for free. You will need a credit card.**
 
 ## Prerequisites
 
 You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
 
 ## Setup a simple JATOS server on DigitalOcean
+
+We want to set up a simple JATOS server without encryption (HTTPS) or a domain name. 
 
 1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with Ubuntu and Docker pre-installed. Do not press _Create_ yet - we need to set up things first.
 
