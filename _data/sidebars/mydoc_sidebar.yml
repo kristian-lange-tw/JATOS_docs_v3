@@ -170,6 +170,10 @@ entries:
     - title: Install JATOS via Docker
       url: /Install-JATOS-via-Docker.html
       output: web, pdf
+      
+    - title: JATOS on DigitalOcean
+      url: /JATOS-on-DigitalOcean.html
+      output: web, pdf
 
     - title: JATOS in Amazon's Cloud (without Docker)
       url: /JATOS-in-Amazons-Cloud-without-Docker.html
