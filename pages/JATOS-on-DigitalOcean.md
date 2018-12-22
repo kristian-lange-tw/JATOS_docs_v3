@@ -65,7 +65,7 @@ Now, you might want to use a nicer address than an IP and add some encryption-sa
 
 ## Deleting your server
 
-(Deleting the server is straight forward)[https://www.digitalocean.com/docs/droplets/how-to/delete/]. In DigitalOcean, in the left menu of your Droplet choose _Destroy_. DigitalOcean charges you only for the time you actually had the Droplet running. So if you want to create a new JATOS server because something went wrong, just _Destroy_ the old one and start over. 
+[Deleting the server is straight forward](https://www.digitalocean.com/docs/droplets/how-to/delete/). In DigitalOcean, in the left menu of your Droplet choose _Destroy_. DigitalOcean charges you only for the time you actually had the Droplet running. So if you want to create a new JATOS server because something went wrong, just _Destroy_ the old one and start over. 
 
 
 ## Add HTTPS with Traefik and use your own domain name
