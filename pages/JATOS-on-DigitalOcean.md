@@ -17,14 +17,11 @@ On this page we want to explain how to install JATOS on a server on DigitalOcean
 **Keep in mind: A server in the cloud will cost money (circa $5 to $10 / month) and you will need a credit card.**
 
 
-## Prerequisites
-
-You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
-
-
 ## Setup a simple JATOS server on DigitalOcean
 
 First we want to set up a simple JATOS server without encryption (HTTPS) or a domain name. 
+
+1. Set up an account with [DigitalOcean](https://www.digitalocean.com/).
 
 1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with _Docker_ on _Ubuntu_ pre-installed. Do not press _Create_ yet - we need to set up things first.
 
