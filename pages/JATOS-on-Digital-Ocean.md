@@ -10,37 +10,33 @@ toc: true
 last_updated: 22 Dec 2018
 ---
 
-Easy admins and semi-admins
+On this page we want to explain how to install JATOS on a server on DigitalOcean. We tried to keep this tutorial as easy as possible: if everything runs smoothly you don't have to use the terminal at all.
 
+[DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like _AWS_, _Google Cloud_, _Azure_ etc.) that is comparatively easy to use and has good documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud.
 
-[DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like AWS, Google Cloud, Azure etc.) that is comparatively easy to use and has good documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud.
+**Keep in mind: A server in the cloud will cost money and you will need a credit card.**
 
-Link to privacy
-Link to AWS docs
-Link AWS to here
-Link Server installation to here
-
-**Danger: Will cost money. A server in the cloud doesn't come for free. You will need a credit card.**
 
 ## Prerequisites
 
 You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
 
+
 ## Setup a simple JATOS server on DigitalOcean
 
 We want to set up a simple JATOS server without encryption (HTTPS) or a domain name. 
 
-1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with _Docker_ on _Ubuntu_ pre-installed (currently it's called _Docker 18.06.1-ce-3 on 18.04_). Do not press _Create_ yet - we need to set up things first.
+1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with _Docker_ on _Ubuntu_ pre-installed. Do not press _Create_ yet - we need to set up things first.
 
    ![Selected One-Click App with Docker on Ubuntu](images/Screenshot-DigitalOcean-createDroplet-oneClickApp.png)
    
-   Your sreen should look similar to this one: Selected One-Click App with Docker on Ubuntu
+   Your sreen should look similar to this one: Selected _One-Click App_ with _Docker_ on _Ubuntu_ (currently it's called _Docker 18.06.1-ce-3 on 18.04_)
    
-1. Scroll down to _Choose a size_: JATOS usually runs fine with 1 GB memory and 1 CPU - so the smallest size usually enough (currently it cost $5/month)
+1. Scroll down to _Choose a size_: JATOS usually runs fine with 1 GB memory and 1 CPU - so the smallest size is usually enough (currently it cost $5/month)
 
-1. Scroll down to _Choose region_: You can actually choose any, but best is to choose one that is near to your participants to reduce loading time.
+1. Scroll down to _Choose region_: You can actually use any you want, but best is to choose one that is near to your participants to reduce loading time.
 
-1. _Select additional options_: Here activate **User Data** and put the following script in the text field
+1. _Select additional options_: Here activate **User Data** and copy+paste the following script in the text field:
 
    ```shell
    #!/bin/bash
@@ -51,14 +47,16 @@ We want to set up a simple JATOS server without encryption (HTTPS) or a domain n
    ```
    
    ![Droplet's User Data](images/Screenshot-DigitalOcean-createDroplet-userData.png)
+   
+   The _User Data_ should look similar to this screenshot here
 
 1. Optional one can an SSH key under _Add your SSH keys_. If you don't know what this is or don't want to, just ignore this - you will still be able to access the server.
 
 1. Finally click the _Create_ button
 
-1. Try out your JATOS: Now the server is being created which can take a couple seconds. You should get an email from DigitalOcean with your server's (aka Droplet) name, IP address, username and password. Copy the IP to your browser and if everything went well you will see a JATOS login screen.
+1. Try out your JATOS: Now the server is being created which can take a couple seconds. You should get an email from DigitalOcean with your server's (aka Droplet) name, IP address, username and password. Copy the IP to your browser and if everything went well, you will see a JATOS login screen.
 
-1. Although not necessary you can access your server via SSH `ssh root@xx.xx.xx.xx` (exchange xx.xx.xx.xx with your IP). The first time it will ask you to change your password.
+1. Although usually not necessary, you can access your server via _SSH_: `ssh root@xx.xx.xx.xx` (exchange _xx.xx.xx.xx_ with your IP from the email). Use the password from the email. The first time you will be asked to change your password.
 
 **Voila, you have your own JATOS server.**
 
@@ -75,7 +73,7 @@ We will use [Traefik](https://traefik.io/). Traefik adds encryption out-of-the-b
 
 Now with a domain name you can encrypt your server's communication with HTTPS (HTTPS works only with a domain name and not with just an IP).
 
-To create a JATOS server with Traefik follow the instructions in the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in the **User Data** field of _Select additional options_ add the following script:
+To create a JATOS server with Traefik follow the instructions of the first paragraph [Setup a simple JATOS server on DigitalOcean](#setup-a-simple-jatos-server-on-digitalocean) but in the **User Data** field of _Select additional options_ add the following script:
 
 ```shell
 #!/bin/bash
@@ -100,6 +98,8 @@ Exchange `my.domain.name` and `my.email@foo.com` with your own domain name and e
 
 This script downloads two config files, one for Traefik and one for Docker Compose. If you are interested you can see them under https://github.com/JATOS/JATOS/blob/master/deploy/docker-compose.yaml and https://github.com/JATOS/JATOS/blob/master/deploy/traefik.toml. Docker Compose will start JATOS' and Traefik's container for us.
 
-After you've created your Droplet you still have to point your domain name to your server's IP address. This involves dealing with things like _A records_ or _AAAA records_ or _DNS_ servers and simply can be quite annoying. You can [manage your DNS settings with Digital Ocean](https://www.digitalocean.com/docs/networking/dns/how-to/manage-records/) or the registar where you got your domain name (they will have some online help). The important thing is to put the the IPv4 address of your server into the _A record_ of your DNS settings (or if you have an IPv6 address the _AAAA record_). And remember, DNS changes can take from some minutes to a day to propagate throughout the Internet - So your domain name might take some time to work (you can use [nslookup](http://www.kloth.net/services/nslookup.php) to check).
+After you've created your Droplet you still have to point your domain name to your server's IP address. This involves dealing with things like _A records_ or _AAAA records_ or _DNS_ servers and simply can be quite annoying. You can [manage your DNS settings with Digital Ocean](https://www.digitalocean.com/docs/networking/dns/how-to/manage-records/) or the registar where you got your domain name (they will have some online help). The important thing is to put the _IPv4_ address of your server into the _A record_ of your DNS settings (or if you have an _IPv6_ address the _AAAA record_). And remember, DNS changes can take from some minutes to a day to propagate throughout the Internet - So your domain name might take some time to work (you can use [nslookup](http://www.kloth.net/services/nslookup.php) to check).
 
-Then as a last step, after your domain name points to your server's IP, you have to reset your server (switch off the droplet and back on). Now Traefik can request a certificate for your domain and use HTTPS from now on. 
+Then as a last step, after your domain name points to your server's IP, you have to reset your server (switch off the Droplet and back on). Now Traefik can request a certificate for your domain and use HTTPS from now on. 
+
+**Done. You have a JATOS server with encryption on your domain name.**
