@@ -30,7 +30,7 @@ You need to get an account with [DigitalOcean](https://www.digitalocean.com/).
 
 We want to set up a simple JATOS server without encryption (HTTPS) or a domain name. 
 
-1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with Ubuntu and Docker pre-installed. Do not press _Create_ yet - we need to set up things first.
+1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with _Docker_ on _Ubuntu_ pre-installed (currently it's called _Docker 18.06.1-ce-3 on 18.04_). Do not press _Create_ yet - we need to set up things first.
 
    ![Selected One-Click App with Docker on Ubuntu](images/Screenshot-DigitalOcean-createDroplet-oneClickApp.png)
    
