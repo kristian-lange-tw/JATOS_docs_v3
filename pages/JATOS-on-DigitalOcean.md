@@ -2,7 +2,7 @@
 title: JATOS on DigitalOcean
 keywords: install, server, cloud, digitalocean, droplet, traefik, proxy, reverse, docker, docker-compose, deploy
 tags:
-summary: This page describes how to install JATOS on a server in the cloud with DigitalOcean. Optionally one can enable HTTPS with Traefik which requires a domain name.
+summary: This page describes how to install JATOS on a cloud-based server in the cloud DigitalOcean. To get encryption, you can enable HTTPS with Traefik, but this requires a domain name.
 sidebar: mydoc_sidebar
 permalink: JATOS-on-DigitalOcean.html
 folder:
@@ -10,7 +10,7 @@ toc: true
 last_updated: 22 Dec 2018
 ---
 
-On this page we want to explain how to install JATOS on a server on DigitalOcean. We tried to keep this tutorial as easy as possible: if everything runs smoothly you don't have to use the terminal at all.
+On this page we want to explain how to install JATOS on a server running on DigitalOcean. We tried to keep this tutorial as easy as possible: if everything runs smoothly you don't have to use the terminal at all.
 
 [DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like _AWS_, _Google Cloud_, _Azure_ etc.) that is comparatively easy to use and has good documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud.
 
@@ -21,7 +21,7 @@ On this page we want to explain how to install JATOS on a server on DigitalOcean
 
 First we want to set up a simple JATOS server without encryption (HTTPS) or a domain name. 
 
-1. Set up an account with [DigitalOcean](https://www.digitalocean.com/).
+1. Set up an account with [DigitalOcean](https://www.digitalocean.com/) -you'll have to provide billing information.
 
 1. Use this [link](https://cloud.digitalocean.com/droplets/new?image=docker-18-04) to create a Droplet with _Docker_ on _Ubuntu_ pre-installed. Do not press _Create_ yet - we need to set up things first.
 
