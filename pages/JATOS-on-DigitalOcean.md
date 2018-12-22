@@ -12,7 +12,7 @@ last_updated: 22 Dec 2018
 
 On this page we want to explain how to install JATOS on a server running on DigitalOcean. We tried to keep this tutorial as easy as possible: if everything runs smoothly you don't have to use the terminal at all.
 
-[DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like _AWS_, _Google Cloud_, _Azure_ etc.) that is comparatively easy to use and has good documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud.
+[DigitalOcean](https://www.digitalocean.com/) is a cloud provider (like _AWS_, _Google Cloud_, _Azure_ etc.) that is comparatively easy to use and has good documentation. They offer something called _Droplets_ and _One-Click Apps_ which is just a fancy name for a pre-installed server in the cloud. And btw. we have no connections to DigitalOcean whatsoever.
 
 **Keep in mind: A server in the cloud will cost money (circa $5 to $10 / month) and you will need a credit card.**
 
@@ -57,12 +57,12 @@ First we want to set up a simple JATOS server without encryption (HTTPS) or a do
 
 Although usually not necessary, you can also access your server via _SSH_: `ssh root@xx.xx.xx.xx` (exchange _xx.xx.xx.xx_ with your IP from the email). Use the password from the email. The first time you will be asked to change your password.
 
-Now, you might want to use a nicer address than an IP and add some encryption-safety with HTTPS to your server - then read on.
-
 
 ## Deleting your server
 
 [Deleting the server is straightforward](https://www.digitalocean.com/docs/droplets/how-to/delete/). In DigitalOcean, in the left menu of your Droplet choose _Destroy_. DigitalOcean charges you by second. So if you want to create a new JATOS server because something went wrong, just _Destroy_ the old one and start over. 
+
+Now, you might want to use a nicer address than an IP and add some encryption-safety with HTTPS to your server - then read on.
 
 
 ## Add HTTPS with Traefik and use your own domain name
