@@ -47,7 +47,7 @@ First we want to set up a simple JATOS server without encryption (HTTPS) or a do
    
    The _User Data_ should look similar to this screenshot here
 
-1. YOu could also add an SSH key under _Add your SSH keys_. If you don't know what this is, just ignore it - you will still be able to access the server.
+1. You could also add an SSH key under _Add your SSH keys_. If you don't know what this is, just ignore it - you will still be able to access the server.
 
 1. Finally click the _Create_ button
 
