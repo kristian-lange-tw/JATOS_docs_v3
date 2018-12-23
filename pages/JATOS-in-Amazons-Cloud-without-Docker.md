@@ -10,7 +10,7 @@ toc: false
 last_updated: 7 Aug 2018
 ---
 
-On this page is additional information in how to install JATOS on a server in Amazon's Web Services. All general installation advice is in [JATOS on a server](JATOS-on-a-server.html) and applies here too.
+On this page is additional information in how to install JATOS on a server in Amazon's Web Services. All general installation advice is in [JATOS on a server](JATOS-on-a-server.html) and applies here too. If you are looking for an easier way to install JATOS in the cloud, the tutorial [JATOS on DigitalOcean](JATOS-on-DigitalOcean.html) might be what you are looking for.
 
 1. First you need to register at [AWS (Amazon Web Services)](https://aws.amazon.com/) (they'll want your credit card).
 1. In AWS webpage move to EC2 and launch a new instance with Ubuntu (you can use other Linux too - I tested it with Ubuntu 14.04 and 16.04)
