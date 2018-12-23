@@ -14,8 +14,6 @@ JATOS has a Docker image: [hub.docker.com/r/jatos/jatos/](https://hub.docker.com
 
 Docker is a great technology, but if you never heard of it you can safely ignore this page (it's not necessary to use it if you want to install JATOS, either locally or on a server). 
 
-If you have heard of it, you might want to, for example, setup JATOS in a Docker container together with an external H2 or MySQL database in another Docker container. You can easily do that: 
-
 ### Install JATOS locally with a Docker container
 
 1. Install Docker locally on your computer (not covered here)
@@ -26,7 +24,7 @@ If you have heard of it, you might want to, for example, setup JATOS in a Docker
 
    `docker pull jatos/jatos:latest` - to get the latest version
 
-   `docker pull jatos/jatos:x.x.x` - to get a certain version (exchange _x.x.x_ with the version - e.g. to get version 3.3.3 use `docker pull jatos/jatos:3.3.3`
+   `docker pull jatos/jatos:x.x.x` - to get a certain version (exchange _x.x.x_ with the version) - e.g. to get version 3.3.3 use `docker pull jatos/jatos:3.3.3`
 
 1. Check that you actually downloaded the image: `docker images` should show `jatos/jatos` in one line
 
