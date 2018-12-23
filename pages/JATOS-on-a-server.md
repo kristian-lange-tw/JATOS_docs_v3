@@ -2,7 +2,7 @@
 title: Install JATOS on a server
 keywords: server, installation, test, config, configuration, backup, proxy
 tags:
-summary: To run studies online, e.g. with Mechanical Turk, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management.
+summary: To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management.
 sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
@@ -12,19 +12,11 @@ last_updated: 22 Dec 2018
 
 There are several ways to bring JATOS to the internet. You can install it
 
-* on your own dedicated server
-* in the cloud (with IaaS)
-* in the cloud with a Docker container
+* On your own **dedicated server** (discussed here on this page)
+* In the **cloud** - This point is covered by two pages, [one for DigitalOcean](JATOS-on-DigitalOcean.html) and [one for AWS (Amazon's cloud)](JATOS-in-Amazons-Cloud-without-Docker.html) (also there are other cloud provider, like Microsoft Azure, Google Cloud ...).
+* With a **Docker** container: [Install JATOS via Docker](Install-JATOS-via-Docker.html)
 
-The first two are discussed here in this page. The last one has its own [page](Install-JATOS-via-Docker.html).
-
-
-## Some General Advice
-
-One word about IaaS. There are many IaaS providers (Digital Ocean, Microsoft Azure, Google Cloud, Amazon's AWS etc.). They all give you some kind of virtual machine (VM) and the possibility to install an operating system on it. I'd recommend to go with a Linux system like Ubuntu or Debian. Another point is to make sure they have persistent storage and not what is often called 'ephemeral storage' (storage that is deleted after the VM shuts down). Since JATOS stores all study assets in the server's file system persistent storage is needed. But apart from that it's the same JATOS installation like on a dedicated server. In [JATOS in Amazon's Cloud (without Docker)](JATOS-in-Amazons-Cloud-without-Docker.html) we have some advice in how to do it in AWS. 
-
-Another easy option is to [install JATOS on DigitalOcean](JATOS-on-DigitalOcean.html).
-
+If you don't know much about server administration the DigitalOcean page might be best for you.
 
 ## Installation on a server
 
