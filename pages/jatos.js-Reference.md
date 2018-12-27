@@ -140,7 +140,7 @@ All variables can be set except those labled _read-only_.
   jatos.channelClosedCheckInterval = 4000; // Sets interval to 4 seconds
   ```
   
-* `jatos.channelOpeningBackoffTimeMin` and `jatos.channelOpeningBackoffTimeMax` - Min and max waiting time (in ms) between channel reopening attempts (default is 1s for min and 2 min for max)
+* `jatos.channelOpeningBackoffTimeMin` and `jatos.channelOpeningBackoffTimeMax` - Min and max waiting time (in ms) between channel reopening attempts (default is 1s for min and 2 min for max). jatos.js uses an _exponential back-off_ retry pattern for the channels.
   
   ```javascript
   jatos.channelOpeningBackoffTimeMin = 2000; // Sets interval to 2 seconds
