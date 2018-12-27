@@ -1,13 +1,13 @@
 ---
 title: jatos.js Reference
-keywords: reference, jatos.js
+keywords: reference, jatos.js, function, variable, js, javascript, library
 tags:
 summary: jatos.js is a small JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library.
 sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 7 Aug 2018
+last_updated: 27 Dec 2018
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -113,14 +113,41 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 
 ### Other variables
 
-* `jatos.version` - Current version of the jatos.js library
-* `jatos.channelSendingTimeoutTime` (writeable) - Time in ms to wait for an answer after sending a message via a channel (batch or group). Set this variable if you want to change the default value (default is 10 s).
+All variables can be set except those labled _read-only_.
+
+* `jatos.version` (_read-only_) - Current version of the jatos.js library
+* `jatos.channelSendingTimeoutTime` - Time in ms to wait for an answer after sending a message via a channel (batch or group). Set this variable if you want to change the default value (default is 10 s).
 
   ```javascript
   jatos.channelSendingTimeoutTime = 20000; // Sets channel timeout to 20 seconds
   ```
+  
+* `jatos.channelHeartbeatInterval` -  Waiting time in ms between channel (group or batch) heartbeats (default is 25 s)
+  
+  ```javascript
+  jatos.channelHeartbeatInterval = 10000; // Sets interval to 10 seconds
+  ```
+  
+* `jatos.channelHeartbeatTimeoutTime` - Waiting time in ms for JATOS server's answer to a channel heartbeat (default is 10 s)
+  
+  ```javascript
+  jatos.channelHeartbeatTimeoutTime = 20000; // Sets interval to 20 seconds
+  ```
+  
+* `jatos.channelClosedCheckInterval` - Waiting time in ms between checking if channels (group or batch) are closed unexpectedly (default is 2 s)
+  
+  ```javascript
+  jatos.channelClosedCheckInterval = 4000; // Sets interval to 4 seconds
+  ```
+  
+* `jatos.channelOpeningBackoffTimeMin` and `jatos.channelOpeningBackoffTimeMax` - Min and max waiting time (in ms) between channel reopening attempts (default is 1s for min and 2 min for max)
+  
+  ```javascript
+  jatos.channelOpeningBackoffTimeMin = 2000; // Sets interval to 2 seconds
+  jatos.channelOpeningBackoffTimeMax = 60000; // Sets interval to 1 minute
+  ```
 
-* `jatos.httpTimeout` (writeable) - Time in ms to wait for an answer of an HTTP request by jatos.js. Set this variable if you want to change the default value (default is 1 min).
+* `jatos.httpTimeout` - Time in ms to wait for an answer of an HTTP request by jatos.js. Set this variable if you want to change the default value (default is 1 min).
 
   ```javascript
   jatos.httpTimeout = 30000; // Sets HTTP timeout to 30 seconds
@@ -138,7 +165,7 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
   jatos.httpRetryWait = 5000; // Sets Ajax retry waiting time to 5 seconds
   ```
 
-* `jatos.jQuery` - You can always use jatos.js own jQuery if you want to save some bandwidth
+* `jatos.jQuery` (_read-only_) - You can always use jatos.js own jQuery if you want to save some bandwidth
 
 
 
