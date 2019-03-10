@@ -15,10 +15,10 @@ Since version 3.3.5 you can update your JATOS installaion automatically (if you 
 The process is pretty self-explanatory:
 
 1. If your JATOS version is not the latest one available, you will get a notification in your [home page](http://localhost:9000/). 
-1. Click on 'Update' and the latest version will be automatically downloaded from GitHub. (Save some [special cases](#versions-with-newer-Java-required) the variant downloaded will correspond to the one you have already installed, -linux/MacOS/Win, with/withou Java).
-1. We expect no problems, but sh&t happens. We recommend that you *backup your result data and study assets folder* before continuing.
+1. Click on 'Update' and the latest version will be automatically downloaded from GitHub [and saved where?]. (Save some [special cases](#versions-with-newer-Java-required) the variant downloaded will correspond to the one you have already installed, -linux/MacOS/Win, with/without Java-.
+1. We expect no problems, but sh&t happens. We recommend that you **backup your result data and study assets folder** before continuing.
 1. After donwload is complete, click on Update. 
-1. JATOS will automatically backup your H2 database **but not your MySQL database*, should you have one. 
+1. JATOS will automatically backup your H2 database **but not your MySQL database**, should you have one. 
 1. JATOS will stop itself, replace the program files, bring back the backed-up database and study assets and start itself again.
 1. Restarting should not take long (under a minute). Refresh your JATOS home page after clicking update, to continue working with your updated version.   
 
@@ -34,6 +34,6 @@ Auto-updating might not always be possible (in the unlikely case of a database s
 As of today, JATOS (v.3.3.4) uses Java 8. Future versions will likely require newer Java versions. If you're updating from a JATOS version using Java 8 to (say) another version using JAVA 11, the auto-update process will automatically download JATOS bundled with Java, regardless of wich variant you are currently using.
 
 ### Compatibility, feeback and bug reports
-The auto-update feature is available for linux and MacOS, but not in windows systems. It works on Docker. 
+The auto-update feature is available for linux and MacOS, but not for windows systems. It also works on Docker. 
 We tried our best to make this feature as robust and general as possible, and welcome any bug reports if it did not work in your system. In these cases, please [send us](http://www.jatos.org/Contact-us.html) a description of your system along with your [logs](http://www.jatos.org/Troubleshooting.html#read-log-file-in-the-browser). 
 
