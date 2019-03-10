@@ -19,10 +19,6 @@ We recently started a subforum in the very nice [CogSci.nl](https://forum.cogsci
 
 Note: We recently migrated from [Google Groups](https://groups.google.com/forum/#!forum/jatos). Check it out, as you might find the answer you're looking for. 
 
-### Stack Overflow
-
-Write a question on [stackoverflow.com](http://stackoverflow.com).
-
 ### GitHub issues
 
 If you would like to report a bug or suggest a new feature that could improve JATOS, you could write a [GitHub issue](https://github.com/JATOS/JATOS/issues).
