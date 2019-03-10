@@ -35,5 +35,5 @@ As of today, JATOS (v.3.3.4) uses Java 8. Future versions will likely require ne
 
 ### Compatibility, feeback and bug reports
 The auto-update feature is available for linux and MacOS, but not in windows systems. It works on Docker. 
-We tried our best to make this feature as robust and general as possible, and welcome any bug reports if it did not work in your system. In these clases, please [send us](Contact-us.html) a description of your system along with your logs. 
+We tried our best to make this feature as robust and general as possible, and welcome any bug reports if it did not work in your system. In these cases, please [send us](http://www.jatos.org/Contact-us.html) a description of your system along with your [logs](http://www.jatos.org/Troubleshooting.html#read-log-file-in-the-browser). 
 
