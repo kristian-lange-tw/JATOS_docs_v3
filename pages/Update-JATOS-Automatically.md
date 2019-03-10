@@ -16,7 +16,7 @@ The process is pretty self-explanatory:
 
 1. If your JATOS version is not the latest one available, you will get a notification in your [home page](http://localhost:9000/). 
 1. Click on 'Update' and the latest version will be automatically downloaded from GitHub. (Save some [special cases](#versions-with-newer-Java-required) the variant downloaded will correspond to the one you have already installed, -linux/MacOS/Win, with/withou Java).
-1. We expect no problems, but sh*t happens. We recommend that you *backup your result data and study assets folder* before continuing.
+1. We expect no problems, but sh&t happens. We recommend that you *backup your result data and study assets folder* before continuing.
 1. After donwload is complete, click on Update. 
 1. JATOS will automatically backup your H2 database **but not your MySQL database*, should you have one. 
 1. JATOS will stop itself, replace the program files, bring back the backed-up database and study assets and start itself again.
