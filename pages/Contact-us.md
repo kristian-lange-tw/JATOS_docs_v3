@@ -14,13 +14,14 @@ JATOS is under active development, so please do get in touch to ask questions, s
 
 We also conduct workshops: If you want us to give a lecture or workshop about JATOS and/or online studies in general contact us via email.
 
+### CogSci forum
+We recently started a subforum in the very nice [CogSci.nl](https://forum.cogsci.nl/) forum. It nucleates several cognitive science -and beyond!- tools, so we hope that this simplifies communication. 
+
+Note: We recently migrated from [Google Groups](https://groups.google.com/forum/#!forum/jatos). Check it out, as you might find the answer you're looking for. 
+
 ### Stack Overflow
 
 Write a question on [stackoverflow.com](http://stackoverflow.com).
-
-### Google group
-
-We have a little JATOS community gathered in a [Google Group](https://groups.google.com/forum/#!forum/jatos) where one can ask questions.
 
 ### GitHub issues
 
