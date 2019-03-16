@@ -39,7 +39,6 @@ First we want to set up a simple JATOS server without encryption (HTTPS) or a do
    #!/bin/bash
    
    # Run JATOS as docker container
-   docker pull jatos/jatos:latest
    docker run -d --restart=always -p 80:9000 jatos/jatos:latest
    ```
    
