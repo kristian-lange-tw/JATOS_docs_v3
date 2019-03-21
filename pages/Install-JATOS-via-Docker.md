@@ -32,11 +32,11 @@ Docker is a great technology, but if you never heard of it you can safely ignore
 
    `docker run -d -p 9000:9000 jatos/jatos:latest`
    
-   The `-d` argument specifies to run this container as a daemon and the `-p` is responsible for the port mapping.
+   The `-d` argument specifies to run this container in detached mode (in the backgroud) and the `-p` is responsible for the port mapping.
 
 1. Check that the new container is running: In your browser go to [localhost:9000](http://localhost:9000) - it should show the JATOS login screen. Or use `docker ps -a` - in the line with `jatos/jatos` the status should say `up`.
 
-**Troubleshooting**: By removing the `-d` argument (e.g. `docker run -p 9000:9000 jatos/jatos:latest`) you get JATOS' logs printed in your shell - although you don't run it as a daemon in the background anymore.  
+**Troubleshooting**: By removing the `-d` argument (e.g. `docker run -p 9000:9000 jatos/jatos:latest`) you get JATOS' logs printed in your shell - although you don't run it in detached mode in the background anymore.  
 
 ### Change port
 
