@@ -33,6 +33,7 @@ The process is pretty self-explanatory, but anyway, we'll explain it here in det
 
 1. After clicking the _Go on_ button, JATOS will stop itself, replace its program files and re-start itself again. This might take up to minute.
 1. Refresh your JATOS home page every now and then until you see your updated JATOS' login screen again.
+1. Check the new JATOS with the build-in test page [localhost:9000/jatos/test](http://localhost:9000/jatos/test) in the browser. All tests should be OK.
 
 
 ### Special cases
@@ -49,7 +50,7 @@ As of today, JATOS (v.3.3.4) uses Java 8. Future versions will likely require ne
 
 ## Manual Updates
 
-## Updating a local installation of JATOS 
+### Updating a local installation of JATOS 
 (The procedure is different if you want to [update JATOS on a server installation](Updating-a-JATOS-server-installation.html))
 
 To be absolutely safe you can install the new JATOS version and keep the old one untouched. This way you can switch back if something fails. Just remember that only one JATOS can run at the same time. Always end JATOS before starting another one.
