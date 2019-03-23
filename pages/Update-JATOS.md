@@ -44,7 +44,7 @@ Pre-releases will not be available as auto-updates by default. If you want to fo
 #### Major updates
 Auto-updating might not always be possible. JATOS versions will be flagged so that they are not available for auto-update. You'll have to do a [manual update](Update-JATOS.md).
 
-#### Versions with newer Java equired
+#### Versions with newer Java required
 As of today, JATOS (v.3.3.4) uses Java 8. Future versions will likely require newer Java versions. If you're updating from a JATOS version using Java 8 to (say) another version using Java 11, the auto-update process will automatically download JATOS bundled with the new Java, regardless of wich variant you are currently using. If you do not like the bundled Java and use your own version you can always remove the folder _jre_ later on after the update.
 
 
