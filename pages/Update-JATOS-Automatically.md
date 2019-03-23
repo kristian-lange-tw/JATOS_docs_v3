@@ -10,7 +10,7 @@ toc: true
 last_updated: 23 Mar 2019
 ---
 
-Since version 3.3.5 you can update your JATOS automatically (if you have **admin rights** and running on **Mac OS** or **Linux** (including Docker), that is). Windows is not yet supported.
+Since version 3.3.5 you can update your JATOS automatically (if you have **admin rights** and running on **Mac OS** or **Linux** (including **Docker**), that is). **Windows is not yet supported**.
 
 ## Normal process
 
