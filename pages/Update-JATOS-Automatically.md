@@ -10,7 +10,9 @@ toc: true
 last_updated: 23 Mar 2019
 ---
 
-Since version 3.3.5 you can update your JATOS automatically (if you have **admin rights** and running on **Mac OS** or **Linux** (including Docker), that is).
+Since version 3.3.5 you can update your JATOS automatically (if you have **admin rights** and running on **Mac OS** or **Linux** (including Docker), that is). Windows is not yet supported.
+
+## Normal process
 
 The process is pretty self-explanatory, but anyway, we'll explain it here in detail:
 
@@ -19,7 +21,7 @@ The process is pretty self-explanatory, but anyway, we'll explain it here in det
 ![Update notification Schreenshot](images/autoupdate-notification.png)
 
 1. We expect no problems, but sh&t happens. We recommend that you **backup your result data and study assets folder** before continuing.
-1. Click on 'Update' and after another confirmation the latest version will be downloaded from GitHub and saved in your system's temporary folder. Usually the variant downloaded will be the one without bundled Java. Only in cases where JATOS switches to a newer version of Java a bundled version is required. The download might take a while depending on your internet connection.
+1. Click on _Update_ and after another confirmation the latest version will be downloaded from GitHub and saved in your system's temporary folder. Usually the variant downloaded will be the one without bundled Java. Only in cases where JATOS switches to a newer version of Java a bundled version is required. The download might take a while depending on your internet connection.
 1. After dównload is complete, you will be asked again for confirmation. This time you have the option to do a **backup** of your current JATOS installation folder. JATOS will copy the content of its own installation folder into a folder with the name _backup_x.x.x_ (x.x.x is the version before the update). That usually includes your H2 database, your study assets and logs - **but not your MySQL database** (should you have one). If anything goes wrong, you have everything in this backup folder to start the old JATOS again. This backup will use up disk space (therefore you can opt out).
 
 ![Update notification Schreenshot](images/autoupdate-update-and-restart.png)
