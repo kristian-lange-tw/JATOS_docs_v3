@@ -1,5 +1,5 @@
 ---
-title: Update JATOS
+title: Update JATOS manually
 keywords: update
 tags:
 summary:
@@ -7,8 +7,10 @@ sidebar: mydoc_sidebar
 permalink: Update-JATOS.html
 folder:
 toc: true
-last_updated: 7 Aug 2018
+last_updated: 23 Mar 2019
 ---
+
+Since version 3.3.5 JATOS offers [automatic updates](Update-JATOS-automatically.html). But it's still possible to update manually.
 
 **For the [migration from JATOS 2 to 3](Migrate-from-v2-to-v3.html) we have an extra page with additional information about changes in jatos.js and maybe the JavaScript of your studies.**
 
