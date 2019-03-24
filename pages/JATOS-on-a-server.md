@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 22 Dec 2018
+last_updated: 23 Mar 2019
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
@@ -79,7 +79,6 @@ After=network-online.target
 #After=network-online.target mysql.service
 
 [Service]
-Type=forking
 PIDFile=/my/path/to/jatos/RUNNING_PID
 User=my-jatos-user
 ExecStart=/my/path/to/jatos/loader.sh start
