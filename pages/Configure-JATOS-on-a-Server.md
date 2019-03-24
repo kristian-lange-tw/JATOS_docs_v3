@@ -1,26 +1,26 @@
 ---
 title: Configure JATOS on a Server
-keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port, password
+keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1
 tags:
 summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions.
 sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:
 toc: true
-last_updated: 7 Aug 2018
+last_updated: 23 Mar 2019
 ---
 
 **Restart JATOS after making any changes to the configuration (`loader.sh restart`)**
 
 ### IP / domain and port
 
-By default JATOS uses the address 127.0.0.1 and port 9000. There are two ways to configure the host name or IP address and the port:
+By default JATOS binds to all locally available IP addresses including 127.0.0.1 on port 9000. If you don't want to use a proxy in front of JATOS, you have several ways to configure the host name or IP address and the port:
 
-1. In `loader.sh` change the values of 'address' and 'port' according to your IP address or domain name and port.
+1. **Since JATOS 3.3.5** it is possible to set up IP and port via `conf/production.conf`: Edit `play.server.http.address` and `play.server.http.port` and restart JATOS. E.g. to run on IP 192.168.0.100 and port 80:
 
    ~~~ bash
-   address="172.16.0.1"
-   port="8080"
+   play.server.http.address = "192.168.0.100"
+   play.server.http.port = 80
    ~~~
   
 1. Via command-line arguments `-Dhttp.address` and `-Dhttp.port`, e.g. with the following command you'd start JATOS with IP 10.0.0.1 and port 80
@@ -28,6 +28,13 @@ By default JATOS uses the address 127.0.0.1 and port 9000. There are two ways to
    ~~~ bash
    loader.sh start -Dhttp.address=10.0.0.1 -Dhttp.port=80
    ~~~
+   
+1. (DEPRECATED) In `loader.sh` change the values of 'address' and 'port' according to your IP address or domain name and port. Restart JATOS after editing.
+
+   ~~~ bash
+   address="172.16.0.1"
+   port="8080"
+   ~~~   
      
 ### URL base path (JATOS >= v3.3.1)
 
