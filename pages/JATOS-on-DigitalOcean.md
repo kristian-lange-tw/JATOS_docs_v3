@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-DigitalOcean.html
 folder:
 toc: true
-last_updated:  3 Mar 2019
+last_updated:  23 Mar 2019
 ---
 
 On this page we want to explain how to install JATOS on a server running on DigitalOcean. We tried to keep this tutorial as easy as possible: if everything runs smoothly you don't have to use the terminal at all.
@@ -101,9 +101,9 @@ docker network create proxy
 docker-compose -f /root/docker-compose.yaml up -d
 ```
 
-Exchange `my.domain.name` and `my.email@foo.com` with your own domain name and email address.
+Exchange `my.domain.name` and `my.email@foo.com` with your own domain name and email address. Your email we need for encryption with [Let's Encrypt](https://letsencrypt.org/).
 
-This script downloads two config files, one for Traefik and one for Docker Compose. If you are interested you can examine them under https://github.com/JATOS/JATOS/blob/master/deploy/docker-compose.yaml and https://github.com/JATOS/JATOS/blob/master/deploy/traefik.toml. Docker Compose will start JATOS' and Traefik's container for us.
+This script downloads two config files, one for Traefik and one for Docker Compose. If you are interested you can examine them under [https://github.com/JATOS/JATOS/blob/master/deploy/docker-compose.yaml](https://github.com/JATOS/JATOS/blob/master/deploy/docker-compose.yaml) and [https://github.com/JATOS/JATOS/blob/master/deploy/traefik.toml](https://github.com/JATOS/JATOS/blob/master/deploy/traefik.toml). Docker Compose will start JATOS' and Traefik's container for us.
 
 After you've created your Droplet you still have to point your domain name to your server's IP address. This involves dealing with things like _A records_ or _AAAA records_ or _DNS_ servers and simply can be quite annoying. You can [manage your DNS settings with Digital Ocean](https://www.digitalocean.com/docs/networking/dns/how-to/manage-records/) or the registar where you got your domain name (they will have some online help). The important thing is to put the _IPv4_ address of your server into the _A record_ of your DNS settings (or if you have an _IPv6_ address the _AAAA record_). And remember, DNS changes can take from some minutes to a day to propagate throughout the Internet - So your domain name might take some time to work (you can use [nslookup](http://www.kloth.net/services/nslookup.php) to check).
 
