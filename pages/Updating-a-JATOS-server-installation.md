@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Updating-a-JATOS-server-installation.html
 folder:
 toc: true
-last_updated: 27 Apr 2017
+last_updated: 23 Mar 2019
 ---
 
 Updating the server instance is equivalent to doing it [locally](Update-JATOS.html), but make sure that you know what you're doing; especially if you have paired JATOS with a MySQL database.
@@ -16,9 +16,17 @@ To be absolutely safe you can install the new JATOS version and keep the old one
 
 Note: If you are using a MySQL database and to be on the safe side in case something goes wrong, make a backup of your MySQL database. Dump the database using `mysqldump -u yourUserName -p yourDatabaseName > yourDatabaseName.out`.
 
-As with [updating of a local JATOS installation](Update-JATOS.html) you have two options: 1. Keep your studies but discard all your result data and batches. 2. Keep everything, including your studies and result data (might not always be possible).
+As with [updating of a local JATOS installation](Update-JATOS.html) you can do it automatically or manually.
 
 After updating you can check the new JATOS installation with the test page `my-address/jatos/test` in the browser. All tests should be OK.
+
+## Automatic Updating
+
+This is the easiest way but is only available since JATOS 3.3.5. Then it's [the same as in a local installation](Update-JATOS.html#automatic-updates).
+
+## Manual Updating
+
+You have two ways to update manually: 1) Keep your studies but discard all your result data and batches. 2) Keep everything, including your studies and result data (might not always be possible).
 
 ### First option: quick and dirty (discarding result data)
 
