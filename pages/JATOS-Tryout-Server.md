@@ -12,7 +12,7 @@ last_updated: 10 Dec 2017
 
 Cortex is a running JATOS server where you can try out JATOS in the Internet instead of your local computer:
 
-[https://cortex.jatos.org](https://cortex.jatos.org) (log in with _test@jatos.org_ and _abc123_)
+[https://cortex.jatos.org](https://cortex.jatos.org) (log in with _test@jatos.org_ and _abc1234_)
 
 This is a normal JATOS installation with many example studies already imported. You can run the examples or import your own studies if you want to test them in a JATOS running in an online environment. 
 
