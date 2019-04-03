@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 27 Dec 2018
+last_updated: 3 April 2019
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -449,6 +449,13 @@ var resultData = {"a": 123, "b": 789, "c": 100};
 jatos.submitResultData(JSON.stringify(resultData));
 ```
 
+Since v3.3.1 it's possible to leave out the JSON serialization:
+
+```javascript
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.submitResultData(resultData);
+```
+
 It's often used together with `jatos.startNextComponent` to first submit result data back to the JATOS server and afterwards jump to the next component:
 
 ```javascript
@@ -464,13 +471,6 @@ var resultData = {"a": 123, "b": 789, "c": 100};
 jatos.submitResultData(JSON.stringify(resultData), function () {
   jatos.startComponentByPos(4);
 });
-```
-
-Since v3.3.1 it's possible to leave out the JSON serialization:
-
-```javascript
-var resultData = {"a": 123, "b": 789, "c": 100};
-jatos.submitResultData(resultData, jatos.startNextComponent);
 ```
 
 
@@ -490,6 +490,13 @@ Examples:
 ```javascript
 var resultData = { "a": 123, "b": 789, "c": 100};
 jatos.appendResultData(JSON.stringify(resultData));
+```
+
+Since v3.3.1 it's possible to leave out the JSON serialization:
+
+```javascript
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.appendResultData(resultData);
 ```
 
 You can use it together with `jatos.startNextComponent` to first append result data and afterwards jump to the next component:
@@ -521,6 +528,7 @@ Or:
 var resultData = {"a": 123, "b": 789, "c": 100};
 jatos.startComponentByPos(3, resultData);
 ```
+
 
 ### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`
 
