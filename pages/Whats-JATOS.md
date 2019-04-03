@@ -6,7 +6,7 @@ summary:
 sidebar: mydoc_sidebar
 permalink: Whats-JATOS.html
 toc: false
-last_updated: 10 Dec 2017
+last_updated: 3 April 2019
 ---
 
 JATOS (Just Another Tool for Online Studies) helps you set up and run your online studies on your own server.
@@ -18,7 +18,7 @@ We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-
 ### JATOS at a glance: 
 * Run studies on your **own server**. This means that you keep complete control over who can access your result data and can comply with your ethics.
 * Studies run on **mobile phones, tablets, desktops, and lab computers** - any device with a browser.
-* Use tools like **jsPsych** or **lab.js** to prepare your study - or write all **HTML / JavaScript / CSS** yourself and have full control.
+* Use tools like **jsPsych**, **lab.js** or **OSWeb/OpenSesame** to prepare your study - or write all **HTML / JavaScript / CSS** yourself and have full control.
 * **Run group studies** where multiple workers interact with each other in real-time.
 * It’s GUI-based, so there's no need to use the terminal to talk to your server. 
 * Recruit participants via **Amazon Mechanical Turk**, **Prolific** etc.
