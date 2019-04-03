@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: true
-last_updated: 6 Sep 2018
+last_updated: 3 April 2019
 ---
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
@@ -263,6 +263,18 @@ This classical arcade game is an example for a game made with the Phaser framewo
 **Needs JATOS version 2.1.7 or newer**
 
 [Download Invaders Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/invaders_with_phaser.zip)
+
+
+
+### HexGL Game
+
+HexGL a futuristic racing game by [Thibaut Despoulain](http://bkcore.com/). Uses HTML5 and WebGL and is under MIT license. Source code from [https://github.com/BKcore/HexGL](https://github.com/BKcore/HexGL).
+
+**Needs JATOS version 3.3.1 or newer**
+
+{% include image.html file="example-studies/Screenshot_hexgl.png" alt="Screenshot HexGL Game" caption="" max-width="500" %}
+
+[Download HexGL Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/hexgl.zip)
 
 
 
