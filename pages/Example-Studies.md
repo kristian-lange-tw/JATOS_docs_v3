@@ -270,9 +270,9 @@ This classical arcade game is an example for a game made with the Phaser framewo
 
 HexGL a futuristic racing game by [Thibaut Despoulain](http://bkcore.com/). Uses HTML5 and WebGL and is under MIT license. Source code from [https://github.com/BKcore/HexGL](https://github.com/BKcore/HexGL).
 
-**Needs JATOS version 3.3.1 or newer**
-
 {% include image.html file="example-studies/Screenshot_hexgl.png" alt="Screenshot HexGL Game" caption="" max-width="500" %}
+
+**Needs JATOS version 3.3.1 or newer**
 
 [Download HexGL Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/hexgl.zip)
 
