@@ -12,8 +12,8 @@ last_updated: 03 April 2019
 
 ![OSWeb Logo](images/OSweb_logo.png)
 
-OSWeb an online runtime for [OpenSesame](https://osdoc.cogsci.nl/3.2/) experiments. OpenSesame is a program to create experiments for psychology, neuroscience, and experimental economics.
+OSWeb lets you run an [OpenSesame](https://osdoc.cogsci.nl/3.2/) experiment on a browser. OpenSesame is a pretty neat program to create experiments for psychology, neuroscience, and experimental economics. You can get very far with drag-and-drop, and there's the chance to add code snippets if you need more flexibility. 
 
-[OSWeb's documentation](https://osdoc.cogsci.nl/3.2/manual/osweb/) is actually far better than ours can ever be. So we just say that it's pretty easy to combine OSWeb with JATOS: just export the experiment in OSWeb and import it in JATOS.
+[OSWeb's documentation](https://osdoc.cogsci.nl/3.2/manual/osweb/) is far better than ours could ever be. So, here, we just point out that combining OSWeb with JATOS is pretty easy and straightforward: just export the experiment in OSWeb and import it in JATOS.
 
-That's all there is to say.
+That's all there is to say. If you'd like to know more, Sebastiaan Mathot's [tutorial](https://www.youtube.com/watch?v=0448NeoUaqU) is the place to start. 
