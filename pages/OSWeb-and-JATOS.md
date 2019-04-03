@@ -10,7 +10,7 @@ toc: false
 last_updated: 03 April 2019
 ---
 
-{% include image.html file="images/osweb-logo.jpg" alt="" caption="" max-width="150" %}
+![OSWeb Logo](images/OSweb_logo.png)
 
 OSWeb an online runtime for [OpenSesame](https://osdoc.cogsci.nl/3.2/) experiments. OpenSesame is a program to create experiments for psychology, neuroscience, and experimental economics.
 
