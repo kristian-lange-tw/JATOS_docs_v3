@@ -10,7 +10,7 @@ toc: false
 last_updated: 03 April 2019
 ---
 
-{% include image.html file="images/OSweb_logo.png" alt="Logo" caption="" max-width="300" %}
+{% include image.html file="OSweb_logo.png" alt="Logo" caption="" max-width="300" %}
 
 OSWeb lets you run an [OpenSesame](https://osdoc.cogsci.nl/3.2/) experiment on a browser. OpenSesame is a pretty neat program to create experiments for psychology, neuroscience, and experimental economics. You can get very far with drag-and-drop, and there's the chance to add code snippets if you need more flexibility. 
 
