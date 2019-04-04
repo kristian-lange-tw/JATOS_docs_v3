@@ -228,6 +228,30 @@ An example of a (slightly different) use of JATOS. Here, we're not collecting pa
 
 
 
+### Lecical decision with OSWeb/OpenSesame
+
+An example of running [OpenSesame](https://osdoc.cogsci.nl/) experiments with JATOS via [OSWeb](https://osdoc.cogsci.nl/manual/osweb/#the-osweb-extension)
+
+{% include image.html file="example-studies/Screenshot_osweb_lexical_decision.png" alt="Screenshot Lecical decision with OSWeb/OpenSesame" caption="" max-width="500" %}
+
+**Needs JATOS version 3.3.1 or newer**
+
+[Download Attentional capture example](https://github.com/JATOS/JATOS_examples/raw/master/examples/lexical-decision.osexp.zip)
+
+
+
+### Attentional capture with OSWeb/OpenSesame
+
+An example of running [OpenSesame](https://osdoc.cogsci.nl/) experiments with JATOS via [OSWeb](https://osdoc.cogsci.nl/manual/osweb/#the-osweb-extension)
+
+{% include image.html file="example-studies/Screenshot_osweb_reward_capture.png" alt="Screenshot Attentional capture with OSWeb/OpenSesame" caption="" max-width="500" %}
+
+**Needs JATOS version 3.3.1 or newer**
+
+[Download Attentional capture example](https://github.com/JATOS/JATOS_examples/raw/master/examples/reward_capture.osexp.zip)
+
+
+
 ### Angling Risk Task Always Sunny (using jsPsych)
 
 This is a study using **jsPsych** library ([www.jspsych.org](http://www.jspsych.org/)) taken from [expfactory.github.io](http://expfactory.github.io/). It's another example for how easy it is to use JATOS as a backend for jsPsych. 
