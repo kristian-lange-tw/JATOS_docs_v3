@@ -1,6 +1,6 @@
 ---
 title: Example Studies
-keywords: examples, jspsych, lab.js, labjs, javascript, bootstrap, jquery, pure, css, highchart, survey
+keywords: examples, jspsych, lab.js, labjs, osweb, opensesame, javascript, bootstrap, jquery, pure, css, highchart, survey
 tags:
 summary: These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and presentation, messaging in group studies). They are not meant to show what JATOS itself does (since JATOS doesn't care for the browser side).
 sidebar: mydoc_sidebar
