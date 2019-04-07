@@ -86,9 +86,9 @@ Every JATOS installation comes with an Admin user that has the default password 
 
 JATOS comes with a handy test page `http://your-domain-or-IP/jatos/test`. It shows some of the current configuration and system properties. Above all it does some tests, e.g. WebSockets connections and database connection. Check that all tests show an 'OK'.
 
-### 7. [Optional] HTTP server and encryption
+### 7. [Optional] Proxy and encryption
 
-Most admins tend to use an additional HTTP server in front of JATOS for encryption purpose. We provide two example configurations for Nginx and Apache. Both support encryption and WebSockets (keep in mind JATOS relies on WebSockets and it's necessary to support them). 
+Most admins tend to use an additional reverse proxy in front of JATOS, mostly for encryption. We provide two example configurations for Nginx and Apache. Both support encryption and WebSockets (keep in mind JATOS relies on WebSockets and it's necessary to support them).
 
 * [JATOS with Nginx](JATOS-with-Nginx.html)
 * [JATOS with Apache](JATOS-with-Apache.html)
