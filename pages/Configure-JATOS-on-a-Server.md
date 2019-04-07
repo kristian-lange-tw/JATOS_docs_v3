@@ -76,30 +76,9 @@ By default the study assets root folder (where all your study's HTML, JavaScript
    export JATOS_STUDY_ASSETS_ROOT_PATH="/path/to/my/assets/root/folder"
    ~~~
      
-### External Database
+### MySQL Database
 
-By default JATOS uses an embedded H2 database and no further setup is necessary but it can be easily configured to work with a MySQL database.
-
-Possible scenarios why one would use an external database are
-* the expected traffic is rather high and many users will run studies with many participants and the studies will store a lot of data in the database
-* to be able to do a regular database backup
-* higher trust in the reliability of a MySQL database (although we never had problems with H2)
-
-One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.
-
-Appart from giving JATOS access to the external database it is not necessary to set it up any further, e.g. to create any tables inside database - JATOS is doing this automatically.
-
-You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your JDBC URL).
-
-~~~ bash
-19:03:42.000 [info] - p.a.d.DefaultDBApi - Database [default] connected at jdbc:mysql://localhost/jatos?characterEncoding=UTF-8
-~~~
-
-**JATOS requires MySQL >= 5.5 or H2 >= 1.4.192 (prior versions might work - I just never tested)**
-
-Note: If you want to use a MySQL database consider using the [_utf8mb4_ Character Set with 4-Byte UTF-8 Unicode Encoding](https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html). Only this character set contains the whole unicode and you won't run into issues like [this one](https://github.com/JATOS/JATOS/issues/111). 
-
-There are three ways to set up JATOS to work with an external database:
+There are three ways to set up JATOS to work with an MySQL:
 
 1. Via command-line arguments:
    * `-DJATOS_DB_URL` - specifies the JDBC URL to the database
@@ -107,33 +86,40 @@ There are three ways to set up JATOS to work with an external database:
    * `-DJATOS_DB_DRIVER` - can be either `org.h2.Driver` or `com.mysql.jdbc.Driver`
    * `-DJATOS_JPA` - can be either `h2PersistenceUnit` or `mysqlPersistenceUnit`
    
-   E.g. to connect to a MySQL database running on 172.17.0.2 and a table named 'jatos' use:
+   E.g. to connect to a MySQL running on 172.17.0.2 use:
    
    ~~~ bash
    loader.sh start -DJATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_JPA=mysqlPersistenceUnit -DJATOS_DB_DRIVER=com.mysql.jdbc.Driver
    ~~~
-1. Via `conf/production.conf` (description analog to 1.)
+   
+1. Via `conf/production.conf` (change IP and 'mypassword')
 
    ~~~ bash
-   db.default.url="jdbc:mysql://localhost/MyDatabase?characterEncoding=UTF-8"
-   db.default.user=myusername
+   db.default.url="jdbc:mysql://172.17.0.2/MyDatabase?characterEncoding=UTF-8"
+   db.default.user=jatosuser
    db.default.password=mypassword
    db.default.driver=com.mysql.jdbc.Driver
    jpa.default=mysqlPersistenceUnit
    ~~~
    
-1. Via environment variables (description analog to 1.)
+1. Via environment variables
    * `JATOS_DB_URL`
    * `JATOS_DB_USERNAME`
    * `JATOS_DB_PASSWORD`
    * `JATOS_DB_DRIVER`
    * `JATOS_JPA`
    
-   E.g. to set all database environment variables for a MySQL database and table called 'jatos' you could use a command (change the values):
+   E.g. to set all database environment variables for a MySQL you could use a command (change IP and 'mypassword'):
    
    ~~~ bash
-   export JATOS_DB_URL='jdbc:mysql://localhost/jatos?characterEncoding=UTF-8' JATOS_DB_USERNAME='jatosuser' JATOS_DB_PASSWORD='mypassword' JATOS_DB_DRIVER=com.mysql.jdbc.Driver JATOS_JPA=mysqlPersistenceUnit
+   export JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8' JATOS_DB_USERNAME='jatosuser' JATOS_DB_PASSWORD='mypassword' JATOS_DB_DRIVER=com.mysql.jdbc.Driver JATOS_JPA=mysqlPersistenceUnit
    ~~~
+   
+You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your JDBC URI).
+
+~~~ bash
+19:03:42.000 [info] - p.a.d.DefaultDBApi - Database [default] connected at jdbc:mysql://localhost/jatos?characterEncoding=UTF-8
+~~~  
 
 ### Password restrictions
 
