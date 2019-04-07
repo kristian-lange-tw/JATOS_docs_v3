@@ -49,9 +49,11 @@ To let JATOS access MySQL it needs a database user called 'jatosuser' and a data
    
    1. Log out and log in with the newly created user: `mysql -u jatosuser -p`
    
-   1. Create a database for JATOS: `CREATE DATABASE jatos;`
+   1. Create a database for JATOS: `CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
    
 Appart from giving JATOS access to the database it is not necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.
+
+Don't forget to [configure JATOS](Configure-JATOS-on-a-Server.html#mysql-database) to use your MySQL.
 
 ### 3. Install JATOS
 
