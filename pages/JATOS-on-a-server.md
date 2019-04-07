@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 23 Mar 2019
+last_updated: 7 April 2019
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
@@ -26,6 +26,31 @@ The actual JATOS instance on a server isn't too different from a local one. It b
 
 We've produced multiple versions of JATOS. The simplest version is JATOS alone, but other versions are bundled with Java JRE. On a server, it's best (though not necessary) to install JATOS without a bundled Java. This will make it easier to upgrade to new Java releases.
 
+### 2. [Optional] Install MySQL
+
+By default JATOS uses an embedded H2 database and no further setup is necessary but it can be easily configured to work with a MySQL database.
+
+Possible scenarios why one would use an external database are
+* the expected traffic is rather high and many users will run studies with many participants and the studies will store a lot of data in the database
+* to be able to do a regular database backup
+* higher trust in the reliability of MySQL (although we never had problems with H2)
+
+One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.
+   
+To let JATOS access MySQL it needs a database user called 'jatosuser' and a database called 'jatos'. One way to set up MySQL is this one:
+   
+   1. Install MySQL (e.g. `sudo apt install mysql-server` on Ubuntu)
+   
+   1. Log in: `mysql -u root -p`
+   
+   1. Create a user for JATOS (change 'password') `GRANT ALL PRIVILEGES ON *.* TO 'jatosuser'@'localhost' IDENTIFIED BY 'password';`
+   
+   1. Log out and log in with the newly created user: `mysql -u jatosuser -p`
+   
+   1. Create a database for JATOS: `CREATE DATABASE jatos;`
+   
+Appart from giving JATOS access to the database it is not necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.
+
 ### 2. Install JATOS
 
 1. [Download JATOS](https://github.com/JATOS/JATOS/releases)
@@ -41,9 +66,11 @@ We've produced multiple versions of JATOS. The simplest version is JATOS alone, 
 1. Check that JATOS starts with `loader.sh start|restart|stop`
 
 ### 3. Configuration
+
 If JATOS runs locally it's usually not necessary to change the defaults but on a server you probably want to set up the IP and port or maybe use a different database and change the path of the study assets root folder. These docs have an extra page on how to [Configure JATOS on a Server](Configure-JATOS-on-a-Server.html).
 
 ### 4. Change Admin's password
+
 Every JATOS installation comes with an Admin user that has the default password 'admin'. You must change it before the server goes live. This can be done in JATOS' GUI:
 
 1. Start JATOS and in a browser go to JATOS login page `http://your-domain-or-IP/jatos` 
@@ -52,9 +79,11 @@ Every JATOS installation comes with an Admin user that has the default password 
 1. Click 'Change Password'
 
 ### 5. Check JATOS' test page
+
 JATOS comes with a handy test page `http://your-domain-or-IP/jatos/test`. It shows some of the current configuration and system properties. Above all it does some tests, e.g. WebSockets connections and database connection. Check that all tests show an 'OK'.
 
 ### 6. [Optional] HTTP server and encryption
+
 Most admins tend to use an additional HTTP server in front of JATOS for encryption purpose. We provide two example configurations for Nginx and Apache. Both support encryption and WebSockets (keep in mind JATOS relies on WebSockets and it's necessary to support them). 
 
 * [JATOS with Nginx](JATOS-with-Nginx.html)
