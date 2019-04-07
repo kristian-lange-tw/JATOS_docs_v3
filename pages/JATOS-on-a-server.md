@@ -41,6 +41,8 @@ To let JATOS access MySQL it needs a database user called 'jatosuser' and a data
    
    1. Install MySQL (e.g. `sudo apt install mysql-server` on Ubuntu)
    
+      **JATOS requires MySQL >= 5.5**
+   
    1. Log in: `mysql -u root -p`
    
    1. Create a user for JATOS (change 'password') `GRANT ALL PRIVILEGES ON *.* TO 'jatosuser'@'localhost' IDENTIFIED BY 'password';`
@@ -51,7 +53,7 @@ To let JATOS access MySQL it needs a database user called 'jatosuser' and a data
    
 Appart from giving JATOS access to the database it is not necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.
 
-### 2. Install JATOS
+### 3. Install JATOS
 
 1. [Download JATOS](https://github.com/JATOS/JATOS/releases)
 
@@ -65,11 +67,11 @@ Appart from giving JATOS access to the database it is not necessary to set it up
 
 1. Check that JATOS starts with `loader.sh start|restart|stop`
 
-### 3. Configuration
+### 4. Configuration
 
 If JATOS runs locally it's usually not necessary to change the defaults but on a server you probably want to set up the IP and port or maybe use a different database and change the path of the study assets root folder. These docs have an extra page on how to [Configure JATOS on a Server](Configure-JATOS-on-a-Server.html).
 
-### 4. Change Admin's password
+### 5. Change Admin's password
 
 Every JATOS installation comes with an Admin user that has the default password 'admin'. You must change it before the server goes live. This can be done in JATOS' GUI:
 
@@ -78,18 +80,18 @@ Every JATOS installation comes with an Admin user that has the default password 
 1. Click on 'Admin (admin) in top-right header
 1. Click 'Change Password'
 
-### 5. Check JATOS' test page
+### 6. Check JATOS' test page
 
 JATOS comes with a handy test page `http://your-domain-or-IP/jatos/test`. It shows some of the current configuration and system properties. Above all it does some tests, e.g. WebSockets connections and database connection. Check that all tests show an 'OK'.
 
-### 6. [Optional] HTTP server and encryption
+### 7. [Optional] HTTP server and encryption
 
 Most admins tend to use an additional HTTP server in front of JATOS for encryption purpose. We provide two example configurations for Nginx and Apache. Both support encryption and WebSockets (keep in mind JATOS relies on WebSockets and it's necessary to support them). 
 
 * [JATOS with Nginx](JATOS-with-Nginx.html)
 * [JATOS with Apache](JATOS-with-Apache.html)
 
-### 7. [Optional] Auto-start JATOS
+### 8. [Optional] Auto-start JATOS
 
 It's nice to have JATOS starts automatically after a start or a reboot of your machine. Choose between one of the two possibilities: 1) via a systemd service (JATOS version >= 3.1.6, recommended), or 2) via a init.d script.
 
@@ -174,7 +176,7 @@ It's easy to turn the `loader.sh` script into an init script for a daemon.
 
 Now JATOS starts automatically when you start your server and stops when you shut it down. You can also use the init script yourself like any other init script with `sudo /etc/init.d/jatos start|stop|restart`.
 
-### 8. [Optional] Backup
+### 9. [Optional] Backup
 
 The easiest way to backup is to let JATOS users care themselves for their own data. JATOS has an easy to use [export function for result data](Manage-results.html). So you could just tell everyone to export their data regularily.
 
