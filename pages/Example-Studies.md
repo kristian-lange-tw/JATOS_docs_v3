@@ -228,7 +228,7 @@ An example of a (slightly different) use of JATOS. Here, we're not collecting pa
 
 
 
-### Lecical decision with OSWeb/OpenSesame
+### Lexical decision with OSWeb/OpenSesame
 
 An example of running [OpenSesame](https://osdoc.cogsci.nl/) experiments with JATOS via [OSWeb](https://osdoc.cogsci.nl/manual/osweb/#the-osweb-extension)
 
