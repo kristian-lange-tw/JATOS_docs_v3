@@ -16,4 +16,4 @@ JATOS gives you complete freedom on the client side. You can do whatever you lik
 | Study Name             | Brief description   | Frameworks used | Features used    | Example image  |
 |-------------------|-------------------|-------------------|-------------------|-------------------|
 | **Hello World Example** | Everything starts with a Hello World! | no frameowrk | no feature| no example img |
-| **Go- / No-Go Task** | Go/NoGo task. Includes instructions |  (with jsPsych 6.0.4) | no feature|  <span class="glyphicon glyphicon-ok-sign"></span> |
+| **Go- / No-Go Task** | Go/NoGo task. Includes instructions |  (with jsPsych 6.0.4) | no feature|  {% include image.html file="example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" caption="" max-width="10" %} |
