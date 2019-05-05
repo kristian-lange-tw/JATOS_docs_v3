@@ -15,7 +15,7 @@ JATOS gives you complete freedom on the client side. You can do whatever you lik
 
 | | Study Name             | Brief description   | Frameworks used | Features used    | Example image  | dummy            |
 |-|-------------------|-------------------|-------------------|-------------------|-------------------|------------------|
-| **Hello World Example** | Everything starts with a Hello World! | no frameowrk | no feature| no example img | dummy | 
+| **Hello World Example** | Everything starts with a Hello World! |nodescription | no frameowrk | no feature| no example img | dummy | 
 | **Created when?** | Together with the JATOS user | By yourself in the Worker Setup | By yourself in the Worker Setup | On-the-fly whenever someone uses the link | On-the-fly whenever someone uses the link | On-the-fly after a MTurk worker clicked on the HIT link |
 | **Repeat the same study with the same link** | (has no links) | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span><br>(keeps the same worker) | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span><br>(creates a new worker each time) | <span class="glyphicon glyphicon-remove-sign"></span> |
 | **Run different studies with the same worker** | <span class="glyphicon glyphicon-ok-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span> |
