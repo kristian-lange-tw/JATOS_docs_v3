@@ -577,6 +577,15 @@ then after the Batch Session is successfully updated the new internal object is 
 
 Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
 
+Example adding to the end of Array with '-':
+
+```javascript
+jatos.batchSession.add("/a", [1,2,3]);
+jatos.getAll() // returns {a: [1, 2, 3]}
+jatos.batchSession.add("/a/-", 4)
+jatos.getAll() // returns {a: [1, 2, 3, 4]}
+```
+
 Example with jQuery's defered:
 
 ```javascript
@@ -1166,6 +1175,15 @@ jatos.groupSession.add("/b", 123);
 then after the Group Session is successfully updated the new internal object is `{"a": 100, "b": 123}`.
 
 Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
+
+Example adding to the end of Array with '-':
+
+```javascript
+jatos.groupSession.add("/a", [1,2,3]);
+jatos.getAll() // returns {a: [1, 2, 3]}
+jatos.groupSession.add("/a/-", 4)
+jatos.getAll() // returns {a: [1, 2, 3, 4]}
+```
 
 Example with jQuery's defered:
 
