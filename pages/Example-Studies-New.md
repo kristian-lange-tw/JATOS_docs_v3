@@ -10,16 +10,7 @@ toc: true
 last_updated: 3 April 2019
 ---
 
-Go- / No-Go Task (with jsPsych 6.0.4)
+| Hello | Goodbye| ![dummy](images/example-studies/Screenshot_gonogo.png){:width="50"}|
+| Hello2 | Goodbye2|  {% include image.html file="example-studies/Screenshot_gonogo.png" alt="img" max-width="200" %}|
+| Hello3 | Goodbye3|  {% include image.html file="example-studies/Screenshot_gonogo.png" alt="img" max-width="200" %}|
 
-Standard Go- / No-Go experiment.
-This study illustrates the compatibility between JATOS and the excellent **jsPsych** library ([www.jspsych.org](http://www.jspsych.org/)). With jsPsych one can program the actual experiment while JATOS cares for the server-side.
-
-{% include image.html file="example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" caption="" max-width="500" %}
-
-**Needs JATOS version 3.3.1 or newer**
-
-[Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_6).zip)
-
-
-| **Go- / No-Go Task (with jsPsych 6.0.4)**<br>Standard Go- / No-Go experiment.<br>This study illustrates the compatibility between JATOS and the excellent **jsPsych** library ([www.jspsych.org](http://www.jspsych.org/)). With jsPsych one can program the actual experiment while JATOS cares for the server-side.<br>{% include image.html file="example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" caption="" max-width="500" %}<br>**Needs JATOS version 3.3.1 or newer**<br>[Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_6).zip) | **Go- / No-Go Task (with jsPsych 6.0.4)**<br>Standard Go- / No-Go experiment.<br>This study illustrates the compatibility between JATOS and the excellent **jsPsych** library ([www.jspsych.org](http://www.jspsych.org/)). With jsPsych one can program the actual experiment while JATOS cares for the server-side.<br>{% include image.html file="example-studies/Screenshot_gonogo.png" alt="Screenshot Go- / No-Go Task" caption="" max-width="500" %}<br>**Needs JATOS version 3.3.1 or newer**<br>[Download Go-/No-Go Task](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_6).zip) |
