@@ -10,7 +10,8 @@ toc: true
 last_updated: 3 April 2019
 ---
 
+| I say          | You say   | Example image  |
+|-------------------|-------------------|-------------------|
 | Hello | Goodbye| ![dummy](images/example-studies/Screenshot_gonogo.png){:width="50"}|
-| Hello2 | Goodbye2|  {% include image.html file="example-studies/Screenshot_gonogo.png" alt="img" max-width="200" %}|
-| Hello3 | Goodbye3|  {% include image.html file="example-studies/Screenshot_gonogo.png" alt="img" max-width="200" %}|
-
+| Hello | Goodbye|  {% include image.html file="pathToImg/img.png" alt="img" max-width="200" %}|
+| Hello | Goodbye|  {% include image.html file="pathToImg/img.png" alt="img" max-width="200" %}|
