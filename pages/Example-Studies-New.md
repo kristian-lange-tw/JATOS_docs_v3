@@ -12,6 +12,6 @@ last_updated: 3 April 2019
 
 | I say          | You say   | Example image  |
 |-------------------|-------------------|-------------------|
-| Hello | Goodbye| ![dummy](images/example-studies/Screenshot_gonogo.png | width=50)|
+| Hello | Goodbye| ![dummy](images/example-studies/Screenshot_gonogo.png){:height="50%"} |
 | Hello | Goodbye|  {% include image.html file="example-studies/Screenshot_gonogo.png" alt="Screenshot Lexical Decision" max-width="200" %}|
 | Hello | Goodbye|  {% include image.html file="example-studies/Screenshot_gonogo.png" alt="Screenshot Lexical Decision" max-width="200" %}|
