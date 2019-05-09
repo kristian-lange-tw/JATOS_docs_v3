@@ -13,6 +13,9 @@ last_updated: 05 May 2019
 ### Overview
 JATOS gives you complete freedom on the client side. You can do whatever you like! But these examples might help as a starting point. We tried to have at least one example to illustrate each of JATOS' main features. 
 
+### Overview
+JATOS gives you complete freedom on the client side. You can do whatever you like! But these examples might help as a starting point. We tried to have at least one example to illustrate each of JATOS' main features. 
+
 | Study Name             | Brief description   | Frameworks used | Features used   | Example image  |
 |-------------------|-------------------|-------------------|-------------------|-------------------|
 | [Hello World](https://github.com/JATOS/JATOS_examples/raw/master/examples/hello_world.zip) | Everything starts with a Hello World! | None | None | None  |
@@ -24,9 +27,10 @@ JATOS gives you complete freedom on the client side. You can do whatever you lik
 | [Instruction with Google Slides](https://github.com/JATOS/JATOS_examples/raw/master/examples/intro_with_google_slides.zip) § | Use Google Slides to make an quick, easy and versatile instruction page. Might not be the prettiest, but it does the job| no frameowrk | no feature| <img src="images/example-studies/Screenshot_intro_slides.png" style="width:100%"/> |
 | [p5.js](https://github.com/JATOS/JATOS_examples/raw/master/examples/p5.js_examples.zip) § | [p5.js](https://p5js.org/) is a graphics library to easily create 2D and 3D graphics without deeper knowledge of how those graphics are rendered. Additionally one can add user interaction, video, sound, or capture from the webcam or the mic. Have a look at their [example section](https://p5js.org/examples/). | p5 | no feature| <img src="images/example-studies/p5-js-screenshot5.gif" style="width:100%"/>|
 | [Video Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/video_example_study.zip) | Shows how to embed a video with HTML 5 by using the browsers video player, YouTube, or the [video.js](http://www.videojs.com/) JavaScript library | None | None |  <img src="images/example-studies/Screenshot_videoExample2.png" style="width:100%"/>|
-| [Results in CSV Format](https://github.com/JATOS/JATOS_examples/raw/master/examples/results_as_csv_example.zip) | Simple example of how to store results in CSV format | None | None |  <img src="images/example-studies/Screenshot_csv_example.png"/>|
+| [Results in CSV Format](https://github.com/JATOS/JATOS_examples/raw/master/examples/results_as_csv_example.zip) | Simple example of how to store results in CSV format | None | None |  <img src="images/example-studies/Screenshot_csv_example.png" style="width:100%"/>|
 | [Simple Consent Form](https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form.zip) | Simple example of a consent form with text and buttons ‘I agree’ and ‘Cancel’. | None | None |  <img src="images/example-studies/Screenshot_consent_form.png" style="width:100%"/>|
 | [Consent Form and Introduction with Preview Feature](https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form_and_introduction_with_preview_feature.zip) | This mobile-friendly example just has an introduction component that includes a consent text. | None | [Preview](http://www.jatos.org/Worker-Types.html#preview-links) |  <img src="images/example-studies/Screenshot_preview_showcase.png" style="width:100%"/>|
+
 
 
 
