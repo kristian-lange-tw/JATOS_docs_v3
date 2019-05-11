@@ -6,7 +6,7 @@ summary: Tabulated list of example studies
 sidebar: mydoc_sidebar
 permalink: Example-Studies-Table.html
 folder:
-toc: true
+toc: false
 last_updated: 05 May 2019
 ---
 
