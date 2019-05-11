@@ -11,15 +11,22 @@ last_updated: 05 May 2019
 ---
 
 ### Overview
-JATOS gives you complete freedom on the client side. You can do whatever you like! But these examples might help as a starting point. We tried to have at least one example to illustrate each of JATOS' main features. 
+JATOS gives you complete freedom on the client side. You can do whatever you like! But these examples might help as a starting point. 
+
+Since JATOS cares mostly for the server side it gives you the freedom to use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [jQuery](https://jquery.com/), [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/), [p5](https://p5js.org/), or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)).
 
 Click on the study name to download the .zip file and [import it into JATOS](http://www.jatos.org/Get-started.html).  
+
+<b>If you have trouble downloading a study (common in Safari browsers) check [this troubleshooting tip](Troubleshooting.html#downloading-a-study--exporting-a-study-fails-eg-in-safari-browsers).</b>
+
+If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
+
 
 | Study Name        | Brief description   | Frameworks used | JATOS Features   | Example image  |
 |-------------------|-------------------|-------------------|-------------------|-------------------|
 | [Hello World](https://github.com/JATOS/JATOS_examples/raw/master/examples/hello_world.zip) | Everything starts with a Hello World! | - | - | -  |
 | [Go-/No-Go](https://github.com/JATOS/JATOS_examples/raw/master/examples/go-nogo_task_(using_jspsych_6).zip) | Go/NoGo task. Includes instructions | [jsPsych](https://www.jspsych.org/) | - |  <img src="images/example-studies/Screenshot_gonogo.png" style="width:200%"/>|
-| [Randomize Tasks Between Workers](https://github.com/JATOS/JATOS_examples/raw/master/examples/randomize_tasks_between_workers.zip) §| Template to randomly assign participants to conditions A, B, or C (with fixed numbers for each condition). | - | Batch session| <img src="images/example-studies/Screenshot_randomization_between_workers.png" style="width:200%"/>|
+| [Randomize Tasks Between Workers](https://github.com/JATOS/JATOS_examples/raw/master/examples/randomize_tasks_between_workers.zip) §| Template to randomly assign participants to conditions A, B, or C (with fixed numbers for each condition). | - | [Batch session](http://www.jatos.org/Session-Data-Three-Types.html)| <img src="images/example-studies/Screenshot_randomization_between_workers.png" style="width:200%"/>|
 | [Lexical Decision](https://github.com/JATOS/JATOS_examples/raw/master/examples/lexical_decision_(using_jspsych).zip) | Participants classify whether a string of letters is a word or a nonword. From [factorsdb](https://github.com/jodeleeuw/factorsdb/tree/gh-pages/_experiments). | [jsPsych](https://www.jspsych.org/) | - | <img src="images/example-studies/Screenshot_lexicalDecision_word.png" style="width:200%"/>| 
 | [Lexical Decision](https://github.com/JATOS/JATOS_examples/raw/master/examples/lexical-decision.osexp.zip) | An example of running OpenSesame experiments with JATOS via OSWeb | [OpenSesame](https://osdoc.cogsci.nl/), [OSWeb](https://osdoc.cogsci.nl/manual/osweb/#the-osweb-extension) | - |  <img src="images/example-studies/Screenshot_osweb_lexical_decision.png" style="width:200%"/>|
 | [Random Dot Kinematogram](https://github.com/JATOS/JATOS_examples/raw/master/examples/rdk.zip) § | A random dot kinematogram (RDK) for online visual psychophysics and the use in web browsers. By _Sivananda Rajananda, Hakwan Lau, Brian Odegaard_ ([preprint](https://www.biorxiv.org/content/early/2017/09/21/192377)) | [jsPsych](https://www.jspsych.org/) | - | <img src="images/example-studies/Screenshot_rdk.png" style="width:200%"/> |
@@ -44,7 +51,6 @@ Click on the study name to download the .zip file and [import it into JATOS](htt
 | [Batch Chat](https://github.com/JATOS/JATOS_examples/raw/master/examples/batch_chat.zip) §| Let members of a *batch* talk to each other | - |  [Batch Session](http://www.jatos.org/Session-Data-Three-Types.html) |  <img src="images/example-studies/Screenshot_chat.png" style="width:200%"/>|
 | [Prisoner's Dilemma](https://github.com/JATOS/JATOS_examples/raw/master/examples/prisoner's_dilemma.zip) §| [Game](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma) in which two workers interact with each other in the same study run. | - | [Group Study](Example-Group-Studies.html), [Group Direct Messaging](Write-Group-Studies-II-JavaScript-and-Messaging.html#direct-messaging) |  <img src="images/example-studies/Screenshot_prisonersDilemma.png" style="width:200%"/>|
 | [Snake Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/snake_game.zip) §| Multiplayer real-time [snake game](https://en.wikipedia.org/wiki/Snake_(video_game)). | - | [Group Study](http://www.jatos.org/Example-Group-Studies.html), [Group Broadcast Message](Write-Group-Studies-II-JavaScript-and-Messaging.html#broadcast-messaging) |  <img src="images/example-studies/Screenshot_snakeGame.png" style="width:200%"/>|
-
 
 
 § Requires JATOS version 3.1.1 or newer
