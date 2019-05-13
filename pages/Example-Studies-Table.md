@@ -55,4 +55,5 @@ If you wrote an example study that you'd like to share, please feel free to [con
 | [Snake Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/snake_game.zip) &lowast;| Multiplayer real-time [snake game](https://en.wikipedia.org/wiki/Snake_(video_game)). | - | [Group Study](http://www.jatos.org/Example-Group-Studies.html), [Group Broadcast Message](Write-Group-Studies-II-JavaScript-and-Messaging.html#broadcast-messaging) |  <img src="images/example-studies/Screenshot_snakeGame.png" style="width:200%"/>|
 
 &lowast; Requires JATOS version 3.1.1 or higher
+
 § Requires JATOS version 3.1.1 or newer
