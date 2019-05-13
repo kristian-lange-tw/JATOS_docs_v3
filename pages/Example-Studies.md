@@ -54,7 +54,7 @@ If you wrote an example study that you'd like to share, please feel free to [con
 | [Prisoner's Dilemma](https://github.com/JATOS/JATOS_examples/raw/master/examples/prisoner's_dilemma.zip) §| [Game](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma) in which two workers interact with each other in the same study run. | - | [Group Study](Example-Group-Studies.html), [Group Direct Messaging](Write-Group-Studies-II-JavaScript-and-Messaging.html#direct-messaging) |  <img src="images/example-studies/Screenshot_prisonersDilemma.png" style="width:200%"/>|
 | [Snake Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/snake_game.zip) &lowast;| Multiplayer real-time [snake game](https://en.wikipedia.org/wiki/Snake_(video_game)). | - | [Group Study](http://www.jatos.org/Example-Group-Studies.html), [Group Broadcast Message](Write-Group-Studies-II-JavaScript-and-Messaging.html#broadcast-messaging) |  <img src="images/example-studies/Screenshot_snakeGame.png" style="width:200%"/>|
 
-&lowast; Requires JATOS version 3.1.1 or higher
+&lowast; Requires JATOS version 3.1.1 or newer
 
 § Requires JATOS version 3.3.1 or newer
 
