@@ -2,7 +2,7 @@
 title: Example Studies 
 keywords: example studies, jspsych, lab.js, labjs, osweb, opensesame, javascript, bootstrap, jquery, pure, css, highchart, survey
 tags:
-summary: These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and presentation, messaging in group studies). They are not meant to show what JATOS itself does (since JATOS doesn't care for the browser side).
+summary: These study examples will (hopefully) be a helpful starting point for you to write your own studies. They also show how different client-side frameworks integrate with JATOS, and illustrate (e.g.) how to easily import/export studies, how to store and show results, and how to do messaging in group studies. 
 sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
@@ -11,9 +11,7 @@ last_updated: 13 May 2019
 ---
 
 ### Overview
-JATOS gives you complete freedom on the client side. You can do whatever you like! But these examples might help as a starting point. 
-
-Since JATOS cares mostly for the server side it gives you the freedom to use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [jQuery](https://jquery.com/), [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/), [p5](https://p5js.org/), or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)).
+JATOS gives you complete freedom on the client side. You can do whatever you like! You can use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [jQuery](https://jquery.com/), [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/), [p5](https://p5js.org/), or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)). These are some examples of how to use these client-side frameworks in combination with JATOS. 
 
 Click on the study name to download the .zip file and [import it into JATOS](http://www.jatos.org/Get-started.html).  
 
