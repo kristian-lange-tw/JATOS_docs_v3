@@ -56,4 +56,4 @@ If you wrote an example study that you'd like to share, please feel free to [con
 
 &lowast; Requires JATOS version 3.1.1 or higher
 
-§ Requires JATOS version 3.1.1 or newer
+§ Requires JATOS version 3.3.1 or newer
