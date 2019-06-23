@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: false
-last_updated: 13 May 2019
+last_updated: 23 June 2019
 ---
 
 ### Overview
@@ -44,6 +44,7 @@ If you wrote an example study that you'd like to share, please feel free to [con
 | [Invaders Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/invaders_with_phaser.zip) | Classical arcade game. From Phaser's [examples page](github.com/photonstorm/phaser-examples). | [phaser.io](http://phaser.io/) | - |  <img src="images/example-studies/Screenshot_spaceInvaders.png" style="width:200%"/>|
 | [HexGL Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/hexgl.zip) &lowast;| Futuristic racing [game](https://github.com/BKcore/HexGL) by [Thibaut Despoulain](http://bkcore.com/). | HTML5, WebGL  | - |  <img src="images/example-studies/Screenshot_hexgl.png" style="width:200%"/>|
 | [Visual Metacognition](https://github.com/JATOS/JATOS_examples/raw/master/examples/perceptual_metacognition_(jatosified).zip) | Taken from the [experiment factory](http://expfactory.github.io/). | [jsPsych](https://www.jspsych.org/) | - |  <img src="http://www.jatos.org/images/example-studies/Screenshot_perceptional_metacognition_stumili.png" style="width:200%"/>|
+| [Deary-Liewald task with PsyToolkit](https://github.com/JATOS/JATOS_examples/raw/master/examples/deary_liewald_with_psytoolkit.zip) | Taken from [PsyToolkit's experiment library](https://www.psytoolkit.org/experiment-library/deary_liewald.html) | [PsyToolkit](https://www.psytoolkit.org) | - | <img src="http://www.jatos.org/images/example-studies/Screenshot_deary_liewald_with_psytoolkit.png" style="width:200%"/> |
 | [Clock Drawing](https://github.com/JATOS/JATOS_examples/raw/master/examples/clock_drawing.zip) &lowast;| Submit images as result data to JATOS by converting them into base64-encoded text.| [jsPsych](https://www.jspsych.org/) | - |  <img src="images/example-studies/Screenshot_clock_drawing.png" style="width:200%"/>|
 | [Potato Compass](https://github.com/JATOS/JATOS_examples/raw/master/examples/potato_compass.zip) | Drag & drop elements. | [interact.js](http://interactjs.io/) | - |  <img src="images/example-studies/Screenshot_potatoCompass.png" style="width:200%"/>|
 | [Study, Group, and Batch Session](https://github.com/JATOS/JATOS_examples/raw/master/examples/study__group__and_batch_session.zip) §| See JATOS’ three different[ session types](http://www.jatos.org/Session-Data-Three-Types.html) in action. | - | Study, Group, and Batch session data  |  <img src="images/example-studies/ChatExample_4.png" style="width:200%"/>|
