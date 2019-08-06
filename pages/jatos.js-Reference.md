@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 3 April 2019
+last_updated: 6 Aug 2019
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -438,8 +438,8 @@ jatos.endStudyAjax(false, "internal JS error");
 Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be **overwritten**. If you want to append result data use `jatos.appendResultData` instead. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
 * _@param {Object} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON.
-* _@param {optional Function} success_ - Function to be called in case of successful submit
-* _@param {optional Function} error_ - Function to be called in case of error
+* _@param {optional Function} onSuccess - Function to be called in case of successful submit
+* _@param {optional Function} onError - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
 Examples:
@@ -468,9 +468,14 @@ Or together with `jatos.startComponentByPos` to start a particular component (he
 
 ```javascript
 var resultData = {"a": 123, "b": 789, "c": 100};
-jatos.submitResultData(JSON.stringify(resultData), function () {
-  jatos.startComponentByPos(4);
-});
+jatos.submitResultData(JSON.stringify(resultData), () => { jatos.startComponentByPos(4) });
+```
+
+Or with jQuery's [then](https://api.jquery.com/deferred.then/):
+
+```javascript
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.submitResultData(resultData).then(() => console.log('success'), () => console.log('error'));
 ```
 
 
@@ -481,8 +486,8 @@ jatos.submitResultData(JSON.stringify(resultData), function () {
 Appends result data to the already posted result data. Contrary to jatos.submitResultData it does not overwrite the result data. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer. This function can be used several times during an component run to incrementally save result data.
 
 * _@param {String} resultData_ - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).
-* _@param {optional Function} success_ - Function to be called in case of successful submit
-* _@param {optional Function} error_ - Function to be called in case of error
+* _@param {optional Function} onSuccess - Function to be called in case of successful submit
+* _@param {optional Function} onError - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
 Examples:
@@ -510,9 +515,7 @@ Or together with `jatos.startComponentByPos` to start a particular component (he
 
 ```javascript
 var resultData = { "a": 123, "b": 789, "c": 100};
-jatos.appendResultData(JSON.stringify(resultData), function () {
-  jatos.startComponentByPos(4);
-});
+jatos.appendResultData(JSON.stringify(resultData), () => { jatos.startComponentByPos(4) });
 ```
 
 Since v3.3.1 it's possible to use the shorter way to achieve the same:
@@ -527,6 +530,13 @@ Or:
 ```javascript
 var resultData = {"a": 123, "b": 789, "c": 100};
 jatos.startComponentByPos(3, resultData);
+```
+
+Or with jQuery's [then](https://api.jquery.com/deferred.then/):
+
+```javascript
+var resultData = {"a": 123, "b": 789, "c": 100};
+jatos.startComponentByPos(3, resultData).then(() => console.log('success'), () => console.log('error'));
 ```
 
 
@@ -581,12 +591,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.batchSession.add("/b", 123);
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 
@@ -613,12 +619,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.batchSession.remove("/b");
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 ### `jatos.batchSession.replace(path, value, onSuccess, onFail)`
@@ -645,12 +647,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.batchSession.replace("/b", 789);
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 ### `jatos.batchSession.copy(from, path, onSuccess, onFail)`
@@ -677,12 +675,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.batchSession.copy("/a", "/b");
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 ### `jatos.batchSession.move(from, path, onSuccess, onFail)`
@@ -709,12 +703,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.batchSession.move("/a", "/b");
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 ### `jatos.batchSession.find(path)`
@@ -819,12 +809,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.batchSession.set("b", "koala");
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 ### `jatos.batchSession.getAll()`
@@ -862,12 +848,8 @@ Example with jQuery's defered:
 ```javascript
 var o = {"a": 123, "b": "foo"};
 var deferred = jatos.batchSession.setAll(o);
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 ### `jatos.batchSession.clear(onSuccess, onFail)`
@@ -890,12 +872,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.batchSession.clear();
-deferred.done(function () {
-  alert("Batch Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Batch Session synchronization failed");
-});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 ### `jatos.onBatchSession(callback)`
@@ -1053,12 +1031,8 @@ Example:
 
 ```javascript
 var deferred = jatos.reassignGroup();
-deferred.done(function () {
-  alert("Successful group reassignment: new group ID is " + jatos.groupResultId);
-});
-deferred.fail(function () {
-  alert("Group reassignment failed");
-});
+deferred.done(() => { alert("Successful group reassignment: new group ID is " + jatos.groupResultId) });
+deferred.fail(() => { alert("Group reassignment failed") });
 ```
 
 ### `jatos.setGroupFixed()`
@@ -1171,12 +1145,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.groupSession.add("/b", 123);
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
 ### `jatos.groupSession.remove(path, onSuccess, onFail)`
@@ -1202,12 +1172,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.groupSession.remove("/b");
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
 ### `jatos.groupSession.replace(path, value, onSuccess, onFail)`
@@ -1234,12 +1200,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.groupSession.replace("/b", 789);
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
 ### `jatos.groupSession.copy(from, path, onSuccess, onFail)`
@@ -1266,12 +1228,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.groupSession.copy("/a", "/b");
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
 ### `jatos.groupSession.move(from, path, onSuccess, onFail)`
@@ -1298,12 +1256,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.groupSession.move("/a", "/b");
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
 ### `jatos.groupSession.find(path)`
@@ -1398,12 +1352,8 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.groupSession.set("b", "koala");
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
 ### `jatos.groupSession.getAll()`
@@ -1441,12 +1391,8 @@ Example with jQuery's defered:
 ```javascript
 var o = {"a": 123, "b": "foo"};
 var deferred = jatos.groupSession.setAll(o);
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
 ### `jatos.groupSession.clear(onSuccess, onFail)`
@@ -1469,10 +1415,6 @@ Example with jQuery's defered:
 
 ```javascript
 var deferred = jatos.groupSession.clear();
-deferred.done(function () {
-  alert("Group Session was successfully updated");
-});
-deferred.fail(function () {
-  alert("Group Session synchronization failed");
-});
+deferred.done(() => { alert("Group Session was successfully updated") });
+deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
