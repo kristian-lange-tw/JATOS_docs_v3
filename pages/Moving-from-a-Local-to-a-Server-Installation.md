@@ -19,7 +19,7 @@ The main advantage of this is that you have easy access to all your HTML files a
 
 Once your study scripts are complete and bug-free, you need to make them available through the Internet. For that you will need, of course, [a server](JATOS-on-a-server.html).
 
-If you have a server, you will need to take your ready-to-run study from your local installation and deploy it to a server. In order to do this:
+If you have a server already, you will need to take your ready-to-run study from your local installation and deploy it to the server. In order to do this:
 1. On your *local* JATOS installation, where your study is, click on the study you want to export on the left sidebar. 
 1. On the Study bar, click Export. A pop-up window will appear. Save the .jzip file wherever you like on your computer.  
 1. On your *server* installation, simply click Import. 
@@ -35,4 +35,7 @@ Please note that:
 * The two JATOS look almost identical, and you will (basically) only distinguish them on the basis of the URL in the browser. To prevent confusion, we've made it easier: A local JATOS installation has a black bar on top. A server installation has a light-grey bar. 
 * A .jzip file is a normal .zip file. We just changed the name to make this process clearer. (JATOS users got confused and always tried to unzip the file they had downloaded, add HTML files in it, and re-zip it. This will lead to all sorts of problems. Don't do this. 
 You should do all modifications of files and study properties from the JATOS GUI.)
+* In the process of exporting/importing you'll be moving all HTML/JS/CSS files, along with any assets (images, audio, etc) contained in the local study folder. You will also move the study and componet properties (whether it's a group study, allowed worker types, HTML files associated with each component, and much more). You will **not** move result data. 
+* If you want to make changes to a study, we also recommend that you do that locally, then again Export locally->Import into the server. If you do this, there will be one more step where you have to confirm that and whether you want to replace the study assets properties.
+
 
