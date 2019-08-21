@@ -47,6 +47,7 @@ Here's a little sketch of the same three steps above
 You can do this in many different ways, decide which kind of [worker permissions](Worker-Types.html) you need. 
 
 ## Step 4: Download and analyze data
-One of JATOS' features is that you can manage the results stored in the database without having to type sql commands in a terminal. Instead, just do this [using the GUI](Manage-Results.html)
-You'll download a .csv or JSON-formatted text file (depending on how you wrote your JavaScript). We always recommen JSON format because it's more flexible and robust, and use [JSONlab](https://de.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files) to read the data into Matlab and the [rjson](https://cran.r-project.org/web/packages/rjson/index.html) package for R.
+One of JATOS' features is that you can manage the results stored in the database without having to type sql commands in a terminal. Instead, just do this [using the GUI](Manage-Results.html).
+
+You'll download a .csv or JSON-formatted text file (depending on how you wrote your JavaScript). We always recommend JSON format because it's more flexible and robust, and use [JSONlab](https://de.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files) to read the data into Matlab and the [rjson](https://cran.r-project.org/web/packages/rjson/index.html) package for R.
 
