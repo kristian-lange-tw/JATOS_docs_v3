@@ -51,3 +51,5 @@ One of JATOS' features is that you can manage the results stored in the database
 
 You'll download a .csv or JSON-formatted text file (depending on how you wrote your JavaScript). We always recommend JSON format because it's more flexible and robust, and use [JSONlab](https://de.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files) to read the data into Matlab and the [rjson](https://cran.r-project.org/web/packages/rjson/index.html) package for R.
 
+With this, you can import your JSON data into Matlab or R; or a .csv into Excel, JAGS or SPSS. From then on, you know the drill. 
+
