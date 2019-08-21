@@ -39,6 +39,9 @@ You should do all modifications of files and study properties from the JATOS GUI
 * In the process of exporting/importing you'll be moving all HTML/JS/CSS files, along with any assets (images, audio, etc) contained in the local study folder. You will also move the study and component properties (whether it's a group study, allowed worker types, HTML files associated with each component, and much more). You will **not** move result data. 
 * If you want to make changes to a study, we also recommend that you do that locally, then again Export locally->Import into the server. If you do this, there will be one more step where you have to confirm that and whether you want to replace the study assets properties.
 
+Here's a little sketch of the same three steps above
+![jzip workflow](images/jzipWorkflow.png)
+
 
 ## Step 3: Collect data
 You can do this in many different ways, decide which kind of [worker permissions](Worker-Types.html) you need. 
