@@ -4,7 +4,7 @@ keywords: installation, internet, online
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: JATOS-server.html
+permalink: Bring-your-JATOS-online.html
 folder:
 toc: false
 last_updated: 23 Aug 2019
