@@ -10,7 +10,7 @@ toc: false
 last_updated: 23 Aug 2019
 ---
 
-If you want your participants to be able to run your studies you have to bring JATOS online. There are different ways to do this with its own pros and cons and we discuss each way in depth on their own page. Here is an overview:
+If you want participants to be able to run your studies you have to bring JATOS online, into the Internet. There are different ways to do this, each with its own pros and cons and we discuss these way in depth on their own page. Now here is already an overview:
 
 | | Setup time | Setup difficulty | Cost | Number of JATOS user / JATOS workers | Expected running time span  | Reliability | Privacy |
 |-------------------|-------------------|-------------------|-------------------|-------------------|
