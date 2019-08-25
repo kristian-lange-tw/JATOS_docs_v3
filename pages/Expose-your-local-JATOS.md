@@ -47,7 +47,21 @@ More information on [https://serveo.net](https://serveo.net/)
 
 ## ngrok
 
-https://ngrok.com/
+1. Download & setup ngrok: [https://ngrok.com/download](https://ngrok.com/download)
+
+1. I recommend creating an account with ngrok. It's free and ngrok give you better connection compared to without.
+
+1. Start your local JATOS
+
+1. Start ngrok on JATOS port 9000
+
+```shell
+./ngrok http 9000
+```
+
+
+
+More information on [https://ngrok.com](https://ngrok.com/)
 
 ## Localtunnel
 
