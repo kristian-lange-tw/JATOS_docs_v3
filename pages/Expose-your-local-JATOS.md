@@ -22,15 +22,34 @@ On this page we will describe how to expose your locally installed JATOS to the 
 
 ## Serveo
 
-1. Run JATOS locally 
+1. Start your local JATOS
 
-https://serveo.net/
+1. Execute in your terminal
 
-  - little less delay (faster)
-  - easier in use (if you know how SSH)
+   ```shell
+   ssh -R 80:localhost:9000 serveo.net
+   ```
+   Serveo gives you an URL that is accessible from everywhere in the Internet.
+
+   E.g. the output could look like:
+
+   ```shell
+   $ ssh -R 80:localhost:9000 serveo.net
+   Forwarding HTTP traffic from https://relego.serveo.net
+   Press g to start a GUI session and ctrl-c to quit.
+   ```
+   
+1. Copy & Paste the URL into your browser and check that JATOS is running properly with JATOS' test page _https://*.serveo.net/jatos/test_ (exchange * with your subdomain)
+
+
+More information on [https://serveo.net](https://serveo.net/)
+
 
 ## ngrok
 
 https://ngrok.com/
 
 ## Localtunnel
+
+  - little less delay (faster)
+  - easier in use (if you know how SSH)
