@@ -31,7 +31,7 @@ But first some general advice:
    ```
    Serveo gives you an URL that is accessible from everywhere in the Internet.
 
-   E.g. the output could look like:
+   Tje output should look similar to this:
 
    ```shell
    $ ssh -R 80:localhost:9000 serveo.net
