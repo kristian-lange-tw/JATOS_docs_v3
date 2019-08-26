@@ -31,7 +31,7 @@ But first some general advice:
    ```
    Serveo gives you an URL that is accessible from everywhere in the Internet.
 
-   Tje output should look similar to this:
+   The output should look similar to this:
 
    ```shell
    $ ssh -R 80:localhost:9000 serveo.net
@@ -41,7 +41,7 @@ But first some general advice:
    
 1. Copy & Paste the URL into your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.serveo.net/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
 
-1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _serveo.net_ address to create worker links.
+1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _serveo.net_ address when you create worker links.
 
 More information on [https://serveo.net](https://serveo.net/).
 
@@ -66,7 +66,7 @@ More information on [https://serveo.net](https://serveo.net/).
    
 1. Copy & Paste the URL with _https_ to your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.ngrok.io/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
 
-1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _ngrok.io_ address to create worker links.
+1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _ngrok.io_ address when you create worker links.
 
 More information on [https://ngrok.com](https://ngrok.com/).
 
@@ -90,7 +90,7 @@ More information on [https://ngrok.com](https://ngrok.com/).
    
 1. Copy & Paste the URL with _https_ into your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.localhost.run/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
 
-1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your localhost.run_ address to create worker links.
+1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your localhost.run_ address when you create worker links.
 
 More information on [http://localhost.run/](http://localhost.run/).
 
