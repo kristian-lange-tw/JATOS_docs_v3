@@ -12,7 +12,7 @@ last_updated: 26 Aug 2019
 
 More information about how to [bring your JATOS online](Bring-your-JATOS-online.html)
 
-This page is about on how to expose your locally installed JATOS to the Internet. If you want to know a bit more about the background, I recommend reading [Tunnelling services for exposing localhost to the web](https://www.chenhuijing.com/blog/tunnelling-services-for-exposing-localhost-to-the-web). There are several tunneling services and some of those are free or have at least a free offer. Here we concentrate on _Serveo_, _ngrok_, and _localhost.run_. All tree are working fine. Just pick one.
+This page is about on how to expose your locally installed JATOS to the Internet. If you want to know a bit more about the background, I recommend reading [Tunnelling services for exposing localhost to the web](https://www.chenhuijing.com/blog/tunnelling-services-for-exposing-localhost-to-the-web). There are several tunneling services and some of those are free or have at least a free offer. Here we concentrate on _Serveo_, _ngrok_, and _localhost.run_. All tree are working fine. Just pick one. If you have Windows and don't know SSH _ngrok_ will suit you best since it has an installer.
 
 But first some general advice:
 
@@ -86,7 +86,7 @@ More information on [https://ngrok.com](https://ngrok.com/).
    ```shell
    $ ssh -R 80:localhost:9000 ssh.localhost.run
    Connect to http://kristian-44bs.localhost.run or https://kristian-44bs.localhost.run
-   ```shell
+   ```
    
 1. Copy & Paste the URL with _https_ into your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.localhost.run/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
 
