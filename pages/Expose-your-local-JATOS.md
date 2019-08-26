@@ -54,7 +54,7 @@ More information on [https://serveo.net](https://serveo.net/).
 
 1. Start your local JATOS
 
-1. Start ngrok on JATOS with
+1. Start ngrok with
 
    ```shell
    ./ngrok http 9000
