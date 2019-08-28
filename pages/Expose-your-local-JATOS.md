@@ -90,7 +90,7 @@ More information on [https://ngrok.com](https://ngrok.com/).
    
 1. Copy & Paste the URL with _https_ into your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.localhost.run/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
 
-1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your localhost.run_ address when you create worker links.
+1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _localhost.run_ address when you create worker links.
 
 More information on [http://localhost.run/](http://localhost.run/).
 
