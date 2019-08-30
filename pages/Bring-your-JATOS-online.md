@@ -18,7 +18,7 @@ If you want participants to be able to run your studies you have to bring JATOS 
 | **[2. Cloud server](#2-cloud-server)** | fast to medium | depends on your vendor | yes | many / many  <sup>‡</sup> | hours to years | high | medium |
 | **[3. Own server](#3-own-server)** | medium to slow (depends on your IT) | needs admin skills | ask your IT | many / many <sup>‡</sup> | month to years | high | high |
 
-†) Depends on your computer and internet connection
+†) Depends on your computer and Internet connection
 ‡) Depends on your server
 
 
