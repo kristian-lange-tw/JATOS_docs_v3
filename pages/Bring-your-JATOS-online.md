@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Bring-your-JATOS-online.html
 folder:
 toc: false
-last_updated: 23 Aug 2019
+last_updated: 28 Aug 2019
 ---
 
 If you want participants to be able to run your studies you have to bring JATOS online, into the Internet. There are different ways to do this, each with its own pros and cons and we discuss these way in depth on their own page. Now here is already an overview:
