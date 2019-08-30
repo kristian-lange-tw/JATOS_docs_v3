@@ -143,9 +143,25 @@ entries:
       url: /Write-Group-Studies-II-JavaScript-and-Messaging.html
       output: web, pdf
 
-  - title: For admins
+  - title: Serving the Internet
     output: web, pdf
     folderitems:
+    
+    - title: Bring your JATOS online
+      url: /Bring-your-JATOS-online.html
+      output: web, pdf
+
+    - title: Expose your local JATOS
+      url: /Expose-your-local-JATOS.html
+      output: web, pdf
+      
+     - title: JATOS on DigitalOcean
+      url: /JATOS-on-DigitalOcean.html
+      output: web, pdf
+
+    - title: JATOS in Amazon's Cloud (without Docker)
+      url: /JATOS-in-Amazons-Cloud-without-Docker.html
+      output: web, pdf
 
     - title: Install JATOS on a server
       url: /JATOS-on-a-server.html
@@ -169,14 +185,6 @@ entries:
 
     - title: Install JATOS via Docker
       url: /Install-JATOS-via-Docker.html
-      output: web, pdf
-      
-    - title: JATOS on DigitalOcean
-      url: /JATOS-on-DigitalOcean.html
-      output: web, pdf
-
-    - title: JATOS in Amazon's Cloud (without Docker)
-      url: /JATOS-in-Amazons-Cloud-without-Docker.html
       output: web, pdf
       
   - title: Reference
