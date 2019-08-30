@@ -20,32 +20,6 @@ But first some general advice:
 * Find more reliable [ways to bring your JATOS online](Bring-your-JATOS-online.html)
 
 
-## Serveo
-
-1. Start your local JATOS
-
-1. Execute in your terminal
-
-   ```shell
-   ssh -R 80:localhost:9000 serveo.net
-   ```
-   Serveo gives you an URL that is accessible from everywhere in the Internet.
-
-   The output should look similar to this:
-
-   ```shell
-   $ ssh -R 80:localhost:9000 serveo.net
-   Forwarding HTTP traffic from https://relego.serveo.net
-   Press g to start a GUI session and ctrl-c to quit.
-   ```
-   
-1. Copy & Paste the URL into your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.serveo.net/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
-
-1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _serveo.net_ address when you create worker links.
-
-More information on [https://serveo.net](https://serveo.net/).
-
-
 ## ngrok
 
 1. Download & setup ngrok: [https://ngrok.com/download](https://ngrok.com/download)
@@ -66,7 +40,7 @@ More information on [https://serveo.net](https://serveo.net/).
    
 1. Copy & Paste the URL with _https_ to your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.ngrok.io/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
 
-1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _ngrok.io_ address when you create worker links.
+1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use JATOS under the _ngrog.io_ address when you create worker links (and not your localhost one).
 
 More information on [https://ngrok.com](https://ngrok.com/).
 
@@ -90,7 +64,32 @@ More information on [https://ngrok.com](https://ngrok.com/).
    
 1. Copy & Paste the URL with _https_ into your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.localhost.run/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
 
-1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use your _localhost.run_ address when you create worker links.
+1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use JATOS under the _localhost.run_ address when you create worker links (and not your localhost one).
 
 More information on [http://localhost.run/](http://localhost.run/).
 
+
+## Serveo
+
+1. Start your local JATOS
+
+1. Execute in your terminal
+
+   ```shell
+   ssh -R 80:localhost:9000 serveo.net
+   ```
+   Serveo gives you an URL that is accessible from everywhere in the Internet.
+
+   The output should look similar to this:
+
+   ```shell
+   $ ssh -R 80:localhost:9000 serveo.net
+   Forwarding HTTP traffic from https://relego.serveo.net
+   Press g to start a GUI session and ctrl-c to quit.
+   ```
+   
+1. Copy & Paste the URL into your browser and check that JATOS is running properly with JATOS' test page _https://my-subdomain.serveo.net/jatos/test_ (exchange _my-subdomain_ with the subdomain you got in the last step)
+
+1. That's all. Now you can [create worker links](Run-your-Study-with-Worker-and-Batch-Manager.html) and send them to your participents. Remember to use JATOS under the _serveo.net_ address when you create worker links (and not your localhost one). 
+
+More information on [https://serveo.net](https://serveo.net/).
