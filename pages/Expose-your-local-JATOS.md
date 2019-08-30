@@ -7,12 +7,12 @@ sidebar: mydoc_sidebar
 permalink: Expose-your-local-JATOS.html
 folder:
 toc: true
-last_updated: 26 Aug 2019
+last_updated: 28 Aug 2019
 ---
 
 ## Introduction
 
-This page is about on how to expose your locally installed JATOS to the Internet. If you want to know a bit more about the background, I recommend reading [Tunnelling services for exposing localhost to the web](https://www.chenhuijing.com/blog/tunnelling-services-for-exposing-localhost-to-the-web). There are several tunneling services and some of those are free or have at least a free offer. Here we concentrate on _Serveo_, _ngrok_, and _localhost.run_. All three are working fine. Just pick one. If you have **Windows** and don't know SSH, _ngrok_ will suit you best since it has an installer.
+This page is about how to expose your locally installed JATOS to the Internet. That means using your personal computer as a server. If you want to know a bit more about the background, I recommend reading [Tunnelling services for exposing localhost to the web](https://www.chenhuijing.com/blog/tunnelling-services-for-exposing-localhost-to-the-web). There are several tunneling services and some of those are free or have at least a free offer. Here we concentrate on _Serveo_, _ngrok_, and _localhost.run_. All three are working fine. Just pick one. If you have **Windows** and don't know SSH, _ngrok_ will suit you best since it has an installer.
 
 But first some general advice:
 * This way to bring JATOS online is the easiest to use - but also the **least reliable** one. Your local computer is prone to accidents (e.g. unplugged power cable, interrupted Internet). If you need a more dependable JATOS look at [Bring your JATOS online](Bring-your-JATOS-online.html).
