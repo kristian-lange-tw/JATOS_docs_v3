@@ -14,9 +14,9 @@ If you want participants to be able to run your studies you have to bring JATOS 
 
 | | Setup time | Setup difficulty | Cost | Number of JATOS user / JATOS workers | Expected running time span  | Reliability | Privacy |
 |-------------------|-------------------|-------------------|-------------------|-------------------|
-| **[1. Expose your local JATOS](#expose-your-local-jatos-to-the-internet)** | fast | easy | none | you / many <sup>†</sup> | hours to few days | medium to low | as good as your computer |
-| **[2. Cloud server](#cloud-server)** | fast to medium | depends on your vendor | yes | few / many  <sup>‡</sup> | hours to years | high | medium |
-| **[3. Own server](#own-server)** | medium to slow (depends on your IT) | needs admin skills | ask your IT | many / many <sup>‡</sup> | month to years | high | high |
+| **[1. Expose your local JATOS](#1-expose-your-local-jatos-to-the-internet)** | fast | easy | none | you / many <sup>†</sup> | hours to few days | medium to low | as good as your computer |
+| **[2. Cloud server](#2-cloud-server)** | fast to medium | depends on your vendor | yes | few / many  <sup>‡</sup> | hours to years | high | medium |
+| **[3. Own server](#3-own-server)** | medium to slow (depends on your IT) | needs admin skills | ask your IT | many / many <sup>‡</sup> | month to years | high | high |
 
 †) Depends on your computer and internet connection
 ‡) Depends on your server
@@ -34,7 +34,7 @@ Can be still fast & easy (depending on your cloud vendor and your skills), but m
 
 Go on with [JATOS on DigitalOcean](JATOS-on-DigitalOcean.html) or [JATOS in Amazon's Cloud](JATOS-in-Amazons-Cloud-without-Docker.html) (or any other cloud vendor)
 
-## 3.Own server
+## 3. Own server
 
 A JATOS installation at your institute on a dedicated server is probably the safest and most reliable way - but also the one that (usually) takes the longest time and most admin skills to set up.
 
