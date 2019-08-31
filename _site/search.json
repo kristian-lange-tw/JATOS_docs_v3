@@ -15,6 +15,17 @@
 
 
 {
+"title": "Bring your JATOS online",
+"tags": "",
+"keywords": "installation, internet, online",
+"url": "Bring-your-JATOS-online.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Change study&#39;s members",
 "tags": "",
 "keywords": "user, member, email",
@@ -28,7 +39,7 @@
 {
 "title": "Configure JATOS on a Server",
 "tags": "",
-"keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port, password",
+"keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1",
 "url": "Configure-JATOS-on-a-Server.html",
 "summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions."
 }
@@ -83,9 +94,20 @@
 {
 "title": "Example Studies",
 "tags": "",
-"keywords": "examples, jspsych, lab.js, labjs, javascript, bootstrap, jquery, pure, css, highchart, survey",
+"keywords": "example studies, jspsych, lab.js, labjs, osweb, opensesame, javascript, bootstrap, jquery, pure, css, highchart, survey, metacognition",
 "url": "Example-Studies.html",
-"summary": "These examples here are mainly a showcase for what JATOS can do for you while you are writing your studies (like easy import/export, safe results storing and presentation, messaging in group studies). They are not meant to show what JATOS itself does (since JATOS doesn't care for the browser side)."
+"summary": "These study examples will (hopefully) be a helpful starting point for you to write your own studies. They also show how different client-side frameworks integrate with JATOS, and illustrate (e.g.) how to easily import/export studies, how to store and show results, and how to do messaging in group studies."
+}
+,
+
+
+
+{
+"title": "Expose your local JATOS",
+"tags": "",
+"keywords": "installation, internet, online, ngrok, serveo, localhost.run, tunnel",
+"url": "Expose-your-local-JATOS.html",
+"summary": ""
 }
 ,
 
@@ -136,6 +158,17 @@
 
 
 {
+"title": "JATOS Workflow",
+"tags": "",
+"keywords": "local installation, server installation",
+"url": "JATOS-Workflow.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "JATOS in Amazon&#39;s Cloud (without Docker)",
 "tags": "",
 "keywords": "cloud, aws, amazon, installation, server",
@@ -147,22 +180,22 @@
 
 
 {
-"title": "Install JATOS on a server",
+"title": "JATOS on DigitalOcean",
 "tags": "",
-"keywords": "server, installation, test, config, configuration, backup, proxy",
-"url": "JATOS-on-a-server.html",
-"summary": "To run studies online, e.g. with Mechanical Turk, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
+"keywords": "install, server, cloud, digitalocean, droplet, traefik, proxy, reverse, docker, docker-compose, deploy",
+"url": "JATOS-on-DigitalOcean.html",
+"summary": "This page describes how to install JATOS on a cloud-based server on DigitalOcean. To use encryption, you can enable HTTPS with Traefik, but this requires a domain name."
 }
 ,
 
 
 
 {
-"title": "JATOS Tryout Server",
+"title": "Install JATOS on a server",
 "tags": "",
-"keywords": "try out, example, server",
-"url": "JATOS-tryout-server.html",
-"summary": ""
+"keywords": "server, installation, test, config, configuration, backup, proxy",
+"url": "JATOS-on-a-server.html",
+"summary": "To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
 }
 ,
 
@@ -217,6 +250,39 @@
 "tags": "",
 "keywords": "migration, update, upgrade, version, JATOS 2",
 "url": "Migrate-from-v2-to-v3.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Moving from a Local to a Server Installation",
+"tags": "",
+"keywords": "local installation, server installation",
+"url": "Moving-from-a-Local-to-a-Server-Installation.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "OSWeb/OpenSesame and JATOS",
+"tags": "",
+"keywords": "OSWeb, OpenSesame, sesame",
+"url": "OSWeb-and-JATOS.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Papers citing JATOS",
+"tags": "",
+"keywords": "publication, cite, references",
+"url": "Papers-Citing-JATOS.html",
 "summary": ""
 }
 ,
@@ -292,7 +358,7 @@
 {
 "title": "Update JATOS",
 "tags": "",
-"keywords": "update",
+"keywords": "update, upgrade, release, install",
 "url": "Update-JATOS.html",
 "summary": ""
 }
@@ -382,7 +448,7 @@
 {
 "title": "jatos.js Reference",
 "tags": "",
-"keywords": "reference, jatos.js",
+"keywords": "reference, jatos.js, function, variable, js, javascript, library",
 "url": "jatos.js-Reference.html",
 "summary": "jatos.js is a small JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library."
 }

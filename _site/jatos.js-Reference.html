@@ -1,57 +1,568 @@
 <!DOCTYPE html>
-<html lang="en">
 <html>
 <head>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="jatos.js is a small JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the ...">
-<meta name="keywords" content=" reference, jatos.js">
-<title>jatos.js Reference  | JATOS 3 Documentation</title>
+<meta name="keywords" content=" reference, jatos.js, function, variable, js, javascript, library">
+<title>jatos.js Reference | JATOS 3 Documentation</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
 
 
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/syntax.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/font-awesome.min.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/modern-business.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/customstyles.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/theme-blue.css">
-<link rel="stylesheet" href="http://localhost:4010/jatos-pdf/css/syntax.css">
-<link rel="stylesheet" href="/jatos-pdf/css/printstyles.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
 
-<script>
-    Prince.addScriptFunc("datestamp", function() {
-        return "PDF last generated: October 24, 2018";
-    });
-</script>
+<link rel="shortcut icon" href="images/favicon.ico">
 
-<script>
-    Prince.addScriptFunc("guideName", function() {
-        return "JATOS Documentation User Guide";
-    });
-</script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
+<link rel="alternate" type="application/rss+xml" title="jatos_docs_v3" href="http://localhost:4000/feed.xml">
 
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
 
 </head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Whats-JATOS.html"><span class="projectTitle"><img src="images/jatos_logo_color.svg" height="20">&nbsp;JATOS 3 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
 
-<body class=" print">
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/JATOS/JATOS/releases/latest" target="_blank">Download</a></li>
+                
+                
+                
+                <li><a href="Example-Studies.html" target="_blank">Example Studies</a></li>
+                
+                
+                
+                <li><a href="http://blog.jatos.org" target="_blank">Blog</a></li>
+                
+                
+                
+                <li><a href="Contact-us.html">Contact</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="jatos.js Reference">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
 
 <!-- Page Content -->
 <div class="container">
-    <!-- Content Column -->
-    <div class="col-md-9">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
 
-        <div class="post-header">
-    <h1 class="post-title-main" id="jatos.js-Reference.html">jatos.js Reference</h1>
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li><a href="Whats-JATOS.html">What's JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          
+          
+          <li><a href="Installation.html">Installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Get-started.html">Get started</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Set-up-your-own-studies.html">Set up your own studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Data-Privacy-and-Ethics.html">Data Privacy and Ethics</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-Tryout-Server.html">JATOS Tryout Server</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Write your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Mandatory-lines-in-your-components-HTML.html">Mandatory lines in your components' HTML</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Adapt-Pre-written-Code-to-run-it-in-JATOS.html">Adapt Pre written Code to run it in JATOS (Jatosify)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="jsPsych-and-JATOS.html">jsPsych and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="labjs-and-JATOS.html">lab.js and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="OSWeb-and-JATOS.html">OSWeb and JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Session-Data-Three-Types.html">Session Data - Three Types</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Run your study</a>
+      <ul>
+          
+          
+          
+          <li><a href="Run-your-Study-with-Worker-and-Batch-Manager.html">Run your Study with Worker & Batch Manager</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Worker-Types.html">Worker Types</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Connect-to-Mechanical-Turk.html">Connect to Mechanical Turk</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Manage-Results.html">Manage Results</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Study-Log.html">Study Log</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Tips-and-Tricks.html">Tips & Tricks</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Manage your JATOS</a>
+      <ul>
+          
+          
+          
+          <li><a href="User-Manager.html">Manage JATOS users</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Change-studys-members.html">Change study's members</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Update-JATOS.html">Update JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Troubleshooting.html">Troubleshooting</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Group Studies</a>
+      <ul>
+          
+          
+          
+          <li><a href="Example-Group-Studies.html">Example Group Studies</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-I-Setup.html">Write Group Studies I - Setup</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Write-Group-Studies-II-JavaScript-and-Messaging.html">Write Group Studies II - JavaScript and Messaging</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Serving the Internet</a>
+      <ul>
+          
+          
+          
+          <li><a href="Bring-your-JATOS-online.html">Bring your JATOS online</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Expose-your-local-JATOS.html">Expose your local JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-on-DigitalOcean.html">JATOS on DigitalOcean</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-in-Amazons-Cloud-without-Docker.html">JATOS in Amazon's Cloud (without Docker)</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-on-a-server.html">Install JATOS on a server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Configure-JATOS-on-a-Server.html">Configure JATOS on a Server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="JATOS-with-Apache.html">JATOS with Apache</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Updating-a-JATOS-server-installation.html">Updating a JATOS server installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Install-JATOS-via-Docker.html">Install JATOS via Docker</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Reference</a>
+      <ul>
+          
+          
+          
+          <li class="active"><a href="jatos.js-Reference.html">jatos.js Reference</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">jatos.js Reference</h1>
 </div>
+
+
 
 <div class="post-content">
 
-    
+   
     <div class="summary">jatos.js is a small JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library.</div>
+   
+
     
-    <p>Have a look at what’s <a href="Mandatory-lines-in-your-components-HTML.html">mandatory in HTML and JavaScript for JATOS components</a>. Always load the jatos.js script in the <code class="highlighter-rouge">&lt;head&gt;</code> section with the following line:</p>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/JATOS/JATOS_docs_v3/blob/gh-pages/pages//jatos.js-Reference.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+
+    
+
+  <p>Have a look at what’s <a href="Mandatory-lines-in-your-components-HTML.html">mandatory in HTML and JavaScript for JATOS components</a>. Always load the jatos.js script in the <code class="highlighter-rouge">&lt;head&gt;</code> section with the following line:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;
 </code></pre></div></div>
@@ -172,16 +683,43 @@
 
 <h3 id="other-variables">Other variables</h3>
 
+<p>All variables can be set except those labled <em>read-only</em>.</p>
+
 <ul>
-  <li><code class="highlighter-rouge">jatos.version</code> - Current version of the jatos.js library</li>
+  <li><code class="highlighter-rouge">jatos.version</code> (<em>read-only</em>) - Current version of the jatos.js library</li>
   <li>
-    <p><code class="highlighter-rouge">jatos.channelSendingTimeoutTime</code> (writeable) - Time in ms to wait for an answer after sending a message via a channel (batch or group). Set this variable if you want to change the default value (default is 10 s).</p>
+    <p><code class="highlighter-rouge">jatos.channelSendingTimeoutTime</code> - Time in ms to wait for an answer after sending a message via a channel (batch or group). Set this variable if you want to change the default value (default is 10 s).</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">channelSendingTimeoutTime</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span> <span class="c1">// Sets channel timeout to 20 seconds</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p><code class="highlighter-rouge">jatos.httpTimeout</code> (writeable) - Time in ms to wait for an answer of an HTTP request by jatos.js. Set this variable if you want to change the default value (default is 1 min).</p>
+    <p><code class="highlighter-rouge">jatos.channelHeartbeatInterval</code> -  Waiting time in ms between channel (group or batch) heartbeats (default is 25 s)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">channelHeartbeatInterval</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span> <span class="c1">// Sets interval to 10 seconds</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">jatos.channelHeartbeatTimeoutTime</code> - Waiting time in ms for JATOS server’s answer to a channel heartbeat (default is 10 s)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">channelHeartbeatTimeoutTime</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span> <span class="c1">// Sets interval to 20 seconds</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">jatos.channelClosedCheckInterval</code> - Waiting time in ms between checking if channels (group or batch) are closed unexpectedly (default is 2 s)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">channelClosedCheckInterval</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">;</span> <span class="c1">// Sets interval to 4 seconds</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">jatos.channelOpeningBackoffTimeMin</code> and <code class="highlighter-rouge">jatos.channelOpeningBackoffTimeMax</code> - Min and max waiting time (in ms) between channel reopening attempts (default is 1s for min and 2 min for max). jatos.js uses an <em>exponential back-off</em> retry pattern for the channels.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">channelOpeningBackoffTimeMin</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">;</span> <span class="c1">// Sets interval to 2 seconds</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">channelOpeningBackoffTimeMax</span> <span class="o">=</span> <span class="mi">60000</span><span class="p">;</span> <span class="c1">// Sets interval to 1 minute</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">jatos.httpTimeout</code> - Time in ms to wait for an answer of an HTTP request by jatos.js. Set this variable if you want to change the default value (default is 1 min).</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpTimeout</span> <span class="o">=</span> <span class="mi">30000</span><span class="p">;</span> <span class="c1">// Sets HTTP timeout to 30 seconds</span>
 </code></pre></div>    </div>
@@ -198,7 +736,7 @@
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">httpRetryWait</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span> <span class="c1">// Sets Ajax retry waiting time to 5 seconds</span>
 </code></pre></div>    </div>
   </li>
-  <li><code class="highlighter-rouge">jatos.jQuery</code> - You can always use jatos.js own jQuery if you want to save some bandwidth</li>
+  <li><code class="highlighter-rouge">jatos.jQuery</code> (<em>read-only</em>) - You can always use jatos.js own jQuery if you want to save some bandwidth</li>
 </ul>
 
 <h2 id="general-jatosjs-functions">General jatos.js functions</h2>
@@ -470,8 +1008,8 @@
 
 <ul>
   <li><em>@param {Object} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON.</li>
-  <li><em>@param {optional Function} success</em> - Function to be called in case of successful submit</li>
-  <li><em>@param {optional Function} error</em> - Function to be called in case of error</li>
+  <li>_@param {optional Function} onSuccess - Function to be called in case of successful submit</li>
+  <li>_@param {optional Function} onError - Function to be called in case of error</li>
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
@@ -479,6 +1017,12 @@
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Since v3.3.1 it’s possible to leave out the JSON serialization:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>It’s often used together with <code class="highlighter-rouge">jatos.startNextComponent</code> to first submit result data back to the JATOS server and afterwards jump to the next component:</p>
@@ -490,15 +1034,13 @@
 <p>Or together with <code class="highlighter-rouge">jatos.startComponentByPos</code> to start a particular component (here at position 4):</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
-<p>Since v3.3.1 it’s possible to leave out the JSON serialization:</p>
+<p>Or with jQuery’s <a href="https://api.jquery.com/deferred.then/">then</a>:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startNextComponent</span><span class="p">);</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">).</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'success'</span><span class="p">),</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'error'</span><span class="p">));</span>
 </code></pre></div></div>
 
 <h3 id="jatosappendresultdataresultdata-onsuccess-onerror"><code class="highlighter-rouge">jatos.appendResultData(resultData, onSuccess, onError)</code></h3>
@@ -509,8 +1051,8 @@
 
 <ul>
   <li><em>@param {String} resultData</em> - String or Object that will be sent as result data. An Object will be serialized to JSON (stringify).</li>
-  <li><em>@param {optional Function} success</em> - Function to be called in case of successful submit</li>
-  <li><em>@param {optional Function} error</em> - Function to be called in case of error</li>
+  <li>_@param {optional Function} onSuccess - Function to be called in case of successful submit</li>
+  <li>_@param {optional Function} onError - Function to be called in case of error</li>
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
@@ -518,6 +1060,12 @@
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Since v3.3.1 it’s possible to leave out the JSON serialization:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>You can use it together with <code class="highlighter-rouge">jatos.startNextComponent</code> to first append result data and afterwards jump to the next component:</p>
@@ -529,9 +1077,7 @@
 <p>Or together with <code class="highlighter-rouge">jatos.startComponentByPos</code> to start a particular component (here at position 4):</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">appendResultData</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultData</span><span class="p">),</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <p>Since v3.3.1 it’s possible to use the shorter way to achieve the same:</p>
@@ -544,6 +1090,12 @@
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
 <span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Or with jQuery’s <a href="https://api.jquery.com/deferred.then/">then</a>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">startComponentByPos</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">).</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'success'</span><span class="p">),</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'error'</span><span class="p">));</span>
 </code></pre></div></div>
 
 <h3 id="jatossetstudysessiondatastudysessiondata-onsuccess-onfail"><code class="highlighter-rouge">jatos.setStudySessionData(studySessionData, onSuccess, onFail)</code></h3>
@@ -597,12 +1149,8 @@
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosbatchsessionremovepath-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.remove(path, onSuccess, onFail)</code></h3>
@@ -628,12 +1176,8 @@
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosbatchsessionreplacepath-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.replace(path, value, onSuccess, onFail)</code></h3>
@@ -660,12 +1204,8 @@
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosbatchsessioncopyfrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.copy(from, path, onSuccess, onFail)</code></h3>
@@ -692,12 +1232,8 @@
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosbatchsessionmovefrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.move(from, path, onSuccess, onFail)</code></h3>
@@ -724,12 +1260,8 @@
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosbatchsessionfindpath"><code class="highlighter-rouge">jatos.batchSession.find(path)</code></h3>
@@ -836,12 +1368,8 @@
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosbatchsessiongetall"><code class="highlighter-rouge">jatos.batchSession.getAll()</code></h3>
@@ -880,12 +1408,8 @@
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
 <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosbatchsessionclearonsuccess-onfail"><code class="highlighter-rouge">jatos.batchSession.clear(onSuccess, onFail)</code></h3>
@@ -908,12 +1432,8 @@
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosonbatchsessioncallback"><code class="highlighter-rouge">jatos.onBatchSession(callback)</code></h3>
@@ -1077,12 +1597,8 @@ jatos.sendGroupMsg(objMsg)
 <p>Example:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">reassignGroup</span><span class="p">();</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Successful group reassignment: new group ID is "</span> <span class="o">+</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupResultId</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group reassignment failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Successful group reassignment: new group ID is "</span> <span class="o">+</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupResultId</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group reassignment failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatossetgroupfixed"><code class="highlighter-rouge">jatos.setGroupFixed()</code></h3>
@@ -1191,12 +1707,8 @@ jatos.sendGroupMsg(objMsg)
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosgroupsessionremovepath-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.remove(path, onSuccess, onFail)</code></h3>
@@ -1222,12 +1734,8 @@ jatos.sendGroupMsg(objMsg)
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosgroupsessionreplacepath-value-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.replace(path, value, onSuccess, onFail)</code></h3>
@@ -1254,12 +1762,8 @@ jatos.sendGroupMsg(objMsg)
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosgroupsessioncopyfrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.copy(from, path, onSuccess, onFail)</code></h3>
@@ -1286,12 +1790,8 @@ jatos.sendGroupMsg(objMsg)
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosgroupsessionmovefrom-path-onsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.move(from, path, onSuccess, onFail)</code></h3>
@@ -1318,12 +1818,8 @@ jatos.sendGroupMsg(objMsg)
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosgroupsessionfindpath"><code class="highlighter-rouge">jatos.groupSession.find(path)</code></h3>
@@ -1421,12 +1917,8 @@ jatos.sendGroupMsg(objMsg)
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosgroupsessiongetall"><code class="highlighter-rouge">jatos.groupSession.getAll()</code></h3>
@@ -1465,12 +1957,8 @@ jatos.sendGroupMsg(objMsg)
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
 <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatosgroupsessionclearonsuccess-onfail"><code class="highlighter-rouge">jatos.groupSession.clear(onSuccess, onFail)</code></h3>
@@ -1493,21 +1981,46 @@ jatos.sendGroupMsg(objMsg)
 <p>Example with jQuery’s defered:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
 
 </div>
 
-    </div>
+<hr class="shaded"/>
 
-</div>    <!-- /.container -->
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+<span>Page last updated:</span> 6 Aug 2019
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
 
 </body>
 
-</html>
+<!-- the google_analytics_id gets auto inserted from the config file -->
 
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57013276-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+</html>
