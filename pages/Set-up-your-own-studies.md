@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Set-up-your-own-studies.html
 folder:
 toc: true
-last_updated: 28 Dec 2016
+last_updated: 31 Aug 2019
 ---
 
 So, now you've installed JATOS and tried out all the examples studies. What now?
