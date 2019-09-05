@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 6 Aug 2019
+last_updated: 5 Sept 2019
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -542,7 +542,9 @@ jatos.startComponentByPos(3, resultData).then(() => console.log('success'), () =
 
 ### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`
 
-Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data in between a component run it's not necessary to call this function manually. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+**If you just want to write into the study session, this function is not what you want**. This function sets the study session data and sends it back to the JATOS server. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
+
+Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
 * _@param {Object} sessionData_ - Object to be submitted
 * _@param {optional Function} onSuccess_ - Function to be called after this function is finished
@@ -555,6 +557,7 @@ Example:
 var studySessionData = { "a": 123, "b": 789, "c": 100};
 jatos.setStudySessionData(studySessionData);
 ```
+
 
 ## Functions to access the Batch Session
 
