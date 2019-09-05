@@ -2,7 +2,7 @@
 title: jatos.js Reference
 keywords: reference, jatos.js, function, variable, js, javascript, library
 tags:
-summary: jatos.js is a small JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library.
+summary: jatos.js is a JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library.
 sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
