@@ -542,7 +542,7 @@ jatos.startComponentByPos(3, resultData).then(() => console.log('success'), () =
 
 ### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`
 
-**If you just want to write into the study session, this function is not what you want**. This function sets the study session data and sends it back to the JATOS server. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
+**If you just want to write into the study session, this function is not what you want**. This function sets the study session data and sends it back to the JATOS server. If you just want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
 
 Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
