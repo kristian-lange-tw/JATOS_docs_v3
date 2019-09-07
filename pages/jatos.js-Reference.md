@@ -598,6 +598,22 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
+Example with an array: Put the object `{id: 123, name: "Max"}` after the second position of the array with the path `/subjects`:
+
+```javascript
+var deferred = jatos.batchSession.add("/subjects/2", {id: 123, name: "Max"});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
+```
+
+Example: To append to the end of an array use `/-` after the arrays name:
+
+```javascript
+var deferred = jatos.batchSession.add("/subjects/-", {id: 124, name: "Adam"});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
+```
+
 
 ### `jatos.batchSession.remove(path, onSuccess, onFail)`
 
@@ -1152,6 +1168,23 @@ var deferred = jatos.groupSession.add("/b", 123);
 deferred.done(() => { alert("Group Session was successfully updated") });
 deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
+
+Example with an array: Put the object `{id: 123, name: "Max"}` after the second position of the array with the path `/subjects`:
+
+```javascript
+var deferred = jatos.groupSession.add("/subjects/2", {id: 123, name: "Max"});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
+```
+
+Example: To append to the end of an array use `/-` after the arrays name:
+
+```javascript
+var deferred = jatos.groupSession.add("/subjects/-", {id: 124, name: "Adam"});
+deferred.done(() => { alert("Batch Session was successfully updated") });
+deferred.fail(() => { alert("Batch Session synchronization failed") });
+```
+
 
 ### `jatos.groupSession.remove(path, onSuccess, onFail)`
 
