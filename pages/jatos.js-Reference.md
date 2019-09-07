@@ -789,7 +789,7 @@ var a = jatos.batchSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
 
 ### `jatos.batchSession.set(name, value, onSuccess, onFail)`
 
-Like `jatos.batchSession.add`, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the Batch Session's object tree. If the name already exists in the Batch Session the value will be overwritten.
+A convenience function for `jatos.batchSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without a slash in front). Therefore it works only on the first level of the Batch Session's object tree. If the name already exists in the Batch Session the value will be overwritten.
 
 * _@param {string} name_ - name of the field 
 * _@param {object} value_ - value to be stored
@@ -801,7 +801,8 @@ Example: If the internal Batch Session is `{"a": 1234}`
 
 ```javascript
 // Since the parameter is the key's name and not a path it does not start with a "/"
-var b = jatos.batchSession.set("b", "koala");
+var b = jatos.batchSession
+("b", "koala");
 ```
 
 then after the Batch Session is successfully updated the new internal object is `{"a": 1234, "b": "koala"}`.
@@ -1310,7 +1311,7 @@ jatos.groupSession.test("/b/b1", "flowers"); // returns true
 
 ### `jatos.groupSession.get(name)`
 
-Convenience function: like `jatos.groupSession.find` but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Group Session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
+Convenience function: like `jatos.groupSession.find` but works with a key instead of a JSON Pointer (without the slash in front of the key name). Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Group Session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
 
 * _@param {string} name_ - name of the field 
 * _@return {object}_ - the value that is stored under name
@@ -1332,7 +1333,7 @@ var a = jatos.groupSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
 
 ### `jatos.groupSession.set(name, value, onSuccess, onFail)`
 
-Like `jatos.groupSession.add`, but instead of a JSON Pointer path it accepts a name of the field to be stored. Therefore it works only on the first level of the Group Session's object tree. If the name already exists in the Group Session the value will be overwritten.
+A convenience function for `jatos.groupSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without the slash in front). Therefore it works only on the first level of the Group Session's object tree. If the name already exists in the Group Session the value will be overwritten.
 
 * _@param {string} name_ - name of the field 
 * _@param {object} value_ - value to be stored
