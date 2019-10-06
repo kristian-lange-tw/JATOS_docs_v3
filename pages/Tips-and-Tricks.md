@@ -23,9 +23,19 @@ If you think about it, MTurk simply calls a JATOS URL. The URL to start a study 
 
 Here are some concrete examples:
 
-To run the study with ID 4 and batch with ID 2 with an **MTurk** worker on a local JATOS use `http://localhost:9000/publix/4/start?batchId=2&workerId=123456&assignmentId=abcdef`. You can use any arbitrary value in the query strings `workerId` and `assignmentId` (in this example, `workerId = 12345` and `assignmentId = abcdef`).
+To run the study with ID 4 and batch with ID 2 with an **MTurk** worker on a local JATOS use
 
-To imitate a run from **MTurk's Sandbox** additionally set `turkSubmitTo` to the value 'sandbox' `http://localhost:9000/publix/4/start?batchId=2&workerId=123456&assignmentId=abcdef&turkSubmitTo=sandbox`
+```
+http://localhost:9000/publix/4/start?batchId=2&workerId=123456&assignmentId=abcdef
+```
+
+You can use any arbitrary value in the query strings `workerId` and `assignmentId` (in this example, `workerId = 12345` and `assignmentId = abcdef`).
+
+To imitate a run from **MTurk's Sandbox** additionally set `turkSubmitTo` to the value 'sandbox':
+
+```
+http://localhost:9000/publix/4/start?batchId=2&workerId=123456&assignmentId=abcdef&turkSubmitTo=sandbox
+```
 
 
 ### Lock your studies before running them
