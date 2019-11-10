@@ -1,13 +1,13 @@
 ---
 title: Install JATOS on a server
-keywords: server, installation, test, config, configuration, backup, proxy
+keywords: server, installation, test, config, configuration, backup, proxy, java
 tags:
 summary: To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management.
 sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 7 April 2019
+last_updated: 10 Nov 2019
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
@@ -24,7 +24,7 @@ The actual JATOS instance on a server isn't too different from a local one. It b
 
 ### 1. Install Java
 
-We've produced multiple versions of JATOS. The simplest version is JATOS alone, but other versions are bundled with Java JRE. On a server, it's best (though not necessary) to install JATOS without a bundled Java. This will make it easier to upgrade to new Java releases.
+We've produced multiple versions of JATOS. The simplest version is JATOS alone, but other versions are bundled with Java JRE. On a server, it's best (though not necessary) to install JATOS without a bundled Java. This will make it easier to upgrade to new Java releases. Prior to JATOS v3.4.1 Java 8 is necessary - from v3.4.1 on both Java 8 and 11 are fine. 
 
 ### 2. [Optional] Install MySQL
 
@@ -190,6 +190,8 @@ But if you want to set up a regular backup of the data stored in JATOS here are 
       1. Copy & paste the db file - It's important to **stop JATOS** before doing a backup or restoring a H2 database this way. If you do not stop JATOS your [data might be corrupted](Troubleshooting.html#database-is-corrupted). You can just backup the folder `my-jatos-path/database`. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version.
       1. Via [H2's upgrade, backup, and restore tool](http://www.h2database.com/html/tutorial.html#upgrade_backup_restore)
 
-1. **Study assets root folder** - You can just make a backup of your study assets folder. If you want to return to a prior version replace the current folder with the backed-up version.
+1. **study_assets_root folder** - You can just make a backup of your study assets folder. If you want to return to a prior version replace the current folder with the backed-up version.
 
-Remember, a backup has to be done of **both** the _database_ **and** the _study assets root folder_.
+1. **study_logs folder** - Contains the [study logs](Study-Log.html)
+
+Remember, a backup has to be done of all **three** the folders, _database_ **and** the _study_assets_root_ **and** _study_logs_.
