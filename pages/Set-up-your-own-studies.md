@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Set-up-your-own-studies.html
 folder:
 toc: true
-last_updated: 31 Aug 2019
+last_updated: 10 Nov 2019
 ---
 
 So, now you've installed JATOS and tried out all the examples studies. What now?
@@ -29,8 +29,8 @@ If you are a newbie to HTML/JavaScript programming, there are LOADS of free and 
 ### Import / Export of studies
 Usually you conveniently develop your study on your local computer where you have a [local installation of JATOS](Installation.html). Then just use the export and import buttons in your installations to transfer the study to your [JATOS server](JATOS-on-a-server.html).
 
-1. In the GUI of your local installation press **Export** in the Study Toolbar. JATOS saves your study asset folder and some data about your study and it's components (mostly the properties) into a ZIP file and lets you download it. Leave the ZIP file as it is.
-1. In the GUI of your server installations press **Import** in the header. Select the ZIP you saved in step 1. JATOS will upload and unpack your study.
+1. In the GUI of your local installation press **Export** in the Study Toolbar. JATOS saves your study asset folder and some data about your study and it's components (mostly the properties) into a _.zip_ file (_.jzip_ with JATOS >= v3.4.1) and lets you download it. Leave the _.zip/.jzip_ file as it is.
+1. In the GUI of your server installations press **Import** in the header. Select the _.zip/.jzip_ file you saved in step 1. JATOS will upload and unpack your study.
 
 If you have trouble with the export and you are using a Safari browser have a look into [this issue in our Troubleshooting section](Troubleshooting.html#downloading-a-study--exporting-a-study-fails-eg-in-safari-browsers).
 
