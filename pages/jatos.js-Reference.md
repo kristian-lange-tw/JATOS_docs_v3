@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 5 Sept 2019
+last_updated: 10 Nov 2019
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -106,7 +106,7 @@ The group variables are part of jatos.js since JATOS 2. They are only filled wit
 
 * `jatos.groupMemberId` - Group member ID is unique for this member (it is actually identical with the study result ID)
 * `jatos.groupResultId` - ID of this group result (It's called group result to be consistent with the study result and the component result - although often it's just called group)
-* `jatos.groupState` - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)
+* `jatos.groupState` (Removed in JATOS >= v3.4.1) - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)
 * `jatos.groupMembers` - List of member IDs of the current members of the group
 * `jatos.groupChannels` - List of member IDs of the currently open group channels
 
