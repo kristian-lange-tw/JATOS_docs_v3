@@ -31,14 +31,14 @@ Docker is a great technology, but if you never heard of it you can safely ignore
    
    * or a specific one (exchange _x.x.x_ with the version):
 
-   ```bash
-   `docker pull jatos/jatos:x.x.x
+   ``` shell
+   docker pull jatos/jatos:x.x.x
    ```
 
 1. Run JATOS (use your image version)
 
-   ```bash
-   `docker run -d -p 9000:9000 jatos/jatos:latest
+   ``` shell
+   docker run -d -p 9000:9000 jatos/jatos:latest
    ```
    
    The `-d` argument specifies to run this container in detached mode (in the backgroud) and the `-p` is responsible for the port mapping.
@@ -52,7 +52,7 @@ Docker is a great technology, but if you never heard of it you can safely ignore
 
 With Docker you can easily change JATOS' port (actually we change the port mapping of JATOS' docker container). Just use Docker `-p` argument and specify your port. E.g. to run JATOS on standard HTTP port 80 use:
 
-```bash
+``` shell
 docker run -d -p 80:9000 jatos/jatos:latest
 ```
 
@@ -64,5 +64,5 @@ All environment variables that can be used to [configure a normal JATOS server i
 E.g. to setup JATOS with a MySQL database running under IP `172.17.0.2` use the following command (but change the JATOS version and use username and password of your MySQL account):
 
 ~~~ shell
-docker run -e JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -e JATOS_DB_USERNAME='root' -e JATOS_DB_PASSWORD='password' -e JATOS_DB_DRIVER=com.mysql.jdbc.Driver -e JATOS_JPA=mysqlPersistenceUnit -p 9000:9000 jatos/jatos:latest
+docker run -e JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -e JATOS_DB_USERNAME='root' -e JATOS_DB_PASSWORD='password' -e JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver -e JATOS_JPA=mysqlPersistenceUnit -p 9000:9000 jatos/jatos:latest
 ~~~
