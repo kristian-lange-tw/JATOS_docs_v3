@@ -40,7 +40,7 @@ Docker is a great technology, but if you never heard of it you can safely ignore
 
 ### Change port
 
-With Docker you can easily change JATOS' port (actually we change the port mapping of JATOS' docker container). Just use Docker `-p` argument and specify your port. E.g. to run JATOS on port 8080 use `docker run -d -p 8080:9000 jatos/jatos:latest`.
+With Docker you can easily change JATOS' port (actually we change the port mapping of JATOS' docker container). Just use Docker `-p` argument and specify your port. E.g. to run JATOS on standard HTTP port 80 use `docker run -d -p 80:9000 jatos/jatos:latest`.
 
 ### Configure with environment variables
 
