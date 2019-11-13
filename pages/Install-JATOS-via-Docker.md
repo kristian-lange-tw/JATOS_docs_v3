@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Install-JATOS-via-Docker.html
 folder:
 toc: true
-last_updated: 23 Dec 2018
+last_updated: 13 Nov 2019
 ---
 
 JATOS has a Docker image: [hub.docker.com/r/jatos/jatos/](https://hub.docker.com/r/jatos/jatos/)
@@ -46,8 +46,8 @@ With Docker you can easily change JATOS' port (actually we change the port mappi
 
 All environment variables that can be used to [configure a normal JATOS server installation](Configure-JATOS-on-a-Server.html) can be used in a docker installation. Just use Docker's `-e` argument to set them.
 
-E.g. to setup JATOS with a MySQL database running under IP `172.17.0.2` that uses the table `jatos` use the following command (but change the JATOS version and use username and password of your MySQL account):
+E.g. to setup JATOS with a MySQL database running under IP `172.17.0.2` use the following command (but change the JATOS version and use username and password of your MySQL account):
 
 ~~~ shell
-docker run -e JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8' -e JATOS_DB_USERNAME='root' -e JATOS_DB_PASSWORD='password' -e JATOS_DB_DRIVER=com.mysql.jdbc.Driver -e JATOS_JPA=mysqlPersistenceUnit -p 9000:9000 jatos/jatos:latest
+docker run -e JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -e JATOS_DB_USERNAME='root' -e JATOS_DB_PASSWORD='password' -e JATOS_DB_DRIVER=com.mysql.jdbc.Driver -e JATOS_JPA=mysqlPersistenceUnit -p 9000:9000 jatos/jatos:latest
 ~~~
