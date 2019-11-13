@@ -14,33 +14,44 @@ JATOS has a Docker image: [hub.docker.com/r/jatos/jatos/](https://hub.docker.com
 
 Docker is a great technology, but if you never heard of it you can safely ignore this page (it's not necessary to use it if you want to install JATOS, either locally or on a server). 
 
+
 ### Install JATOS locally with a Docker container
 
 1. Install Docker locally on your computer (not covered here)
 
 1. Go to your shell or command line interface
 
-1. Pull the JATOS image:
+1. Pull JATOS image
 
-   `docker pull jatos/jatos:latest` - to get the latest version
+   * either latest:
 
-   `docker pull jatos/jatos:x.x.x` - to get a certain version (exchange _x.x.x_ with the version) - e.g. to get version 3.3.3 use `docker pull jatos/jatos:3.3.3`
+   ```
+   docker pull jatos/jatos:latest
+   ```
+   
+   * or a specific one (exchange _x.x.x_ with the version):
 
-1. Check that you actually downloaded the image: `docker images` should show `jatos/jatos` in one line
+   ```bash
+   `docker pull jatos/jatos:x.x.x`
+   ```
 
-1. Now run JATOS (and create a new Docker container) with 
+1. Run JATOS (use your image version)
 
+   ```bash
    `docker run -d -p 9000:9000 jatos/jatos:latest`
+   ```
    
    The `-d` argument specifies to run this container in detached mode (in the backgroud) and the `-p` is responsible for the port mapping.
 
-1. Check that the new container is running: In your browser go to [localhost:9000](http://localhost:9000) - it should show the JATOS login screen. Or use `docker ps -a` - in the line with `jatos/jatos` the status should say `up`.
+1. You can check that the new container is running: In your browser go to [localhost:9000](http://localhost:9000) - it should show the JATOS login screen. Or use `docker ps` - in the line with `jatos/jatos` the status should say `up`.
 
 **Troubleshooting**: By removing the `-d` argument (e.g. `docker run -p 9000:9000 jatos/jatos:latest`) you get JATOS' logs printed in your shell - although you don't run it in detached mode in the background anymore.  
+
 
 ### Change port
 
 With Docker you can easily change JATOS' port (actually we change the port mapping of JATOS' docker container). Just use Docker `-p` argument and specify your port. E.g. to run JATOS on standard HTTP port 80 use `docker run -d -p 80:9000 jatos/jatos:latest`.
+
 
 ### Configure with environment variables
 
