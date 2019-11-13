@@ -32,13 +32,13 @@ Docker is a great technology, but if you never heard of it you can safely ignore
    * or a specific one (exchange _x.x.x_ with the version):
 
    ```bash
-   `docker pull jatos/jatos:x.x.x`
+   `docker pull jatos/jatos:x.x.x
    ```
 
 1. Run JATOS (use your image version)
 
    ```bash
-   `docker run -d -p 9000:9000 jatos/jatos:latest`
+   `docker run -d -p 9000:9000 jatos/jatos:latest
    ```
    
    The `-d` argument specifies to run this container in detached mode (in the backgroud) and the `-p` is responsible for the port mapping.
@@ -50,7 +50,11 @@ Docker is a great technology, but if you never heard of it you can safely ignore
 
 ### Change port
 
-With Docker you can easily change JATOS' port (actually we change the port mapping of JATOS' docker container). Just use Docker `-p` argument and specify your port. E.g. to run JATOS on standard HTTP port 80 use `docker run -d -p 80:9000 jatos/jatos:latest`.
+With Docker you can easily change JATOS' port (actually we change the port mapping of JATOS' docker container). Just use Docker `-p` argument and specify your port. E.g. to run JATOS on standard HTTP port 80 use:
+
+```bash
+docker run -d -p 80:9000 jatos/jatos:latest
+```
 
 
 ### Configure with environment variables
