@@ -81,41 +81,39 @@ By default the study assets root folder (where all your study's HTML, JavaScript
 There are three ways to set up JATOS to work with an MySQL:
 
 1. Via command-line arguments:
-   * `-DJATOS_DB_URL` - specifies the JDBC URL to the database
-   * `-DJATOS_DB_USERNAME` and `-DJATOS_DB_PASSWORD` - set username and password
-   * `-DJATOS_DB_DRIVER` - can be either `org.h2.Driver` or `com.mysql.jdbc.Driver`
-   * `-DJATOS_JPA` - can be either `h2PersistenceUnit` or `mysqlPersistenceUnit`
+   * `-DJATOS_DB_URL` - specifies the URL to the database
+   * `-DJATOS_DB_USERNAME` - set your username
+   * `-DJATOS_DB_PASSWORD` - set your password
+   * `-DJATOS_DB_DRIVER` - always `com.mysql.cj.jdbc.Driver` for MySQL
+   * `-DJATOS_JPA` - always `mysqlPersistenceUnit` for MySQL
    
-   E.g. to connect to a MySQL running on 172.17.0.2 use:
+   E.g. to connect to a MySQL running on 127.0.0.1 use (change username and password):
    
-   ~~~ bash
-   loader.sh start -DJATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_JPA=mysqlPersistenceUnit -DJATOS_DB_DRIVER=com.mysql.jdbc.Driver
+   ~~~ bash   
+   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_JPA=mysqlPersistenceUnit -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
    ~~~
    
-1. Via `conf/production.conf` (change IP and 'mypassword')
+1. Via `conf/production.conf` (change IP, username and password)
 
    ~~~ bash
-   db.default.url="jdbc:mysql://172.17.0.2/MyDatabase?characterEncoding=UTF-8"
+   db.default.url="jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
    db.default.user=jatosuser
    db.default.password=mypassword
-   db.default.driver=com.mysql.jdbc.Driver
+   db.default.driver=com.mysql.cj.jdbc.Driver
    jpa.default=mysqlPersistenceUnit
    ~~~
    
-1. Via environment variables
-   * `JATOS_DB_URL`
-   * `JATOS_DB_USERNAME`
-   * `JATOS_DB_PASSWORD`
-   * `JATOS_DB_DRIVER`
-   * `JATOS_JPA`
-   
-   E.g. to set all database environment variables for a MySQL you could use a command (change IP and 'mypassword'):
-   
+1. Via environment variables: (change IP, username and password)
+
    ~~~ bash
-   export JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8' JATOS_DB_USERNAME='jatosuser' JATOS_DB_PASSWORD='mypassword' JATOS_DB_DRIVER=com.mysql.jdbc.Driver JATOS_JPA=mysqlPersistenceUnit
+   JATOS_DB_URL="jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"`
+   JATOS_DB_USERNAME=jatosuser
+   JATOS_DB_PASSWORD=mypassword
+   JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
+   JATOS_JPA=mysqlPersistenceUnit
    ~~~
    
-You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your JDBC URI).
+You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your database URL).
 
 ~~~ bash
 19:03:42.000 [info] - p.a.d.DefaultDBApi - Database [default] connected at jdbc:mysql://localhost/jatos?characterEncoding=UTF-8
