@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Session-Data-Three-Types.html
 folder:
 toc: true
-last_updated: 13 Aug 2018
+last_updated: 14 Nov 2019
 ---
 
 ### When to use?
@@ -30,7 +30,7 @@ The data stored in the sessions are not exported or imported together with a stu
 | **Usage** | Exchange and store data relevant for all members of a batch | Exchange and temporarily store data relevant for all members of a group | Exchange and temporarily store data between components of a single study run |
 | **Example use** | (Pseudo-)randomly assign conditions to different workers; Combine results from different groups working in the same batch | Store choices of the two members of a Prisoner's Dilemma game | Pass on correct answers between components; Keep track of the number of iterations of a given component that is repeated |
 | **Lifetime** | Survives after all workers finished their studies | Automatically deleted once the group is finished | Deleted once the worker finished the study - Hence temporary|
-| **Updated when and via** | Any time you call one of the [jatos.batchSession functions](jatos.js-Reference.html#functions-to-access-the-batch-session) | Any time you call one of the [jatos.groupSession functions](jatos.js-Reference.html#functions-to-access-the-group-session) | At the end of each component or if you call [jatos.setStudySessionData](jatos.js-Reference.html#jatossetstudysessiondatasessiondata-complete) |
+| **Updated when and via** | Any time you call one of the [jatos.batchSession functions](jatos.js-Reference.html#functions-to-access-the-batch-session) | Any time you call one of the [jatos.groupSession functions](jatos.js-Reference.html#functions-to-access-the-group-session) | At the end of each component or if you call [jatos.setStudySessionData](jatos.js-Reference.html#jatossetstudysessiondata) |
 | **Visible and editable from JATOS' GUI** | ![yes](images/ok-24.ico) | ![no](images/x-24.ico) | ![no](images/x-24.ico) |
 | **Requires WebSockets** | ![yes](images/ok-24.ico) | ![yes](images/ok-24.ico) | ![no](images/x-24.ico) |
 | **Included in exported studies** | ![no](images/x-24.ico) | ![no](images/x-24.ico) | ![no](images/x-24.ico) |
