@@ -132,7 +132,7 @@ By default JATOS' keeps it simple and relies on the users to choose save passwor
 
 ### Other configuration in production.conf
 
-Additional to the [database](#Database) and the [study assets root path](#study-assets-root-path) some other properties can be configured in the `conf/production.conf`.
+Additional to the [database](#mysql-database) and the [study assets root path](#study-assets-root-path) some other properties can be configured in the `conf/production.conf`.
 
 * `jatos.userSession.timeout` - time in minutes a user stays logged in (default is 1440 = 1 day)
 * `jatos.userSession.inactivity` - defines the time in minutes a user is automatically logged out after inactivity (default is 60)
