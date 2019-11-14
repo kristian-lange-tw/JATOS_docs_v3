@@ -42,8 +42,7 @@ http://localhost:9000/publix/4/start?batchId=2&workerId=123456&assignmentId=abcd
 
 Each Study bar has a button that toggles between the  'Unlocked' and 'Locked' states. Locking a study prevents changes to its (or any of its components') properties, change the order of components, etc. 
 
-![GUI screenshot](images/Screen Shot 2015-04-27 at 16.25.55.png){:width="250px"}
-
+<img src="images/Screen Shot 2015-04-27 at 16.25.55.png" style="width:250px"/>
 
 ### Do a General Single Run more than once in the same browser 
 
