@@ -1,13 +1,13 @@
 ---
 title: Write Group Studies II - JavaScript and Messaging
-keywords: group, group session, WebSocket, group channel, messaging
+keywords: group, group session, WebSocket, group channel, messaging, fixing
 tags:
 summary: Learn how to use jatos.js to join groups and manage them. Learn about the three different ways of sending messages within a group.
 sidebar: mydoc_sidebar
 permalink: Write-Group-Studies-II-JavaScript-and-Messaging.html
 folder:
 toc: true
-last_updated: 13 Aug 2018
+last_updated: 14 Nov 2019
 ---
 
 ## Writing JavaScripts for group studies
@@ -56,7 +56,7 @@ To move a worker from one group to a different one, use [_jatos.reassignGroup_](
 
 ### Fixing a group
 
-Sometimes you want to stay with the group like it is in the moment and don't let new members join - although it would be allowed according to the group properties. For example in the [Prisoner's Example study](Example-Studies.html#prisoners-dilemma) after the group is assembled in the waiting room component it is necessary to keep the two members as it is. Even if one of the members leaves in the middle of the game, JATOS shouldn't just assign a new member. To do this call jatos.js' function [_jatos.setGroupFixed_](jatos.js-Reference.html#jatossetgroupfixed).
+Sometimes you want to stay with the group like it is in the moment and don't let new members join - although it would be allowed according to the group properties. For example in the [Prisoner's Example study](Example-Studies.html#prisoners-dilemma) after the group is assembled in the waiting room component it is necessary to keep the two members as it is. Even if one of the members leaves in the middle of the game, JATOS shouldn't just assign a new member. To do this you can call jatos.js' function [_jatos.setGroupFixed_](jatos.js-Reference.html#jatossetgroupfixed). Alternatively (since JATOS >= v3.4.1) you can fix a group in JATOS' GUI, in the [groups table](/Run-your-Study-with-Worker-and-Batch-Manager.html#groups-since-v331). 
 
 ## Communication between group members
 
