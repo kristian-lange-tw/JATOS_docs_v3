@@ -55,7 +55,7 @@ As of today, JATOS (v.3.3.4) uses Java 8. Future versions will likely require ne
 
 To be absolutely safe you can install the new JATOS version and keep the old one untouched. This way you can switch back if something fails. Just remember that only one JATOS can run at the same time. Always stop your old JATOS instance before starting another one.
 
-After updating you can check the new JATOS with the build-in test page [localhost:9000/jatos/test](http://localhost:9000/jatos/test) in the browser. All tests should be OK.
+After updating you can check the new JATOS with the build-in test page [127.0.0.1:9000/jatos/test](http://127.0.0.1:9000/jatos/test) in the browser. All tests should be OK.
 
 You can update your local JATOS instance in two main ways:
  
