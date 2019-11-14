@@ -46,13 +46,13 @@ Component 3
   * _jatos.joinGroup_ -> opens group channel **same group**
   * _jatos.endStudy_ -> closes group channel, leaves group, ends component, and ends study
 
-Notice that by calling _[jatos.joinGroup](jatos.js-Reference.html#jatosjoingroupcallbacks)_ in the second and third component JATOS does not let workers join a new group but just  opens a group channel in the already joined group. To make a worker leave a group,  use the function [_jatos.leaveGroup_](jatos.js-Reference.html#jatosleavegrouponsuccess-onerror).
+Notice that by calling _[jatos.joinGroup](jatos.js-Reference.html#jatosjoingroupcallbacks)_ in the second and third component JATOS does not let workers join a new group but just  opens a group channel in the already joined group. To make a worker leave a group,  use the function [_jatos.leaveGroup_](jatos.js-Reference.html#jatosleavegroup).
 
 Every know and then you probably would like to know who the members of your groups are. This and other stats you can get by clicking on your batch's [**Groups** button in the Worker & Batch Manger](/Run-your-Study-with-Worker-and-Batch-Manager.html#groups-since-v331).
 
 ### Reassigning to a different group
 
-To move a worker from one group to a different one, use [_jatos.reassignGroup_](jatos.js-Reference.html#jatosreassigngrouponsuccess-onfail). This function will make a worker leave their group and join a different one. JATOS can only reassign to a different group if there is another group available. If there is no other group JATOS will not start a new one but put the worker into the same old group again.  
+To move a worker from one group to a different one, use [_jatos.reassignGroup_](jatos.js-Reference.html#jatosreassigngroup). This function will make a worker leave their group and join a different one. JATOS can only reassign to a different group if there is another group available. If there is no other group JATOS will not start a new one but put the worker into the same old group again.  
 
 ### Fixing a group
 
@@ -63,7 +63,7 @@ Sometimes you want to stay with the group like it is in the moment and don't let
 JATOS provides three ways for communicating within the group: direct messaging, broadcast messaging and via the Group Session.
 
 ### Direct messaging
-Members can send direct messages to a single other member of the same group with the [_jatos.sendGroupMsgTo_](jatos.js-Reference.html#jatossendgroupmsgtorecipient-msg) function. Like broadcast messaging this way of group communication is fast but can be unreliable in case of an unstable network connection. We use direct messaging in the [Snake example](Example-Studies.html#snake) to send the coordinates of the snakes on every step. Here, speed is more critical than reliability in the messages, because a few dropped frames will probably go unnoticed. 
+Members can send direct messages to a single other member of the same group with the [_jatos.sendGroupMsgTo_](jatos.js-Reference.html#jatossendgroupmsgto) function. Like broadcast messaging this way of group communication is fast but can be unreliable in case of an unstable network connection. We use direct messaging in the [Snake example](Example-Studies.html#snake) to send the coordinates of the snakes on every step. Here, speed is more critical than reliability in the messages, because a few dropped frames will probably go unnoticed. 
 
 ### Broadcast messaging
 Members can send messages to all other members of the same group with the [_jatos.sendGroupMsg_](jatos.js-Reference.html#jatossendgroupmsgmsg) function. Like direct messaging this way of group communication is fast but can be unreliable in case of an unstable network connection.
