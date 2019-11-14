@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 10 Nov 2019
+last_updated: 14 Nov 2019
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -171,7 +171,7 @@ All variables can be set except those labled _read-only_.
 
 ## General jatos.js functions
 
-### `jatos.onLoad(callback)`
+### `jatos.onLoad`
 
 Defines callback function that jatos.js will call when it's finished initialising. Only [mandatory](Mandatory-lines-in-your-components-HTML.html) call in every component.
 
@@ -185,7 +185,7 @@ jatos.onLoad(function() {
 });
 ```
 
-### `jatos.onError(callback)`
+### `jatos.onError`
 
 Defines a callback function that is to be called in case jatos.js produces an error. 
 
@@ -199,7 +199,7 @@ jatos.onError(function(error) {
 });
 ```
 
-### `jatos.log(logMsg)`
+### `jatos.log`
 
 Sends a message to be logged back to the JATOS server where it will be logged in JATOS' log file.
 
@@ -211,7 +211,7 @@ Example:
 jatos.log("Log this message in JATOS' log file");
 ```
 
-### `jatos.addJatosIds(obj)`
+### `jatos.addJatosIds`
 
 Convenience function that adds some [IDs](jatos.js-Reference.html#ids) (study ID, study title, batch ID, batch title, component ID, component position, component title, worker ID, study result ID, component result ID, group result ID, group member ID) to the given object.
 
@@ -224,7 +224,7 @@ var resultData = {};
 jatos.addJatosIds(resultData);
 ```
 
-### `jatos.setHeartbeatPeriod(heartbeatPeriod)`
+### `jatos.setHeartbeatPeriod`
 
 Every running component sends regularly a HTTP request (the heartbeat) back to the JATOS server. This signals that it is still running. As soon as the browser tab running the component is closed the heartbeat ceases. The time of the last heartbeat is visible in the GUI, in the study results page in the 'Last Seen' row. This way you can easily see if a worker is still running your study or if (and when) he abandonend it. By default the heartbeat period is 2 minutes. By careful not to set the period too low (few seconds or even milliseconds) since it might overload your network or your JATOS server.
 
@@ -238,7 +238,7 @@ jatos.setHeartbeatPeriod(60000); // Sets to a heartbeat every minute
 
 ## Functions to control study flow
 
-### `jatos.startComponent(componentId, resultData, onError)`
+### `jatos.startComponent`
 
 (Before v3.3.1 `jatos.startComponent(componentId)`)
 
@@ -270,7 +270,7 @@ var resultData = "my important result data";
 jatos.startComponent(23, resultData);
 ```
 
-### `jatos.startComponentByPos(componentPos, resultData, onError)`
+### `jatos.startComponentByPos`
 
 (Before v3.3.1 `jatos.startComponentByPos(componentPos)`)
 
@@ -302,7 +302,7 @@ var resultData = "my important result data";
 jatos.startComponentByPos(3, resultData);
 ```
 
-### `jatos.startNextComponent(resultData, onError)`
+### `jatos.startNextComponent`
 
 (Before v3.3.1 `jatos.startNextComponent()`)
 
@@ -331,7 +331,7 @@ var resultData = "my important result data";
 jatos.startNextComponent(resultData);
 ```
 
-### `jatos.startLastComponent(resultData, onError)`
+### `jatos.startLastComponent`
 
 (Before v3.3.1 `jatos.startLastComponent()`)
 
@@ -360,7 +360,7 @@ var resultData = "my important result data";
 jatos.startLastComponent(resultData);
 ```
 
-### `jatos.abortStudy(message)`
+### `jatos.abortStudy`
 
 Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page. Data stored in the Batch Session or Group Session are uneffected by this.
 
@@ -378,7 +378,7 @@ Or:
 jatos.abortStudy("participant aborted by pressing abort button");
 ```
 
-### `jatos.endStudyAjax(successful, message, onSuccess, onError)`
+### `jatos.endStudyAjax`
 
 Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
@@ -406,7 +406,7 @@ Or to indicate a failure:
 jatos.endStudyAjax(false, "internal JS error");
 ```
 
-### `jatos.endStudy(successful, message)`
+### `jatos.endStudy`
 
 Ends study. Redirects the worker to the study end page afterwards.
 
@@ -433,7 +433,7 @@ jatos.endStudyAjax(false, "internal JS error");
 
 ## Functions for Study Session and result data
 
-### `jatos.submitResultData(resultData, onSuccess, onError)`
+### `jatos.submitResultData`
 
 Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be **overwritten**. If you want to append result data use `jatos.appendResultData` instead. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
@@ -479,7 +479,7 @@ jatos.submitResultData(resultData).then(() => console.log('success'), () => cons
 ```
 
 
-### `jatos.appendResultData(resultData, onSuccess, onError)`
+### `jatos.appendResultData`
 
 **Since JATOS version >= 3.1.7**
 
@@ -540,7 +540,7 @@ jatos.startComponentByPos(3, resultData).then(() => console.log('success'), () =
 ```
 
 
-### `jatos.setStudySessionData(studySessionData, onSuccess, onFail)`
+### `jatos.setStudySessionData`
 
 **If you just want to write into the study session, this function is not what you want**. This function sets the study session data and sends it back to the JATOS server. If you just want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
 
@@ -571,7 +571,7 @@ Accessing the Batch Session is done via [JSON Patches (RFC 6902)](https://tools.
 [JSON Pointer (RFC 6901)](https://tools.ietf.org/html/rfc6901). An introduction can be found under [jsonpatch.com](http://jsonpatch.com/). For JSON Patches jatos.js uses the [JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch) library from Joachim Wester and for JSON Pointers the [jsonpointer.js](https://github.com/alexeykuzmin/jsonpointer.js) library from Alexey Kuzmin.
 
 
-### `jatos.batchSession.add(path, value, onSuccess, onFail)`
+### `jatos.batchSession.add`
 
 JSON Patch add operation: Adds a value to an object or inserts it into an array. In the case of an array, the value is inserted before the given index. The `-` character can be used instead of an index to insert at the end of an array (see [jsonpatch.com](http://jsonpatch.com/)). If the path already exists in the Batch Session the value will be overwritten.
 
@@ -615,7 +615,7 @@ deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 
-### `jatos.batchSession.remove(path, onSuccess, onFail)`
+### `jatos.batchSession.remove`
 
 JSON Patch remove operation: Removes a value from an object or array (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -642,7 +642,7 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
-### `jatos.batchSession.replace(path, value, onSuccess, onFail)`
+### `jatos.batchSession.replace`
 
 JSON Patch replace operation: Replaces a value. Equivalent to a 'remove' followed by an 'add' (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -670,7 +670,7 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
-### `jatos.batchSession.copy(from, path, onSuccess, onFail)`
+### `jatos.batchSession.copy`
 
 JSON Patch copy operation: Copies a value from one location to another within the JSON document. Both from and path are JSON Pointers (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -698,7 +698,7 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
-### `jatos.batchSession.move(from, path, onSuccess, onFail)`
+### `jatos.batchSession.move`
 
 JSON Patch move operation: Moves a value from one location to the other. Both from and path are JSON Pointers. (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -726,7 +726,7 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
-### `jatos.batchSession.find(path)`
+### `jatos.batchSession.find`
 
 Gets a field in the Batch Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server. Contrary to `jatos.batchSession.get` it allows to get values from all levels of the Batch Session's object tree.
 
@@ -740,7 +740,7 @@ jatos.batchSession.find("/a/a1"); // returns "foo"
 jatos.batchSession.find("/b"); // returns 999
 ```
 
-### `jatos.batchSession.defined(path)`
+### `jatos.batchSession.defined`
 
 **Since JATOS version >= 3.1.8**
 
@@ -755,7 +755,7 @@ Example:
 jatos.batchSession.defined("/a"); // returns true if the pointer '/a' exists
 ```
 
-### `jatos.batchSession.test(path, value)`
+### `jatos.batchSession.test`
 
 JSON Patch test operation: Tests that the specified value is set in the document (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -781,7 +781,7 @@ if (!jatos.batchSession.test("/c", undefined)) {
 }
 ```
 
-### `jatos.batchSession.get(name)`
+### `jatos.batchSession.get`
 
 Convenience function: like `jatos.batchSession.find` but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Batch Session and returns the matching value.  For all other levels of the object tree use jatos.batchSession.find. Gets the object from the locally stored copy of the session and does not call the server.
 
@@ -803,7 +803,7 @@ var a1 = jatos.batchSession.get("a1"); // a1 is undefined !!!
 var a = jatos.batchSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
 ```
 
-### `jatos.batchSession.set(name, value, onSuccess, onFail)`
+### `jatos.batchSession.set`
 
 A convenience function for `jatos.batchSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without a slash in front). Therefore it works only on the first level of the Batch Session's object tree. If the name already exists in the Batch Session the value will be overwritten.
 
@@ -833,7 +833,7 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
-### `jatos.batchSession.getAll()`
+### `jatos.batchSession.getAll`
 
 Returns the complete Batch Session data. Gets the object from the locally stored copy of the session and does not call the server.
 
@@ -845,7 +845,7 @@ Example:
 var batchSession = jatos.batchSession.getAll();
 ```
 
-### `jatos.batchSession.setAll(value, onSuccess, onFail)`
+### `jatos.batchSession.setAll`
 
 Replaces the whole session data. If the replacing object is rather large it might be better performance-wise to replace only individual paths. Each session writting involves sending the changes in the session via a JSON Patch to the JATOS server. If the session is large this data transfer can take some time. In this case use other session functions, like 'set', 'add', or 'replace'.
 
@@ -872,7 +872,7 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
-### `jatos.batchSession.clear(onSuccess, onFail)`
+### `jatos.batchSession.clear`
 
 Clears the whole Batch Session data and sets it to an empty object `{}`.
 
@@ -896,7 +896,7 @@ deferred.done(() => { alert("Batch Session was successfully updated") });
 deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
-### `jatos.onBatchSession(callback)`
+### `jatos.onBatchSession`
 
 Defines a callback function that is called every time the Batch Session changes on the JATOS server side (that includes updates in the session originating from other workers that run the study in parallel).
 
@@ -923,7 +923,7 @@ jatos.onBatchSession(function(path){
 
 ## Functions for group studies
 
-### `jatos.joinGroup(callbacks)`
+### `jatos.joinGroup`
 
 Tries to join a group and if it succeeds opens the group channel (which is mostly a WebSocket). Only if the group channel is open one can exchange data with other group members. As the only parameter this function takes an object that consists of several optional callback functions that will be called by jatos.js when certain group events occur. It returns a [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in joining.
 
@@ -975,7 +975,7 @@ function onMessage(msg) {
 }
 ```
 
-### `jatos.sendGroupMsg(msg)`
+### `jatos.sendGroupMsg`
 
 Sends a message to all group members with an open group channel. Use `jatos.sendGroupMsgTo` to send a message to a particular member.
 
@@ -993,7 +993,7 @@ var objMsg = {"city": "Berlin", "population": 3500000"}; // Send an object
 jatos.sendGroupMsg(objMsg)
 ```
 
-### `jatos.sendGroupMsgTo(recipient, msg)`
+### `jatos.sendGroupMsgTo`
 
 Like `jatos.sendGroupMsg` but sends a message to a particular group member specified by the group member ID. You can find a list of all IDs of group members with an open channel `jatos.groupChannels`. Alternativally you get member IDs via the `onMemberOpen` callback function.
 
@@ -1025,7 +1025,7 @@ function onMessage(msg) {
 }
 ```
 
-### `jatos.leaveGroup(onSuccess, onError)`
+### `jatos.leaveGroup`
 
 Leaves the group it has previously joined. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the leaving.
 
@@ -1039,7 +1039,7 @@ Example:
 jatos.leaveGroup();
 ```
 
-### `jatos.reassignGroup(onSuccess, onFail)`
+### `jatos.reassignGroup`
 
 Asks the JATOS server to reassign this study run to a different group. JATOS can only reassign if there is another group availible. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the reassigning.
 
@@ -1055,7 +1055,7 @@ deferred.done(() => { alert("Successful group reassignment: new group ID is " + 
 deferred.fail(() => { alert("Group reassignment failed") });
 ```
 
-### `jatos.setGroupFixed()`
+### `jatos.setGroupFixed`
 
 Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the fixing.
 
@@ -1069,7 +1069,7 @@ Example:
 jatos.setGroupFixed();
 ```
 
-### `jatos.hasJoinedGroup()`
+### `jatos.hasJoinedGroup`
 
 Returns true if this study run joined a group and false otherwise. It doesn't necessarily mean that we have an open group channel. We might just have joined a group in a prior component but in this component never opened the channel. If you want to check for an open group channel use `jatos.hasOpenGroupChannel`.
 
@@ -1083,7 +1083,7 @@ if(jatos.hasJoinedGroup()) {
 };
 ```
 
-### `jatos.hasOpenGroupChannel()`
+### `jatos.hasOpenGroupChannel`
 
 Returns true if we currently have an open group channel and false otherwise. Since you can't open a group channel without joining a group, it also means that we joined a group. On the other side although we have closed group channel we can still be a member in a group. Use `jatos.hasJoinedGroup` to check group membership.
 
@@ -1097,7 +1097,7 @@ if(jatos.hasOpenGroupChannel()) {
 };
 ```
 
-### `jatos.isMaxActiveMemberReached()`
+### `jatos.isMaxActiveMemberReached`
 
 Returns true if the group has reached the maximum amount of active members like specified in the batch properties. It's not necessary that each member has an open group channel.
 
@@ -1109,7 +1109,7 @@ if(jatos.isMaxActiveMemberReached()) {
 };
 ```
 
-### `jatos.isMaxActiveMemberOpen()`
+### `jatos.isMaxActiveMemberOpen`
 
 Returns true if the group has reached the maximum amount of active members like specified in the batch properties and each member has an open group channel.
 
@@ -1119,7 +1119,7 @@ if(jatos.isMaxActiveMemberOpen()) {
 };
 ```
 
-### `jatos.isGroupOpen()`
+### `jatos.isGroupOpen`
 
 Returns true if all active members of the group have an open group channel and can send and receive data. It's not necessary that the group has reached its minimum or maximum active member size.
 
@@ -1142,7 +1142,7 @@ On the other side for all reading functions (`get`, `find`, `getAll`, `test`) th
 Accessing the Group Session is done via [JSON Patches (RFC 6902)](https://tools.ietf.org/html/rfc6902) and 
 [JSON Pointer (RFC 6901)](https://tools.ietf.org/html/rfc6901). An introduction can be found under [jsonpatch.com](http://jsonpatch.com/). For JSON Patches jatos.js uses the [JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch) library from Joachim Wester and for JSON Pointers the [jsonpointer.js](https://github.com/alexeykuzmin/jsonpointer.js) library from Alexey Kuzmin.
 
-### `jatos.groupSession.add(path, value, onSuccess, onFail)`
+### `jatos.groupSession.add`
 
 JSON Patch add operation: Adds a value to an object or inserts it into an array. In the case of an array, the value is inserted before the given index. The `-` character can be used instead of an index to insert at the end of an array (see [jsonpatch.com](http://jsonpatch.com/)). If the path already exists in the Group Session the value will be overwritten.
 
@@ -1186,7 +1186,7 @@ deferred.fail(() => { alert("Batch Session synchronization failed") });
 ```
 
 
-### `jatos.groupSession.remove(path, onSuccess, onFail)`
+### `jatos.groupSession.remove`
 
 JSON Patch remove operation: Removes a value from an object or array (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -1213,7 +1213,7 @@ deferred.done(() => { alert("Group Session was successfully updated") });
 deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
-### `jatos.groupSession.replace(path, value, onSuccess, onFail)`
+### `jatos.groupSession.replace`
 
 JSON Patch replace operation: Replaces a value. Equivalent to a “remove” followed by an “add” (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -1241,7 +1241,7 @@ deferred.done(() => { alert("Group Session was successfully updated") });
 deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
-### `jatos.groupSession.copy(from, path, onSuccess, onFail)`
+### `jatos.groupSession.copy`
 
 JSON Patch copy operation: Copies a value from one location to another within the JSON document. Both from and path are JSON Pointers (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -1269,7 +1269,7 @@ deferred.done(() => { alert("Group Session was successfully updated") });
 deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
-### `jatos.groupSession.move(from, path, onSuccess, onFail)`
+### `jatos.groupSession.move`
 
 JSON Patch move operation: Moves a value from one location to the other. Both from and path are JSON Pointers. (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -1297,7 +1297,7 @@ deferred.done(() => { alert("Group Session was successfully updated") });
 deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
-### `jatos.groupSession.find(path)`
+### `jatos.groupSession.find`
 
 Gets a field in the Group Session data. Takes a JSON Pointer and returns the matching value. Gets the object from the locally stored copy of the session and does not call the server. Contrary to `jatos.groupSession.get` it allows to get values from all levels of the Group Session's object tree.
 
@@ -1311,7 +1311,7 @@ jatos.groupSession.find("/a/a1"); // returns "foo"
 jatos.groupSession.find("/b"); // returns 999
 ```
 
-### `jatos.groupSession.defined(path)`
+### `jatos.groupSession.defined`
 
 **Since JATOS version >= 3.1.8**
 
@@ -1326,7 +1326,7 @@ Example:
 jatos.groupSession.defined("/a"); // returns true if the pointer '/a' exists
 ```
 
-### `jatos.groupSession.test(path, value)`
+### `jatos.groupSession.test`
 
 JSON Patch test operation: Tests that the specified value is set in the document (see [jsonpatch.com](http://jsonpatch.com/)).
 
@@ -1342,7 +1342,7 @@ jatos.groupSession.test("/a", 10); // returns false
 jatos.groupSession.test("/b/b1", "flowers"); // returns true
 ```
 
-### `jatos.groupSession.get(name)`
+### `jatos.groupSession.get`
 
 Convenience function: like `jatos.groupSession.find` but works with a key instead of a JSON Pointer (without the slash in front of the key name). Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Group Session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
 
@@ -1364,7 +1364,7 @@ var a1 = jatos.groupSession.get("a1"); // a1 is undefined !!!
 var a = jatos.groupSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
 ```
 
-### `jatos.groupSession.set(name, value, onSuccess, onFail)`
+### `jatos.groupSession.set`
 
 A convenience function for `jatos.groupSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without the slash in front). Therefore it works only on the first level of the Group Session's object tree. If the name already exists in the Group Session the value will be overwritten.
 
@@ -1393,7 +1393,7 @@ deferred.done(() => { alert("Group Session was successfully updated") });
 deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
-### `jatos.groupSession.getAll()`
+### `jatos.groupSession.getAll`
 
 Returns the complete Group Session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
 
@@ -1405,7 +1405,7 @@ Example:
 var groupSession = jatos.groupSession.getAll();
 ```
 
-### `jatos.groupSession.setAll(value, onSuccess, onFail)`
+### `jatos.groupSession.setAll`
 
 Replaces the whole session data. If the replacing object is rather large it might be better performance-wise to replace only individual paths. Each session writting involves sending the changes in the session via a JSON Patch to the JATOS server. If the session is large this data transfer can take some time. In this case use other session functions, like 'set', 'add', or 'replace'.
 
@@ -1432,7 +1432,7 @@ deferred.done(() => { alert("Group Session was successfully updated") });
 deferred.fail(() => { alert("Group Session synchronization failed") });
 ```
 
-### `jatos.groupSession.clear(onSuccess, onFail)`
+### `jatos.groupSession.clear`
 
 Clears the whole Group Session data and sets it to an empty object `{}`.
 
