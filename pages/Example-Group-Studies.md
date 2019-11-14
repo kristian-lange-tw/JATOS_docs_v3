@@ -7,14 +7,14 @@ sidebar: mydoc_sidebar
 permalink: Example-Group-Studies.html
 folder:
 toc: false
-last_updated: 13 Aug 2018
+last_updated: 14 Nov 2019
 ---
 
 In group studies, the workers that are part of a group can communicate with each other. JATOS supports different kinds of groups. A group can e.g. have a fixed set of workers like this [Prisoner's Dilemma](Example-Studies.html#prisoners-dilemma) where exactly two workers play with each other. On the other side of the spectrum is this [Snake game](Example-Studies.html#snake) with an on open, multi-worker approach.
 
 **How can you try-out a group-study if you're alone but want to simulate multiple workers?**
 
-JATOS allows [up to 10 study runs](Tips-and-Tricks.html#run-up-to-10-studies-in-the-same-browser-at-the-same-time) at the same time in the same browser. So you can just start the same (group) study multiple times in your browser and pretend you're many workers.
+JATOS allows [up to 10 study runs](Tips-and-Tricks.html#run-up-to-10-studies-in-the-same-browser-at-the-same-time) at the same time in the same browser (JATOS has no limit for different browsers). So you can just start the same (group) study multiple times in your browser and pretend you're multiple workers.
 
 As an example of this, let's go through the Snake Game group study in detail:
 
