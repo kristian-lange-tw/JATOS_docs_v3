@@ -408,28 +408,55 @@ jatos.endStudyAjax(false, "internal JS error");
 
 ### `jatos.endStudy`
 
-Ends study. Redirects the worker to the study end page afterwards.
+Ends study. Redirects the worker to study's end page afterwards.
 
-* _@param {optional Boolean} successful_ - 'true' if study should finish successfully, 'false' otherwise. Default is true.
-* _@param {optional String} msg_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
+There are two versions: with and without result data
 
-Example:
+1. Without result data
+	  * _@param {optional boolean} successful_ - 'true' if study should finish successfully, 'false' otherwise. Default is true
+	  * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long
+	  * _@param {optional boolean} showEndPage_ - If 'true' an end page is shown - if 'false' it	behaves like `jatos.endStudyAjax`, which means no showing of JATOS' end page
+
+1. With result data (since JATOS >= v3.4.1)
+	  * _@param {optional string or object} resultData_ - Result data to be sent back	to JATOS server
+	  * _@param {optional boolean} successful_ - 'true' if study should finish successfully, 'false' otherwise. Default is true
+	  * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long
+	  * _@param {optional boolean} showEndPage_ - If 'true' an end page is shown - if 'false' it	behaves like `jatos.endStudyAjax`, which means no showing of JATOS' end page
+
+#### Examples:
+
+1. Just end study
 
 ```javascript
 jatos.endStudy();
 ```
 
-Or:
+1. End study and send a message back that will be visible in JATOS result pages and log 
 
 ```javascript
 jatos.endStudy("everything worked fine");
 ```
 
-Or to indicate a failure:
+1. Indicate a failure - leads to study result state FAIL
 
 ```javascript
-jatos.endStudyAjax(false, "internal JS error");
+jatos.endStudy(false, "internal JS error");
 ```
+
+1. Send result data and end study (since JATOS >= v3.4.1)
+
+```javascript
+var resultData = {id: 123, data: "my important result data"};
+jatos.endStudy(resultData);
+```
+
+1. Send result data, end study and send a message back that will be visible in JATOS result pages and log (since JATOS >= v3.4.1)
+
+```javascript
+var resultData = {id: 123, data: "my important result data"};
+jatos.endStudy(resultData, "everything worked fine");
+```
+
 
 ## Functions for Study Session and result data
 
