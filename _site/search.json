@@ -193,7 +193,7 @@
 {
 "title": "Install JATOS on a server",
 "tags": "",
-"keywords": "server, installation, test, config, configuration, backup, proxy",
+"keywords": "server, installation, test, config, configuration, backup, proxy, java",
 "url": "JATOS-on-a-server.html",
 "summary": "To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
 }
@@ -424,7 +424,7 @@
 {
 "title": "Write Group Studies II - JavaScript and Messaging",
 "tags": "",
-"keywords": "group, group session, WebSocket, group channel, messaging",
+"keywords": "group, group session, WebSocket, group channel, messaging, fixing",
 "url": "Write-Group-Studies-II-JavaScript-and-Messaging.html",
 "summary": "Learn how to use jatos.js to join groups and manage them. Learn about the three different ways of sending messages within a group."
 }
@@ -450,7 +450,7 @@
 "tags": "",
 "keywords": "reference, jatos.js, function, variable, js, javascript, library",
 "url": "jatos.js-Reference.html",
-"summary": "jatos.js is a small JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library."
+"summary": "jatos.js is a JavaScript library that helps you to communicate from your component's JavaScript with your JATOS server. Below we list and describe the variables and functions of the jatos.js library."
 }
 ,
 
