@@ -20,7 +20,7 @@ When you start working with studies online, it can be hard to see what exactly J
 We recommend that you always start to work on a new study in a *local* installation of JATOS. That means, [download and run JATOS on your local computer](Installation.html#easy-installation-on-your-local-computer). 
 The main advantage of this is that you have easy access to all your HTML files and assets and can move them around, delete, and replace without any fuss. 
 
-Learn more about (creating and editing HTML/JS code)[Create-a-new-study.html]
+Learn more about [creating and editing HTML/JS code](Create-a-new-study)
 
 ## Step 2: Deploy files to a server (Make your study available to the WWW)
 
