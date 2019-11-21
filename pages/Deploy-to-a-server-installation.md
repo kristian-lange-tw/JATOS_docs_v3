@@ -34,13 +34,3 @@ You should do all modifications of files and study properties from the JATOS GUI
 If you have trouble with the export and you are using a Safari browser have a look into [this issue in our Troubleshooting section](Troubleshooting.html#downloading-a-study--exporting-a-study-fails-eg-in-safari-browsers).
 
 
-
-
-### Decide how you're going to recruit your workers and generate the links
-Once you have your study running and have it on a server instance, you'll need to get your workers to access your study. [Different types of workers](Worker-Types.html) might be allowed to run your study. You could, but you don't have to, recruit your workers [using MTurk](Connect-to-Mechanical-Turk.html). You could also generate direct links in the [Worker Setup](Run-your-Study-with-Batch-Manager-and-Worker-Setup.html) to send to different workers. 
-
-### Export your result data
-After you let workers run your study and you gathered result data you probably want to export them to your local computer for further analysis. Go to one of the **Results** views and select the results you want to export (select them by just clicking somewhere in the row). Then click 'Export Selected'. This will download all your results in one text file. 
-
-### Analyse your data
-Once you have collected all your data, export it to text files. If you used the JSON format (which is handy - but any other text is fine too) you can analyse your data using this nice [JSON parser for Matlab and Octave](http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab) or the [JSON parser for R](http://cran.r-project.org/web/packages/jsonlite/index.html).
