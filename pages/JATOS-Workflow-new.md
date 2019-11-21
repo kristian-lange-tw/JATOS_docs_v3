@@ -33,7 +33,7 @@ If you have a server already, you will need to take your ready-to-run study from
 
 Done. 
 
-There are a few important details in (deploying your study to a server)[Create-a-new-study.html]
+There are a few important details in [deploying your study to a server](Create-a-new-study.html)
 
 ## Step 3: Collect data
 You can do this in many different ways, decide which kind of [worker permissions](Worker-Types.html) you need. 
