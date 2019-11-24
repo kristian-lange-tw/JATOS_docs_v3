@@ -7,14 +7,14 @@ sidebar: mydoc_sidebar
 permalink: Create-a-new-study.html
 folder:
 toc: true
-last_updated: 20 Nov 2019
+last_updated: 24 Nov 2019
 ---
 
 There are two ways to create a new study: by modifying an existing one from our examples, or by creating one from scratch. 
 
 ### Modify an existing study
 
-Take an existing study (e.g. from [Example Studies](Example-Studies.html)) as a prototype and modify it bit by bit. We recommend you start with this to get a quick idea of how JATOS works. Just import an existing study (e.g. one from the study examples) and clone it by clicking on More → Clone in the study bar.
+Take an existing study (e.g. from [Example Studies](Example-Studies.html)) as a prototype and modify it bit by bit. We recommend you start with this to get a quick idea of how JATOS works. Just import an existing study and clone it by clicking on More → Clone in the study bar.
 
 ### Write your own study from scratch
 
