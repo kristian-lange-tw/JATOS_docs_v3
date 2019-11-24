@@ -4,7 +4,7 @@ keywords: local installation, server installation
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: JATOS-Workflow-new.html
+permalink: Run-an-experiment-with-JATOS-Workflow.html
 folder:
 toc: true
 last_updated: 24 Nov 2019
