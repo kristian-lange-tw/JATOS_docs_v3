@@ -20,9 +20,9 @@ Take an existing study (e.g. from [Example Studies](Example-Studies.html)) as a 
 
 Press the **New Study** button in the header of each JATOS page. Then edit the study properties and add new components manually. You will have to write your own JavaScript code. 
 
-The most difficult part - though it's still easy! - is to learn to write your own study component scripts, using HTML, CSS and JavaScripts. Or, instead of reinventing the wheel, you could use a framework like jsPsych that helps you with this (see [jsPsych and JATOS](jsPsych-and-JATOS.html)).
+The most difficult part - though it's still easy! - is to learn to write your own study component scripts, using HTML, CSS and JavaScripts. Or, instead of reinventing the wheel, you could use a framework like [jsPsych](jsPsych-and-JATOS.html), [OSWeb](OSWeb-and-JATOS.html) or [lab.js](labjs-and-JATOS.html).
 
 Check out the [Mandatory lines in your components' HTML](Mandatory-lines-in-your-components-HTML.html) page to know what you absolutely must include in your scripts in order to let JATOS see them. Also check out the [jatos.js Reference](jatos.js-Reference.html), that contains a set of very useful functions that you have to use to communicate with jatos (to e.g. submit and receive data).
 
-If you are a newbie to HTML/JavaScript programming, there are LOADS of free and excellent tutorials online. Like [this one from the Kahn Academy](https://www.khanacademy.org/computing/computer-programming) or more searchable tutorials like the simple ones from the [w3 schools](http://www.w3schools.com/). In addition, [StackOverflow](http://stackoverflow.com/questions/tagged/html) is the best place to solve the problems that hundreds of others have encountered before.  
+If you are a newbie to HTML/JavaScript programming, there are many free and excellent tutorials online. Like [this one from the Kahn Academy](https://www.khanacademy.org/computing/computer-programming) or more searchable tutorials like the simple ones from the [w3 schools](http://www.w3schools.com/). In addition, [StackOverflow](http://stackoverflow.com/questions/tagged/html) is the best place to solve the problems that hundreds of others have encountered before.  
 
