@@ -39,8 +39,8 @@ entries:
         url: /Get-started.html
         output: web, pdf
 
-      - title: Set up your own studies
-        url: /Set-up-your-own-studies.html
+      - title: Run an experiment with JATOS - Workflow
+        url: /Run-an-experiment-with-JATOS-Workflow.htm
         output: web, pdf
 
       - title: Data Privacy and Ethics
@@ -54,6 +54,10 @@ entries:
     - title: Write your study
       output: web, pdf
       folderitems:
+
+      - title: Create a new study
+        url: /Create-a-new-study.html
+        output: web, pdf
 
       - title: Mandatory lines in your components' HTML
         url: /Mandatory-lines-in-your-components-HTML.html
@@ -82,6 +86,10 @@ entries:
     - title: Run your study
       output: web, pdf
       folderitems:
+
+      - title: Deploy to a server installation
+        url: /Deploy-to-a-server-installation.html
+        output: web, pdf
 
       - title: Run your Study with Worker & Batch Manager
         url: /Run-your-Study-with-Worker-and-Batch-Manager.html
