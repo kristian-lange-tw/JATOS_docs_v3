@@ -12,7 +12,7 @@ last_updated: 24 Nov 2019
 
 Connecting your JATOS study to the Mturk is easy, although a fair amount of clicking is required.
 
-A good idea is always to try it yourself first in MTurk Sandbox before you let real workers do it.
+A good idea is always to try it yourself first in **MTurk Sandbox** before you let real workers do it.
 
 ### You will need
 
@@ -25,7 +25,7 @@ A good idea is always to try it yourself first in MTurk Sandbox before you let r
 
 In JATOS, go to the Study Toolbar ⟶ Worker & Batch Manager
 
-![JATOS GUI screenshot](images/worker-batch-manager-mturk.png){:width="200"}
+![JATOS GUI screenshot](images/worker-batch-manager-mturk.png)
 
 1. Open the Worker Setup of the batch you want to run
 
@@ -57,9 +57,9 @@ You first have to create a project in the MTurk interface:
    ![MTurk Schreenshot](images/MTurk-source-editor-done.png)
 
 
-# What should happen
+### What should happen
 
 When an MTurk worker finishes a study they'll see a confirmation code. To assign payment to individual workers, just compare the confirmation codes stored in JATOS' results view to those stored in MTurk.
 
-   ![Confirmation code](images/MTurk-confirmation-code.png){:height="75"}
+   ![Confirmation code](images/MTurk-confirmation-code.png)
 
