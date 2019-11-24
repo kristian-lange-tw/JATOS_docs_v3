@@ -1,5 +1,5 @@
 ---
-title: Deply to a server installation
+title: Deploy to a server installation
 keywords: create, import, export
 tags:
 summary:
