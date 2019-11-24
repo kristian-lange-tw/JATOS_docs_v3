@@ -1,50 +1,65 @@
 ---
 title: Connect to Mechanical Turk
-keywords: Mechanical Turk, MTurk, AMT, Amazon
+keywords: Mechanical Turk, MTurk, AMT, Amazon, Sandbox
 tags:
 summary:
 sidebar: mydoc_sidebar
 permalink: Connect-to-Mechanical-Turk.html
 folder:
 toc: false
-last_updated: 9 May 2018
+last_updated: 24 Nov 2019
 ---
 
-Connecting your JATOS study to the Mturk is easy, although a fair amount of clicking is required. 
+Connecting your JATOS study to the Mturk is easy, although a fair amount of clicking is required.
 
-You will need:
+A good idea is always to try it yourself first in MTurk Sandbox before you let real workers do it.
+
+### You will need
+
 * A requester Mturk account
-* Your study running on JATOS
+* Your study running on a [JATOS server](Bring-your-JATOS-online.html)
 * A description of the study (this can be the same as the one you included in the study description within JATOS)
 
-The steps to create a project are part of the MTurk interface. 
 
-1. Create --> New Project --> Survey Link --> Create Project
+### On JATOS page
 
-1. Complete the 'Enter Properties' tab
+In JATOS, go to the Study Toolbar ⟶ Worker & Batch Manager
 
-1. Click on the 'Design layout' button in the bottom of the page. 
+![JATOS GUI screenshot](images/worker-batch-manager-mturk.png){:width="200"}
 
-1. Click on the 'Source' button. You'll see some text in an editable window, corresponding to an html file. Delete the entire text in this field.
+1. Open the Worker Setup of the batch you want to run
 
-   ![MTurk Schreenshot](images/Screen Shot 2014-09-26 at 17.31.00.png)
+1. Enable the MTurk worker type
 
-1. In JATOS, go to the Study Toolbar ---> Worker & Batch Manager ---> Worker Setup ---> MTurk Worker row ---> Source Code.
+1. Click on *Source Code*. You'll see a box with HTML code, similar to the one shown here. You will have to copy and paste the code from here to the MTurk interface.
 
-   ![JATOS GUI screenshot](images/Screenshot from 2016-03-09 21:30:34.png){:width="200"}
+   ![JATOS GUI screenshot](images/worker-batch-manager-mturk-source-code.png)
 
-1. You'll see a box with HTML code, similar to the one shown here. Copy paste the code from JATOS to the MTurk source section. 
 
-   ![JATOS GUI screenshot](images/Screenshot from 2016-03-09 21:31:57.png)
+### On MTurk's page
 
-1. This HTML code works out-of-the-box and you don't have to change anything (but you can if you want).
+You first have to create a project in the MTurk interface:
 
-1. Back in MTurk click on the 'Source' button again, and continue setting up your study in MTurk. 
+1. Create ⟶ New Project ⟶ Survey Link ⟶ Create Project
+
+1. Complete the *Enter Properties* tab
+
+1. Click on the *Design layout* button in the bottom of the page. 
+
+1. Click on the *Source* button. You'll see some text in an editable window, corresponding to an HTML file. Delete the entire text in this field.
+
+   ![MTurk Schreenshot](images/MTurk-source-editor.png)   
+
+1. Now paste the source code that you got from JATOS into this text field. This HTML code works out-of-the-box and you don't have to change anything (but you can if you want).
  
-   ![MTurk Schreenshot](images/Screen Shot 2014-09-26 at 17.06.17.png)
+1. To exit the editing mode, click on the ‘Source’ button again and continue setting up your study in MTurk.
+ 
+   ![MTurk Schreenshot](images/MTurk-source-editor-done.png)
 
-1. When an MTurk worker finishes a study they'll see a confirmation code. To assign payment to individual workers, just compare the confirmation codes stored in JATOS' results view to those stored in MTurk.
 
-   ![Confirmation code](images/Screenshot from 2015-04-09 15_17_03.png){:height="100"}
+# What should happen
 
-See the [Tips & Tricks](Tips-and-Tricks.html) page for some useful information on how to test your study before officially posting it on MTurk. 
+When an MTurk worker finishes a study they'll see a confirmation code. To assign payment to individual workers, just compare the confirmation codes stored in JATOS' results view to those stored in MTurk.
+
+   ![Confirmation code](images/MTurk-confirmation-code.png){:height="75"}
+
