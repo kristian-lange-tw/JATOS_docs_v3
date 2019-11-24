@@ -18,7 +18,7 @@ Take an existing study (e.g. from [Example Studies](Example-Studies.html)) as a 
 
 ### Write your own study from scratch
 
-Press the **New Study** button in the header of each JATOS page. Then edit the study properties and add new components manually. You will have to write your own JavaScript code. 
+Press the **New Study** button in the header the JATOS home page. Then edit the study properties and add new components manually. You will have to write your own JavaScript code. 
 
 The most difficult part - though it's still easy! - is to learn to write your own study component scripts, using HTML, CSS and JavaScripts. Or, instead of reinventing the wheel, you could use a framework like [jsPsych](jsPsych-and-JATOS.html), [OSWeb](OSWeb-and-JATOS.html) or [lab.js](labjs-and-JATOS.html).
 
