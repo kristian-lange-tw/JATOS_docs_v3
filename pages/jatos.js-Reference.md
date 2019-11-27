@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 15 Nov 2019
+last_updated: 27 Nov 2019
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -29,7 +29,7 @@ And, please, if you find a mistake or have a question don't hesitate to [contact
 
 ## jatos.js variables
 
-You can call any of these variables below at any point in your HTML file after jatos.js finished initializing (`jatos.onload()` will be called). Most variables are read-only. A few variables can be written into (e.g. `jatos.httpTimeout`). Those are marked '(writeable)'.
+You can call any of these variables below at any point in your HTML file after jatos.js finished initializing (`jatos.onLoad()` will be called). Most variables are read-only. A few variables can be written into (e.g. `jatos.httpTimeout`). Those are marked '(writeable)'.
 
 
 ### IDs
