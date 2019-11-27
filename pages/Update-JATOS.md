@@ -38,8 +38,11 @@ The process is pretty self-explanatory, but anyway, we'll explain it here in det
 
 ### Special cases
 
-#### Pre-releases
-Pre-releases will not be available as auto-updates by default. If you want to force this to be the case (and you know what you're doing), append the parameter "&showPreReleases" to your JATOS home page URL.
+#### Pre-releases (experimental)
+Pre-releases will not be available as auto-updates by default. If you want to force this to be the case (and you know what you're doing), append the parameter _allowPreReleases_ to your JATOS home page URL (e.g. _localhost/jatos?allowPreReleases_).
+
+#### Enforce an update to a special version (experimental)
+The parameter _version_ can be added to your JATOS home page URL (e.g. _localhost/jatos?version=v3.4.1_) and takes the version tag as specified in GitHub and enforces an update to this version. This should never be used on a JATOS server that stores any valuable data.
 
 #### Major updates
 Auto-updating might not always be possible. JATOS versions will be flagged so that they are not available for auto-update. You'll have to do a [manual update](#Manual-Updates).
