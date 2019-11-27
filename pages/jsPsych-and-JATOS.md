@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jsPsych-and-JATOS.html
 folder:
 toc: true
-last_updated: 20 July 2018
+last_updated: 27 Nov 2019
 ---
 
 JATOS basically cares for the server side: it stores result data, does worker management etc. JATOS doesn't care so much for what happens in the browser itself - your HTML, JavaScript and CSS. Of course you can write this all yourself, but you could also use a framework for this. A very good one is [jsPsych](http://www.jspsych.org/).
@@ -26,10 +26,10 @@ Here are the necessary changes if you want to adapt your jsPsych experiment so t
    
    [Remember](Troubleshooting.html#a-file-library-image--included-in-the-html-fails-to-load): Any URL or file path in a HTML file should only use '/' as a file path separator - even on Windows systems. 
 
-1. Wrap jsPsych's init call `jsPsych.init` in a `jatos.onload` call
+1. Wrap jsPsych's init call `jsPsych.init` in a `jatos.onLoad` call
 
    ~~~ javascript
-   jatos.onload(function() {
+   jatos.onLoad(function() {
      jsPsych.init( {
        // ...
      });
@@ -45,7 +45,7 @@ Here we use jsPsych's function `jsPsych.data.getData()` (jsPsych 5) or `jsPsych.
 #### jsPsych 5
 
 ~~~ javascript
-jatos.onload(function() {
+jatos.onLoad(function() {
   jsPsych.init( {
     // ...
     on_finish: function() {
@@ -59,7 +59,7 @@ jatos.onload(function() {
 #### jsPsych 6
 
 ~~~ javascript
-jatos.onload(function() {
+jatos.onLoad(function() {
   jsPsych.init( {
     // ...
     on_finish: function() {
