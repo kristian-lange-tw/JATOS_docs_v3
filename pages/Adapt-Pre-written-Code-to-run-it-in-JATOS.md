@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Adapt-Pre-written-Code-to-run-it-in-JATOS.html
 folder:
 toc: true
-last_updated: 07 Aug 2018
+last_updated: 27 Nov 2019
 ---
 
 **Make Your Existing Code Run in JATOS - or How To Jatosify a Study** 
@@ -47,7 +47,7 @@ Up to this point JATOS served as a mere provider of your files. Now we want to u
    * JATOS < v3.3.1) Add the line `<script src="/assets/javascripts/jatos.js"></script>`
    * JATOS >= v3.3.1) Add the line `<script src="jatos.js"></script>`
 
-1. Add **`jatos.onload`**
+1. Add **`jatos.onLoad`**
 
    Every study in JATOS starts with this call. So whatever you want to do in your study it should start there.
    
