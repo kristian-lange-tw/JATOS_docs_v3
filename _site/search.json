@@ -50,7 +50,7 @@
 {
 "title": "Connect to Mechanical Turk",
 "tags": "",
-"keywords": "Mechanical Turk, MTurk, AMT, Amazon",
+"keywords": "Mechanical Turk, MTurk, AMT, Amazon, Sandbox",
 "url": "Connect-to-Mechanical-Turk.html",
 "summary": ""
 }
@@ -70,10 +70,32 @@
 
 
 {
+"title": "Create a new study",
+"tags": "",
+"keywords": "create, import, export",
+"url": "Create-a-new-study.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Data Privacy and Ethics",
 "tags": "",
 "keywords": "privacy, ethics, cookies, security",
 "url": "Data-Privacy-and-Ethics.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Deploy to a server installation",
+"tags": "",
+"keywords": "create, import, export",
+"url": "Deploy-to-a-server-installation.html",
 "summary": ""
 }
 ,
@@ -151,17 +173,6 @@
 "tags": "",
 "keywords": "try out, example, server",
 "url": "JATOS-Tryout-Server.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "JATOS Workflow",
-"tags": "",
-"keywords": "local installation, server installation",
-"url": "JATOS-Workflow.html",
 "summary": ""
 }
 ,
@@ -290,6 +301,17 @@
 
 
 {
+"title": "Run an experiment with JATOS - Workflow",
+"tags": "",
+"keywords": "local installation, server installation",
+"url": "Run-an-experiment-with-JATOS-Workflow.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Run your Study with Worker &amp; Batch Manager",
 "tags": "",
 "keywords": "batch manager, Worker and Batch Manager, Worker & Batch Manager, worker manager, worker setup, worker, batch, batch properties, worker setup, group properties, group session, batch session, results",
@@ -305,17 +327,6 @@
 "tags": "",
 "keywords": "session data, study session, group session, batch session",
 "url": "Session-Data-Three-Types.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "Set up your own studies",
-"tags": "",
-"keywords": "create, import, export",
-"url": "Set-up-your-own-studies.html",
 "summary": ""
 }
 ,
