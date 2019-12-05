@@ -10,7 +10,7 @@ toc: false
 last_updated: 24 Nov 2019
 ---
 
-Connecting your JATOS study to the Mturk is easy, although a fair amount of clicking is required.
+Use your JATOS study with Mturk is easy, although a fair amount of clicking is required.
 
 A good idea is always to try it yourself first in **MTurk Sandbox** before you let real workers do it.
 
