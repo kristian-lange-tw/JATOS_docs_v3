@@ -583,7 +583,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
      .done(jatos.endStudyAjax)
      .done(() => {
        window.location.href = 'http://example.com/index.html'
-    });
+     });
    ``` 
 
 1. Send result data and end study (since JATOS >= v3.4.1)
