@@ -575,6 +575,24 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
    jatos.endStudyAjax(false, "internal JS error");
    ```
 
+1. Send result data, end study and jump to another URL afterwards (by using jQuery's [done](https://api.jquery.com/deferred.done/)
+
+   ```javascript
+   var resultData = {id: 123, data: "my important result data"};
+   jatos.submitResultData(resultData)
+     .done(jatos.endStudyAjax)
+     .done(() => {
+       window.location.href = 'http://example.com/index.html'
+    });
+   ``` 
+
+1. Send result data and end study (since JATOS >= v3.4.1)
+
+   ```javascript
+   var resultData = {id: 123, data: "my important result data"};
+   jatos.endStudy(resultData);
+   ```    
+
 
 ## functions for Study Session and result data
 
