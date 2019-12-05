@@ -99,8 +99,12 @@ entries:
         url: /Worker-Types.html
         output: web, pdf
 
-      - title: Connect to Mechanical Turk
+      - title: Use MTurk
         url: /Connect-to-Mechanical-Turk.html
+        output: web, pdf
+
+      - title: Use Prolific
+        url: /Use-Prolific.html
         output: web, pdf
 
       - title: Manage Results
@@ -167,7 +171,7 @@ entries:
         url: /JATOS-on-DigitalOcean.html
         output: web, pdf
 
-      - title: JATOS in Amazon's Cloud (without Docker)
+      - title: JATOS on AWS
         url: /JATOS-in-Amazons-Cloud-without-Docker.html
         output: web, pdf
 

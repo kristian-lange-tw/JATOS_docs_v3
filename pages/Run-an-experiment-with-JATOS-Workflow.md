@@ -36,7 +36,7 @@ Done.
 There are a few important details in [deploying your study to a server](Deploy-to-a-server-installation.html)
 
 ## Step 3: Collect data
-See [how to use the Worker and Batch Manager](http://www.jatos.org/Run-your-Study-with-Worker-and-Batch-Manager.html) to create links to distribute to your participants. You can do this in many different ways, decide which kind of [worker types](Worker-Types.html) you need. 
+See [how to use the Worker and Batch Manager](http://www.jatos.org/Run-your-Study-with-Worker-and-Batch-Manager.html) to create links to distribute to your participants. You can do this in many different ways, decide which kind of [worker types](Worker-Types.html) you need. Use [MTurk](Connect-to-Mechanical-Turk.html) or [Prolific](Use-Prolific.html) to get participants.
 
 ## Step 4: Download and analyze data
 One of JATOS' features is that you can manage the results stored in the database without having to type SQL commands in a terminal. Instead, just do this [using the GUI](Manage-Results.html).

@@ -48,7 +48,7 @@
 
 
 {
-"title": "Connect to Mechanical Turk",
+"title": "Use MTurk",
 "tags": "",
 "keywords": "Mechanical Turk, MTurk, AMT, Amazon, Sandbox",
 "url": "Connect-to-Mechanical-Turk.html",
@@ -116,7 +116,7 @@
 {
 "title": "Example Studies",
 "tags": "",
-"keywords": "example studies, jspsych, lab.js, labjs, osweb, opensesame, javascript, bootstrap, jquery, pure, css, highchart, survey, metacognition",
+"keywords": "example studies, jspsych, lab.js, labjs, osweb, opensesame, javascript, bootstrap, jquery, pure, css, highchart, survey, metacognition, prolific",
 "url": "Example-Studies.html",
 "summary": "These study examples will (hopefully) be a helpful starting point for you to write your own studies. They also show how different client-side frameworks integrate with JATOS, and illustrate (e.g.) how to easily import/export studies, how to store and show results, and how to do messaging in group studies."
 }
@@ -180,7 +180,7 @@
 
 
 {
-"title": "JATOS in Amazon&#39;s Cloud (without Docker)",
+"title": "JATOS on AWS",
 "tags": "",
 "keywords": "cloud, aws, amazon, installation, server",
 "url": "JATOS-in-Amazons-Cloud-without-Docker.html",
@@ -382,6 +382,17 @@
 "tags": "",
 "keywords": "update, server",
 "url": "Updating-a-JATOS-server-installation.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Use Prolific",
+"tags": "",
+"keywords": "prolific",
+"url": "Use-Prolific.html",
 "summary": ""
 }
 ,

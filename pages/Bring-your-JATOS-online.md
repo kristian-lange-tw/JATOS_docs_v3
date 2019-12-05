@@ -32,7 +32,7 @@ More information: [Expose your local JATOS](Expose-your-local-JATOS.html)
 
 Can be still fast & easy (depending on your cloud vendor and your skills), but might not be in line with your privacy principles. This one is reliable and can run for a long time (as long as you pay). And it can serve many JATOS users.
 
-Go on with [JATOS on DigitalOcean](JATOS-on-DigitalOcean.html) or [JATOS in Amazon's Cloud](JATOS-in-Amazons-Cloud-without-Docker.html) (or any other cloud vendor)
+Go on with [JATOS on DigitalOcean](JATOS-on-DigitalOcean.html) or [JATOS on AWS](JATOS-in-Amazons-Cloud-without-Docker.html) (or any other cloud vendor)
 
 ## 3. Own server
 

@@ -3,10 +3,10 @@
     <channel>
         <title>jatos_docs_v3</title>
         <description>JATOS (Just Another Tool for Online Studies) helps you setup and run your online studies on your own server.</description>
-        <link>http://localhost:4010/</link>
-        <atom:link href="http://localhost:4010/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 01 Dec 2019 15:09:23 +0100</pubDate>
-        <lastBuildDate>Sun, 01 Dec 2019 15:09:23 +0100</lastBuildDate>
+        <link>http://localhost:4000/</link>
+        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Thu, 05 Dec 2019 18:35:28 +0100</pubDate>
+        <lastBuildDate>Thu, 05 Dec 2019 18:35:28 +0100</lastBuildDate>
         <generator>Jekyll v3.6.2</generator>
         
         <item>
@@ -21,8 +21,8 @@
 
 </description>
             <pubDate>Fri, 26 Feb 2016 00:00:00 +0100</pubDate>
-            <link>http://localhost:4010/samplepost.html</link>
-            <guid isPermaLink="true">http://localhost:4010/samplepost.html</guid>
+            <link>http://localhost:4000/samplepost.html</link>
+            <guid isPermaLink="true">http://localhost:4000/samplepost.html</guid>
             
             <category>news</category>
             
@@ -47,8 +47,8 @@
 
 </description>
             <pubDate>Wed, 24 Feb 2016 00:00:00 +0100</pubDate>
-            <link>http://localhost:4010/myupdate.html</link>
-            <guid isPermaLink="true">http://localhost:4010/myupdate.html</guid>
+            <link>http://localhost:4000/myupdate.html</link>
+            <guid isPermaLink="true">http://localhost:4000/myupdate.html</guid>
             
             <category>news</category>
             
@@ -61,8 +61,8 @@
 
 </description>
             <pubDate>Sun, 12 Apr 2015 00:00:00 +0200</pubDate>
-            <link>http://localhost:4010/test-post-from-last-year.html</link>
-            <guid isPermaLink="true">http://localhost:4010/test-post-from-last-year.html</guid>
+            <link>http://localhost:4000/test-post-from-last-year.html</link>
+            <guid isPermaLink="true">http://localhost:4000/test-post-from-last-year.html</guid>
             
             <category>news</category>
             

@@ -17,7 +17,7 @@ JATOS (Just Another Tool for Online Studies) helps you set up and run your onlin
 * Use tools like **jsPsych**, **lab.js**, **OSWeb/OpenSesame**, or **PsyToolkit** to prepare your study - or write all **HTML / JavaScript / CSS** yourself and have full control.
 * **Run group studies** where multiple workers interact with each other in real-time.
 * It’s GUI-based, so there's no need to use the terminal to talk to your server. 
-* Recruit participants via **Amazon Mechanical Turk**, **Prolific** etc.
+* Recruit participants via **MTurk**, **Prolific** etc.
 * It's **open-source and free** to use.
 * **Manage workers**, to e.g. make sure that each participant does your study only **once**.
 * **Export/Import** studies to facilitate exchange with other researchers.

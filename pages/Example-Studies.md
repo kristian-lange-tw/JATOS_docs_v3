@@ -1,13 +1,13 @@
 ---
 title: Example Studies 
-keywords: example studies, jspsych, lab.js, labjs, osweb, opensesame, javascript, bootstrap, jquery, pure, css, highchart, survey, metacognition
+keywords: example studies, jspsych, lab.js, labjs, osweb, opensesame, javascript, bootstrap, jquery, pure, css, highchart, survey, metacognition, prolific
 tags:
 summary: These study examples will (hopefully) be a helpful starting point for you to write your own studies. They also show how different client-side frameworks integrate with JATOS, and illustrate (e.g.) how to easily import/export studies, how to store and show results, and how to do messaging in group studies. 
 sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: false
-last_updated: 25 June 2019
+last_updated: 5 Dec 2019
 ---
 
 ### Overview
@@ -37,6 +37,7 @@ If you wrote an example study that you'd like to share, please feel free to [con
 | [Results in CSV](https://github.com/JATOS/JATOS_examples/raw/master/examples/results_as_csv_example.zip) | Simple example of how to store results in CSV format. | - | - |  <img src="images/example-studies/Screenshot_csv_example.png" style="width:200%"/> |
 | [Simple Consent Form](https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form.zip) | Simple example of a consent form with text and buttons ‘I agree’ and ‘Cancel’. | - | - |  <img src="images/example-studies/Screenshot_consent_form.png" style="width:200%"/> |
 | [Introduction and Consent with Preview Feature](https://github.com/JATOS/JATOS_examples/raw/master/examples/consent_form_and_introduction_with_preview_feature.zip) | This mobile-friendly example just has an introduction component that includes a consent text. | - | [Preview links](Worker-Types.html#preview-links) |  <img src="images/example-studies/Screenshot_preview_showcase.png" style="width:200%"/> |
+| [Prolific Example](https://github.com/JATOS/JATOS_examples/raw/master/examples/prolific_example.zip) § | Example on how to redirect in the end of the study back to Prolific | - | - |  <img src="images/example-studies/Screenshot_consent_form.png" style="width:200%"/> |
 | [2048 Game](https://github.com/JATOS/JATOS_examples/raw/master/examples/2048.zip) | This addictive game is created by [Gabriele Cirulli](https://github.com/gabrielecirulli/2048). | - | - |  <img src="images/example-studies/Screenshot_2048Game.png" style="width:200%"/> |
 | [Plot Data](https://github.com/JATOS/JATOS_examples/raw/master/examples/data_visualization_-_example.zip) | A slightly different use for JATOS: as a regular server to display an HTML page that displays study results. | [Highcharts](http://www.highcharts.com/) | - |  <img src="images/example-studies/Screenshot_dataDisplay_scatter.png" style="width:200%"/> |
 | [Attentional Capture](https://github.com/JATOS/JATOS_examples/raw/master/examples/reward_capture.osexp.zip) &lowast; | Standard task to show how to use OSWeb with JATOS. | [OpenSesame](https://osdoc.cogsci.nl/), [OSWeb](https://osdoc.cogsci.nl/manual/osweb/#the-osweb-extension) | - |  <img src="images/example-studies/Screenshot_osweb_reward_capture.png" style="width:200%"/> |

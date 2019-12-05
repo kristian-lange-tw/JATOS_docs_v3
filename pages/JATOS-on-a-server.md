@@ -13,7 +13,7 @@ last_updated: 10 Nov 2019
 There are several ways to bring JATOS to the internet. You can install it
 
 * On your own **dedicated server** (discussed here on this page)
-* In the **cloud** - This point is covered by two pages, [one for DigitalOcean](JATOS-on-DigitalOcean.html) and [one for AWS (Amazon's cloud)](JATOS-in-Amazons-Cloud-without-Docker.html) (also there are other cloud provider, like Microsoft Azure, Google Cloud ...).
+* In the **cloud** - This point is covered by two pages, [one for DigitalOcean](JATOS-on-DigitalOcean.html) and [one for AWS](JATOS-in-Amazons-Cloud-without-Docker.html) (also there are other cloud provider, like Microsoft Azure, Google Cloud ...).
 * With a **Docker** container: [Install JATOS via Docker](Install-JATOS-via-Docker.html)
 
 If you don't know much about server administration the DigitalOcean page might be best for you.

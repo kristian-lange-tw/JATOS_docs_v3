@@ -1,5 +1,5 @@
 ---
-title: Connect to Mechanical Turk
+title: Use MTurk
 keywords: Mechanical Turk, MTurk, AMT, Amazon, Sandbox
 tags:
 summary:
