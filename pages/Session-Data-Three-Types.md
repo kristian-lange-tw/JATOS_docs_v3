@@ -10,7 +10,7 @@ toc: true
 last_updated: 14 Nov 2019
 ---
 
-### When to use?
+### When to use the sessions?
 
 <img align="right" src="images/three_session_types.png">
 
