@@ -13,7 +13,7 @@ JATOS (Just Another Tool for Online Studies) helps you set up and run your onlin
 
 ---
 
-Please complete our short survey on how (much) you use JATOS (ca. 3 min).
+Please complete our short [survey](https://forms.gle/Jtjw4LxpyWVFEtG17) on how (much) you use JATOS (ca. 3 min).
 It’s very important for us!
 
 ---
