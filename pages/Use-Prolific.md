@@ -26,7 +26,7 @@ In the field under _What is the URL of your study?_ (first red box in the screen
 
 The second red box contains a link that you will have to include in the JavaScript of your last component. This will (re)direct the participant to a Prolific page, with information on how to claim their payment. 
 
-All you need to do is call `jatos.endStudyAjax`, and add a promise callback that will replace `window.location.href` with the Prolific end page once the ajax call is `done`:
+All you need to do is call `jatos.endStudyAjax`, and add a callback that will replace `window.location.href` with the Prolific end page once the ajax call is `done`:
 
 ```JavaScript
 jatos.endStudyAjax().done(() => {
