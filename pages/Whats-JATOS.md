@@ -11,6 +11,13 @@ last_updated: 3 April 2019
 
 JATOS (Just Another Tool for Online Studies) helps you set up and run your online studies on your own server.
 
+---
+
+Please complete our short survey on how (much) you use JATOS (ca. 3 min).
+It’s very important for us!
+
+---
+
 ### JATOS at a glance: 
 * Run studies on your **own server**. This means that you keep complete control over who can access your result data and can comply with your ethics.
 * Studies run on **mobile phones, tablets, desktops, and lab computers** - any device with a browser.
