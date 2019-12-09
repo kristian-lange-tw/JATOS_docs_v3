@@ -12,7 +12,7 @@ last_updated: 9 Dec 2019
 
 It is very easy to use JATOS together with [Prolific](https://www.prolific.co/) to recruit participants. 
 
-This is what the _New Study_ page in Prolific Academic looks like:
+This is what the _New Study_ page in Prolific looks like:
 
 ![Prolific screenshot](images/Screenshot_Prolific_create_study.png)
 
