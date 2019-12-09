@@ -1,5 +1,5 @@
 ---
-title: Use Prolific
+title: Use Prolific 
 keywords: prolific
 tags:
 summary:
@@ -7,44 +7,45 @@ sidebar: mydoc_sidebar
 permalink: Use-Prolific.html
 folder:
 toc: false
-last_updated: 5 Dec 2019
+last_updated: 9 Dec 2019
 ---
 
-It is not difficult to use JATOS together with [Prolific](https://www.prolific.co/) to get your participants. 
+It is very easy to use JATOS together with [Prolific](https://www.prolific.co/) to recruit participants. 
 
-This is what Prolific's _New Study_ page looks like:
+This is what the _New Study_ page in Prolific Academic looks like:
 
 ![Prolific screenshot](images/Screenshot_Prolific_create_study.png)
 
 
 ### 1. Enter your JATOS study link
 
-In Prolific's _New study_ page you have to enter your JATOS study link (first red box in the screenshot) under _What is the URL of your study?_. For the JATOS study link a _General Single_ or a _General Multiple_ worker type is probably what you want (see [JATOS' worker types](Worker-Types.html) and [Run your Study with Worker & Batch Manager](Run-your-Study-with-Worker-and-Batch-Manager.html)).
+In the field under _What is the URL of your study?_ (first red box in the screenshot), enter a link to your JATOS study.You probably want a link to either a _General Single_ or a _General Multiple_ worker type (see [JATOS' worker types](Worker-Types.html) and [Run your Study with Worker & Batch Manager](Run-your-Study-with-Worker-and-Batch-Manager.html)).
 
 
 ### 2. Put Prolific's end page in your study's code
 
-The second red box contains the link of Proflic's special end page that you have to include in the last study's code. The last component, after you end the study, should redirect to Prolific's end page.
+The second red box contains a link that you will have to include in the JavaScript of your last component. This will (re)direct the participant to a Prolific page, with information on how to claim their payment. 
 
-There is an [Prolific example study](https://github.com/JATOS/JATOS_examples/raw/master/examples/prolific_example.zip) you can use as a template.
-
-Just use `jatos.endStudyAjax` and when it is done change `window.location.href` to go to Prolific's end page:
+All you need to do is call `jatos.endStudyAjax`, and add a promise callback that will replace `window.location.href` with the Prolific end page once the ajax call is `done`:
 
 ```JavaScript
 jatos.endStudyAjax().done(() => {
-   // Change this URL to yours from Prolific
+   // Change this URL to the one you see in Prolific
    window.location.href = 'https://app.prolific.co/submissions/complete?cc=7F61EE4E'
 });
 ```
 
-And if you additionally want to send result data to JATOS you can do so with `jatos.submitResultData`:
+Of course, this can also be done together with `jatos.submitResultData`. You most likely want to do this, if you want to store result data in JATOS when you finish the last component. The only reason why you might not want to do this is if you have already submitted data at some earlier point in your code, or from an earlier component:
 
 ```JavaScript
 var result = { test: "some results" };
 jatos.submitResultData(result)
    .done(jatos.endStudyAjax)
    .done(() => {
-      // Change this URL to yours from Prolific
+      // Change this URL the one you see in Prolific
       window.location.href = 'https://app.prolific.co/submissions/complete?cc=7F61EE4E'
    });
 ```
+
+We provide a [Prolific example study](https://github.com/JATOS/JATOS_examples/raw/master/examples/prolific_example.zip) that you can use as a template.
+
