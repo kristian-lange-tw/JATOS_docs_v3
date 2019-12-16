@@ -28,7 +28,8 @@ You can try out [JATOS on _cortex_, our test server](JATOS-Tryout-Server.html).
 
 The whole documentation is available as <a target="_blank" class="noCrossRef" href="https://github.com/JATOS/JATOS_docs_v3/raw/gh-pages/pdf/jatos.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
 
-Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130834) if you use JATOS for your research.
+[Several studies](Papers-Citing-JATOS.html) have sucessfully collected data using JATOS already! Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130834) if you use JATOS for your research.
+
 
 This is the documentation for JATOS 3 - Are you looking for the docs of [JATOS 2](http://v2.jatos.org/Whats-JATOS.html)? We have a page that covers all about [migrating from JATOS 2 to 3](Migrate-from-v2-to-v3.html).
 
