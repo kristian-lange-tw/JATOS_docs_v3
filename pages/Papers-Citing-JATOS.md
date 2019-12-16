@@ -17,13 +17,13 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 ### 2020
 
-Dolscheid, S., Çelik, S., Erkan, H., Küntay, A., & Majid, A. (2020). Space-pitch associations differ in their susceptibility to language. Cognition, 196, 104073. https://doi.org/10.1016/j.cognition.2019.104073
+Dolscheid, S., Çelik, S., Erkan, H., Küntay, A., & Majid, A. (2020). Space-pitch associations differ in their susceptibility to language. Cognition, 196, 104073. [DOI](https://doi.org/10.1016/j.cognition.2019.104073)
 
 ### 2019
 
-Qiu, M., & Johns, B. T. (2019). Semantic diversity in paired-associate learning: Further evidence for the information accumulation perspective of cognitive aging. Psychonomic Bulletin & Review. https://doi.org/10.3758/s13423-019-01691-w
+Qiu, M., & Johns, B. T. (2019). Semantic diversity in paired-associate learning: Further evidence for the information accumulation perspective of cognitive aging. Psychonomic Bulletin & Review. [DOI](https://doi.org/10.3758/s13423-019-01691-w)
 
-MacGregor, L. J., Rodd, J. M., Gilbert, R. A., Hauk, O., Sohoglu, E., & Davis, M. H. (2019). The Neural Time Course of Semantic Ambiguity Resolution in Speech Comprehension. Journal of Cognitive Neuroscience, 1–23. https://doi.org/10.1162/jocn_a_01493
+MacGregor, L. J., Rodd, J. M., Gilbert, R. A., Hauk, O., Sohoglu, E., & Davis, M. H. (2019). The Neural Time Course of Semantic Ambiguity Resolution in Speech Comprehension. Journal of Cognitive Neuroscience, 1–23. [DOI](https://doi.org/10.1162/jocn_a_01493)
 
 Ren, K., & Gunderson, E. A. (2019). Malleability of whole-number and fraction biases in decimal comparison. Developmental Psychology, 55(11), 2263–2274.
 
