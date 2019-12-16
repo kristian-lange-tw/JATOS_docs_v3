@@ -27,9 +27,13 @@ entries:
         url: /Whats-JATOS.html
         output: web, pdf
 
+      - title: Papers citing JATOS
+        url: /Papers-Citing-JATOS.html
+        output: web, pdf
+
       - title: Contact us
         url: /Contact-us.html
-        output: pdf
+        output: web, pdf
 
       - title: Installation
         url: /Installation.html
