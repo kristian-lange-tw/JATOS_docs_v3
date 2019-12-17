@@ -25,7 +25,7 @@ Qiu, M., & Johns, B. T. (2019). Semantic diversity in paired-associate learning:
 
 MacGregor, L. J., Rodd, J. M., Gilbert, R. A., Hauk, O., Sohoglu, E., & Davis, M. H. (2019). The Neural Time Course of Semantic Ambiguity Resolution in Speech Comprehension. *Journal of Cognitive Neuroscience*, 1–23. [DOI](https://doi.org/10.1162/jocn_a_01493)
 
-Ren, K., & Gunderson, E. A. (2019). Malleability of whole-number and fraction biases in decimal comparison. *Developmental Psychology*, 55(11), 2263–2274.[Open Access Link](https://sites.temple.edu/cognitionlearning/files/2019/10/Ren-Gunderson-in-press.pdf)
+Ren, K., & Gunderson, E. A. (2019). Malleability of whole-number and fraction biases in decimal comparison. *Developmental Psychology*, 55(11), 2263–2274. [Open Access Link](https://sites.temple.edu/cognitionlearning/files/2019/10/Ren-Gunderson-in-press.pdf)
 
 ### 2018
 
@@ -37,5 +37,5 @@ Presaghi, F., & Rullo, M. (2018). Is Social Categorization Spatially Organized i
 
 Niemann, M., Elischberger, F., Diedam, P., Hopkins, J., Thapa, R., de Siqueira Braga, D., … de L. Neto, F. B. (2017). A Novel Serious Game for Trust-Related Data Collection in Supply Chains. In M. Alcañiz, S. Göbel, M. Ma, M. Fradinho Oliveira, J. Baalsrud Hauge, & T. Marsh (Eds.), *Serious Games* (pp. 121–125). [DOI](https://doi.org/10.1007/978-3-319-70111-0_11)
 
-Filevich, E., Horn, S. S., & Kühn, S. (2017). Within-person adaptivity in frugal judgments from memory. *Psychological Research*, 1–18.[Open Access Link](https://link.springer.com/epdf/10.1007/s00426-017-0962-7)
+Filevich, E., Horn, S. S., & Kühn, S. (2017). Within-person adaptivity in frugal judgments from memory. *Psychological Research*, 1–18. [Open Access Link](https://link.springer.com/epdf/10.1007/s00426-017-0962-7)
 
