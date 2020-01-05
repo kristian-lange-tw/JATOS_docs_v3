@@ -14,7 +14,7 @@ JATOS is under active development, so please do get in touch to ask questions, s
 
 We also conduct workshops: If you want us to give a lecture or workshop about JATOS and/or online studies in general contact us via email.
 
-If you have a question about JATOS or need help with your experiments, write to either:
+**If you have a question about JATOS or need help with your experiments, write to either:**
 
 ### CogSci forum
 We recently started a subforum in the very nice [CogSci.nl](https://forum.cogsci.nl/) forum. It nucleates several cognitive science -and beyond!- tools, so we hope that this simplifies communication. 
