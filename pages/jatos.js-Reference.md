@@ -566,7 +566,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
 1. End study with a message that will be sent back to JATOS and shown in the result page and put in the log
 
    ```javascript
-   jatos.endStudyAjax("everything worked fine");
+   jatos.endStudyAjax(true, "everything worked fine");
    ```
 
 1. Indicate a failure and send a message
@@ -590,7 +590,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
 
    ```javascript
    var resultData = {id: 123, data: "my important result data"};
-   jatos.endStudy(resultData);
+   jatos.endStudyAjax(resultData);
    ```    
 
 
