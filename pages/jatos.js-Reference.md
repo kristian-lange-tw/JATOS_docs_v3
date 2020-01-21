@@ -590,7 +590,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
 
    ```javascript
    var resultData = {id: 123, data: "my important result data"};
-   jatos.endStudy(resultData);
+   jatos.endStudyAjax(resultData);
    ```    
 
 
