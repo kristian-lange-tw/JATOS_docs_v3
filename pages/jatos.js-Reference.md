@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 27 Nov 2019
+last_updated: 25 Jan 2020
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -184,7 +184,7 @@ All variables can be set except those labled _read-only_.
 
 Defines callback function that jatos.js will call when it's finished initialising. Only [mandatory](Mandatory-lines-in-your-components-HTML.html) call in every component.
 
-* @param {function} callback - function to be called after jatos.js' initialization is done
+* _@param {function} callback_ - function to be called after jatos.js' initialization is done
 
 **Example**
 
@@ -195,11 +195,52 @@ jatos.onLoad(function() {
 ```
 
 
+### `jatos.addAbortButton`
+
+**Since JATOS version >= 3.5.1** - Adds a button to the document that if pressed calls _jatos.abortStudy_ (which cancels the study run and deletes all result data and files). By default this button is in the bottom-right corner but this and other properties can be configured.
+
+* _@param {object optional} config_ - Config object
+  * `text`: Button text (Default: 'Cancel')
+  * `confirm`: Should the worker be asked for confirmation? (Default: true)
+  * `confirmText`: Confirmation text (Default: 'Do you really want to cancel this study?')
+  * `tooltip`: Tooltip text (Default: 'Cancels this study and deletes all already submitted data')
+  * `msg`: Message to be send back to JATOS to be logged (Default: 'Worker decided to abort')
+  * `style`: Additional CSS styles
+
+**Examples**
+
+1. Adds the default cancel button
+
+   ```javascript
+   jatos.addAbortButton()
+   ```
+
+1. Adds a cancel button and changes some properties
+
+   ```javascript
+   jatos.addAbortButton({
+     text: "Quit",
+     confirmText: "You really wanne quit?",
+     tooltip: "Don't you dare clicking here!",
+     msg: "This worker aborted the mission.",
+     style: "color:green"
+   });
+   ```
+
+1. Adds a cancel button and changes the position to the bottom-left
+
+   ```javascript
+   jatos.addAbortButton({
+     style: "left:1em"
+   });
+   ```
+
+
 ### `jatos.onError`
 
 Defines a callback function that is to be called in case jatos.js produces an error. 
 
-* @param {function} callback - Function to be called in case of an error
+* _@param {function} callback_ - Function to be called in case of an error
 
 **Example**
 
@@ -545,11 +586,50 @@ Since v3.4.1 there are two versions: with and without result data
    ```
 
 
+### `jatos.endStudyAndRedirect`
+
+**Since JATOS version >= 3.5.1** - Ends study and redirects the given URL. This is useful if you want to let the worker return to a recruitment platform (e.g. Prolific) or have your own end page. The same effect can be achieved with the Study Properties' _End Redirect URL_ field. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
+
+* _@param {string} url_ - URL of the page to be redirected to after the study run was successfully finished
+* _@param {optional boolean} successful_ - 'true' if study should finish successful - 'false' otherwise.
+* _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
+* _@param {optional function} onSuccess_ - Function to be called in case of successful submit
+* _@param {optional function} onError_ - Function to be called in case of error
+* _@return {jQuery.deferred.promise}_
+
+**Examples**
+
+1. End study and redirect afterwards
+
+   ```javascript
+   jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD");
+   ```
+
+1. End study and redirect afterwards. Send result data.
+
+   ```javascript
+   var resultData = {id: 123, data: "my important result data"};
+   jatos.endStudyAjax("https://app.prolific.co/submissions/complete?cc=1234ABCD", resultData);
+   ```    
+
+1. End study and redirect afterwards. A message will be sent back to JATOS and shown in the result page and put in the log.
+
+   ```javascript
+   jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD", true, "everything worked fine");
+   ```
+
+1. End study and indicate a failure and send a message. Does not redirect.
+
+   ```javascript
+   jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD", false, "internal JS error");
+   ```
+
+
 ### `jatos.endStudyAjax`
 
 Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
-* _@param {optional boolean} successful_ - 'true' if study should finish successful and the participant should get the confirmation code - 'false' otherwise.
+* _@param {optional boolean} successful_ - 'true' if study should finish successful - 'false' otherwise.
 * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
 * _@param {optional function} onSuccess_ - Function to be called in case of successful submit
 * _@param {optional function} onError_ - Function to be called in case of error

@@ -195,6 +195,18 @@
           
           
           
+          <li><a href="Papers-Citing-JATOS.html">Papers citing JATOS</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="Contact-us.html">Contact us</a></li>
+          
+          
+          
+          
           
           
           <li><a href="Installation.html">Installation</a></li>
@@ -772,7 +784,7 @@ $('#toc').on('click', 'a', function() {
 <p>Defines callback function that jatos.js will call when it’s finished initialising. Only <a href="Mandatory-lines-in-your-components-HTML.html">mandatory</a> call in every component.</p>
 
 <ul>
-  <li>@param {function} callback - function to be called after jatos.js’ initialization is done</li>
+  <li><em>@param {function} callback</em> - function to be called after jatos.js’ initialization is done</li>
 </ul>
 
 <p><strong>Example</strong></p>
@@ -782,12 +794,60 @@ $('#toc').on('click', 'a', function() {
 <span class="p">});</span>
 </code></pre></div></div>
 
+<h3 id="jatosaddabortbutton"><code class="highlighter-rouge">jatos.addAbortButton</code></h3>
+
+<p><strong>Since JATOS version &gt;= 3.5.1</strong> - Adds a button to the document that if pressed calls <em>jatos.abortStudy</em> (which cancels the study run and deletes all result data and files). By default this button is in the bottom-right corner but this and other properties can be configured.</p>
+
+<ul>
+  <li><em>@param {object optional} config</em> - Config object
+    <ul>
+      <li><code class="highlighter-rouge">text</code>: Button text (Default: ‘Cancel’)</li>
+      <li><code class="highlighter-rouge">confirm</code>: Should the worker be asked for confirmation? (Default: true)</li>
+      <li><code class="highlighter-rouge">confirmText</code>: Confirmation text (Default: ‘Do you really want to cancel this study?’)</li>
+      <li><code class="highlighter-rouge">tooltip</code>: Tooltip text (Default: ‘Cancels this study and deletes all already submitted data’)</li>
+      <li><code class="highlighter-rouge">msg</code>: Message to be send back to JATOS to be logged (Default: ‘Worker decided to abort’)</li>
+      <li><code class="highlighter-rouge">style</code>: Additional CSS styles</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Examples</strong></p>
+
+<ol>
+  <li>
+    <p>Adds the default cancel button</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">addAbortButton</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Adds a cancel button and changes some properties</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">addAbortButton</span><span class="p">({</span>
+  <span class="na">text</span><span class="p">:</span> <span class="s2">"Quit"</span><span class="p">,</span>
+  <span class="na">confirmText</span><span class="p">:</span> <span class="s2">"You really wanne quit?"</span><span class="p">,</span>
+  <span class="na">tooltip</span><span class="p">:</span> <span class="s2">"Don't you dare clicking here!"</span><span class="p">,</span>
+  <span class="na">msg</span><span class="p">:</span> <span class="s2">"This worker aborted the mission."</span><span class="p">,</span>
+  <span class="na">style</span><span class="p">:</span> <span class="s2">"color:green"</span>
+<span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Adds a cancel button and changes the position to the bottom-left</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">addAbortButton</span><span class="p">({</span>
+  <span class="na">style</span><span class="p">:</span> <span class="s2">"left:1em"</span>
+<span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
 <h3 id="jatosonerror"><code class="highlighter-rouge">jatos.onError</code></h3>
 
 <p>Defines a callback function that is to be called in case jatos.js produces an error.</p>
 
 <ul>
-  <li>@param {function} callback - Function to be called in case of an error</li>
+  <li><em>@param {function} callback</em> - Function to be called in case of an error</li>
 </ul>
 
 <p><strong>Example</strong></p>
@@ -1193,12 +1253,55 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ol>
 
+<h3 id="jatosendstudyandredirect"><code class="highlighter-rouge">jatos.endStudyAndRedirect</code></h3>
+
+<p><strong>Since JATOS version &gt;= 3.5.1</strong> - Ends study and redirects the given URL. This is useful if you want to let the worker return to a recruitment platform (e.g. Prolific) or have your own end page. The same effect can be achieved with the Study Properties’ <em>End Redirect URL</em> field. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the ending.</p>
+
+<ul>
+  <li><em>@param {string} url</em> - URL of the page to be redirected to after the study run was successfully finished</li>
+  <li><em>@param {optional boolean} successful</em> - ‘true’ if study should finish successful - ‘false’ otherwise.</li>
+  <li><em>@param {optional string} message</em> - Message that will be stored together with the study results and is accessible via JATOS’ GUI result pages. The message can be max 255 characters long.</li>
+  <li><em>@param {optional function} onSuccess</em> - Function to be called in case of successful submit</li>
+  <li><em>@param {optional function} onError</em> - Function to be called in case of error</li>
+  <li><em>@return {jQuery.deferred.promise}</em></li>
+</ul>
+
+<p><strong>Examples</strong></p>
+
+<ol>
+  <li>
+    <p>End study and redirect afterwards</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAndRedirect</span><span class="p">(</span><span class="s2">"https://app.prolific.co/submissions/complete?cc=1234ABCD"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>End study and redirect afterwards. Send result data.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">data</span><span class="p">:</span> <span class="s2">"my important result data"</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="s2">"https://app.prolific.co/submissions/complete?cc=1234ABCD"</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>End study and redirect afterwards. A message will be sent back to JATOS and shown in the result page and put in the log.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAndRedirect</span><span class="p">(</span><span class="s2">"https://app.prolific.co/submissions/complete?cc=1234ABCD"</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">"everything worked fine"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>End study and indicate a failure and send a message. Does not redirect.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAndRedirect</span><span class="p">(</span><span class="s2">"https://app.prolific.co/submissions/complete?cc=1234ABCD"</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
 <h3 id="jatosendstudyajax"><code class="highlighter-rouge">jatos.endStudyAjax</code></h3>
 
 <p>Ends study with an Ajax call - afterwards the study is not redirected to the JATOS’ end page. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the ending.</p>
 
 <ul>
-  <li><em>@param {optional boolean} successful</em> - ‘true’ if study should finish successful and the participant should get the confirmation code - ‘false’ otherwise.</li>
+  <li><em>@param {optional boolean} successful</em> - ‘true’ if study should finish successful - ‘false’ otherwise.</li>
   <li><em>@param {optional string} message</em> - Message that will be stored together with the study results and is accessible via JATOS’ GUI result pages. The message can be max 255 characters long.</li>
   <li><em>@param {optional function} onSuccess</em> - Function to be called in case of successful submit</li>
   <li><em>@param {optional function} onError</em> - Function to be called in case of error</li>
@@ -1217,13 +1320,31 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>End study with a message that will be sent back to JATOS and shown in the result page and put in the log</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s2">"everything worked fine"</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Indicate a failure and send a message</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">"internal JS error"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Send result data, end study and jump to another URL afterwards (by using jQuery’s <a href="https://api.jquery.com/deferred.done/">done</a></p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">data</span><span class="p">:</span> <span class="s2">"my important result data"</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">submitResultData</span><span class="p">(</span><span class="nx">resultData</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">'http://example.com/index.html'</span>
+  <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Send result data and end study (since JATOS &gt;= v3.4.1)</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">data</span><span class="p">:</span> <span class="s2">"my important result data"</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="nx">resultData</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2467,7 +2588,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 27 Nov 2019
+<span>Page last updated:</span> 25 Jan 2020
                 </div>
             </div>
 </footer>
