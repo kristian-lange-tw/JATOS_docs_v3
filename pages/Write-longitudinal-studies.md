@@ -1,4 +1,3 @@
-
 ---
 title: Write longitudinal studies
 keywords: longitudinal, batch session
