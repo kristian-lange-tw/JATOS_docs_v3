@@ -607,24 +607,26 @@ $('#toc').on('click', 'a', function() {
     <p>In your HTML, CSS and JavaScripts, for your paths you can choose between 1) relative paths or 2) absolute paths. Relative paths are usually shorter and easier to handle but are only available since JATOS version 3.2.3.</p>
 
     <ol>
-      <li><strong>Relative paths (since v3.2.3, recommended))</strong> Just use the relative path within your study’s folder.
-        <ul>
-          <li>E.g. a file in your local filesystem <code class="highlighter-rouge">/path_to_your_JATOS/study_assets_root/group_snake/snake.css</code> turns to just <code class="highlighter-rouge">snake.css</code></li>
-          <li>E.g. in a subfolder <code class="highlighter-rouge">/path_to_your_JATOS/study_assets_root/group_snake/subfolder/snake.css</code> turns to <code class="highlighter-rouge">subfolder/snake.css</code></li>
-        </ul>
+      <li>
+        <p><strong>Relative paths (since v3.2.3 and recommended way))</strong> Just use the relative path within your study’s folder.</p>
 
-        <p>If you want to reference a file in a higher folder use <code class="highlighter-rouge">../</code> in front (like in a normal filesystem).</p>
-        <ul>
-          <li>E.g. your referencing file is <code class="highlighter-rouge">subfolder/myscript.js</code> and you want to reference <code class="highlighter-rouge">css/snake.css</code> use <code class="highlighter-rouge">../css/snake.css</code>.</li>
-        </ul>
+        <p>E.g. if a file named ‘survey.js’ is in the root of the study’s assets folder</p>
+
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"survey.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>        </div>
+
+        <p>E.g. or if the file is in a subfolder ‘lib’</p>
+
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"lib/survey.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>        </div>
       </li>
       <li>
         <p><strong>Absolute paths)</strong> Always use the prefix <code class="highlighter-rouge">/study_assets/</code> and then the study assets name you specified in your study’s properties when you created it.</p>
 
-        <ul>
-          <li>E.g. if you load the CSS file <code class="highlighter-rouge">snake.css</code> and the study’s assets name is <code class="highlighter-rouge">group_snake</code> use <code class="highlighter-rouge">&lt;link rel="stylesheet" type="text/css" href="/study_assets/group_snake/snake.css" /&gt;</code></li>
-          <li>Or if you want to load some JavaScript from your local study assets with the name <code class="highlighter-rouge">prisoner_dilemma</code>, e.g. the jQuery library, use <code class="highlighter-rouge">&lt;script src="/study_assets/prisoner_dilemma/jquery-1.11.1.min.js"&gt;&lt;/script&gt;</code></li>
-        </ul>
+        <p>E.g. if you want to load the file ‘survey.js’ and the study’s assets folder is ‘my-exp’</p>
+
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"/study_assets/my-exp/survey.js"</span> <span class="nt">/&gt;</span>
+</code></pre></div>        </div>
 
         <p>✰  For absolute paths make sure you understand the difference between the <code class="highlighter-rouge">study_assets_root</code> folder and the placeholder <code class="highlighter-rouge">study_assets</code> in your path names. <code class="highlighter-rouge">study_assets_root</code> is the folder in your system (or in the server) where the assets (HTML, JS, CSS, images, etc) of <strong>all</strong> your JATOS studies will be stored. You can <a href="Configure-JATOS-on-a-Server.html#study-assets-root-path">configure</a> the location of this folder. <code class="highlighter-rouge">study_assets</code>, on the other hand, is just a placeholder that will go in your HTML files. JATOS will interpret this and replace the placeholder with the path, (specific to the study) that you entered in the field ‘Study assets directory name’ in your Study’s Properties. The advantage of this is that you can change the location or name of the assets for any study, or export-import a study into a different computer, and the study will still run without having to make any changes in the HTML code.</p>
       </li>
@@ -642,14 +644,20 @@ $('#toc').on('click', 'a', function() {
     <p>Include the <strong>jatos.js</strong> library in your HTML <code class="highlighter-rouge">&lt;head&gt;</code></p>
 
     <ul>
-      <li>JATOS &lt; v3.3.1) Add the line <code class="highlighter-rouge">&lt;script src="/assets/javascripts/jatos.js"&gt;&lt;/script&gt;</code></li>
-      <li>JATOS &gt;= v3.3.1) Add the line <code class="highlighter-rouge">&lt;script src="jatos.js"&gt;&lt;/script&gt;</code></li>
+      <li>JATOS &lt; v3.3.1) Add the line
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/javascripts/jatos.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>JATOS &gt;= v3.3.1) Add the line
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jatos.js"</span><span class="nt">&gt;&lt;/script&gt;</span>`
+</code></pre></div>        </div>
+      </li>
     </ul>
   </li>
   <li>
-    <p>Add <strong><code class="highlighter-rouge">jatos.onLoad</code></strong></p>
+    <p>Add <strong>jatos.onLoad</strong></p>
 
-    <p>Every study in JATOS starts with this call. So whatever you want to do in your study it should start there.</p>
+    <p>Most studies with JATOS start with this call. So whatever you want to do in your study it should start there.</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">onLoad</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// initialize and start your JavaScript here </span>
@@ -715,7 +723,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 27 Nov 2019
+<span>Page last updated:</span> 27 Jan 2020
                 </div>
             </div>
 </footer>

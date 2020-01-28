@@ -200,6 +200,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/Running-longitudinal-studies-on-Prolific.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/Session-Data-Three-Types.html</loc>
   </url>
   
@@ -267,6 +273,12 @@
   
   <url>
     <loc>http://localhost:4000/Write-Group-Studies-II-JavaScript-and-Messaging.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/Write-longitudinal-studies.html</loc>
   </url>
   
   

@@ -1140,6 +1140,8 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosabortstudy"><code class="highlighter-rouge">jatos.abortStudy</code></h3>
 
+<p><strong>Hint</strong>: There is a convenience function <code class="highlighter-rouge">jatos.addAbortButton</code> that already adds a button to your document including showing an confirmation box and options to change it to your needs.</p>
+
 <p>Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page. Data stored in the Batch Session or Group Session are uneffected by this.</p>
 
 <ul>
@@ -1165,6 +1167,8 @@ $('#toc').on('click', 'a', function() {
 </ol>
 
 <h3 id="jatosabortstudyajax"><code class="highlighter-rouge">jatos.abortStudyAjax</code></h3>
+
+<p><strong>Hint</strong>: There is a convenience function <code class="highlighter-rouge">jatos.addAbortButton</code> that already adds a button to your document including showing an confirmation box and options to change it to your needs.</p>
 
 <p>Aborts study with an Ajax call. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the ending.</p>
 
@@ -1257,6 +1261,8 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>Since JATOS version &gt;= 3.5.1</strong> - Ends study and redirects the given URL. This is useful if you want to let the worker return to a recruitment platform (e.g. Prolific) or have your own end page. The same effect can be achieved with the Study Properties’ <em>End Redirect URL</em> field. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the ending.</p>
 
+<p><strong>Hint</strong>: There is a ‘<strong>End Redirect URL</strong>’  field in the Study Properties that also specifies the redirect URL. It’s easier to use, but not as flexible.</p>
+
 <ul>
   <li><em>@param {string} url</em> - URL of the page to be redirected to after the study run was successfully finished</li>
   <li><em>@param {optional boolean} successful</em> - ‘true’ if study should finish successful - ‘false’ otherwise.</li>
@@ -1279,7 +1285,7 @@ $('#toc').on('click', 'a', function() {
     <p>End study and redirect afterwards. Send result data.</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">data</span><span class="p">:</span> <span class="s2">"my important result data"</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAjax</span><span class="p">(</span><span class="s2">"https://app.prolific.co/submissions/complete?cc=1234ABCD"</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudyAndRedirect</span><span class="p">(</span><span class="s2">"https://app.prolific.co/submissions/complete?cc=1234ABCD"</span><span class="p">,</span> <span class="nx">resultData</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
   <li>

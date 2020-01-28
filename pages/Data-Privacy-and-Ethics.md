@@ -33,7 +33,7 @@ Here are a few advantages and limitations of JATOS with regards to data privacy.
 
 ### Things you should consider in your studies 
 
-* You should consider to add some button in your study pages to abort the study. Some ethics demand that any participant should have the **right to withdraw** at any time, without explanation. In this case all data of the participant gathered during the study should be deleted. Conveniently jatos.js offers an [abortStudy method](jatos.js-Reference.html#jatosabortstudymessage) that does exactly that.
+* You should consider to add some button in your study pages to abort the study. Some ethics demand that any participant should have the **right to withdraw** at any time, without explanation. In this case all data of the participant gathered during the study should be deleted. Conveniently jatos.js offers the functions [jatos.abortStudy](jatos.js-Reference.html#jatosabortstudy) and [jatos.addAbortButton](jatos.js-Reference.html#jatosaddabortbutton) that do exactly that.
 
 * Use **encryption** with your [server instance](JATOS-on-a-server.html). Only with encryption no one else in the internet can read the private data from your study's participants.
 

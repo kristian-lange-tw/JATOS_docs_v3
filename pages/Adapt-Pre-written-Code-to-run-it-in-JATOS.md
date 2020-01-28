@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Adapt-Pre-written-Code-to-run-it-in-JATOS.html
 folder:
 toc: true
-last_updated: 27 Nov 2019
+last_updated: 27 Jan 2020
 ---
 
 **Make Your Existing Code Run in JATOS - or How To Jatosify a Study** 
@@ -21,17 +21,27 @@ You might have a  task, experiment, survey, or study running in a browser. You m
 1. Back in the JATOS GUI, and within the newly created study, create a **new component** by clicking 'Components' and then 'New'. Choose a component title and set the HTML file name, to the name of the HTML file you just copied into the study folder.
 1. In your HTML, CSS and JavaScripts, for your paths you can choose between 1) relative paths or 2) absolute paths. Relative paths are usually shorter and easier to handle but are only available since JATOS version 3.2.3.
 
-   1. **Relative paths (since v3.2.3, recommended))** Just use the relative path within your study's folder.
-      * E.g. a file in your local filesystem `/path_to_your_JATOS/study_assets_root/group_snake/snake.css` turns to just `snake.css`
-      * E.g. in a subfolder `/path_to_your_JATOS/study_assets_root/group_snake/subfolder/snake.css` turns to `subfolder/snake.css`
+   1. **Relative paths (since v3.2.3 and recommended way))** Just use the relative path within your study's folder.
       
-      If you want to reference a file in a higher folder use `../` in front (like in a normal filesystem). 
-      * E.g. your referencing file is `subfolder/myscript.js` and you want to reference `css/snake.css` use `../css/snake.css`.
+      E.g. if a file named 'survey.js' is in the root of the study's assets folder
+      
+      ```html
+      <script src="survey.js"></script>
+      ```
+      
+      E.g. or if the file is in a subfolder 'lib'
+      
+      ```html
+      <script src="lib/survey.js"></script>
+      ```
 
    1. **Absolute paths)** Always use the prefix `/study_assets/` and then the study assets name you specified in your study's properties when you created it.
+      
+      E.g. if you want to load the file 'survey.js' and the study's assets folder is 'my-exp'
 
-      * E.g. if you load the CSS file `snake.css` and the study's assets name is `group_snake` use `<link rel="stylesheet" type="text/css" href="/study_assets/group_snake/snake.css" />`
-      * Or if you want to load some JavaScript from your local study assets with the name `prisoner_dilemma`, e.g. the jQuery library, use `<script src="/study_assets/prisoner_dilemma/jquery-1.11.1.min.js"></script>`
+        ```html
+        <link rel="stylesheet" type="text/css" href="/study_assets/my-exp/survey.js" />
+        ```
 
       ✰  For absolute paths make sure you understand the difference between the `study_assets_root` folder and the placeholder `study_assets` in your path names. `study_assets_root` is the folder in your system (or in the server) where the assets (HTML, JS, CSS, images, etc) of **all** your JATOS studies will be stored. You can [configure](Configure-JATOS-on-a-Server.html#study-assets-root-path) the location of this folder. `study_assets`, on the other hand, is just a placeholder that will go in your HTML files. JATOS will interpret this and replace the placeholder with the path, (specific to the study) that you entered in the field 'Study assets directory name' in your Study's Properties. The advantage of this is that you can change the location or name of the assets for any study, or export-import a study into a different computer, and the study will still run without having to make any changes in the HTML code.  
 
@@ -44,14 +54,21 @@ Up to this point JATOS served as a mere provider of your files. Now we want to u
 
 1. Include the **jatos.js** library in your HTML `<head>`
 
-   * JATOS < v3.3.1) Add the line `<script src="/assets/javascripts/jatos.js"></script>`
-   * JATOS >= v3.3.1) Add the line `<script src="jatos.js"></script>`
+   * JATOS < v3.3.1) Add the line 
+   ```html
+   <script src="/assets/javascripts/jatos.js"></script>
+   ```
 
-1. Add **`jatos.onLoad`**
+   * JATOS >= v3.3.1) Add the line 
+   ```html
+   <script src="jatos.js"></script>`
+   ```
 
-   Every study in JATOS starts with this call. So whatever you want to do in your study it should start there.
+1. Add **jatos.onLoad**
+
+   Most studies with JATOS start with this call. So whatever you want to do in your study it should start there.
    
-   ~~~ javascript
+   ~~~javascript
    jatos.onLoad(function() {
      // initialize and start your JavaScript here 
    });
@@ -59,7 +76,7 @@ Up to this point JATOS served as a mere provider of your files. Now we want to u
    
    E.g. if you want to initialize a jsPsych experiment:
    
-   ~~~ javascript
+   ~~~javascript
    jatos.onLoad(function() {
      jsPsych.init( {
        ...
@@ -71,7 +88,7 @@ Up to this point JATOS served as a mere provider of your files. Now we want to u
 
    E.g. if we want to send a JavaScript object as JSON
    
-   ~~~ javascript
+   ~~~javascript
    var resultJson = JSON.stringify(myObject);
    jatos.submitResultData(resultJson, jatos.startNextComponent);
    ~~~
@@ -80,7 +97,7 @@ Up to this point JATOS served as a mere provider of your files. Now we want to u
 
    Another example where we use jsPsych: We have to put `jatos.submitResultData` into jsPsych's `on_finish`:
    
-   ~~~ javascript
+   ~~~javascript
    jsPsych.init( {
      ...
      on_finish: function(data) {

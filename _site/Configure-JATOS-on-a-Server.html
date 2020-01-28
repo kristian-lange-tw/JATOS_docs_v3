@@ -700,13 +700,13 @@ jpa.default<span class="o">=</span>mysqlPersistenceUnit
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Via environment variables: (change IP, username and password)</p>
+    <p>Via environment variables (change IP, username and password)</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">JATOS_DB_URL</span><span class="o">=</span><span class="s2">"jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"</span><span class="sb">`</span>
-<span class="nv">JATOS_DB_USERNAME</span><span class="o">=</span>jatosuser
-<span class="nv">JATOS_DB_PASSWORD</span><span class="o">=</span>mypassword
-<span class="nv">JATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.cj.jdbc.Driver
-<span class="nv">JATOS_JPA</span><span class="o">=</span>mysqlPersistenceUnit
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">JATOS_DB_URL</span><span class="o">=</span><span class="s2">"jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"</span>
+<span class="nb">export </span><span class="nv">JATOS_DB_USERNAME</span><span class="o">=</span>jatosuser
+<span class="nb">export </span><span class="nv">JATOS_DB_PASSWORD</span><span class="o">=</span>mypassword
+<span class="nb">export </span><span class="nv">JATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.cj.jdbc.Driver
+<span class="nb">export </span><span class="nv">JATOS_JPA</span><span class="o">=</span>mysqlPersistenceUnit
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -732,9 +732,61 @@ jpa.default<span class="o">=</span>mysqlPersistenceUnit
   </li>
 </ul>
 
+<h3 id="uploading-of-study-result-files-jatos--v351">Uploading of study result files (JATOS &gt;= v3.5.1)</h3>
+
+<ol>
+  <li>
+    <p>Via <code class="highlighter-rouge">conf/production.conf</code></p>
+
+    <ul>
+      <li><code class="highlighter-rouge">jatos.resultUploads.enabled</code> - Enables study result files uploads (default is true)</li>
+      <li><code class="highlighter-rouge">jatos.resultUploads.path</code> - Path in the file system where the uploaded result files will be stored (default is ‘./result_uploads’)</li>
+      <li><code class="highlighter-rouge">jatos.resultUploads.maxFileSize</code> - Max file size for one single uploaded result file (default is 30 MB)</li>
+      <li><code class="highlighter-rouge">jatos.resultUploads.limitPerStudyRun</code> - Limit of all uploaded result files of one single study run (default is 50MB)</li>
+    </ul>
+  </li>
+  <li>
+    <p>The path can be configured via environment variables</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">JATOS_RESULT_UPLOADS_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/result/upload/folder"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>The path can be configured via command-line arguments</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loader.sh start <span class="nt">-DJATOS_RESULT_UPLOADS_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/result/upload/folder"</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="study-logs-since-jatos--321">Study logs (since JATOS &gt;= 3.2.1)</h3>
+
+<ol>
+  <li>
+    <p>Via <code class="highlighter-rouge">conf/production.conf</code></p>
+
+    <ul>
+      <li><code class="highlighter-rouge">jatos.studyLogs.enabled</code> - (since JATOS &gt;= 3.5.1) - Enables <a href="Study-Log.html">Study Logs</a> (default is true)</li>
+      <li><code class="highlighter-rouge">jatos.studyLogs.path</code> - (since JATOS &gt;= 3.2.1) - Path in the file system where the <a href="Study-Log.html">Study Logs</a> will be stored (default is ‘./study_logs’)</li>
+    </ul>
+  </li>
+  <li>
+    <p>The path can be configured via environment variables</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">JATOS_STUDY_LOGS_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/study/logs/folder"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>The path can be configured via command-line arguments</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loader.sh start <span class="nt">-DJATOS_STUDY_LOGS_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/study/logs/folder"</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
 <h3 id="other-configuration-in-productionconf">Other configuration in production.conf</h3>
 
-<p>Additional to the <a href="#mysql-database">database</a> and the <a href="#study-assets-root-path">study assets root path</a> some other properties can be configured in the <code class="highlighter-rouge">conf/production.conf</code>.</p>
+<p>Some other properties can be configured in the <code class="highlighter-rouge">conf/production.conf</code>.</p>
 
 <ul>
   <li><code class="highlighter-rouge">jatos.userSession.timeout</code> - time in minutes a user stays logged in (default is 1440 = 1 day)</li>
@@ -743,7 +795,10 @@ jpa.default<span class="o">=</span>mysqlPersistenceUnit
   <li><code class="highlighter-rouge">play.http.session.secure</code> - secure session cookie: set true to restrict user access to HTTPS (default is false)</li>
 </ul>
 
-<p>Apart from those all <a href="https://www.playframework.com/documentation/latest/Configuration">configuration properties possible in the Play Framework</a> are possible in JATOS production.conf too.</p>
+<p>Apart from those all <a href="https://www.playframework.com/documentation/latest/Configuration">configuration properties possible in the Play Framework</a> are possible in JATOS production.conf too, e.g.</p>
+<ul>
+  <li><code class="highlighter-rouge">pidfile.path</code> - Path to the file that contains the process id of the started JATOS application (default is ./RUNNING_PID)</li>
+</ul>
 
 
 

@@ -490,6 +490,8 @@ Since v3.4.1 there are two versions: with or without message
 
 ### `jatos.abortStudy`
 
+**Hint**: There is a convenience function `jatos.addAbortButton` that already adds a button to your document including showing an confirmation box and options to change it to your needs.
+
 Aborts study. All previously submitted result data will be deleted. Afterwards the worker is redirected to the study end page. Data stored in the Batch Session or Group Session are uneffected by this.
 
 * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
@@ -511,6 +513,8 @@ Aborts study. All previously submitted result data will be deleted. Afterwards t
 
 
 ### `jatos.abortStudyAjax`
+
+**Hint**: There is a convenience function `jatos.addAbortButton` that already adds a button to your document including showing an confirmation box and options to change it to your needs.
 
 Aborts study with an Ajax call. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
@@ -590,6 +594,8 @@ Since v3.4.1 there are two versions: with and without result data
 
 **Since JATOS version >= 3.5.1** - Ends study and redirects the given URL. This is useful if you want to let the worker return to a recruitment platform (e.g. Prolific) or have your own end page. The same effect can be achieved with the Study Properties' _End Redirect URL_ field. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
+**Hint**: There is a '**End Redirect URL**'  field in the Study Properties that also specifies the redirect URL. It's easier to use, but not as flexible.
+
 * _@param {string} url_ - URL of the page to be redirected to after the study run was successfully finished
 * _@param {optional boolean} successful_ - 'true' if study should finish successful - 'false' otherwise.
 * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
@@ -609,7 +615,7 @@ Since v3.4.1 there are two versions: with and without result data
 
    ```javascript
    var resultData = {id: 123, data: "my important result data"};
-   jatos.endStudyAjax("https://app.prolific.co/submissions/complete?cc=1234ABCD", resultData);
+   jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD", resultData);
    ```    
 
 1. End study and redirect afterwards. A message will be sent back to JATOS and shown in the result page and put in the log.

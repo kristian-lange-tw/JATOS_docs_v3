@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Mandatory-lines-in-your-components-HTML.html
 folder:
 toc: true
-last_updated: 28 Dec 2016
+last_updated: 28 Jan 2020
 ---
 
 The best way to write an HTML/JavaScript file that runs with JATOS is to use one of the HTML files from the [Example Studies](Example-Studies.html) as a starting point.
@@ -20,6 +20,16 @@ Here are the absolute basics that any component HTML file must have in order to 
    <html>
      <head>
        <script src="/assets/javascripts/jatos.js"></script>
+     </head>
+   </html>   
+   ~~~
+
+   Since JATOS v3.3.1 it can be simplified:
+
+   ~~~ html
+   <html>
+     <head>
+       <script src="jatos.js"></script>
      </head>
    </html>   
    ~~~

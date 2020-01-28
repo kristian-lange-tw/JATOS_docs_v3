@@ -323,6 +323,17 @@
 
 
 {
+"title": "Run Longitudinal Studies on Prolific",
+"tags": "",
+"keywords": "Longitudinal, Prolific, Batch Session, Worker Links",
+"url": "Running-longitudinal-studies-on-Prolific.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Session Data - Three Types",
 "tags": "",
 "keywords": "session data, study session, group session, batch session",
@@ -449,6 +460,17 @@
 "keywords": "group, group session, WebSocket, group channel, messaging, fixing",
 "url": "Write-Group-Studies-II-JavaScript-and-Messaging.html",
 "summary": "Learn how to use jatos.js to join groups and manage them. Learn about the three different ways of sending messages within a group."
+}
+,
+
+
+
+{
+"title": "Write longitudinal studies",
+"tags": "",
+"keywords": "longitudinal, batch session",
+"url": "Write-longitudinal-studies.html",
+"summary": ""
 }
 ,
 
