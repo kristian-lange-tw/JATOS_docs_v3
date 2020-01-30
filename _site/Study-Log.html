@@ -607,7 +607,7 @@ $('#toc').on('click', 'a', function() {
 <ul>
   <li>The study log won’t be necessary in most cases. Just nice to have. Just in case.</li>
   <li>In the GUI you will see only the <strong>last 100 entries (10.000 JATOS &gt;= v3.4.1)</strong> of the study log but you can get the whole log by downloading it. In the GUI the log is in <strong>reversed</strong> order - the downloaded one has normal order.</li>
-  <li>The following events are logged: <strong>create/delete study</strong>, <strong>run/finish study</strong>, <strong>save/delete/export results</strong>.</li>
+  <li>The following events are logged: <strong>create/delete study</strong>, <strong>run/finish study</strong>, <strong>save result data</strong>, <strong>upload result file</strong></li>
   <li>In case of saving result data a hash of the data is logged. Since a hash changes if a result is altered or deleted, this can prove <strong>data integrity</strong> should it ever being questioned.</li>
   <li>The study log is only as safe as the server machine on which JATOS is running. Anybody with access to the server can potentially modify the study log file and e.g. hide that data has been deleted. We can’t prevent this, so it’s important to have a safe server that only admins can access.</li>
   <li>The study log is in JSON format. Choose between <strong>pretty</strong> (like in the screenshot above) or <strong>raw</strong> (in the one below).</li>

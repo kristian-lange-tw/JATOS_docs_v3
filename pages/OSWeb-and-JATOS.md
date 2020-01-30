@@ -16,6 +16,6 @@ OSWeb lets you run an [OpenSesame](https://osdoc.cogsci.nl) experiment on a brow
 
 [OSWeb's documentation](https://osdoc.cogsci.nl/manual/osweb/) is far better than ours could ever be. So, here, we just point out that combining OSWeb with JATOS is pretty easy and straightforward: just export the experiment in OSWeb and import it in JATOS.
 
-If you want to use [Prolific](https://www.prolific.co/) to recruit participants for your OSWeb experiment running in JATOS then you can put the return link in the **End Redirect URL** field of your Study Properties (in JATOS GUI).
+If you want to use [Prolific](https://www.prolific.co/) to recruit participants for your OSWeb experiment running in JATOS then you can put the return link in the 'End Redirect URL' field of your Study Properties (in JATOS GUI, since JATOS v3.5.1).
 
 That's all there is to say. If you'd like to know more, Sebastiaan Mathot's [tutorial](https://www.youtube.com/watch?v=0448NeoUaqU) is the place to start. 
