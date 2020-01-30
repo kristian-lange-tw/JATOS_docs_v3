@@ -80,6 +80,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/End-page-whats-after-your-study-finished.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/Example-Group-Studies.html</loc>
   </url>
   
@@ -255,12 +261,6 @@
   
   <url>
     <loc>http://localhost:4000/Whats-JATOS.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/Whats-after-your-study-finished.html</loc>
   </url>
   
   
