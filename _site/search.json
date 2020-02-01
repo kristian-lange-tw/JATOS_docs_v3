@@ -312,6 +312,17 @@
 
 
 {
+"title": "Result data and result uploads",
+"tags": "",
+"keywords": "results, result data, data, upload, download, result uploads, result files, files, jatos.uploadResultFile, jatos.downloadResultFile",
+"url": "Result-data-and-result-uploads.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Run an experiment with JATOS - Workflow",
 "tags": "",
 "keywords": "local installation, server installation",

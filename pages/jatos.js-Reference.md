@@ -291,6 +291,25 @@ jatos.setHeartbeatPeriod(60000); // Sets to a heartbeat every minute
 ```
 
 
+### `jatos.setStudySessionData`
+
+**If you just want to write into the study session, this function is not what you want**. This function sets the study session data and **sends it back to the JATOS server**. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
+
+Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+
+* _@param {object} sessionData_ - object to be submitted
+* _@param {optional function} onSuccess_ - Function to be called after this function is finished
+* _@param {optional function} onFail_ - Function to be called after if this this functions fails
+* _@return {jQuery.deferred.promise}_
+
+**Example**
+
+```javascript
+var studySessionData = { "a": 123, "b": 789, "c": 100};
+jatos.setStudySessionData(studySessionData);
+```
+
+
 ## Functions to control study flow
 
 ### `jatos.startComponent`
@@ -680,7 +699,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
    ```    
 
 
-## functions for Study Session and result data
+## Result data and result upload files (and download)
 
 ### `jatos.submitResultData`
 
@@ -770,23 +789,112 @@ Posts result data for the currently running component back to the JATOS server. 
    ```
 
 
-### `jatos.setStudySessionData`
+### `jatos.uploadResultFile`
 
-**If you just want to write into the study session, this function is not what you want**. This function sets the study session data and **sends it back to the JATOS server**. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
+**Since JATOS version >= 3.5.1** - Uploads a file to the JATOS server where they are stored in the server's file system (but not in the database). Similar to result data it can be downloaded in the JATOS UI, in the result pages. The files are stored per component - that means you can use the same filename without overwriting the file if the upload happens from different components. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
 
-Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
-
-* _@param {object} sessionData_ - object to be submitted
-* _@param {optional function} onSuccess_ - Function to be called after this function is finished
-* _@param {optional function} onFail_ - Function to be called after if this this functions fails
+* _@param {Blob, string or object} obj_ - Data to be uploaded as a file. Can be [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob), a string, or a object. A Blob	will be uploaded right away. A string is turned into a Blob. An object is	first turned into a JSON string	and	then into a Blob.
+* _@param {string} filename_ - Name of the uploaded file
+* _@param {optional function} onSuccess_ - Function to be called in case of success
+* _@param {optional function} onError_ - Function to be called in case of error
 * _@return {jQuery.deferred.promise}_
 
-**Example**
+**Examples**
 
-```javascript
-var studySessionData = { "a": 123, "b": 789, "c": 100};
-jatos.setStudySessionData(studySessionData);
-```
+1. Upload text
+
+   ```javascript
+   var promise = jatos.uploadResultFile("this is my data", "example.txt");
+   promise.done(() => { alert("File was successfully uploaded") });
+   promise.fail(() => { alert("File upload failed") });
+   ```
+
+1. Upload object as JSON
+
+   ```javascript
+   var resultData = { "a": 123, "b": 789, "c": 100};
+   var promise = jatos.uploadResultFile(resultData, "example.json");
+   promise.done(() => { alert("File was successfully uploaded") });
+   promise.fail(() => { alert("File upload failed") });
+   ```
+
+1. Upload text as Blob
+
+   ```javascript
+   var blob = new Blob(["Hello, world!"], {type: 'text/plain'});
+   var promise = jatos.uploadResultFile(blob, "example.txt");
+   promise.done(() => { alert("File was successfully uploaded") });
+   promise.fail(() => { alert("File upload failed") });
+   ```
+
+1. Turn canvas into Blob and upload as image file. It assumes you have an canvas element with ID 'canvas'.
+
+   ```javascript
+   var canvas = document.getElementById('canvas');
+   canvas.toBlob((blob) => {
+     var promise = jatos.uploadResultFile(blob, "canvas.png");
+     promise.done(() => { alert("File was successfully uploaded") });
+     promise.fail(() => { alert("File upload failed") });
+   });
+   ```
+
+1. For more real-world examples have a look at the ['Drawing' and the 'Video Recording' examples](Example-Studies.html)
+
+
+### `jatos.downloadResultFile`
+
+**Since JATOS version >= 3.5.1** - Downloads a file from the JATOS server. One can only download a file that was previously uploaded with `jatos.uploadResultFile` in the same study run. If the file contains text it returns the content as a string. If the file contains JSON, it returns the JSON already parsed as an object. All other [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) are returned as a Blob. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+
+* _@param {string} filename_ - Name of the uploaded file
+* _@param {optional function} onSuccess_ - Function to be called in case of success
+* _@param {optional function} onError_ - Function to be called in case of error
+* _@return {jQuery.deferred.promise}_
+
+Additionally you can specify the component position from where the file was uploaded (in case different components uploaded files with the same filename)
+
+* _@param {number} componentPos_ - Position of the component where the file was uploaded
+* _@param {string} filename_ - Name of the uploaded file
+* _@param {optional function} onSuccess_ - Function to be called in case of success
+* _@param {optional function} onError_ - Function to be called in case of error
+* _@return {jQuery.deferred.promise}_
+
+**Examples**
+
+1. Download text file
+
+   ```javascript
+   var promise = jatos.downloadResultFile("example.txt");
+   promise.done((text) => { console.log(text) });
+   promise.fail(() => { alert("File download failed") });
+   ```
+
+1. Download JSON file
+
+   ```javascript
+   var promise = jatos.downloadResultFile("example.json");
+   promise.done((obj) => { console.log(JSON.stringify(obj)) });
+   promise.fail(() => { alert("File download failed") });
+   ```
+
+1. Download image and display it in a canvas element
+
+   ```javascript
+   var promise = jatos.downloadResultFile("canvas.png");
+   promise.done((blob) => {
+     document.getElementById("canvas").src = URL.createObjectURL(blob);
+   });
+   promise.fail(() => { alert("File download failed") });
+   ```
+
+1. Download file and specify that the file was uploaded in the first component
+
+   ```javascript
+   var promise = jatos.downloadResultFile(1, "example.txt");
+   promise.done((text) => { console.log(text) });
+   promise.fail(() => { alert("File download failed") });
+   ```
+
+1. For more real-world examples have a look at the ['Drawing' and the 'Video Recording' examples](Example-Studies.html)
 
 
 ## Functions to access the Batch Session
@@ -828,25 +936,25 @@ JSON Patch add operation: Adds a value to an object or inserts it into an array.
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.batchSession.add("/b", 123);
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.add("/b", 123);
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 1. Example with an array: Put the object `{id: 123, name: "Max"}` after the second position of the array with the path `/subjects`
 
    ```javascript
-   var deferred = jatos.batchSession.add("/subjects/2", {id: 123, name: "Max"});
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.add("/subjects/2", {id: 123, name: "Max"});
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 1. Append to the end of an array use `/-` after the arrays name:
 
    ```javascript
-   var deferred = jatos.batchSession.add("/subjects/-", {id: 124, name: "Adam"});
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.add("/subjects/-", {id: 124, name: "Adam"});
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -876,9 +984,9 @@ JSON Patch remove operation: Removes a value from an object or array (see [jsonp
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.batchSession.remove("/b");
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.remove("/b");
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -909,9 +1017,9 @@ JSON Patch replace operation: Replaces a value. Equivalent to a 'remove' followe
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.batchSession.replace("/b", 789);
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.replace("/b", 789);
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -942,9 +1050,9 @@ JSON Patch copy operation: Copies a value from one location to another within th
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.batchSession.copy("/a", "/b");
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.copy("/a", "/b");
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -975,9 +1083,9 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.batchSession.move("/a", "/b");
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.move("/a", "/b");
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -1100,9 +1208,9 @@ A convenience function for `jatos.batchSession.add`. Instead of a JSON Pointer p
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.batchSession.set("b", "koala");
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.set("b", "koala");
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -1143,9 +1251,9 @@ Replaces the whole session data. If the replacing object is rather large it migh
 
    ```javascript
    var o = {"a": 123, "b": "foo"};
-   var deferred = jatos.batchSession.setAll(o);
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.setAll(o);
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -1170,9 +1278,9 @@ Clears the whole Batch Session data and sets it to an empty object `{}`.
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.batchSession.clear();
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.batchSession.clear();
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -1341,9 +1449,9 @@ Asks the JATOS server to reassign this study run to a different group. JATOS can
 **Example**
 
 ```javascript
-var deferred = jatos.reassignGroup();
-deferred.done(() => { alert("Successful group reassignment: new group ID is " + jatos.groupResultId) });
-deferred.fail(() => { alert("Group reassignment failed") });
+var promise = jatos.reassignGroup();
+promise.done(() => { alert("Successful group reassignment: new group ID is " + jatos.groupResultId) });
+promise.fail(() => { alert("Group reassignment failed") });
 ```
 
 
@@ -1472,25 +1580,25 @@ JSON Patch add operation: Adds a value to an object or inserts it into an array.
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.groupSession.add("/b", 123);
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.add("/b", 123);
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```
 
 1. Example with an array: Put the object `{id: 123, name: "Max"}` after the second position of the array with the path `/subjects`:
 
    ```javascript
-   var deferred = jatos.groupSession.add("/subjects/2", {id: 123, name: "Max"});
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.groupSession.add("/subjects/2", {id: 123, name: "Max"});
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 1. Example of how to append to the end of an array: use `/-` after the arrays name:
 
    ```javascript
-   var deferred = jatos.groupSession.add("/subjects/-", {id: 124, name: "Adam"});
-   deferred.done(() => { alert("Batch Session was successfully updated") });
-   deferred.fail(() => { alert("Batch Session synchronization failed") });
+   var promise = jatos.groupSession.add("/subjects/-", {id: 124, name: "Adam"});
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
 
 
@@ -1520,9 +1628,9 @@ JSON Patch remove operation: Removes a value from an object or array (see [jsonp
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.groupSession.remove("/b");
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.remove("/b");
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```
 
 
@@ -1553,9 +1661,9 @@ JSON Patch replace operation: Replaces a value. Equivalent to a “remove” fol
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.groupSession.replace("/b", 789);
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.replace("/b", 789);
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```
 
 
@@ -1586,9 +1694,9 @@ JSON Patch copy operation: Copies a value from one location to another within th
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.groupSession.copy("/a", "/b");
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.copy("/a", "/b");
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```
 
 
@@ -1619,9 +1727,9 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.groupSession.move("/a", "/b");
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.move("/a", "/b");
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```
 
 
@@ -1738,9 +1846,9 @@ A convenience function for `jatos.groupSession.add`. Instead of a JSON Pointer p
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.groupSession.set("b", "koala");
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.set("b", "koala");
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```
 
 
@@ -1781,9 +1889,9 @@ Replaces the whole session data. If the replacing object is rather large it migh
 
    ```javascript
    var o = {"a": 123, "b": "foo"};
-   var deferred = jatos.groupSession.setAll(o);
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.setAll(o);
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```
 
 
@@ -1808,7 +1916,7 @@ Clears the whole Group Session data and sets it to an empty object `{}`.
 1. Catch failures with jQuery's defered
 
    ```javascript
-   var deferred = jatos.groupSession.clear();
-   deferred.done(() => { alert("Group Session was successfully updated") });
-   deferred.fail(() => { alert("Group Session synchronization failed") });
+   var promise = jatos.groupSession.clear();
+   promise.done(() => { alert("Group Session was successfully updated") });
+   promise.fail(() => { alert("Group Session synchronization failed") });
    ```

@@ -897,6 +897,25 @@ $('#toc').on('click', 'a', function() {
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">setHeartbeatPeriod</span><span class="p">(</span><span class="mi">60000</span><span class="p">);</span> <span class="c1">// Sets to a heartbeat every minute</span>
 </code></pre></div></div>
 
+<h3 id="jatossetstudysessiondata"><code class="highlighter-rouge">jatos.setStudySessionData</code></h3>
+
+<p><strong>If you just want to write into the study session, this function is not what you want</strong>. This function sets the study session data and <strong>sends it back to the JATOS server</strong>. If you want to write something into the study session, just write into the <a href="jatos.js-Reference.html#studys-session-data"><code class="highlighter-rouge">jatos.studySessionData</code></a> variable.</p>
+
+<p>Posts Study Session data to the JATOS server. This function is called automatically in the end of a component’s life cycle (it’s called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, <strong>it’s not necessary to call this function manually</strong>. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the transfer.</p>
+
+<ul>
+  <li><em>@param {object} sessionData</em> - object to be submitted</li>
+  <li><em>@param {optional function} onSuccess</em> - Function to be called after this function is finished</li>
+  <li><em>@param {optional function} onFail</em> - Function to be called after if this this functions fails</li>
+  <li><em>@return {jQuery.deferred.promise}</em></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">studySessionData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">setStudySessionData</span><span class="p">(</span><span class="nx">studySessionData</span><span class="p">);</span>
+</code></pre></div></div>
+
 <h2 id="functions-to-control-study-flow">Functions to control study flow</h2>
 
 <h3 id="jatosstartcomponent"><code class="highlighter-rouge">jatos.startComponent</code></h3>
@@ -1355,7 +1374,7 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ol>
 
-<h2 id="functions-for-study-session-and-result-data">functions for Study Session and result data</h2>
+<h2 id="result-data-and-result-upload-files-and-download">Result data and result upload files (and download)</h2>
 
 <h3 id="jatossubmitresultdata"><code class="highlighter-rouge">jatos.submitResultData</code></h3>
 
@@ -1452,24 +1471,125 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ol>
 
-<h3 id="jatossetstudysessiondata"><code class="highlighter-rouge">jatos.setStudySessionData</code></h3>
+<h3 id="jatosuploadresultfile"><code class="highlighter-rouge">jatos.uploadResultFile</code></h3>
 
-<p><strong>If you just want to write into the study session, this function is not what you want</strong>. This function sets the study session data and <strong>sends it back to the JATOS server</strong>. If you want to write something into the study session, just write into the <a href="jatos.js-Reference.html#studys-session-data"><code class="highlighter-rouge">jatos.studySessionData</code></a> variable.</p>
-
-<p>Posts Study Session data to the JATOS server. This function is called automatically in the end of a component’s life cycle (it’s called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, <strong>it’s not necessary to call this function manually</strong>. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the transfer.</p>
+<p><strong>Since JATOS version &gt;= 3.5.1</strong> - Uploads a file to the JATOS server where they are stored in the server’s file system (but not in the database). Similar to result data it can be downloaded in the JATOS UI, in the result pages. The files are stored per component - that means you can use the same filename without overwriting the file if the upload happens from different components. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the transfer.</p>
 
 <ul>
-  <li><em>@param {object} sessionData</em> - object to be submitted</li>
-  <li><em>@param {optional function} onSuccess</em> - Function to be called after this function is finished</li>
-  <li><em>@param {optional function} onFail</em> - Function to be called after if this this functions fails</li>
+  <li><em>@param {Blob, string or object} obj</em> - Data to be uploaded as a file. Can be <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a>, a string, or a object. A Blob	will be uploaded right away. A string is turned into a Blob. An object is	first turned into a JSON string	and	then into a Blob.</li>
+  <li><em>@param {string} filename</em> - Name of the uploaded file</li>
+  <li><em>@param {optional function} onSuccess</em> - Function to be called in case of success</li>
+  <li><em>@param {optional function} onError</em> - Function to be called in case of error</li>
   <li><em>@return {jQuery.deferred.promise}</em></li>
 </ul>
 
-<p><strong>Example</strong></p>
+<p><strong>Examples</strong></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">studySessionData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">setStudySessionData</span><span class="p">(</span><span class="nx">studySessionData</span><span class="p">);</span>
-</code></pre></div></div>
+<ol>
+  <li>
+    <p>Upload text</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">uploadResultFile</span><span class="p">(</span><span class="s2">"this is my data"</span><span class="p">,</span> <span class="s2">"example.txt"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File was successfully uploaded"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File upload failed"</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Upload object as JSON</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">100</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">uploadResultFile</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="s2">"example.json"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File was successfully uploaded"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File upload failed"</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Upload text as Blob</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">blob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="s2">"Hello, world!"</span><span class="p">],</span> <span class="p">{</span><span class="na">type</span><span class="p">:</span> <span class="s1">'text/plain'</span><span class="p">});</span>
+<span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">uploadResultFile</span><span class="p">(</span><span class="nx">blob</span><span class="p">,</span> <span class="s2">"example.txt"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File was successfully uploaded"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File upload failed"</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Turn canvas into Blob and upload as image file. It assumes you have an canvas element with ID ‘canvas’.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'canvas'</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">((</span><span class="nx">blob</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">uploadResultFile</span><span class="p">(</span><span class="nx">blob</span><span class="p">,</span> <span class="s2">"canvas.png"</span><span class="p">);</span>
+  <span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File was successfully uploaded"</span><span class="p">)</span> <span class="p">});</span>
+  <span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File upload failed"</span><span class="p">)</span> <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>For more real-world examples have a look at the <a href="Example-Studies.html">‘Drawing’ and the ‘Video Recording’ examples</a></p>
+  </li>
+</ol>
+
+<h3 id="jatosdownloadresultfile"><code class="highlighter-rouge">jatos.downloadResultFile</code></h3>
+
+<p><strong>Since JATOS version &gt;= 3.5.1</strong> - Downloads a file from the JATOS server. One can only download a file that was previously uploaded with <code class="highlighter-rouge">jatos.uploadResultFile</code> in the same study run. If the file contains text it returns the content as a string. If the file contains JSON, it returns the JSON already parsed as an object. All other <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME types</a> are returned as a Blob. It offers callbacks, either as parameter or via <a href="https://api.jquery.com/deferred.promise/">jQuery.deferred.promise</a>, to signal success or failure in the transfer.</p>
+
+<ul>
+  <li><em>@param {string} filename</em> - Name of the uploaded file</li>
+  <li><em>@param {optional function} onSuccess</em> - Function to be called in case of success</li>
+  <li><em>@param {optional function} onError</em> - Function to be called in case of error</li>
+  <li><em>@return {jQuery.deferred.promise}</em></li>
+</ul>
+
+<p>Additionally you can specify the component position from where the file was uploaded (in case different components uploaded files with the same filename)</p>
+
+<ul>
+  <li><em>@param {number} componentPos</em> - Position of the component where the file was uploaded</li>
+  <li><em>@param {string} filename</em> - Name of the uploaded file</li>
+  <li><em>@param {optional function} onSuccess</em> - Function to be called in case of success</li>
+  <li><em>@param {optional function} onError</em> - Function to be called in case of error</li>
+  <li><em>@return {jQuery.deferred.promise}</em></li>
+</ul>
+
+<p><strong>Examples</strong></p>
+
+<ol>
+  <li>
+    <p>Download text file</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">downloadResultFile</span><span class="p">(</span><span class="s2">"example.txt"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File download failed"</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Download JSON file</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">downloadResultFile</span><span class="p">(</span><span class="s2">"example.json"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">((</span><span class="nx">obj</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">obj</span><span class="p">))</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File download failed"</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Download image and display it in a canvas element</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">downloadResultFile</span><span class="p">(</span><span class="s2">"canvas.png"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">((</span><span class="nx">blob</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"canvas"</span><span class="p">).</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File download failed"</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Download file and specify that the file was uploaded in the first component</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">downloadResultFile</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"example.txt"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"File download failed"</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>For more real-world examples have a look at the <a href="Example-Studies.html">‘Drawing’ and the ‘Video Recording’ examples</a></p>
+  </li>
+</ol>
 
 <h2 id="functions-to-access-the-batch-session">Functions to access the Batch Session</h2>
 
@@ -1512,25 +1632,25 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Example with an array: Put the object <code class="highlighter-rouge">{id: 123, name: "Max"}</code> after the second position of the array with the path <code class="highlighter-rouge">/subjects</code></p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/2"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Max"</span><span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/2"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Max"</span><span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Append to the end of an array use <code class="highlighter-rouge">/-</code> after the arrays name:</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/-"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">124</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Adam"</span><span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/-"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">124</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Adam"</span><span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1564,9 +1684,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1601,9 +1721,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1638,9 +1758,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1675,9 +1795,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1816,9 +1936,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1863,9 +1983,9 @@ $('#toc').on('click', 'a', function() {
     <p>Catch failures with jQuery’s defered</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
-<span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+<span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1894,9 +2014,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2082,9 +2202,9 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>Example</strong></p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">reassignGroup</span><span class="p">();</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Successful group reassignment: new group ID is "</span> <span class="o">+</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupResultId</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group reassignment failed"</span><span class="p">)</span> <span class="p">});</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">reassignGroup</span><span class="p">();</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Successful group reassignment: new group ID is "</span> <span class="o">+</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupResultId</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group reassignment failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div></div>
 
 <h3 id="jatossetgroupfixed"><code class="highlighter-rouge">jatos.setGroupFixed</code></h3>
@@ -2204,25 +2324,25 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Example with an array: Put the object <code class="highlighter-rouge">{id: 123, name: "Max"}</code> after the second position of the array with the path <code class="highlighter-rouge">/subjects</code>:</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/2"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Max"</span><span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/2"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Max"</span><span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Example of how to append to the end of an array: use <code class="highlighter-rouge">/-</code> after the arrays name:</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/-"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">124</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Adam"</span><span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"/subjects/-"</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">124</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Adam"</span><span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Batch Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2256,9 +2376,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2293,9 +2413,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"/b"</span><span class="p">,</span> <span class="mi">789</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2330,9 +2450,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2367,9 +2487,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="s2">"/a"</span><span class="p">,</span> <span class="s2">"/b"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2494,9 +2614,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"koala"</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2541,9 +2661,9 @@ $('#toc').on('click', 'a', function() {
     <p>Catch failures with jQuery’s defered</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">};</span>
-<span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+<span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">setAll</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2572,9 +2692,9 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>Catch failures with jQuery’s defered</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSession</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session was successfully updated"</span><span class="p">)</span> <span class="p">});</span>
+<span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"Group Session synchronization failed"</span><span class="p">)</span> <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>

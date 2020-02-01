@@ -65,7 +65,7 @@ The second red box contains a link that will (re)direct the participant to a Pro
 
    In JATOS GUI you can put the in Prolific link in the **End Redirect URL** field of your Study Properties
 
-   ![Prolific screenshot](images/Screenshot_end-redirect-url.png)
+   ![screenshot](images/Screenshot_end-redirect-url.png)
 
 1. Include [`jatos.endStudyAndRedirect`](jatos.js-Reference.html#jatosendstudyandredirect) in the JavaScript of your **last** component (**since JATOS v3.5.1**)
 
