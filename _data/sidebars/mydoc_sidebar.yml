@@ -83,6 +83,10 @@ entries:
         url: /OSWeb-and-JATOS.html
         output: web, pdf
 
+      - title: Result data and result uploads
+        url: /Result-data-and-result-uploads.html
+        output: web, pdf
+
       - title: Session Data - Three Types
         url: /Session-Data-Three-Types.html
         output: web, pdf
@@ -113,6 +117,10 @@ entries:
 
       - title: Manage Results
         url: /Manage-Results.html
+        output: web, pdf
+
+      - title: End page - what's after your study finished
+        url: End-page-whats-after-your-study-finished.html
         output: web, pdf
 
       - title: Study Log

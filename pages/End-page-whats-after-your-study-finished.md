@@ -34,7 +34,3 @@ But maybe you want to redirect to a different page, e.g. a Prolific's end page o
 ### 3. jatos.endStudyAndRedirect (since JATOS v3.5.1) or jatos.endStudyAjax (all JATOS versions)
 
 Maybe the page to be redirected is determined only during the study run. Here you can use one of the two _jatos.js_ functions [`jatos.endStudyAndRedirect`](jatos.js-Reference.html#jatosendstudyandredirect) or [`jatos.endStudyAjax`](jatos.js-Reference.html#jatosendstudyajax) in the JavaScript of your study's **last component**. This is the most versatile way.
-
-
-
-
