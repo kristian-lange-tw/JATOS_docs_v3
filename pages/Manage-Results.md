@@ -131,4 +131,4 @@ Possible states for component results are:
 * ABORTED - Component aborted by worker
 * FAIL - Something went wrong
 
-**Messages** - A message that can be set together with [jatos.endStudy](jatos.js-Reference.html#jatosendstudysuccessful-message) or [jatos.abortStudy](jatos.js-Reference.html#jatosabortstudymessage).
+**Messages** - A message that can be set together with [jatos.endStudy](jatos.js-Reference.html#jatosendstudy) or [jatos.abortStudy](jatos.js-Reference.html#jatosabortstudy).
