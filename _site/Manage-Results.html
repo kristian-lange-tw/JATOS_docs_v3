@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The results pages (study, component, batch or worker) present all the data that were collected during the study runs, including the result data and metadata ...">
-<meta name="keywords" content=" results, result data, metadata">
+<meta name="keywords" content=" results, result data, data, files, result files, uploads, download, export, metadata">
 <title>Manage Results | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
@@ -615,9 +615,9 @@ $('#toc').on('click', 'a', function() {
 
 <p><img src="images/ResultsLink.png" alt="Results Link" /></p>
 
-<p>The image below is an example of a study results page. There’s quite a lot of information here, so we’ll go through each piece.</p>
+<p>The image below is an example of a study results page, but there are result pages for components, batches or groups as well. There’s quite a lot of information here, so we’ll go through each piece.</p>
 
-<p><img src="images/ResultsView Screenshot2.png" alt="Results View screenshot" /></p>
+<p><img src="images/ResultsView-Screenshot1.png" alt="Results View screenshot" /></p>
 
 <h2 id="interacting-with-the-results-table">Interacting With The Results Table</h2>
 
@@ -625,7 +625,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Each study result has an arrow on the left. If you click on it, the result data for this study run will be displayed underneath the row. Since a study can have several components and each component produces its own result data there can be several result data each in its own row (like in the screenshot below).</p>
 
-<p><img src="images/ResultsView Screenshot3.png" alt="Results View screenshot" /></p>
+<p><img src="images/ResultsView-Screenshot3.png" alt="Results View screenshot" /></p>
 
 <h3 id="selecting-results">Selecting Results</h3>
 
@@ -635,59 +635,75 @@ $('#toc').on('click', 'a', function() {
 
 <p>You can also use the buttons on the bar above to select/deselect all results in the table or select only all filtered ones.</p>
 
+<p><img src="images/ResultsView-Screenshot2.png" alt="Results View screenshot" /></p>
+
 <h3 id="filter-results">Filter Results</h3>
 
 <p>The filter lets you search all all fields in the results table (the metadata) and from JATOS version 3.3.1 on also in the result data themselves.</p>
 
+<p><img src="images/ResultsView-Screenshot4.png" alt="Results View screenshot" /></p>
+
 <p>If you type, for example, “Personal Single” in the <em>Filter Results</em> field, only the results ran by a Personal Single worker will appear on the table. You can then click on <em>Select Filtered</em> to select and then export only those results that you’re interested in.</p>
+
+<p>For more eloborate filtering you can use Regular Expressions. Click on <em>RegEx</em> to active this.</p>
+
+<p>By default filtering in case insensitive but you can turn on case sensitive filtering by clicking on <em>Aa</em>.</p>
+
+<h2 id="export">Export</h2>
 
 <h3 id="export-result-data">Export Result Data</h3>
 
-<p>Once you selected the results you’re interested in, click <em>Export Results</em> and your browser will download a text file that contains your results in whatever format (text, csv, json) you stored them. Then read this text file with SPSS, Excel, Matlab, R or whatever program you use to analyze results.</p>
+<p>Once you selected the results you’re interested in, click <em>Export Results</em> and <em>Selected</em> and you will download a text file that contains your results. Each line in this text file represents result data from one component. Alternatively you can also select <em>All</em> to get all result data.</p>
+
+<p><img src="images/ResultsView-Screenshot6.png" alt="Results View screenshot" /></p>
+
+<h3 id="export-result-files-jatos-version--351">Export Result Files (JATOS version &gt;= 3.5.1)</h3>
+
+<p>Here you can download the result files that were uploaded during study runs. You can download single files by just clicking on them. Or similar to exporting result data select the lines you are interested in and download them with <em>Export Files</em> and <em>Selected</em>. Alternatively you can also select <em>All</em> to get all files.</p>
+
+<p><img src="images/ResultsView-Screenshot5.png" alt="Results View screenshot" /></p>
 
 <h3 id="export-metadata-jatos-version--331">Export Metadata (JATOS version &gt;= 3.3.1)</h3>
 
 <p>Sometimes one is also interested in the metadata, that is what’s in the actual table fields (“Result ID”, “Start Time” , “Last Seen”, …). For this click on <em>Export Metadata</em> and the metadata of the selected results will be downloaded in CSV format.</p>
 
-<h3 id="delete-results">Delete Results</h3>
+<p><img src="images/ResultsView-Screenshot7.png" alt="Results View screenshot" /></p>
 
-<p>You can click <em>Delete</em> to remove all or only some selected results (result data + metadata). Keep in mind <strong>there’s no undo function for this</strong>.</p>
+<h2 id="delete-results">Delete Results</h2>
+
+<p>You can click <em>Delete</em> to remove all or only some selected results (result data + result files + metadata). Keep in mind <strong>there’s no undo function for this</strong>.</p>
+
+<p><img src="images/ResultsView-Screenshot8.png" alt="Results View screenshot" /></p>
 
 <h2 id="table-columns">Table Columns</h2>
 
 <p>You can show and hide the columns displayed in the table with the drop-down menu under the <em>Display Columns</em> button.</p>
 
-<h3 id="result-id">Result ID</h3>
-<p>An identifier assigned by JATOS to each study result. A study result is actually a set of component results, each of them with their own (different) <em>Component Result ID</em>.</p>
+<p><img src="images/ResultsView-Screenshot9.png" alt="Results View screenshot" /></p>
 
-<h3 id="start-time">Start Time</h3>
-<p>Time (set at the server’s time zone) at which the first component of the study was started.</p>
+<p><strong>Result ID</strong> - An identifier assigned by JATOS to each study result. A study result is actually a set of component results, each of them with their own (different) <em>Component Result ID</em>.</p>
 
-<h3 id="end-time">End Time</h3>
-<p>Time (set at the server’s time zone) at which the last component of the study was finished.</p>
+<p><strong>Start Time</strong> - Time (set at the server’s time zone) at which the first component of the study was started.</p>
 
-<h3 id="last-seen">Last Seen</h3>
-<p>Each component running in a worker’s browser sends a “heartbeat” regularly back to JATOS. Last Seen is the time of the last heartbeat received. The heartbeat stops either when the study is finished or when the browser tab is closed. The default period of the heartbeat is 2 minutes but you can change it through a <a href="jatos.js-Reference.html#jatossetheartbeatperiodheartbeatperiod">jatos.js function</a>.</p>
+<p><strong>End Time</strong> - Time (set at the server’s time zone) at which the last component of the study was finished.</p>
 
-<h3 id="duration">Duration</h3>
-<p>Simply the time difference between the start and end time.</p>
+<p><strong>Last Seen</strong> - Each component running in a worker’s browser sends a “heartbeat” regularly back to JATOS. Last Seen is the time of the last heartbeat received. The heartbeat stops either when the study is finished or when the browser tab is closed. The default period of the heartbeat is 2 minutes but you can change it through a <a href="jatos.js-Reference.html#jatossetheartbeatperiodheartbeatperiod">jatos.js function</a>.</p>
 
-<h3 id="batch">Batch</h3>
-<p>Name of the batch the worker belongs to.</p>
+<p><strong>Duration</strong> - Simply the time difference between the start and end time.</p>
 
-<h3 id="worker-id">Worker ID</h3>
-<p>Assigned by JATOS. Each worker has its own Worker ID. JATOS’ admin user will always have Worker ID 1. You can click on a Worker ID to see all the worker’s results.</p>
+<p><strong>Batch</strong> - Name of the batch the worker belongs to.</p>
 
-<h3 id="worker-type">Worker Type</h3>
-<p>Displays the <a href="Worker-Types.html">Worker type</a> that ran the study.</p>
+<p><strong>Worker ID</strong> - Assigned by JATOS. Each worker has its own Worker ID. JATOS’ admin user will always have Worker ID 1. You can click on a Worker ID to see all the worker’s results.</p>
 
-<h3 id="mturk-worker-id-confirmation-code">MTurk Worker ID (Confirmation Code)</h3>
-<p>Only applies to studies run by MTurk workers. An identifier given by Amazon Mechanical Turk’s, not by JATOS. The Confirmation Code is generated by JATOS and given to the worker as proof of his work.</p>
+<p><strong>Worker Type</strong> - Displays the <a href="Worker-Types.html">Worker type</a> that ran the study.</p>
 
-<h3 id="group-id">Group ID</h3>
-<p>Only available for group studies. It identifies the group.</p>
+<p><strong>MTurk Worker ID (Confirmation Code)</strong> - Only applies to studies run by MTurk workers. An identifier given by Amazon Mechanical Turk’s, not by JATOS. The Confirmation Code is generated by JATOS and given to the worker as proof of his work.</p>
 
-<h3 id="state">State</h3>
+<p><strong>Group ID</strong> - Only available for group studies. It identifies the group.</p>
+
+<p><strong>Files</strong> - Indicates result file upload</p>
+
+<p><strong>State</strong></p>
 
 <p>Possible states for study results are:</p>
 
@@ -712,8 +728,7 @@ $('#toc').on('click', 'a', function() {
   <li>FAIL - Something went wrong</li>
 </ul>
 
-<h3 id="messages">Messages</h3>
-<p>A message that can be set together with <a href="jatos.js-Reference.html#jatosendstudysuccessful-message">jatos.endStudy</a> or <a href="jatos.js-Reference.html#jatosabortstudymessage">jatos.abortStudy</a>.</p>
+<p><strong>Messages</strong> - A message that can be set together with <a href="jatos.js-Reference.html#jatosendstudysuccessful-message">jatos.endStudy</a> or <a href="jatos.js-Reference.html#jatosabortstudymessage">jatos.abortStudy</a>.</p>
 
 
     <div class="tags">
@@ -730,7 +745,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 28 July 2018
+<span>Page last updated:</span> 3 Feb 2020
                 </div>
             </div>
 </footer>

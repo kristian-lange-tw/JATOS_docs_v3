@@ -248,7 +248,7 @@
 {
 "title": "Manage Results",
 "tags": "",
-"keywords": "results, result data, metadata",
+"keywords": "results, result data, data, files, result files, uploads, download, export, metadata",
 "url": "Manage-Results.html",
 "summary": "The results pages (study, component, batch or worker) present all the data that were collected during the study runs, including the result data and metadata (e.g. worker ID, start time etc.)."
 }
