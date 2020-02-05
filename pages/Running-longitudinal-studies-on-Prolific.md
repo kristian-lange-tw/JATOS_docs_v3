@@ -21,3 +21,7 @@ There are two things you need to care from in your JavaScript:
 You can configure their names here
 
 ![Prolific Screenshot](images/Screenshot_useExtendedURL_prolific.png)   
+
+If you select these options in Prolific, you'll be able to collect the Prolific ID from your JavaScript by using the *jatos.js* object `ID = jatos.urlQueryParameters.PROLIFIC_PID;` 
+
+(If you've cheanged the name of the `PROLIFIC_ID` quesry parameter in Prolific, you'll have to change it accordingly on your JS. 
