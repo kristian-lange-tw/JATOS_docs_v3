@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Write-longitudinal-studies.html
 folder:
 toc: false
-last_updated: 27 Jan 2020
+last_updated: 5 Feb 2020
 ---
 
 
@@ -35,7 +35,7 @@ Once you have an ID, you should assign to it the information relevant for the fo
 
 ``` 
 performanceInfo = {"percentageCorrect" : nCorrect/nTrials
-                    "nTrials" : ntrials}
+                    "nTrials" : nTrials}
 jatos.batchSession.add("/subjects/" + ID, performanceInfo); 
 ```
 
