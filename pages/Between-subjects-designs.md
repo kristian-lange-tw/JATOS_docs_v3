@@ -1,4 +1,3 @@
-
 ---
 title: Randomize condition assignment between-participants
 keywords: between-subjects, batch session
