@@ -61,7 +61,7 @@ Which will append the information from `ID` and `percentageCorrect` to the alrea
 ```
 
 
-**Note that the information stored in the Batch Session is visible to the client side, so it should contain only the strictly necessary, pseudonymized data.** In other words, store only summary data like the condition assigned (read [more]() on randomizing conditions between participants) number of trials completed or correct, etc. But nothing else.
+**Note that the information stored in the Batch Session is visible to the client side, so it should contain only the strictly necessary, pseudonymized data.** In other words, store only summary data like the condition assigned (read [more](Between-subjects-designs.html) on randomizing conditions between participants) number of trials completed or correct, etc. But nothing else.
 
 
 ## Recover the corresponding bit of the result data from the Batch Session
