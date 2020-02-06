@@ -21,7 +21,7 @@ If you include a file named '_endPage.html_' in your study assets folder along w
 
 **Hint 1:** Be aware that in the '_endPage.html_' you cannot load or use any other files from the study assets folder. Because the study is already finished, JATOS won't allow you to access any other file from this folder, or from any of the JATOS sessions (study, batch and group) out of security reasons. Of course this doesn't prevent you from loading images or libraries (or any other resource) directly from the internet.
 
-**Hint 2:** If you run the study with an **MT Worker** (Worker for MTurk) then you probably want to show the confirmation code to your worker. This is passed on to the _endPage.html_ in a cookie with the name *JATOS_CONFIRMATION_CODE*.
+**Hint 2:** If you run the study with an **MTurk Worker** then you probably want to show the confirmation code to your worker. This is passed on to the _endPage.html_ in a cookie with the name *JATOS_CONFIRMATION_CODE*.
 
 **Hint 3:** If you run your study with the **JATOS GUI** it won't show you the _endPage.html_ but redirect you back to JATOS' GUI instead.
 
@@ -32,7 +32,7 @@ Maybe you want to redirect to a different page, e.g. a Prolific's end page or yo
 
 ![screenshot](images/Screenshot_end-redirect-url.png)
 
-**Hint:** If you run the study with an **MT Worker** (Worker for MTurk) then you probably want to show the confirmation code to your worker. This is passed on as an URL query parameter *confirmationCode*.
+**Hint:** If you run the study with an **MTurk Worker** then you probably want to show the confirmation code to your worker. This is passed on as an URL query parameter *confirmationCode*.
 
 
 ### 4. `jatos.endStudyAndRedirect` (since JATOS v3.5.1) or `jatos.endStudyAjax` (all JATOS versions)
