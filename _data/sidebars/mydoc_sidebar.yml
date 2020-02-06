@@ -84,7 +84,7 @@ entries:
         output: web, pdf
 
       - title: Result data and result uploads
-        url: /Result-data-and-result-uploads.html
+        url: /Submit-and-upload-data-to-the-server.html
         output: web, pdf
 
       - title: Session Data - Three Types
