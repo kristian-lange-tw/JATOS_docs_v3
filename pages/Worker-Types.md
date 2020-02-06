@@ -13,7 +13,7 @@ last_updated: 08 Sep 2018
 ### Overview
 Following Amazon Mechanical Turk’s terminology, a worker in JATOS is a person who runs a study. Different worker types access a study in different ways. For example, some workers can run the same study multiple times, whereas others can do it only once.
 
-| | Jatos             | Personal Single   | Personal Multiple | General Single    | General Multiple (since v3.3.2)  | MTurk            |
+| | Jatos             | Personal Single   | Personal Multiple | General Single    | General Multiple (since v3.3.2)  | MTurk (Sandbox)            |
 |-|-------------------|-------------------|-------------------|-------------------|-------------------|------------------|
 | **Icon** | <span class="glyphicon glyphicon-wrench glyphicon-jatos"></span> | <span class="glyphicon glyphicon-leaf glyphicon-personal-single"></span> | <span class="glyphicon glyphicon-tree-deciduous glyphicon-personal-multiple"></span> | <span class="glyphicon glyphicon-glass glyphicon-general-single"></span> | <span class="glyphicon glyphicon-asterisk glyphicon-general-multiple"></span> | <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> |
 | **Typical use** | During study development | Small targeted group, each one of them gets a link | Small targeted group of workers who pilot the study or need to do it multiple times | Bigger groups but with less control; link shared e.g. via social media | Bigger groups and where the workers need to do it multiple times | For Amazon Mechanical Turk |
