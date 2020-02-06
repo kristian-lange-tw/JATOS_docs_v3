@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Worker-Types.html
 folder:
 toc: true
-last_updated: 08 Sep 2018
+last_updated: 6 Feb 2020
 ---
 
 ### Overview
@@ -65,9 +65,9 @@ Keep in mind, however, that JATOS uses the browser's cookies to decide whether a
 A General Multiple link is the least restrictive type and can be used **many times by different participants to run a study**. The difference to a General Single is that the General Multiple link can be used repeatedly **even in the same browser**. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.
 
 
-### <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk Worker
+### <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk (Sandbox) Worker
 
-MTurk workers access a study **only once**, through a link in Amazon's Mechanical Turk (AMT). Each MTurk worker in JATOS corresponds to a single worker in AMT. 
+MTurk and MTurk Sandbox workers access a JATOS study through a link in Amazon's Mechanical Turk (AMT). To prevent an MTurk worker to run the same study twice they can click the link to start the study **only once**. On the other side, since an MTurk Sandbox workers is for trying things out, they can click on the link and start the study **many times**. Each MTurk or MTurk Sandbox worker in JATOS corresponds to a single worker in AMT. 
 
 **DATA PRIVACY NOTE:** If the same worker from AMT does two of your studies, the two results will be paired with the same MTurk worker in JATOS. This means that you could gather data from different studies, without your workers ever consenting to it. For this reason, we recommend that you delete your data from JATOS as soon as you finish a study. This way, if the same worker from AMT takes part in a different study, they will get a new MTurk worker, and you will not be able to automatically link their data between different studies. See our [Data Privacy and Ethics](Data-Privacy-and-Ethics) page for more details on this.
 
