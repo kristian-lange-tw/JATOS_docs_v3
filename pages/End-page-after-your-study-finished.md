@@ -4,7 +4,7 @@ keywords: endPage, redirect, end, finish, endStudyAndRedirect
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: End-page-whats-after-your-study-finished.html
+permalink: End-page-after-your-study-finished.html
 folder:
 toc: true
 last_updated: 5 Feb 2020
