@@ -4,7 +4,7 @@ keywords: results, result data, data, upload, download, result uploads, result f
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: Result-data-and-result-uploads.html
+permalink: Submit-and-upload-data-to-the-server.html
 folder:
 toc: true
 last_updated: 5 Feb 2020
