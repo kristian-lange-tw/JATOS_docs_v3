@@ -12,7 +12,7 @@ last_updated: 5 Feb 2020
 
 ### 1. Default
 
-By default JATOS just shows the text "**This study is finished. Thank you for your participation.**" in English language, with no special formatting, after a study finshed. Maybe you want a different language or add a logo and different text then read on.
+By default JATOS just shows the text "**This study is finished. Thank you for your participation.**" in English language, with no special formatting, after a study finshed. Maybe you want a different language or add a logo and different text or styling, then read on.
 
 
 ### 2. endPage.html (since JATOS v3.5.1)
@@ -31,6 +31,8 @@ If you include a file named '_endPage.html_' in your study assets folder along w
 Maybe you want to redirect to a different page, e.g. a Prolific's end page or your department's webpage. This you can do by putting the URL of that page into the study properties in JATOS' GUI. 
 
 ![screenshot](images/Screenshot_end-redirect-url.png)
+
+**Hint:** If you run the study with an **MT Worker** (Worker for MTurk) then you probably want to show the confirmation code to your worker. This is passed on as an URL query parameter *confirmationCode*.
 
 
 ### 4. `jatos.endStudyAndRedirect` (since JATOS v3.5.1) or `jatos.endStudyAjax` (all JATOS versions)
