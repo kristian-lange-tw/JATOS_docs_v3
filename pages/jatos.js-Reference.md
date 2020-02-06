@@ -652,7 +652,7 @@ Since v3.4.1 there are two versions: with and without result data
 
 ### `jatos.endStudyAjax`
 
-Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
+Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. If the study was run by an MTurk worker the confirmation code will be in the response. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
 
 * _@param {optional boolean} successful_ - 'true' if study should finish successful - 'false' otherwise.
 * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
@@ -679,6 +679,14 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
    ```javascript
    jatos.endStudyAjax(false, "internal JS error");
    ```
+   
+1. End study and show the confirmation code to the MTurk worker
+
+   ```javascript
+   jatos.endStudyAjax().done((confirmationCode) => {
+     // Show the confirmation code to the worker
+   });
+   ```   
 
 1. Send result data, end study and jump to another URL afterwards (by using jQuery's [done](https://api.jquery.com/deferred.done/)
 
@@ -696,7 +704,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
    ```javascript
    var resultData = {id: 123, data: "my important result data"};
    jatos.endStudyAjax(resultData);
-   ```    
+   ```
 
 
 ## Result data and result upload files (and download)
