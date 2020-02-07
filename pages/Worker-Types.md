@@ -67,7 +67,7 @@ A General Multiple link is the least restrictive type and can be used **many tim
 
 ### <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk (Sandbox) Worker
 
-MTurk and MTurk Sandbox workers access a JATOS study through a link in Amazon's Mechanical Turk (AMT). To prevent an MTurk worker to run the same study twice they can click the link to start the study **only once**. On the other side, since an MTurk Sandbox workers is for trying things out, they can click on the link and start the study **many times**. Each MTurk or MTurk Sandbox worker in JATOS corresponds to a single worker in AMT. 
+MTurk and MTurk Sandbox workers access a JATOS study through a link in Amazon's Mechanical Turk (AMT). To prevent an MTurk worker to run the same study twice they can click the link to start the study **only once**. On the other side, since an MTurk Sandbox workers is for trying things out, they can click on the link and start the study **many times**.
 
 **DATA PRIVACY NOTE:** If the same worker from AMT does two of your studies, the two results will be paired with the same MTurk worker in JATOS. This means that you could gather data from different studies, without your workers ever consenting to it. For this reason, we recommend that you delete your data from JATOS as soon as you finish a study. This way, if the same worker from AMT takes part in a different study, they will get a new MTurk worker, and you will not be able to automatically link their data between different studies. See our [Data Privacy and Ethics](Data-Privacy-and-Ethics) page for more details on this.
 
