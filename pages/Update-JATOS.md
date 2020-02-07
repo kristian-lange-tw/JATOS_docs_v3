@@ -25,7 +25,7 @@ The process is pretty self-explanatory, but anyway, we'll explain it here in det
 
    ![Update notification Schreenshot](images/autoupdate-notification.png)
 
-1. We expect no problems, but sh&t happens. We recommend that you **back up your result data and study assets folder** before continuing.
+1. We expect no problems, but sh&t happens. We recommend that you **back up your result data, result files, study assets folder and study logs** before continuing.
 1. Click on _Update_, confirm that you want to continue and the latest JATOS version will be downloaded from GitHub and saved in your system's temporary folder. Usually the variant downloaded will be the one without bundled Java. Only in cases where JATOS switches to a newer version of Java a bundled version is required [(see below)](#Versions-with-newer-Java-required). The download might take a while depending on your internet connection.
 1. After dównload is complete, you will be asked again for confirmation. By default, JATOS will **back up**: it will copy the content of its own installation folder into a folder with the name _backup_x.x.x_ (x.x.x is the version before the update). This will usually include your H2 database, your study assets and logs - **but not your MySQL database** (should you have one). If anything goes wrong in the auto-update, you have everything in this backup folder to start the old JATOS again. This backup will use up disk space (therefore you can opt out).
 
