@@ -10,10 +10,6 @@ toc: true
 last_updated: 8 Feb 2020
 ---
 
-"Prevent repeated study runs": preview feature (from worker types), linear study flow, reload component, link to worker types (Eli)
-
-
-
 If you are piloting or trying out the code for a study yoi will most likely use a Jatos Worker or a Personal Multiple 
 or General Multiple Worker types. If you are actually collecting data, you most likely want to ensure that each participant 
 completes your study only once. At the same time, you may want to let them 'sneak peek' the study before they commit to running it. 
