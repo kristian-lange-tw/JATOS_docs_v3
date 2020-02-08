@@ -34,7 +34,7 @@ For Prolific, it's a bit more complicated. See [running longitudinal studies in 
 
 Once you have an ID, you should assign to it the information relevant for the following sessions in your longitudinal study. Say you need to store the number of correct responses for a given session. You could do it with the command:
 
-``` 
+```javascript
 var performanceInfo = {"percentageCorrect" : nCorrect/nTrials, "nTrials" : nTrials}
 jatos.batchSession.add("/subjects/" + ID, performanceInfo); 
 ```
