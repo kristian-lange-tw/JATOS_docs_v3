@@ -40,3 +40,5 @@ It's not allowed to reload this component (component ID). Study (study ID) is fi
 ### Linear study flow
 
 If you have a study with more than one component, you might want to *also* prevent participants from navigating backwards in their browser, and re-starting an earlier component. To do this, check the box 'Linear study flow' in the Study Properties. If a participant tries to navigate backwards, they will get this message: "A problem occurred: Study [study name] (Study ID) allows only linear study flow. But component (component ID) attempted to start component (previous component ID). The study is finished." And the Stutus of the study result is also set to FAIL. If you want to loop over components, un-check this box.    
+
+![Study Properties Screenshot](images/linearStudyFlow.png)
