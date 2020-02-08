@@ -24,7 +24,7 @@ Whenever a participant clicks on a study link, JATOS internally starts a study r
 The first thing you need to do is make sure that the same *person* is assigned a single, unique ID. Several options are possible:
 1. If your sample size is relatively small and you can afford it, you could send individualized [Personal Multiple links](Worker-Types.html#-personal-multiple-worker) to each participant. If a worker runs a study with this link, JATOS will assign them a unique number. You can access MTurk's worker ID in your JavaScript through `jatos.urlQueryParameters.workerId` from the _jatos.js_ library.
 2. If you are recruiting participants through a marketplace, like MTurk or Prolific, you can simply use the marketplace worker ID. 
-It's straightforward in MTurk: You can access the worker ID in your JavaScript through `jatos.MTurkWorkerID`.
+It's straightforward in MTurk: You can access the worker ID in your JavaScript through `jatos.urlQueryParameters.workerId`.
 For Prolific, it's a bit more complicated. See [running longitudinal studies in Prolific](Running-longitudinal-studies-on-Prolific.html) for detailed instructions.
 3. If neither of these are true, and you want a large sample of participants recruited outside of a marketplace (i.e. if you are using a [General Multiple link](Worker-Types.html#-general-multiple-worker), you could provide each new participant with a unique ID that they then have to store and provide (manually) in the following session. Note that, when a participant runs a study with a General Single JATOS stores cookies on their browser to prevent them from taking part twice in the same study. But these cookies are minimal and not intended to be used to identify participants or to link a browser to any given result data. 
 
