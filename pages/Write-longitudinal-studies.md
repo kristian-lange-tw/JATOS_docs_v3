@@ -19,6 +19,7 @@ You might want to collect data from the same participant multiple times and, cru
 Whenever a participant clicks on a study link, JATOS internally starts a study run. Once the data from the last component are sumitted, the study run is finished and the data are no longer avalable to the client side. So, to run a longitudinal study, you need store data in a way that outlives the particular study run and is avalable to future runs. The [Batch session data](Session-Data-Three-Types.html) does just this.  
 
 # Example
+
 ## Assign an ID to individual workers
 
 The first thing you need to do is make sure that the same *person* is assigned a single, unique ID. Several options are possible:
@@ -34,11 +35,9 @@ For Prolific, it's a bit more complicated. See [running longitudinal studies in 
 Once you have an ID, you should assign to it the information relevant for the following sessions in your longitudinal study. Say you need to store the number of correct responses for a given session. You could do it with the command:
 
 ``` 
-performanceInfo = {"percentageCorrect" : nCorrect/nTrials
-                    "nTrials" : nTrials}
+var performanceInfo = {"percentageCorrect" : nCorrect/nTrials, "nTrials" : nTrials}
 jatos.batchSession.add("/subjects/" + ID, performanceInfo); 
 ```
-
 
 Which will append the information from `ID` and `percentageCorrect` to the already existing Batch session data and give you something that looks (e.g.) like this in the Batch session: 
 
