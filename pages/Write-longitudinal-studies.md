@@ -22,7 +22,7 @@ Whenever a participant clicks on a study link, JATOS internally starts a study r
 ## Assign an ID to individual workers
 
 The first thing you need to do is make sure that the same *person* is assigned a single, unique ID. Several options are possible:
-1. If your sample size is relatively small and you can afford it, you could send individualized [Personal Multiple links](Worker-Types.html#-personal-multiple-worker) to each participant. If a worker runs a study with this link, JATOS will assign them a unique number. You can access the worker ID in your JavaScript through `jatos.workerID` from the `jatos.js` library.
+1. If your sample size is relatively small and you can afford it, you could send individualized [Personal Multiple links](Worker-Types.html#-personal-multiple-worker) to each participant. If a worker runs a study with this link, JATOS will assign them a unique number. You can access MTurk's worker ID in your JavaScript through `jatos.urlQueryParameters.workerId` from the _jatos.js_ library.
 2. If you are recruiting participants through a marketplace, like MTurk or Prolific, you can simply use the marketplace worker ID. 
 It's straightforward in MTurk: You can access the worker ID in your JavaScript through `jatos.MTurkWorkerID`.
 For Prolific, it's a bit more complicated. See [running longitudinal studies in Prolific](Running-longitudinal-studies-on-Prolific.html) for detailed instructions.
@@ -31,7 +31,7 @@ For Prolific, it's a bit more complicated. See [running longitudinal studies in 
 
 ## Store bits of result data that are necessary for future sessions
 
-Once you have an ID, you should assign to it the information relevant for the following sessions in your longitudinal study. Say you need to store the number of correct responses for a given session. You could include do it with the command:
+Once you have an ID, you should assign to it the information relevant for the following sessions in your longitudinal study. Say you need to store the number of correct responses for a given session. You could do it with the command:
 
 ``` 
 performanceInfo = {"percentageCorrect" : nCorrect/nTrials
@@ -70,6 +70,6 @@ You could do that with the following command:
 
 `subjsPreviousPerformance = jatos.batchSession.getAll().subjects[ID]`
 
-That's it. Once you have your worker's ID and the corresponding longitidunally-relevant data, you can use it as a starting point for your next session. 
+That's it. Once you have your worker's ID and the corresponding longitudinally-relevant data, you can use it as a starting point for your next session. 
 
 
