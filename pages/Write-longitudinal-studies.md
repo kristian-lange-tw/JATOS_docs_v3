@@ -41,7 +41,7 @@ jatos.batchSession.add("/subjects/" + ID, performanceInfo);
 
 Which will append the information from `ID` and `percentageCorrect` to the already existing Batch session data and give you something that looks (e.g.) like this in the Batch session: 
 
-```
+```javascript
 {
   "subjects": {
     "MyemLF": {
@@ -67,7 +67,9 @@ Which will append the information from `ID` and `percentageCorrect` to the alrea
 
 You could do that with the following command: 
 
-`subjsPreviousPerformance = jatos.batchSession.getAll().subjects[ID]`
+```javascript
+var subjsPreviousPerformance = jatos.batchSession.getAll().subjects[ID]`
+```
 
 That's it. Once you have your worker's ID and the corresponding longitudinally-relevant data, you can use it as a starting point for your next session. 
 
