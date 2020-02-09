@@ -55,7 +55,7 @@ If you want to enforce a linear study flow check the box. Then, if a participant
 
 ## Single-use worker links - prevent workers running the study twice
 
-Often you want to prevent a participant from running the same study twice. To achieve this use the _single-use_ workers:  _Personal Single worker_ and _General Single worker_, and the _MTurk worker_.
+Often you want to prevent a participant from running the same study twice. To achieve this use the _single-use_ workers:  _Personal Single worker_, _General Single worker_, and the _MTurk worker_.
 
 Remember that _General Single_ links can be used to run a study only once from each browser and each computer, in principle. But if a participant clears their browser cookies, changes browser or sits in front of another computer, they will be able to run the study again.
 
