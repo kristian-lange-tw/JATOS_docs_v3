@@ -32,6 +32,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/Randomize-condition-assignment-between-participants.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/Bring-your-JATOS-online.html</loc>
   </url>
   
@@ -80,7 +86,7 @@
   
   
   <url>
-    <loc>http://localhost:4000/End-page-whats-after-your-study-finished.html</loc>
+    <loc>http://localhost:4000/End-page-after-your-study-finished.html</loc>
   </url>
   
   
@@ -194,12 +200,6 @@
   
   
   <url>
-    <loc>http://localhost:4000/Result-data-and-result-uploads.html</loc>
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:4000/Run-an-experiment-with-JATOS-Workflow.html</loc>
   </url>
   
@@ -225,6 +225,18 @@
   
   <url>
     <loc>http://localhost:4000/Study-Log.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/Study-flow-and-its-problems.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/Submit-and-upload-data-to-the-server.html</loc>
   </url>
   
   

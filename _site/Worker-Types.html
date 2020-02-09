@@ -295,7 +295,7 @@
           
           
           
-          <li><a href="Result-data-and-result-uploads.html">Result data and result uploads</a></li>
+          <li><a href="Submit-and-upload-data-to-the-server.html">Result data and result uploads</a></li>
           
           
           
@@ -360,7 +360,7 @@
           
           
           
-          <li><a href="End-page-whats-after-your-study-finished.html">End page - what's after your study finished</a></li>
+          <li><a href="End-page-after-your-study-finished.html">End page - what's after your study finished</a></li>
           
           
           
@@ -621,7 +621,7 @@ $('#toc').on('click', 'a', function() {
       <th>Personal Multiple</th>
       <th>General Single</th>
       <th>General Multiple (since v3.3.2)</th>
-      <th>MTurk</th>
+      <th>MTurk (Sandbox)</th>
     </tr>
   </thead>
   <tbody>
@@ -659,7 +659,7 @@ $('#toc').on('click', 'a', function() {
       <td><span class="glyphicon glyphicon-ok-sign"></span><br />(keeps the same worker)</td>
       <td><span class="glyphicon glyphicon-remove-sign"></span></td>
       <td><span class="glyphicon glyphicon-ok-sign"></span><br />(creates a new worker each time)</td>
-      <td><span class="glyphicon glyphicon-remove-sign"></span></td>
+      <td><span class="glyphicon glyphicon-remove-sign"></span><br />(<span class="glyphicon glyphicon-ok-sign"></span> with Sandbox)</td>
     </tr>
     <tr>
       <td><strong>Run different studies with the same worker</strong></td>
@@ -735,9 +735,9 @@ $('#toc').on('click', 'a', function() {
 
 <p>A General Multiple link is the least restrictive type and can be used <strong>many times by different participants to run a study</strong>. The difference to a General Single is that the General Multiple link can be used repeatedly <strong>even in the same browser</strong>. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.</p>
 
-<h3 id="-mturk-worker"><span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk Worker</h3>
+<h3 id="-mturk-sandbox-worker"><span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk (Sandbox) Worker</h3>
 
-<p>MTurk workers access a study <strong>only once</strong>, through a link in Amazon’s Mechanical Turk (AMT). Each MTurk worker in JATOS corresponds to a single worker in AMT.</p>
+<p>MTurk and MTurk Sandbox workers access a JATOS study through a link in Amazon’s Mechanical Turk (AMT). To prevent an MTurk worker to run the same study twice they can click the link to start the study <strong>only once</strong>. On the other side, since an MTurk Sandbox workers is for trying things out, they can click on the link and start the study <strong>many times</strong>.</p>
 
 <p><strong>DATA PRIVACY NOTE:</strong> If the same worker from AMT does two of your studies, the two results will be paired with the same MTurk worker in JATOS. This means that you could gather data from different studies, without your workers ever consenting to it. For this reason, we recommend that you delete your data from JATOS as soon as you finish a study. This way, if the same worker from AMT takes part in a different study, they will get a new MTurk worker, and you will not be able to automatically link their data between different studies. See our <a href="Data-Privacy-and-Ethics">Data Privacy and Ethics</a> page for more details on this.</p>
 
@@ -764,7 +764,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 08 Sep 2018
+<span>Page last updated:</span> 6 Feb 2020
                 </div>
             </div>
 </footer>
