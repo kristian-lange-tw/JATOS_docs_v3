@@ -94,7 +94,7 @@ You can show and hide the columns displayed in the table with the drop-down menu
 
 **End Time** - Time (set at the server's time zone) at which the last component of the study was finished. 
 
-**Last Seen** - Each component running in a worker's browser sends a "heartbeat" regularly back to JATOS. Last Seen is the time of the last heartbeat received. The heartbeat stops either when the study is finished or when the browser tab is closed. The default period of the heartbeat is 2 minutes but you can change it through a [jatos.js function](jatos.js-Reference.html#jatossetheartbeatperiodheartbeatperiod).
+**Last Seen** - Each component running in a worker's browser sends a "heartbeat" regularly back to JATOS. Last Seen is the time of the last heartbeat received. The heartbeat stops either when the study is finished or when the browser tab is closed. The default period of the heartbeat is 2 minutes but you can change it through a [jatos.js function](jatos.js-Reference.html#jatossetheartbeatperiod).
 
 **Duration** - Simply the time difference between the start and end time.
 
