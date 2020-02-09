@@ -19,23 +19,23 @@ Let's first say what we understand under the _study flow_:
 **Common restrictions**
 - You want to prevent a participant from reloading the same component (by using the browser's reload button).
 - You want to ensure a linear study flow and prevent participants from going backwards (by using the browser's back button).
-- You want to prevent a participant from running a study twice: If you are actually collecting data, you most likely want to ensure that each participant completes your study only once.
-- You want to allow participants to first have a peek into a study and preview it without actually starting the study and fully commit to it.
+- You want to prevent a participant from running a study twice.
+- You want to allow participants to first have a peek into a study and preview it without actually starting the study and fully committing to it.
 
 ... and how to do it:
 
 
 ## Allow reload or prevent a reload of the same component
 
-A worker can press their browser's reload button and by default JATOS will respond with the same component again: the worker can do a component multiple times. To prevent this each component properties has a checkbox _Allow reload_.
+A worker can press their browser's reload button and by default JATOS will respond with the same component again: by default, the worker can do a component multiple times. To prevent this each component properties has a checkbox _Allow reload_.
 
 ![GUI Screenshot](images/component-properties-reload.png)
 
-If you want to prevent this behaviour uncheck the box and then JATOS will respond with an error instead and the study run will be finished and put to state FAIL. Since each component properties has their own _Allow reload_ checkbox it can be defined differently for each component, e.g. reloading is allowed in the introduction but is prohibited in the actual experiment.
+If you want to prevent this behaviour uncheck the box. If a participant reloads the page, they will see an error message. The study run will be finished and put to state FAIL. Since each component properties has their own _Allow reload_ checkbox it can be defined differently for each component, e.g. reloading is allowed in the introduction but is prohibited in the actual experiment.
 
-**Hint**: You should tell your workers in your study's description if you disallow reloads to prevent them from accidentally pressing the reload button and failing your study.
+**Hint**: You should tell your workers in your study description if you disable reloads, in order to prevent them from accidentally pressing the reload button and failing your study. Consider also adding a warning (a pop-up window) informing participants that they will not be able to continue with the study.  
 
-**Another hint**: The _Allow reload_ and the _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
+**Another hint**: The [unchecked] _Allow reload_ and the [checked] _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
 
 
 ## Ensure a linear study flow (since version 3.5.1)
@@ -44,30 +44,32 @@ A worker can press their browsers back button and by default JATOS will response
 
 ![Study Properties Screenshot](images/study-properties-linear-flow.png)
 
-If you want to enforce a linear study flow check the box. Then, if a worker tries to go backwards, JATOS will respond with an error instead and the study run will be finished and put to state FAIL.
+If you want to enforce a linear study flow check the box. Then, if a participant tries to go backwards in their browser, they will see an error message instead. The study run will be finished and put to state FAIL.
 
-**Hint**: You should tell your workers in your study's description if you enforce a linear study flow to prevent them from accidentally pressing the back button and failing your study.
+**Hint**: You should tell your participants in your study's description if you enforce a linear study flow to prevent them from accidentally pressing the back button and failing your study. Consider also adding a warning (a pop-up window) informing participants that they will not be able to continue with the study.  
 
 **Another hint**: If you want to loop over components, un-check this box. 
 
-**Yet another hint**: The _Allow reload_ and the _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
+**Yet another hint**: The [unchecked] _Allow reload_ and the [checked] _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
 
 
 ## Single-use worker links - prevent workers running the study twice
 
-Often you want to prevent a worker from running the same study twice. To achieve this use the _single-use_ workers: that are the workers with 'Single' in their name, _Personal Single worker_ and _General Single worker_, and the _MTurk worker_.
+Often you want to prevent a participant from running the same study twice. To achieve this use the _single-use_ workers:  _Personal Single worker_ and _General Single worker_, and the _MTurk worker_.
 
-Be aware that although _General Single_ links can be run only once from each browser and each computer, if the participant clears their browser's cookies, changes the browser or changes the computer, they will be able to run the study again.
+Remember that _General Single_ links can be used to run a study only once from each browser and each computer, in principle. But if a participant clears their browser cookies, changes browser or sits in front of another computer, they will be able to run the study again.
 
 [Read more on the different worker types available in JATOS](Worker-Types.html) 
 
 
 ### Preview Links
 
-Then although you want to prevent running the same study twice you want to allow **General Single** or **Personal Single** workers to have a peek into the study, to preview it. The default behaviour is, once a worker clicked on the link - that's it, the study is started and JATOS will not allow a second click on this link. But in some cases you may want to distribute a link and let your workers preview the first component of your study (where you could e.g. describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later.
+Perhaps you want to allow **General Single** or **Personal Single** workers to have a peek into the study, to preview it, while _also_ making sure that they run the whole study only once. In JATOS you can let your workers preview the first component of your study (where you could describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later. 
 
 To allow them to do this, activate the checkbox **Allow preview** (this will add a `&pre` to the end of the URL).
 
 ![GUI Screenshot](images/preview_general_single_run.png)
 
 Now your workers can use the link as often as they want - as long **as they don't go further than the first component**. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means that they will get an error if they try to use the link again to access the study.
+
+If the Allow preview box is unchecked, JATOS will follow its default behaviour: once a worker clicked on the link - that's it, the study is started and JATOS will not allow a second click on this link. 
