@@ -35,7 +35,7 @@ If you want to prevent this behaviour uncheck the box. If a participant reloads 
 
 **Hint**: You should tell your workers in your study description if you disable reloads, in order to prevent them from accidentally pressing the reload button and failing your study. Consider also adding a warning (e.g. a pop-up) informing participants that they will not be able to continue with the study.  
 
-**Another hint**: The [unchecked] _Allow reload_ and the [checked] _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
+**Another hint**: The (unchecked) _Allow reload_ and the (checked) _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
 
 
 ## Ensure a linear study flow (since version 3.5.1)
@@ -50,7 +50,7 @@ If you want to enforce a linear study flow check the box. Then, if a participant
 
 **Another hint**: If you want to loop over components, un-check this box. 
 
-**Yet another hint**: The [unchecked] _Allow reload_ and the [checked] _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
+**Yet another hint**: The (unchecked) _Allow reload_ and the (checked) _Linear study flow_ properties can be combined to achieve a strictly increasing study flow.
 
 
 ## Single-use worker links - prevent workers running the study twice
