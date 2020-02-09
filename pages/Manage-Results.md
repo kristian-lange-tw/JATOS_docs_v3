@@ -114,7 +114,7 @@ You can show and hide the columns displayed in the table with the drop-down menu
 
 Possible states for study results are: 
 
-* PRE - [Preview of study](Worker-Types.html#preview-links) (exists only in PersonalSingleWorker and GeneralSingleWorker)
+* PRE - [Preview of study](Restricting-study-flow.html#preview-links) (exists only in PersonalSingleWorker and GeneralSingleWorker)
 * STARTED - Study was started
 * DATA_RETRIEVED - Study's jsonData were retrieved
 * FINISHED - Study successfully finished
