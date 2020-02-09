@@ -1,18 +1,23 @@
 ---
 title: Tips & Tricks
-keywords: tips, tricks, Mechanical Turk, MTurk, lock, continue, parallel, testing
+keywords: tips, tricks, Mechanical Turk, MTurk, lock, continue, parallel, testing, problems
 tags:
 summary:
 sidebar: mydoc_sidebar
 permalink: Tips-and-Tricks.html
 folder:
 toc: true
-last_updated: 07 Aug 2018
+last_updated: 7 Jan 2020
 ---
+
+### Batch and Group Session do not work on Windows without HTTPS
+
+The Batch and Group Session rely on WebSockets. Sometimes (rarely) a virus scanner prohibits unencryped WebSockets. This is only a problem on Windows,but not on Mac OS or Linux and only with certain virus scanner programs. If this happens you will see an error message in your brower's console: _Batch channel closed unexpectedly_. To solve this you can either turn on HTTPS on your JATOS server (recommended) or turn off the virus scranner on (all) your participants computers.
 
 ### Run up to 10 studies in the same browser at the same time
 
 When a participant runs a study they usually run only one at any given time. For them it's not necessary to run more than one study in parallel in the same browser. But during development of a study it can be an immensely useful feature especially if you are using the Batch Session or develop a group study. You can run the study in up to 10 tabs in the same browser with any worker that pleases you and all these 10 "different" workers can interact with each other. If more than 10 studies run in the same browser in parallel the oldest study is finished automatically. If you want to even more worker in parallel you can always use a different browsers: each other browser adds 10 new possible parallel-running workers.
+
 
 ### Imitate a run from Mechanical Turk
 
@@ -44,9 +49,11 @@ Each Study bar has a button that toggles between the  'Unlocked' and 'Locked' st
 
 <img src="images/Screen Shot 2015-04-27 at 16.25.55.png" style="width:250px"/>
 
+
 ### Do a General Single Run more than once in the same browser 
 
 The problem here is that a General Single Run is intended to work only once in the same browser. Although this is a feature to limit participants doing the same study twice, it can be a hassle for you as a study developer who just want to try out the General Single Run a second time. Luckily there is an easy way around: Since for a General Single Run all studies that the worker already participated in are stored in a browser cookie, it can be easily removed. Just **remove the cookie with the name JATOS_GENERALSINGLE_UUIDS** in your browser. You can find this cookie in every webpage hosted by a JATOS server. If it doesn't exist you probably never did a General Single run yet.
+
 
 ### Continue an abandoned study
 
@@ -73,11 +80,13 @@ But there is a catch! This works only under three conditions:
 
 Condition 3 is very unlikely a problem and for 1 you can just check the 'reloadable' checkbox in the component's settings. Condition 2 is more difficult, it demands the worker to return to the computer and browser they run the study before.
 
+
 ### Abort study and keep a message
 
 If the `jatos.abortStudy` function is called (usually after the worker clicks a "Cancel" button) all result data that had been sent to JATOS during this study run will be deleted. This includes result data from prior components of the study run. But sometimes you'll want to save a bit of information that should not be deleted: you might need the worker's email address to pay them -even if they cancelled the study-. So you need a way to delete the result data but keep their email. 
 
 To do this, you can send a message together with `jatos.abortStudy` as a parameter. This message won't be deleted together with the other result data. E.g. `jatos.abortStudy("participants ID is 12345678");`. This message can then be seen in every Study Result page in the 'Message' column.
+
 
 ### How to let a Personal Single Worker redo his study?
 

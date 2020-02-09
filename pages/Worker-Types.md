@@ -7,18 +7,18 @@ sidebar: mydoc_sidebar
 permalink: Worker-Types.html
 folder:
 toc: true
-last_updated: 08 Sep 2018
+last_updated: 6 Feb 2020
 ---
 
 ### Overview
 Following Amazon Mechanical Turk’s terminology, a worker in JATOS is a person who runs a study. Different worker types access a study in different ways. For example, some workers can run the same study multiple times, whereas others can do it only once.
 
-| | Jatos             | Personal Single   | Personal Multiple | General Single    | General Multiple (since v3.3.2)  | MTurk            |
+| | Jatos             | Personal Single   | Personal Multiple | General Single    | General Multiple (since v3.3.2)  | MTurk (Sandbox)            |
 |-|-------------------|-------------------|-------------------|-------------------|-------------------|------------------|
 | **Icon** | <span class="glyphicon glyphicon-wrench glyphicon-jatos"></span> | <span class="glyphicon glyphicon-leaf glyphicon-personal-single"></span> | <span class="glyphicon glyphicon-tree-deciduous glyphicon-personal-multiple"></span> | <span class="glyphicon glyphicon-glass glyphicon-general-single"></span> | <span class="glyphicon glyphicon-asterisk glyphicon-general-multiple"></span> | <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> |
 | **Typical use** | During study development | Small targeted group, each one of them gets a link | Small targeted group of workers who pilot the study or need to do it multiple times | Bigger groups but with less control; link shared e.g. via social media | Bigger groups and where the workers need to do it multiple times | For Amazon Mechanical Turk |
 | **Created when?** | Together with the JATOS user | By yourself in the Worker Setup | By yourself in the Worker Setup | On-the-fly whenever someone uses the link | On-the-fly whenever someone uses the link | On-the-fly after a MTurk worker clicked on the HIT link |
-| **Repeat the same study with the same link** | (has no links) | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span><br>(keeps the same worker) | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span><br>(creates a new worker each time) | <span class="glyphicon glyphicon-remove-sign"></span> |
+| **Repeat the same study with the same link** | (has no links) | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span><br>(keeps the same worker) | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span><br>(creates a new worker each time) | <span class="glyphicon glyphicon-remove-sign"></span><br>(<span class="glyphicon glyphicon-ok-sign"></span> with Sandbox) |
 | **Run different studies with the same worker** | <span class="glyphicon glyphicon-ok-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span> |
 | **Supports [preview of studies](Worker-Types.html#preview-links)** | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> |
 | **Possible bulk creation** | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span> | <span class="glyphicon glyphicon-ok-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> | <span class="glyphicon glyphicon-remove-sign"></span> |
@@ -65,9 +65,9 @@ Keep in mind, however, that JATOS uses the browser's cookies to decide whether a
 A General Multiple link is the least restrictive type and can be used **many times by different participants to run a study**. The difference to a General Single is that the General Multiple link can be used repeatedly **even in the same browser**. Each time a General Multiple link is used a new General Multiple worker is created on-the-fly.
 
 
-### <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk Worker
+### <span class="glyphicon glyphicon-knight glyphicon-mturk"></span> MTurk (Sandbox) Worker
 
-MTurk workers access a study **only once**, through a link in Amazon's Mechanical Turk (AMT). Each MTurk worker in JATOS corresponds to a single worker in AMT. 
+MTurk and MTurk Sandbox workers access a JATOS study through a link in Amazon's Mechanical Turk (AMT). To prevent an MTurk worker to run the same study twice they can click the link to start the study **only once**. On the other side, since an MTurk Sandbox workers is for trying things out, they can click on the link and start the study **many times**.
 
 **DATA PRIVACY NOTE:** If the same worker from AMT does two of your studies, the two results will be paired with the same MTurk worker in JATOS. This means that you could gather data from different studies, without your workers ever consenting to it. For this reason, we recommend that you delete your data from JATOS as soon as you finish a study. This way, if the same worker from AMT takes part in a different study, they will get a new MTurk worker, and you will not be able to automatically link their data between different studies. See our [Data Privacy and Ethics](Data-Privacy-and-Ethics) page for more details on this.
 

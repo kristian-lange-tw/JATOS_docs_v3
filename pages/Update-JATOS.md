@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Update-JATOS.html
 folder:
 toc: true
-last_updated: 23 Mar 2019
+last_updated: 7 Feb 2020
 ---
 
 We'll periodically update JATOS with new features and bug fixes. We recommend you stay up to date with the [latest release](https://github.com/JATOS/JATOS/releases). However if you are currently running a study it's always safest to keep the same JATOS version throughout the whole experiment.
@@ -25,7 +25,7 @@ The process is pretty self-explanatory, but anyway, we'll explain it here in det
 
    ![Update notification Schreenshot](images/autoupdate-notification.png)
 
-1. We expect no problems, but sh&t happens. We recommend that you **back up your result data and study assets folder** before continuing.
+1. We expect no problems, but sh&t happens. We recommend that you **back up your result data, result files, study assets folder and study logs** before continuing.
 1. Click on _Update_, confirm that you want to continue and the latest JATOS version will be downloaded from GitHub and saved in your system's temporary folder. Usually the variant downloaded will be the one without bundled Java. Only in cases where JATOS switches to a newer version of Java a bundled version is required [(see below)](#Versions-with-newer-Java-required). The download might take a while depending on your internet connection.
 1. After dównload is complete, you will be asked again for confirmation. By default, JATOS will **back up**: it will copy the content of its own installation folder into a folder with the name _backup_x.x.x_ (x.x.x is the version before the update). This will usually include your H2 database, your study assets and logs - **but not your MySQL database** (should you have one). If anything goes wrong in the auto-update, you have everything in this backup folder to start the old JATOS again. This backup will use up disk space (therefore you can opt out).
 
@@ -48,7 +48,7 @@ The parameter _version_ can be added to your JATOS home page URL (e.g. _localhos
 Auto-updating might not always be possible. JATOS versions will be flagged so that they are not available for auto-update. You'll have to do a [manual update](#Manual-Updates).
 
 #### Versions with newer Java required
-As of today, JATOS (v.3.3.4) uses Java 8. Future versions will likely require newer Java versions. If you're updating from a JATOS version using Java 8 to (say) another version using Java 11, the auto-update process will automatically download JATOS bundled with the new Java, regardless of wich variant you are currently using. If you do not like the bundled Java and use your own version you can always remove the folder _jre_ later on after the update.
+Since version 3.4.1 JATOS uses Java 11 - older versions use Java 8. Future versions will likely require newer Java versions. If you're updating from a JATOS version using Java 8 to (say) another version using Java 11, the auto-update process will automatically download JATOS bundled with the new Java, regardless of wich variant you are currently using. If you do not like the bundled Java and use your own version you can always remove the folder _jre_ later on after the update.
 
 
 ## Manual Updates
@@ -90,6 +90,7 @@ If you do want to keep your studies, batches, and your result data you'll have t
 
 1. Stop JATOS (on Unix systems, type `$ ./loader.sh stop` on the terminal. On Windows MS, close your command window)
 1. Go to the folder of your old JATOS installation. From there copy your assets root folder to the new JATOS installation (Note: By default your assets root folder is called `study_assets_root` and lays in the JATOS folder but you might have changed this. You can find the location and name in `conf/production.conf`. It is specified in the line beginning with `jatos.studyAssetsRootPath=`.)
+1. Go to the folder of your old JATOS installation. From there copy your folder of your uploaded result files to the new JATOS installation (Note: By default this folder is called `result_uploads` and lays in the JATOS folder but you might have changed this. You can find the location and name in `conf/production.conf`. It is specified in the line beginning with `jatos.resultUploads.path=`.)
 1. From the folder of your old JATOS installation copy the folders `database` and `study_logs` to the folder of the new JATOS installation.
 1. If you had changed the `conf/production.conf` file in your old JATOS instance (for example to set a custom location for your `study_assets_root` folder) you'll have to do this again in the new JATOS version. We recommend re-editing the new version of the file, rather than just overwriting the new with the old version, in case anything in the `production.conf` file has changed.
 1. Start the new JATOS (on Unix systems, type `$ ./loader.sh start` on the terminal. On Windows double click the `loader.bat`)
