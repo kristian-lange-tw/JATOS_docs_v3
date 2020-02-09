@@ -1,28 +1,28 @@
 ---
-title: Study Flow and its problems - reloading, linear studies, single-use workers and previews
+title: Restricting study flow - reloading, linear studies, single-use workers and previews
 keywords: preview, flow, study flow, linear study flow, allow reload, reloading, back, backwards, loop
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: Study-flow-and-its-problems.html
+permalink: Restricting-study-flow.html
 folder:
 toc: true
 last_updated: 9 Feb 2020
 ---
 
-## Study flow and it's problems
+## Restricting study flow
 
 Let's first say what we understand under the _study flow_:
 
-**Study flow** - the intended order of a study's componenents as they are done by the participants running the study. This doesn't necessarily has to be the order of components like they are defined in the study page, meaning going forward one-by-one - instead the study flow can go backwards to a previous component, go in a loop over several components, or reload the current component. It is even possible to decide on-the-fly in your study's JavaScript what the next component will be. In general and by default a component can go to any other component including itself. The _jatos.js_ functions to determine the study flow are `jatos.startNextComponent`, `jatos.startComponentByPos`, `jatos.startLastComponent` and `jatos.startComponent`.
+**Study flow** - the intended order of a study's componenents as they are done by the participants running the study. This doesn't necessarily has to be the order of components like they are defined in the study page, meaning going forward one-by-one - instead the study flow can go backwards to a previous component, go in a loop over several components, or reload the current component. It is even possible to decide on-the-fly in your JavaScripts what the next component will be. In general and by default a component can go to any other component including itself. The _jatos.js_ functions to determine the study flow are `jatos.startNextComponent`, `jatos.startComponentByPos`, `jatos.startLastComponent` and `jatos.startComponent`.
 
-**Common problems**
+**Common restrictions**
 - You want to prevent a participant from reloading the same component (by using the browser's reload button).
-- You want to ensure a linear study flow and prevent a study flow from going backbards (by using the browser's back button).
+- You want to ensure a linear study flow and prevent participants from going backwards (by using the browser's back button).
 - You want to prevent a participant from running a study twice: If you are actually collecting data, you most likely want to ensure that each participant completes your study only once.
 - You want to allow participants to first have a peek into a study and preview it without actually starting the study and fully commit to it.
 
-... and their solutions:
+... and how to do it:
 
 
 ## Allow reload or prevent a reload of the same component
