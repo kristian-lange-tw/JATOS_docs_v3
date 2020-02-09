@@ -102,6 +102,10 @@ entries:
       - title: Run your Study with Worker & Batch Manager
         url: /Run-your-Study-with-Worker-and-Batch-Manager.html
         output: web, pdf
+        
+      - title: Restricting study flow
+        url: /Restricting-study-flow.html  
+        output: web, pdf
 
       - title: Worker Types
         url: /Worker-Types.html
