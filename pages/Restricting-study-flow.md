@@ -64,7 +64,7 @@ Remember that _General Single_ links can be used to run a study only once from e
 
 ### Preview Links
 
-Perhaps you want to allow **General Single** or **Personal Single** workers to have a peek into the study, to preview it, while _also_ making sure that they run the whole study only once. In JATOS you can let your workers preview the **first** component of your study (where you could describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later. 
+Perhaps you want to allow **General Single** or **Personal Single** workers to have a peek into the study, to preview it, despite restricting them to run the whole study only once. In JATOS you can let these two worker types preview the **first** component of your study (where you could describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later. 
 
 To allow them to do this, activate the checkbox **Allow preview** (this will add a `&pre` to the end of the URL).
 
