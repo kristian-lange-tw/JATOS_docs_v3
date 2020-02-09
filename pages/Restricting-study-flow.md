@@ -31,7 +31,7 @@ A worker can press their browser's reload button and by default JATOS will respo
 
 ![GUI Screenshot](images/component-properties-reload.png)
 
-If you want to prevent this behaviour uncheck the box. If a participant reloads the page, they will see an error message. The study run will be finished and put to state FAIL. Since each component properties has their own _Allow reload_ checkbox it can be defined differently for each component, e.g. reloading is allowed in the introduction but is prohibited in the actual experiment.
+If you want to prevent this behaviour uncheck the box. If a participant reloads the page, they will see an error message. Then the study run will be finished and put to state FAIL. Since each component properties has their own _Allow reload_ checkbox it can be defined differently for each component, e.g. reloading is allowed in the introduction but is prohibited in the actual experiment.
 
 **Hint**: You should tell your workers in your study description if you disable reloads, in order to prevent them from accidentally pressing the reload button and failing your study. Consider also adding a warning (a pop-up window) informing participants that they will not be able to continue with the study.  
 
