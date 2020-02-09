@@ -64,12 +64,12 @@ Remember that _General Single_ links can be used to run a study only once from e
 
 ### Preview Links
 
-Perhaps you want to allow **General Single** or **Personal Single** workers to have a peek into the study, to preview it, while _also_ making sure that they run the whole study only once. In JATOS you can let your workers preview the first component of your study (where you could describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later. 
+Perhaps you want to allow **General Single** or **Personal Single** workers to have a peek into the study, to preview it, while _also_ making sure that they run the whole study only once. In JATOS you can let your workers preview the **first** component of your study (where you could describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later. 
 
 To allow them to do this, activate the checkbox **Allow preview** (this will add a `&pre` to the end of the URL).
 
 ![GUI Screenshot](images/preview_general_single_run.png)
 
-Now your workers can use the link as often as they want - as long **as they don't go further than the first component**. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means that they will get an error if they try to use the link again to access the study.
+Now your workers can use the link as many times as they want - as long **as they don't go further than the first component**. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means that they will get an error if they try to use the link again to access the study.
 
 If the Allow preview box is unchecked, JATOS will follow its default behaviour: once a worker clicked on the link - that's it, the study is started and JATOS will not allow a second click on this link. 
