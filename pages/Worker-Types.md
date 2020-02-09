@@ -1,6 +1,6 @@
 ---
 title: Worker Types
-keywords: worker types, Jatos worker, Personal Single worker, Personal Multiple worker, MTurk worker, General Single worker, General Multiple worker, MTurk Sandbox worker, MTurk, Sandbox, General, Single, Multiple, Personal, Preview Links
+keywords: worker types, Jatos worker, Personal Single worker, Personal Multiple worker, MTurk worker, General Single worker, General Multiple worker, MTurk Sandbox worker, MTurk, Sandbox, General, Single, Multiple, Personal
 tags:
 summary: Details of different worker types 
 sidebar: mydoc_sidebar
@@ -71,11 +71,3 @@ MTurk and MTurk Sandbox workers access a JATOS study through a link in Amazon's 
 
 **DATA PRIVACY NOTE:** If the same worker from AMT does two of your studies, the two results will be paired with the same MTurk worker in JATOS. This means that you could gather data from different studies, without your workers ever consenting to it. For this reason, we recommend that you delete your data from JATOS as soon as you finish a study. This way, if the same worker from AMT takes part in a different study, they will get a new MTurk worker, and you will not be able to automatically link their data between different studies. See our [Data Privacy and Ethics](Data-Privacy-and-Ethics) page for more details on this.
 
-
-### Preview Links
-
-A normal **General Single** or **Personal Single** link is restrictive: once a worker clicked on the link - that's it. JATOS will not let them run the study twice. But in some cases you may want to distribute a link and let your workers preview the first component of your study (where you could e.g. describe what they will have to do, how long it will take, ask for consent, etc). Often, workers see this description and decide that they want to do the study later.
-
-To allow them to do this, activate the checkbox **Allow preview** (this will add a `&pre` to the end of the URL). Now your workers can use the link as often as they want - as long as they don't go further than the first component. But once the second component is started, JATOS will restrict access to the study in the usual way as it is for General Single and Personal Single workers. This means that you'll get an error if you try to use the link again to access the study.
-
-![GUI Screenshot](images/preview_general_single_run.png)
