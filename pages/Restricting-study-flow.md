@@ -10,7 +10,7 @@ toc: true
 last_updated: 9 Feb 2020
 ---
 
-## Restricting study flow
+## Intro: Restricting study flow
 
 Let's first say what we understand under the _study flow_:
 
