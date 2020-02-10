@@ -6,7 +6,7 @@ summary:
 sidebar: mydoc_sidebar
 permalink: Cross-sectional-and-longitudinal-studies.html
 folder:
-toc: false
+toc: true
 last_updated: 10 Feb 2020
 ---
 
