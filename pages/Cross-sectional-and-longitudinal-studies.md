@@ -10,7 +10,7 @@ toc: true
 last_updated: 10 Feb 2020
 ---
 
-There are several situation in which you might want to store (some parts) of the result data in a way that outlives individual study runs. This might be the case if you want to:
+There are several situation in which you might want to store (some parts) of the result data in a way that is accessible from more than just a single study run. This might be the case if you want to:
 1. counterbalance your conditions across participants to acount for order effects. 
 1. run a between-participants study.
 1. run a longitudinal study.
