@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Install-JATOS-via-Docker.html
 folder:
 toc: true
-last_updated: 13 Nov 2019
+last_updated: 12 Feb 2020
 ---
 
 JATOS has a Docker image: [hub.docker.com/r/jatos/jatos/](https://hub.docker.com/r/jatos/jatos/)
@@ -45,7 +45,13 @@ Docker is a great technology, but if you never heard of it you can safely ignore
 
 1. You can check that the new container is running: In your browser go to [localhost:9000](http://localhost:9000) - it should show the JATOS login screen. Or use `docker ps` - in the line with `jatos/jatos` the status should say `up`.
 
-**Troubleshooting**: By removing the `-d` argument (e.g. `docker run -p 9000:9000 jatos/jatos:latest`) you get JATOS' logs printed in your shell - although you don't run it in detached mode in the background anymore.  
+**Troubleshooting**: By removing the `-d` argument (e.g. `docker run -p 9000:9000 jatos/jatos:latest`) you get JATOS' logs printed in your shell - although you don't run it in detached mode in the background anymore.
+
+**Troubleshooting 2nd**: Although usually not necessary maybe you want to have a look into the container and start a Bash terminal:
+
+``` shell
+docker exec -it jatos-container-id /bin/bash
+```
 
 
 ### Change port
