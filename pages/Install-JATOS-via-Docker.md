@@ -47,10 +47,10 @@ Docker is a great technology, but if you never heard of it you can safely ignore
 
 **Troubleshooting**: By removing the `-d` argument (e.g. `docker run -p 9000:9000 jatos/jatos:latest`) you get JATOS' logs printed in your shell - although you don't run it in detached mode in the background anymore.
 
-**Troubleshooting 2nd**: Although usually not necessary maybe you want to have a look into the container and start a Bash terminal:
+**Troubleshooting 2nd**: Although usually not necessary maybe you want to have a look into the running container and start a Bash terminal:
 
 ``` shell
-docker exec -it jatos-container-id /bin/bash
+docker exec -it running-jatos-container-id /bin/bash
 ```
 
 
