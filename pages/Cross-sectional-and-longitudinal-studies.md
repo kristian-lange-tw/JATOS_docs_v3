@@ -1,5 +1,5 @@
 ---
-title: Write longitudinal studies
+title: Write cross-sectional and longitudinal studies
 keywords: longitudinal, batch session
 tags:
 summary:
@@ -37,15 +37,13 @@ You might want to collect data from the same participant multiple times and, cru
 If your sample size is relatively small and it is logistically doable, you could send individualized [Personal Multiple links](Worker-Types.html#-personal-multiple-worker) to each participant. If a participant runs a study with this link, JATOS will assign them a unique number. You can access the worker ID in your JavaScript through `jatos.urlQueryParameters.workerId` from the _jatos.js_ library.
 
 
-If you are recruiting participants through a marketplace, like MTurk or Prolific, you can simply use the marketplace worker ID. 
-
 ### Using MTurk 
 
-It's straightforward in MTurk: You can access the worker ID in your JavaScript through `jatos.urlQueryParameters.workerId`.
+If you are recruiting participants through a MTurk, it's straightforward: You can access the worker ID in your JavaScript through `jatos.urlQueryParameters.workerId`.
 
 ### Using Prolific
 
-For Prolific, it's a bit more complicated. To access the worker ID, you first need to tell Prolific to include it in their query parameters. In Prolific, go to Study Settings and enable the option to include special query parameters in the URL. 
+If you are usning Prolific to recruit participants, it's a bit more complicated. To access the worker ID, you first need to tell Prolific to include it in their query parameters. In Prolific, go to Study Settings and enable the option to include special query parameters in the URL. 
 
 ![Prolific Screenshot](images/Screenshot_ExtendURL_Prolific.png)   
 
