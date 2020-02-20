@@ -118,6 +118,10 @@ entries:
       - title: Use Prolific
         url: /Use-Prolific.html
         output: web, pdf
+        
+      - title: Write cross-sectional and longitudinal studies
+        url: /Cross-sectional-and-longitudinal-studies.html
+        output: web, pdf
 
       - title: Manage Results
         url: /Manage-Results.html
