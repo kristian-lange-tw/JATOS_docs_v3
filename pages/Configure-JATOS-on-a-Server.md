@@ -123,6 +123,12 @@ You can confirm that JATOS is accessing the correct database by looking in the l
 19:03:42.000 [info] - p.a.d.DefaultDBApi - Database [default] connected at jdbc:mysql://localhost/jatos?characterEncoding=UTF-8
 ~~~  
 
+An additional port parameter may be necessary to give JATOS full access to the MySQL database. For example, the `JATOS_DB_URL` setting  in `conf/production.conf`  is modified the following way (port **3306** is the default port for the MySQL Protocol) :
+
+   ~~~ bash
+   db.default.url="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+   ~~~
+   
 
 ### Password restrictions
 
