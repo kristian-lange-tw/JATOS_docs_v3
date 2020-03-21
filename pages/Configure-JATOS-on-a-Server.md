@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:
 toc: true
-last_updated: 23 Mar 2019
+last_updated: 21 Mar 2020
 ---
 
 **Restart JATOS after making any changes to the configuration (`loader.sh restart`)**
@@ -91,26 +91,26 @@ There are three ways to set up JATOS to work with an MySQL:
    * `-DJATOS_DB_DRIVER` - always `com.mysql.cj.jdbc.Driver` for MySQL
    * `-DJATOS_JPA` - always `mysqlPersistenceUnit` for MySQL
    
-   E.g. to connect to a MySQL running on 127.0.0.1 use (change username and password):
+   E.g. to connect to a MySQL running on 127.0.0.1 and port 3306 use (change username and password):
    
    ~~~ bash   
-   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_JPA=mysqlPersistenceUnit -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
+   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_JPA=mysqlPersistenceUnit -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
    ~~~
    
-1. Via `conf/production.conf` (change IP, username and password)
+1. Via `conf/production.conf` (change IP, port, username and password)
 
    ~~~ bash
-   db.default.url="jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+   db.default.url="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
    db.default.user=jatosuser
    db.default.password=mypassword
    db.default.driver=com.mysql.cj.jdbc.Driver
    jpa.default=mysqlPersistenceUnit
    ~~~
    
-1. Via environment variables (change IP, username and password)
+1. Via environment variables (change IP, port, username and password)
 
    ~~~ bash
-   export JATOS_DB_URL="jdbc:mysql://127.0.0.1/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+   export JATOS_DB_URL="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
    export JATOS_DB_USERNAME=jatosuser
    export JATOS_DB_PASSWORD=mypassword
    export JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
@@ -122,12 +122,6 @@ You can confirm that JATOS is accessing the correct database by looking in the l
 ~~~ bash
 19:03:42.000 [info] - p.a.d.DefaultDBApi - Database [default] connected at jdbc:mysql://localhost/jatos?characterEncoding=UTF-8
 ~~~  
-
-An additional port parameter may be necessary to give JATOS full access to the MySQL database. For example, the `JATOS_DB_URL` setting  in `conf/production.conf`  is modified the following way (port **3306** is the default port for the MySQL Protocol) :
-
-   ~~~ bash
-   db.default.url="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
-   ~~~
    
 
 ### Password restrictions
