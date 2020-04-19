@@ -17,13 +17,13 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 ### 2020
 
-Cooper, E., Greve, A., & Henson, R. N. (2019). Investigating Fast Mapping Task Components: No Evidence for the Role of Semantic Referent nor Semantic Inference in Healthy Adults. *Frontiers in psychology*, 10, 394. [DOI](https://doi.org/10.3389/fpsyg.2019.00394)
-
 Qiu, M., Johns, B.T. (2020) Semantic diversity in paired-associate learning: Further evidence for the information accumulation perspective of cognitive aging. *Psychonomic Bulletin & Review* 27, 114–121. [DOI](https://link.springer.com/article/10.3758%2Fs13423-019-01691-w)
 
 Dolscheid, S., Çelik, S., Erkan, H., Küntay, A., & Majid, A. (2020). Space-pitch associations differ in their susceptibility to language. *Cognition*, 196, 104073. [DOI](https://doi.org/10.1016/j.cognition.2019.104073)
 
 ### 2019
+
+Cooper, E., Greve, A., & Henson, R. N. (2019). Investigating Fast Mapping Task Components: No Evidence for the Role of Semantic Referent nor Semantic Inference in Healthy Adults. *Frontiers in psychology*, 10, 394. [DOI](https://doi.org/10.3389/fpsyg.2019.00394)
 
 MacGregor, L. J., Rodd, J. M., Gilbert, R. A., Hauk, O., Sohoglu, E., & Davis, M. H. (2019). The Neural Time Course of Semantic Ambiguity Resolution in Speech Comprehension. *Journal of Cognitive Neuroscience*, 1–23. [DOI](https://doi.org/10.1162/jocn_a_01493)
 
