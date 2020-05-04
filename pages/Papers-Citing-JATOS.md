@@ -23,6 +23,8 @@ Dolscheid, S., Çelik, S., Erkan, H., Küntay, A., & Majid, A. (2020). Space-pit
 
 ### 2019
 
+Richan, E., & Rouat, J. (2019). A study comparing shape, colour and texture as visual labels in audio sample browsers. Proceedings of the 14th International Audio Mostly Conference: A Journey in Sound, 223–226. [DOI](https://doi.org/10.1145/3356590.3356624)
+
 Cooper, E., Greve, A., & Henson, R. N. (2019). Investigating Fast Mapping Task Components: No Evidence for the Role of Semantic Referent nor Semantic Inference in Healthy Adults. *Frontiers in psychology*, 10, 394. [DOI](https://doi.org/10.3389/fpsyg.2019.00394)
 
 MacGregor, L. J., Rodd, J. M., Gilbert, R. A., Hauk, O., Sohoglu, E., & Davis, M. H. (2019). The Neural Time Course of Semantic Ambiguity Resolution in Speech Comprehension. *Journal of Cognitive Neuroscience*, 1–23. [DOI](https://doi.org/10.1162/jocn_a_01493)
