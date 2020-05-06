@@ -1,13 +1,13 @@
 ---
 title: Manage Results
-keywords: results, result data, data, files, result files, uploads, download, export, metadata
+keywords: results, result data, data, files, result files, uploads, download, export, metadata, PRE, STARTED, DATA_RETRIEVED, RESULTDATA_POSTED, RELOADED, FINISHED, ABORTED, FAIL
 tags:
 summary: The results pages (study, component, batch or worker) present all the data that were collected during the study runs, including the result data and metadata (e.g. worker ID, start time etc.). 
 sidebar: mydoc_sidebar
 permalink: Manage-Results.html
 folder:
 toc: true
-last_updated: 3 Feb 2020
+last_updated: 6 May 2020
 ---
 
 ## Results Pages
@@ -112,23 +112,23 @@ You can show and hide the columns displayed in the table with the drop-down menu
 
 **State**
 
-Possible states for study results are: 
+Possible states for _study results_ are: 
 
 * PRE - [Preview of study](Restricting-study-flow.html#preview-links) (exists only in PersonalSingleWorker and GeneralSingleWorker)
-* STARTED - Study was started
-* DATA_RETRIEVED - Study's jsonData were retrieved
-* FINISHED - Study successfully finished
-* ABORTED - Study aborted by worker
-* FAIL - Something went wrong
+* STARTED - Study started
+* DATA_RETRIEVED - The very beginning of the study. It means the first component of the study was loaded in the worker's browser and started running. (It literally means the browser asked for the initialization data.)
+* FINISHED - Study finished. All result data and files that were sent by the study in the browser were safely stored in JATOS.
+* ABORTED - Study aborted by worker and all result data and files were deleted.
+* FAIL - Something went wrong, study stopped and cannot continue
 
-Possible states for component results are:
+Possible states for _component results_ are:
 
-* STARTED - Component was started
-* DATA_RETRIEVED - Component's jsonData were retrieved
-* RESULTDATA_POSTED - Result data were posted
-* FINISHED - Component was finished
-* RELOADED - Component was reloaded
-* ABORTED - Component aborted by worker
-* FAIL - Something went wrong
+* STARTED - Component started
+* DATA_RETRIEVED -  The very beginning of the component. It means the component was loaded in the worker's browser and started running. (It literally means the browser asked for the initialization data.)
+* RESULTDATA_POSTED - The first time this component sent result data or files.
+* FINISHED - Component finished. All result data and files that were sent by the study in the browser were safely stored in JATOS.
+* RELOADED - Component was reloaded (usually by clicking the browser's reload button)
+* ABORTED - This component's study was aborted by worker and all result data and files were deleted.
+* FAIL - Something went wrong, the study stopped and cannot continue
 
 **Messages** - A message that can be set together with [jatos.endStudy](jatos.js-Reference.html#jatosendstudy) or [jatos.abortStudy](jatos.js-Reference.html#jatosabortstudy).
