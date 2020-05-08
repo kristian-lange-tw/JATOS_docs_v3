@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:
 toc: true
-last_updated: 21 Mar 2020
+last_updated: 8 May 2020
 ---
 
 **Restart JATOS after making any changes to the configuration (`loader.sh restart`)**
@@ -89,12 +89,11 @@ There are three ways to set up JATOS to work with an MySQL:
    * `-DJATOS_DB_USERNAME` - set your username
    * `-DJATOS_DB_PASSWORD` - set your password
    * `-DJATOS_DB_DRIVER` - always `com.mysql.cj.jdbc.Driver` for MySQL
-   * `-DJATOS_JPA` - always `mysqlPersistenceUnit` for MySQL
    
    E.g. to connect to a MySQL running on 127.0.0.1 and port 3306 use (change username and password):
    
    ~~~ bash   
-   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_JPA=mysqlPersistenceUnit -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
+   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
    ~~~
    
 1. Via `conf/production.conf` (change IP, port, username and password)
@@ -104,7 +103,6 @@ There are three ways to set up JATOS to work with an MySQL:
    db.default.user=jatosuser
    db.default.password=mypassword
    db.default.driver=com.mysql.cj.jdbc.Driver
-   jpa.default=mysqlPersistenceUnit
    ~~~
    
 1. Via environment variables (change IP, port, username and password)
@@ -114,7 +112,6 @@ There are three ways to set up JATOS to work with an MySQL:
    export JATOS_DB_USERNAME=jatosuser
    export JATOS_DB_PASSWORD=mypassword
    export JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
-   export JATOS_JPA=mysqlPersistenceUnit
    ~~~
    
 You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your database URL).
