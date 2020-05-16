@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Data-Privacy-and-Ethics.html
 folder:
 toc: true
-last_updated: 10 May 2018
+last_updated: 16 May 2020
 ---
 
 ### What does JATOS store?
@@ -88,11 +88,11 @@ The cookie's expires header field is set to Session, which mean that after the b
 
 This cookie contains the parameters:
 
-* _userEmail_: username of the logged-in user (an email)
+* _username_: username of the logged-in user (often an email)
 * _sessionID_: Play's session ID
 * _loginTime_: user's login time in the GUI as a timestamp
 * _lastActivityTime_: user's last activity time in the GUI as a timestamp
 
 Additionally Play stores a hash of the whole cookie's data to check integrity of the cookie's data.
 
-E.g. `PLAY_SESSION:"b6c01f2fa796603491aaed94168651b54b154ca1-userEmail=admin&sessionID=4k1atg9ugeavmegk88n41stfr4&loginTime=1524935558364&lastActivityTime=1524947602543"`
+E.g. `PLAY_SESSION:"b6c01f2fa796603491aaed94168651b54b154ca1-username=admin&sessionID=4k1atg9ugeavmegk88n41stfr4&loginTime=1524935558364&lastActivityTime=1524947602543"`

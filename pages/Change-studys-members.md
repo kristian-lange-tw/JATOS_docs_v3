@@ -1,13 +1,13 @@
 ---
 title: Change study's members
-keywords: user, member, email
+keywords: user, member, username, share
 tags:
 summary:
 sidebar: mydoc_sidebar
 permalink: Change-studys-members.html
 folder:
 toc: true
-last_updated: 18 Mar 2018
+last_updated: 16 May 2020
 ---
 
 Each experimenter with access to the JATOS server (though the GUI) is a JATOS User. Users can create, modify and delete the studies they are members of. They can also export and delete results.
@@ -18,7 +18,7 @@ Each study has a **Change Users** button in its study toolbar.
 
 ![Change study's members button](images/change_studys_members_button.png)
 
-In this menu you can add single users by their email address. Of course this works only if this is already a JATOS user. For privacy reasons JATOS never shows the email address in the member list.
+In this menu you can add single users by their username. Of course this works only if this is already a JATOS user. For privacy reasons JATOS never shows the username (which is often an email address) in the member list.
 
 A single user is removed by unchecking the checkbox in front of its name.
 

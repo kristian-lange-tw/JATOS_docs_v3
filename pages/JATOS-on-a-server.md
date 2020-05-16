@@ -1,13 +1,13 @@
 ---
 title: Install JATOS on a server
-keywords: server, installation, test, config, configuration, backup, proxy, java
+keywords: server, installation, install, test, config, configuration, backup, proxy, java, MySQL, database, encryption, systemd, init.d, auto-start
 tags:
 summary: To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management.
 sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 10 Nov 2019
+last_updated: 16 May 2020
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
@@ -59,9 +59,9 @@ Don't forget to [configure JATOS](Configure-JATOS-on-a-Server.html#mysql-databas
 
 1. [Download JATOS](https://github.com/JATOS/JATOS/releases)
 
-   E.g. with _wget_ for the version 3.2.1:
+   E.g. with _wget_ for the version 3.5.4:
    
-   `wget https://github.com/JATOS/JATOS/releases/download/v3.2.1/jatos-3.2.1.zip`
+   `wget https://github.com/JATOS/JATOS/releases/download/v3.5.4/jatos.zip`
 
 1. JATOS comes zipped. Unpack this file at a location in your server's file system where JATOS should be installed.
 
@@ -93,7 +93,11 @@ Most admins tend to use an additional reverse proxy in front of JATOS, mostly fo
 * [JATOS with Nginx](JATOS-with-Nginx.html)
 * [JATOS with Apache](JATOS-with-Apache.html)
 
-### 8. [Optional] Auto-start JATOS
+### 8. [Optional] Turn on user session validation
+
+[More here](Configure-JATOS-on-a-Server.html#user-session-config).
+
+### 9. [Optional] Auto-start JATOS
 
 It's nice to have JATOS starts automatically after a start or a reboot of your machine. Choose between one of the two possibilities: 1) via a systemd service (JATOS version >= 3.1.6, recommended), or 2) via a init.d script.
 
@@ -178,7 +182,7 @@ It's easy to turn the `loader.sh` script into an init script for a daemon.
 
 Now JATOS starts automatically when you start your server and stops when you shut it down. You can also use the init script yourself like any other init script with `sudo /etc/init.d/jatos start|stop|restart`.
 
-### 9. [Optional] Backup
+### 10. [Optional] Backup
 
 The easiest way to backup is to let JATOS users care themselves for their own data. JATOS has an easy to use [export function for result data](Manage-results.html). So you could just tell everyone to export their data regularily.
 
@@ -190,8 +194,10 @@ But if you want to set up a regular backup of the data stored in JATOS here are 
       1. Copy & paste the db file - It's important to **stop JATOS** before doing a backup or restoring a H2 database this way. If you do not stop JATOS your [data might be corrupted](Troubleshooting.html#database-is-corrupted). You can just backup the folder `my-jatos-path/database`. In case you want to restore an older version from the backup just replace the current version of the folder with the backed-up version.
       1. Via [H2's upgrade, backup, and restore tool](http://www.h2database.com/html/tutorial.html#upgrade_backup_restore)
 
-1. **study_assets_root folder** - You can just make a backup of your study assets folder. If you want to return to a prior version replace the current folder with the backed-up version.
+1. **study_assets_root folder** - This is the folder where all your study's assets (e.g. HTML, JS, CSS, images) are stored. You can just make a backup of your study assets folder. If you want to return to a prior version replace the current folder with the backed-up version.
+
+1. **result_uploads folder** - This folder contains the files, that were uploaded during a study run. You can just make a backup of your results upload folder. If you want to return to a prior version replace the current folder with the backed-up version.
 
 1. **study_logs folder** - Contains the [study logs](Study-Log.html)
 
-Remember, a backup has to be done of all **three** the folders, _database_ **and** the _study_assets_root_ **and** _study_logs_.
+Remember, a backup has to be done of all **four** the folders, _database_ **and** the _study_assets_root_ **and** _result_uploads_ **and** _study_logs_.

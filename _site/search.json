@@ -28,7 +28,7 @@
 {
 "title": "Change study&#39;s members",
 "tags": "",
-"keywords": "user, member, email",
+"keywords": "user, member, username, share",
 "url": "Change-studys-members.html",
 "summary": ""
 }
@@ -39,7 +39,7 @@
 {
 "title": "Configure JATOS on a Server",
 "tags": "",
-"keywords": "server, configuration, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1",
+"keywords": "server, configuration, config, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf",
 "url": "Configure-JATOS-on-a-Server.html",
 "summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions."
 }
@@ -226,7 +226,7 @@
 {
 "title": "Install JATOS on a server",
 "tags": "",
-"keywords": "server, installation, test, config, configuration, backup, proxy, java",
+"keywords": "server, installation, install, test, config, configuration, backup, proxy, java, MySQL, database, encryption, systemd, init.d, auto-start",
 "url": "JATOS-on-a-server.html",
 "summary": "To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
 }
@@ -259,7 +259,7 @@
 {
 "title": "Manage Results",
 "tags": "",
-"keywords": "results, result data, data, files, result files, uploads, download, export, metadata",
+"keywords": "results, result data, data, files, result files, uploads, download, export, metadata, PRE, STARTED, DATA_RETRIEVED, RESULTDATA_POSTED, RELOADED, FINISHED, ABORTED, FAIL",
 "url": "Manage-Results.html",
 "summary": "The results pages (study, component, batch or worker) present all the data that were collected during the study runs, including the result data and metadata (e.g. worker ID, start time etc.)."
 }
@@ -446,7 +446,7 @@
 {
 "title": "Manage JATOS users",
 "tags": "",
-"keywords": "user manager, user, member, password, admin rights, admin",
+"keywords": "user manager, user, member, password, admin rights, admin, LDAP",
 "url": "User-Manager.html",
 "summary": ""
 }

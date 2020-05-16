@@ -1,6 +1,6 @@
 ---
 title: Configure JATOS on a Server
-keywords: server, configuration, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1
+keywords: server, configuration, config, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf
 tags:
 summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions.
 sidebar: mydoc_sidebar
@@ -175,13 +175,33 @@ By default JATOS' keeps it simple and relies on the users to choose save passwor
    ~~~
 
 
+### LDAP authentication (since JATOS >= 3.5.4)
+
+By default JATOS uses only locally stored users and no LDAP. LDAP configuration is only possible in `conf/production.conf`. At the moment LDAP users still have to be created manually in JATOS' user manager (with the checkbox LDAP turned on).- only authentication is done via LDAP.
+
+* `jatos.user.authentication.ldap.url` - Specifies URL of the LDAP server. Not set or an empty string means no authentication via LDAP.
+* `jatos.user.authentication.ldap.basedn` - LDAP base domain name (e.g. "dc=example,dc=com"). Not set or an empty string means no authentication via LDAP.
+* `jatos.user.authentication.ldap.timeout` -  Time in milliseconds JATOS waits for a response from your LDAP server. Default is 5000 ms.
+
+If your LDAP uses encryption, you have to add your certificate to JATOS' trusted certificates defined with `play.ws.ssl.trustManager.stores`. E.g. if your certificate's location is in `conf/certs/ca.pem`, then use the following to add it: `play.ws.ssl.trustManager.stores = [ { type = "PEM", path = "conf/certs/ca.pem" } ]`. 'type' can be PKCS12, JKS or PEM.
+
+
+### User session configuration
+
+The user session is part of JATOS secuity measurments ([more about security](http://blog.jatos.org/Hardening-JATOS-Security/)) and can be configured in `conf/production.conf`. 
+
+* `jatos.userSession.validation` - (since JATOS >= 3.1.10) - toggles user session validation. If turned on (true) only the IP which was used at login time is allowed to be used for subsequent requests by this user. This helps preventing session hijacking and adds an addional layer of security. But on the downside it also prevents using the same user in JATOS from different browsers at the same time. By default it is set to false to allow an easy use of a local JATOS. On a server installation it should be set to true, although sometimes this not possible, e.g. if your users have an often changing, dynamic IP address. WARNING: Turning off the user session validation reduces JATOS security!
+
+Other configs are:
+
+* `jatos.userSession.timeout` - time in minutes a user stays logged in (default is 1440 = 1 day)
+* `jatos.userSession.inactivity` - defines the time in minutes a user is automatically logged out after inactivity (default is 60)
+
+
 ### Other configuration in production.conf
 
 Some other properties can be configured in the `conf/production.conf`.
 
-* `jatos.userSession.timeout` - time in minutes a user stays logged in (default is 1440 = 1 day)
-* `jatos.userSession.inactivity` - defines the time in minutes a user is automatically logged out after inactivity (default is 60)
-* `jatos.userSession.validation` - (since JATOS >= 3.1.10) - toggles user session validation: set to false to switch it off (default is true) - WARNING: Turning off the user session validation reduces JATOS security! Sometimes this is necessary, e.g. if your users have a extremely dynamic IP address.
 * `play.http.session.secure` - secure session cookie: set true to restrict user access to HTTPS (default is false)
 
 Apart from those all [configuration properties possible in the Play Framework](https://www.playframework.com/documentation/latest/Configuration) are possible in JATOS production.conf too, e.g. 
