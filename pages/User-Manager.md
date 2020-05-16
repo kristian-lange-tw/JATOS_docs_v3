@@ -40,6 +40,8 @@ Finally, admins can also change the password of other users. To change the passw
 
 ## Authentication via LDAP (version >= 3.5.4)
 
-Many institutions use an LDAP server to manage their users centralized in one place. JATOS allows password authentication via LDAP. For this the LDAP server has to be configured in JATOS ([more about this](Configure-JATOS-on-a-Server.html#ldap-authentication-since-jatos--354)). If LDAP is properly configured an additional checkbox 'LDAP' appears in the 'New User' form right under the 'Admin Rights' checkbox. Check this one to enforce authentication by LDAP. Normal JATOS user (locally authenticated) and LDAP user can co-exist in the same JATOS.
+JATOS allows password authentication via LDAP (which lets an institution manage their users in a centralized way). LDAP is disabled by default. To enable it [change the JATOS config file](Configure-JATOS-on-a-Server.html#ldap-authentication-since-jatos--354). 
+
+Once LDAP is enabled, there will be an additional checkbox 'LDAP' when the Admin creates a new user. Check this box to enforce authentication by LDAP. Normal JATOS users (locally authenticated) and LDAP users can co-exist in the same JATOS instance.
 
 At the moment it is not possible to let JATOS create LDAP users automatically - they must be created by an JATOS admin manually.
