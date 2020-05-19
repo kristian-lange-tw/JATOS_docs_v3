@@ -183,7 +183,7 @@ By default JATOS uses only locally stored users and no LDAP. LDAP configuration 
 * `jatos.user.authentication.ldap.basedn` - LDAP base domain name (e.g. "dc=example,dc=com"). Not set or an empty string means no authentication via LDAP.
 * `jatos.user.authentication.ldap.timeout` -  Time in milliseconds JATOS waits for a response from your LDAP server. Default is 5000 ms.
 
-If your LDAP uses encryption, you have to add your certificate to JATOS' trusted certificates defined with `play.ws.ssl.trustManager.stores`. E.g. if your certificate's location is in `conf/certs/ca.pem`, then use the following to add it: `play.ws.ssl.trustManager.stores = [ { type = "PEM", path = "conf/certs/ca.pem" } ]`. 'type' can be PKCS12, JKS or PEM.
+If your LDAP uses encryption, you have to add your certificate to JATOS' trusted certificates defined with `play.ws.ssl.trustManager.stores`. E.g. if your certificate's location is in `/jatos/conf/certs/ca.pem`, then use the following to add it: `play.ws.ssl.trustManager.stores = [ { type = "PEM", path = "/jatos/conf/certs/ca.pem" } ]`. 'type' can be PKCS12, JKS or PEM.
 
 
 ### User session configuration
