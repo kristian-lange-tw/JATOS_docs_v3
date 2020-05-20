@@ -93,8 +93,9 @@ http {
 
                 # restrict access to JATOS' GUI to local network
                 #location /jatos {
-                #       allow   192.168.1.0/24;
-                #       deny    all;
+                #       allow           192.168.1.0/24;
+                #       deny            all;
+                #       proxy_pass      http://jatos-backend;
                 #}
 
                 # all other traffic
@@ -168,8 +169,9 @@ http {
 
                 # restrict access to JATOS' GUI to local network
                 #location /jatos {
-                #       allow   192.168.1.0/24;
-                #       deny    all;
+                #       allow           192.168.1.0/24;
+                #       deny            all;
+                #       proxy_pass      http://jatos-backend;
                 #}
 
                 # all other traffic
