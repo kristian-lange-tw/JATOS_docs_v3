@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-on-a-server.html
 folder:
 toc: true
-last_updated: 16 May 2020
+last_updated: 24 May 2020
 ---
 
 There are several ways to bring JATOS to the internet. You can install it
@@ -37,7 +37,7 @@ Possible scenarios why one would use an external database are
 
 One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.
    
-To let JATOS access MySQL it needs a database user called 'jatosuser' and a database called 'jatos'. One way to set up MySQL is this one:
+If you are (like me) not a great MySQL admin, there are many manuals out there, e.g. [https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04](this one). In the end your JATOS needs access to the MySQL and for this it needs a user called 'jatosuser' and a database called 'jatos'. One way to set up MySQL is this one:
    
    1. Install MySQL (e.g. `sudo apt install mysql-server` on Ubuntu)
    
@@ -49,9 +49,9 @@ To let JATOS access MySQL it needs a database user called 'jatosuser' and a data
    
    1. Log out and log in with the newly created user: `mysql -u jatosuser -p`
    
-   1. Create a database for JATOS: `CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
-   
-Appart from giving JATOS access to the database it is not necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.
+   1. Create a database for JATOS: `CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;` (the character set and collation is important - otherwise it won't have full UTF-8 support)
+
+Appart from giving JATOS access to the database it is **not** necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.
 
 Don't forget to [configure JATOS](Configure-JATOS-on-a-Server.html#mysql-database) to use your MySQL.
 
