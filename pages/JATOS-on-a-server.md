@@ -50,6 +50,8 @@ If you are (like me) not a great MySQL admin, there are many manuals out there, 
    1. Log out and log in with the newly created user: `mysql -u jatosuser -p`
    
    1. Create a database for JATOS: `CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;` (the character set and collation is important - otherwise it won't have full UTF-8 support)
+   
+   1. `exit` to exit the database
 
 Appart from giving JATOS access to the database it is **not** necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.
 
