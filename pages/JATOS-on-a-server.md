@@ -37,7 +37,7 @@ Possible scenarios why one would use an external database are
 
 One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.
    
-If you are (like me) not a great MySQL admin, there are many manuals out there, e.g. [https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04](this one). In the end your JATOS needs access to the MySQL and for this it needs a user called 'jatosuser' and a database called 'jatos'. One way to set up MySQL is this one:
+If you are (like me) not a great MySQL admin, there are many manuals out there, e.g. [this one](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04). In the end your JATOS needs access to the MySQL and for this it needs a user called 'jatosuser' and a database called 'jatos'. One way to set up MySQL is this one:
    
    1. Install MySQL (e.g. `sudo apt install mysql-server` on Ubuntu)
    
