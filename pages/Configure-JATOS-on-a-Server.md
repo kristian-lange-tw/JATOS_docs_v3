@@ -93,13 +93,13 @@ There are three ways to set up JATOS to work with an MySQL:
    E.g. to connect to a MySQL running on 127.0.0.1 and port 3306 use (change username and password):
    
    ~~~ bash   
-   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
+   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
    ~~~
    
 1. Via `conf/production.conf` (change IP, port, username and password)
 
    ~~~ bash
-   db.default.url="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+   db.default.url="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
    db.default.user="jatosuser"
    db.default.password="mypassword"
    db.default.driver=com.mysql.cj.jdbc.Driver
@@ -108,7 +108,7 @@ There are three ways to set up JATOS to work with an MySQL:
 1. Via environment variables (change IP, port, username and password)
 
    ~~~ bash
-   export JATOS_DB_URL="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+   export JATOS_DB_URL="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
    export JATOS_DB_USERNAME=jatosuser
    export JATOS_DB_PASSWORD='mypassword'
    export JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
