@@ -123,7 +123,6 @@ User=my-jatos-user
 ExecStart=/my/path/to/jatos/loader.sh start
 ExecStop=/bin/kill $MAINPID
 ExecStopPost=/bin/rm -f /my/path/to/jatos/RUNNING_PID
-ExecRestart=/bin/kill $MAINPID
 Restart=on-failure
 RestartSec=5
 
