@@ -110,7 +110,7 @@ There are three ways to set up JATOS to work with an MySQL:
    ~~~ bash
    export JATOS_DB_URL="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
    export JATOS_DB_USERNAME=jatosuser
-   export JATOS_DB_PASSWORD=mypassword
+   export JATOS_DB_PASSWORD='mypassword'
    export JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
    ~~~
    
