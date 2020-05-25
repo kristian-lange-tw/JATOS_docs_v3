@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:
 toc: true
-last_updated: 8 May 2020
+last_updated: 25 May 2020
 ---
 
 **Restart JATOS after making any changes to the configuration (`loader.sh restart`)**
@@ -100,8 +100,8 @@ There are three ways to set up JATOS to work with an MySQL:
 
    ~~~ bash
    db.default.url="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
-   db.default.user=jatosuser
-   db.default.password=mypassword
+   db.default.user="jatosuser"
+   db.default.password="mypassword"
    db.default.driver=com.mysql.cj.jdbc.Driver
    ~~~
    
