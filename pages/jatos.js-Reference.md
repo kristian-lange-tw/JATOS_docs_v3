@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 25 Jan 2020
+last_updated: 29 May 2020
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -585,7 +585,7 @@ Since v3.4.1 there are two versions: with and without result data
 1. End study and send a message back that will be visible in JATOS result pages and log 
 
    ```javascript
-   jatos.endStudy("everything worked fine");
+   jatos.endStudy(true, "everything worked fine");
    ```
 
 1. Indicate a failure - leads to study result state FAIL
@@ -605,7 +605,7 @@ Since v3.4.1 there are two versions: with and without result data
 
    ```javascript
    var resultData = {id: 123, data: "my important result data"};
-   jatos.endStudy(resultData, "everything worked fine");
+   jatos.endStudy(resultData, true, "everything worked fine");
    ```
 
 
