@@ -95,6 +95,7 @@
 
 </head>
 <body>
+<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="jatos" data-description="" data-message="" data-color="#FF813F" data-position="right" data-x_margin="18" data-y_margin="18"></script>
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container topnavlinks">
@@ -1279,7 +1280,7 @@ $('#toc').on('click', 'a', function() {
   <li>
     <p>End study and send a message back that will be visible in JATOS result pages and log</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">(</span><span class="s2">"everything worked fine"</span><span class="p">);</span>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="s2">"everything worked fine"</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -1299,7 +1300,7 @@ $('#toc').on('click', 'a', function() {
     <p>Send result data, end study and send a message back that will be visible in JATOS result pages and log (since JATOS &gt;= v3.4.1)</p>
 
     <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">resultData</span> <span class="o">=</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">data</span><span class="p">:</span> <span class="s2">"my important result data"</span><span class="p">};</span>
-<span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="s2">"everything worked fine"</span><span class="p">);</span>
+<span class="nx">jatos</span><span class="p">.</span><span class="nx">endStudy</span><span class="p">(</span><span class="nx">resultData</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">"everything worked fine"</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -2750,7 +2751,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 25 Jan 2020
+<span>Page last updated:</span> 29 May 2020
                 </div>
             </div>
 </footer>

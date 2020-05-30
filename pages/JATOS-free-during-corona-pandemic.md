@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-server-during-COVID-19-pandemic.html
 folder:
 toc: false
-last_updated: 26 May 2020
+last_updated: 30 May 2020
 ---
 
 <script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="jatos" data-description="" data-message="" data-color="#FF813F" data-position="right" data-x_margin="18" data-y_margin="18"></script>
@@ -67,4 +67,4 @@ Restrictions
 
 **You can log in with your Google account or [ask us](/Contact-us.html) for an account in case you do not have a Google account.**
 
-<button name="button" class="btn btn-primary" onclick="https://experiments.jatos.org">experiments.jatos.org</button>
+<a role="button" class="btn btn-primary btn-lg" href="https://experiments.jatos.org">experiments.jatos.org</a>
