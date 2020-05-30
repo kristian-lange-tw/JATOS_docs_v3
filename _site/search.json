@@ -202,6 +202,17 @@
 
 
 {
+"title": "JATOS server during COVID-19 pandemic",
+"tags": "",
+"keywords": "server, corona, experiments",
+"url": "JATOS-server-during-COVID-19-pandemic.html",
+"summary": "During the COVID-19 pandemic many scientist can't proceed with their usual lab experiments anymore and move to online counterparts. But for many scientists setting up a JATOS instance is difficult. We want to support the scientist comunity by providing a JATOS server for free to use."
+}
+,
+
+
+
+{
 "title": "JATOS on AWS",
 "tags": "",
 "keywords": "cloud, aws, amazon, installation, server",

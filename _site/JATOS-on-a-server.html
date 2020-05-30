@@ -654,7 +654,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.</p>
 
-<p>To let JATOS access MySQL it needs a database user called ‘jatosuser’ and a database called ‘jatos’. One way to set up MySQL is this one:</p>
+<p>If you are (like me) not a great MySQL admin, there are many manuals out there, e.g. <a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04">this one</a>. In the end your JATOS needs access to the MySQL and for this it needs a user called ‘jatosuser’ and a database called ‘jatos’. One way to set up MySQL is this one:</p>
 
 <ol>
   <li>
@@ -672,11 +672,14 @@ $('#toc').on('click', 'a', function() {
     <p>Log out and log in with the newly created user: <code class="highlighter-rouge">mysql -u jatosuser -p</code></p>
   </li>
   <li>
-    <p>Create a database for JATOS: <code class="highlighter-rouge">CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code></p>
+    <p>Create a database for JATOS: <code class="highlighter-rouge">CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code> (the character set and collation is important - otherwise it won’t have full UTF-8 support)</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">exit</code> to exit the database</p>
   </li>
 </ol>
 
-<p>Appart from giving JATOS access to the database it is not necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.</p>
+<p>Appart from giving JATOS access to the database it is <strong>not</strong> necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.</p>
 
 <p>Don’t forget to <a href="Configure-JATOS-on-a-Server.html#mysql-database">configure JATOS</a> to use your MySQL.</p>
 
@@ -755,7 +758,6 @@ $('#toc').on('click', 'a', function() {
 <span class="nv">ExecStart</span><span class="o">=</span>/my/path/to/jatos/loader.sh start
 <span class="nv">ExecStop</span><span class="o">=</span>/bin/kill <span class="nv">$MAINPID</span>
 <span class="nv">ExecStopPost</span><span class="o">=</span>/bin/rm <span class="nt">-f</span> /my/path/to/jatos/RUNNING_PID
-<span class="nv">ExecRestart</span><span class="o">=</span>/bin/kill <span class="nv">$MAINPID</span>
 <span class="nv">Restart</span><span class="o">=</span>on-failure
 <span class="nv">RestartSec</span><span class="o">=</span>5
 
@@ -866,7 +868,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 16 May 2020
+<span>Page last updated:</span> 24 May 2020
                 </div>
             </div>
 </footer>

@@ -680,8 +680,9 @@ http <span class="o">{</span>
 
                 <span class="c"># restrict access to JATOS' GUI to local network</span>
                 <span class="c">#location /jatos {</span>
-                <span class="c">#       allow   192.168.1.0/24;</span>
-                <span class="c">#       deny    all;</span>
+                <span class="c">#       allow           192.168.1.0/24;</span>
+                <span class="c">#       deny            all;</span>
+                <span class="c">#       proxy_pass      http://jatos-backend;</span>
                 <span class="c">#}</span>
 
                 <span class="c"># all other traffic</span>
@@ -754,8 +755,9 @@ http <span class="o">{</span>
 
                 <span class="c"># restrict access to JATOS' GUI to local network</span>
                 <span class="c">#location /jatos {</span>
-                <span class="c">#       allow   192.168.1.0/24;</span>
-                <span class="c">#       deny    all;</span>
+                <span class="c">#       allow           192.168.1.0/24;</span>
+                <span class="c">#       deny            all;</span>
+                <span class="c">#       proxy_pass      http://jatos-backend;</span>
                 <span class="c">#}</span>
 
                 <span class="c"># all other traffic</span>

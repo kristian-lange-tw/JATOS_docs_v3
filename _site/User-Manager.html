@@ -649,7 +649,9 @@ This will delete all studies, along with their result data, that this user is th
 
 <h2 id="authentication-via-ldap-version--354">Authentication via LDAP (version &gt;= 3.5.4)</h2>
 
-<p>Many institutions use an LDAP server to manage their users centralized in one place. JATOS allows password authentication via LDAP. For this the LDAP server has to be configured in JATOS (<a href="Configure-JATOS-on-a-Server.html#ldap-authentication-since-jatos--354">more about this</a>). If LDAP is properly configured an additional checkbox ‘LDAP’ appears in the ‘New User’ form right under the ‘Admin Rights’ checkbox. Check this one to enforce authentication by LDAP. Normal JATOS user (locally authenticated) and LDAP user can co-exist in the same JATOS.</p>
+<p>JATOS allows password authentication via LDAP (which lets an institution manage their users in a centralized way). LDAP is disabled by default. To enable it <a href="Configure-JATOS-on-a-Server.html#ldap-authentication-since-jatos--354">change the JATOS config file</a>.</p>
+
+<p>Once LDAP is enabled, there will be an additional checkbox ‘LDAP’ when the Admin creates a new user. Check this box to enforce authentication by LDAP. Normal JATOS users (locally authenticated) and LDAP users can co-exist in the same JATOS instance.</p>
 
 <p>At the moment it is not possible to let JATOS create LDAP users automatically - they must be created by an JATOS admin manually.</p>
 
