@@ -7,12 +7,12 @@ sidebar: mydoc_sidebar
 permalink: JATOS-with-Nginx.html
 folder:
 toc: false
-last_updated: 27 Apr 2017
+last_updated: 31 May 2020
 ---
 
 These are examples for configurations of [Nginx](https://www.nginx.com/) as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it's common. They support WebSockets for JATOS' group studies. 
 
-The following two configs are the content of `/etc/nginx/nginx.conf`. Change them to your needs. You probably want to change your servers address (`www.example.com` in the example) and the path to the SSL certificate and its key. Those `proxy_set_header X-Forwarded-*` and `proxy_set_header X-Real-IP` are necessary to tell JATOS the real requester's IP address - please leave them unchanged.
+The following two configs are the content of `/etc/nginx/nginx.conf`. Change them to your needs. You probably want to change your servers address (`www.example.com` in the example) and the path to the SSL certificate and its key. This `proxy_set_header X-Forwarded-*` is necessary to tell JATOS the original requester's IP address - please leave it unchanged.
 
 As an additional security measurement you can uncomment the `location /jatos` and config your local network. This will restrict the access to JATOS' GUI (every URL starting with `/jatos`) to the local network.
 
@@ -39,7 +39,6 @@ http {
         default_type application/octet-stream;
 
         proxy_buffering    off;
-        proxy_set_header   X-Real-IP $remote_addr;
         proxy_set_header   X-Forwarded-Proto https;
         proxy_set_header   X-Forwarded-Ssl on;
         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -133,7 +132,6 @@ http {
         default_type application/octet-stream;
 
         proxy_buffering    off;
-        proxy_set_header   X-Real-IP $remote_addr;
         proxy_set_header   X-Forwarded-Proto http;
         proxy_set_header   X-Forwarded-Ssl on;
         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
