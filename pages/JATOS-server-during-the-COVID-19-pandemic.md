@@ -21,14 +21,14 @@ For now we plan to offer this server until the end of August 2020. It's also pos
 **Please talk to us before you run your study with participants if**
 
 * you want to run a study with many participants at the same time (e.g. send out a link by Twitter, Facebook etc.)
-* you have high data volume (> 1 MB per component) in your result data or result files of your study
+* you have high data volume ( >1 MB per component) in your result data or result files of your study
 * you want to upload audio/video in your study
 
 All these will increase the traffic, and therefore the server costs, so please just check with us that it's within our budget. 
 
 **Privacy and ethics**
 
-* This JATOS server is hosted in the cloud (Digital Ocean), within the European Union and uses encryption for all network traffic. That said, you should check whether a cloud-hosted server complies to the ethics regulation of your institution.
+* This JATOS server is hosted in the cloud (Digital Ocean), within the European Union and uses encryption for all network traffic. So you should check whether a cloud-hosted server complies to the ethics regulations of your institution.
 * _experiments.jatos.org_ or JATOS itself does not store user information apart from what is necessary to create the user account (username, name).
 * More can be found under: [http://www.jatos.org/Data-Privacy-and-Ethics.html](http://www.jatos.org/Data-Privacy-and-Ethics.html)
 
