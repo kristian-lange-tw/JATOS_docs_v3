@@ -202,17 +202,6 @@
 
 
 {
-"title": "JATOS server during the COVID-19 pandemic",
-"tags": "",
-"keywords": "server, corona, experiments",
-"url": "JATOS-server-during-the-COVID-19-pandemic.html",
-"summary": "During the COVID-19 pandemic many scientists can't proceed with their usual lab experiments anymore and move to online versions of their studies. But setting up a JATOS instance is not always easy. We want to support the scientific community by providing a JATOS server for free."
-}
-,
-
-
-
-{
 "title": "JATOS on AWS",
 "tags": "",
 "keywords": "cloud, aws, amazon, installation, server",
@@ -240,6 +229,17 @@
 "keywords": "server, installation, install, test, config, configuration, backup, proxy, java, MySQL, database, encryption, systemd, init.d, auto-start",
 "url": "JATOS-on-a-server.html",
 "summary": "To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
+}
+,
+
+
+
+{
+"title": "JATOS server during the COVID-19 pandemic",
+"tags": "",
+"keywords": "server, corona, COVID-19, pandemic, experiments",
+"url": "JATOS-server-during-the-COVID-19-pandemic.html",
+"summary": "During the COVID-19 pandemic many scientists can't proceed with their usual lab experiments anymore and move to online versions of their studies. But setting up a JATOS instance is not always easy. We want to support the scientific community by providing a JATOS server for free."
 }
 ,
 

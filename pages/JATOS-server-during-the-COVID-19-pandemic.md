@@ -1,6 +1,6 @@
 ---
 title: JATOS server during the COVID-19 pandemic
-keywords: server, corona, experiments
+keywords: server, corona, COVID-19, pandemic, experiments
 tags:
 summary: During the COVID-19 pandemic many scientists can't proceed with their usual lab experiments anymore and move to online versions of their studies. But setting up a JATOS instance is not always easy. We want to support the scientific community by providing a JATOS server for free.
 sidebar: mydoc_sidebar
@@ -10,15 +10,13 @@ toc: false
 last_updated: 30 May 2020
 ---
 
-<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="jatos" data-description="" data-message="" data-color="#FF813F" data-position="right" data-x_margin="18" data-y_margin="18"></script>
-
 The link to the JATOS server is at the end of the page. But first the playing rules:
 
 ### Playing rules
 
 **Time frame**
 
-For now we plan to offer this server until the end of August 2020. 
+For now we plan to offer this server until the end of August 2020. It's also possible that we limit the signing in of new users if we find that the load on the server becomes too high and therefore a free service is unsustainable.
 
 **Please talk to us before you run your study with participants if**
 
@@ -44,7 +42,7 @@ No private use, no commercial use.
 
 **Support us**
 
-The server costs money. Please consider donating via buymeacoffee.com (coffee cup on the bottom right).
+The server costs money. Please consider donating via buymeacoffee.com (coffee cup in the bottom right).
 
 
 ### And the boring stuff
