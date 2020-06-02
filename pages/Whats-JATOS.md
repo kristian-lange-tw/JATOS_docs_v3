@@ -6,10 +6,12 @@ summary:
 sidebar: mydoc_sidebar
 permalink: Whats-JATOS.html
 toc: false
-last_updated: 3 April 2019
+last_updated: 2 Jun 2020
 ---
 
 JATOS (Just Another Tool for Online Studies) helps you set up and run your online studies on your own server.
+
+**During the COVID-19 pandemic many scientists can't proceed with their usual lab experiments anymore and move to online versions of their studies. But setting up a JATOS instance is not always easy. We want to support the scientific community by [providing a JATOS server for free](JATOS-server-during-the-COVID-19-pandemic.html).**
 
 **Please complete our short [survey](https://forms.gle/Jtjw4LxpyWVFEtG17) on how (much) you use JATOS (ca. 3 min). It’s very important for us!**
 
