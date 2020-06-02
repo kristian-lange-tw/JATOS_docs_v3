@@ -34,7 +34,7 @@ All these will increase the traffic, and therefore the server costs, so please j
 
 **Backup your result data**
 
-Right now _experiments.jatos.org_ is backed up only on a weekly basis. Please export your result data on a regular basis since otherwise in some (hopefully never happening) server failure your data might get lost. Sadky, we will most likely not have the capacity to help you troubleshoot or recover lost data.  
+Right now _experiments.jatos.org_ is backed up only on a weekly basis. Please export your result data on a regular basis since otherwise in the (unlikely) case of a server failure your data might get lost. Sadly, we will probably not have the capacity to help you troubleshoot or recover lost data.  
 
 **Research only**
 
