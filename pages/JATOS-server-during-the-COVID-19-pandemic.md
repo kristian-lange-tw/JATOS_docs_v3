@@ -45,7 +45,7 @@ No private use, no commercial use.
 The server costs money. Please consider donating via buymeacoffee.com (coffee cup in the bottom right).
 
 
-### And the boring stuff
+### And the boring stuff (Terms of Use)
 
 **By using the web application under the domain _experiments.jatos.org_ you agree to the following points:**
 
