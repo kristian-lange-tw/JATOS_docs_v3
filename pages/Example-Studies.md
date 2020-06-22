@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: false
-last_updated: 27 Jan 2020
+last_updated: 22 Jun 2020
 ---
 
 ### Overview
@@ -53,6 +53,7 @@ If you wrote an example study that you'd like to share, please feel free to [con
 | [Deary-Liewald task with PsyToolkit](https://github.com/JATOS/JATOS_examples/raw/master/examples/deary_liewald_with_psytoolkit.zip) § | Taken from [PsyToolkit's experiment library](https://www.psytoolkit.org/experiment-library/deary_liewald.html) | [PsyToolkit](https://www.psytoolkit.org) | - | <img src="http://www.jatos.org/images/example-studies/Screenshot_deary_liewald_with_psytoolkit.png" style="width:200%"/> |
 | [Clock Drawing](https://github.com/JATOS/JATOS_examples/raw/master/examples/clock_drawing.zip) § | Submit images as result data to JATOS by converting them into base64-encoded text.| [jsPsych](https://www.jspsych.org/) | - |  <img src="images/example-studies/Screenshot_clock_drawing.png" style="width:200%"/> |
 | [Potato Compass](https://github.com/JATOS/JATOS_examples/raw/master/examples/potato_compass.zip) | Drag & drop elements. | [interact.js](http://interactjs.io/) | - |  <img src="images/example-studies/Screenshot_potatoCompass.png" style="width:200%"/> |
+| [Audio Recording](https://github.com/JATOS/JATOS_examples/raw/master/examples/audio_recording.jzip) † | Record audio and upload as a file to JATOS. Bases on [web-dictaphone](https://github.com/mdn/web-dictaphone/) and uses getUserMedia and MediaRecorder API for recording audio snippets, and The Web Audio API for visualizations. | - | - |  <img src="images/example-studies/audio-recording-example.png" style="width:200%"/> |
 | [Video Recording](https://github.com/JATOS/JATOS_examples/raw/master/examples/video_recording.jzip) † | Record a video with the webcam and upload the data as a file to JATOS | - | - |  <img src="images/example-studies/Screenshot_video-recording.png" style="width:200%"/> |
 | [Drawing](https://github.com/JATOS/JATOS_examples/raw/master/examples/drawing_and_upload.jzip) † | Simple drawing app that lets you upload the image to JATOS | - | - |  <img src="images/example-studies/Screenshot_drawing-upload.png" style="width:200%"/> |
 | [Browser Information and Worker Tracking](https://github.com/JATOS/JATOS_examples/raw/master/examples/browser_info_and_worker_tracking.zip) § | Gets information about the participants browser, computer and location | - | - | <img src="http://www.jatos.org/images/example-studies/Screenshot_browser_worker_info.png" style="width:200%"/> |
