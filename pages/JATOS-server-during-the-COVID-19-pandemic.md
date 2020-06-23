@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-server-during-the-COVID-19-pandemic.html
 folder:
 toc: false
-last_updated: 30 May 2020
+last_updated: 23 Jun 2020
 ---
 
 The link to the JATOS server is at the end of the page. But first the playing rules:
@@ -16,7 +16,9 @@ The link to the JATOS server is at the end of the page. But first the playing ru
 
 **Time frame**
 
-For now we plan to offer this server until the end of August 2020. It's also possible that we limit the signing in of new users if we find that the load on the server becomes too high and therefore a free service is unsustainable.
+Extended until end of September - if you want it extended even longer feel free to 'buy us a coffee' to pay for the server.
+
+For now we plan to offer this server until the end of ~~August~~ September 2020. It's also possible that we limit the signing in of new users if we find that the load on the server becomes too high and therefore a free service is unsustainable.
 
 **Please talk to us before you run your study with participants if**
 
