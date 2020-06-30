@@ -21,6 +21,8 @@ Qiu, M., Johns, B.T. (2020) Semantic diversity in paired-associate learning: Fur
 
 Dolscheid, S., Çelik, S., Erkan, H., Küntay, A., & Majid, A. (2020). Space-pitch associations differ in their susceptibility to language. *Cognition*, 196, 104073. [DOI](https://doi.org/10.1016/j.cognition.2019.104073)
 
+Richan, E., Rouat, J. A proposal and evaluation of new timbre visualization methods for audio sample browsers. Pers Ubiquit Comput (2020). https://doi.org/10.1007/s00779-020-01388-1
+
 ### 2019
 
 Richan, E., & Rouat, J. (2019). A study comparing shape, colour and texture as visual labels in audio sample browsers. Proceedings of the 14th International Audio Mostly Conference: A Journey in Sound, 223–226. [DOI](https://doi.org/10.1145/3356590.3356624)
