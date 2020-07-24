@@ -938,7 +938,7 @@ JSON Patch add operation: Adds a value to an object or inserts it into an array.
    After the Batch Session is successfully updated the new object is `{"a": 100}`.
 
 1. Add to Batch Session
-"array": [1, 2, 3]}
+
    If the Batch Session is `{"a": 100}` and one calls
 
    ```javascript
