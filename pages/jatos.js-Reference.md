@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 29 May 2020
+last_updated: 24 Jul 2020
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -929,8 +929,16 @@ JSON Patch add operation: Adds a value to an object or inserts it into an array.
 
 **Examples**
 
-1. Add to Batch Session
+1. Add to an empty Batch Session
 
+   ```javascript
+   jatos.batchSession.add("/a", 100);
+   ```
+
+   After the Batch Session is successfully updated the new object is `{"a": 100}`.
+
+1. Add to Batch Session
+"array": [1, 2, 3]}
    If the Batch Session is `{"a": 100}` and one calls
 
    ```javascript
@@ -948,23 +956,49 @@ JSON Patch add operation: Adds a value to an object or inserts it into an array.
    promise.done(() => { alert("Batch Session was successfully updated") });
    promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
-
-1. Example with an array: Put the object `{id: 123, name: "Max"}` after the second position of the array with the path `/subjects`
+   
+1. Add an object:
 
    ```javascript
-   var promise = jatos.batchSession.add("/subjects/2", {id: 123, name: "Max"});
+   var promise = jatos.batchSession.add("/obj", { foo: "bar" });
    promise.done(() => { alert("Batch Session was successfully updated") });
    promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
-
-1. Append to the end of an array use `/-` after the arrays name:
+   
+   Afterwards the Batch Session contains `{"obj": {"foo": "bar"}}`.
+   
+1. Add an array:
 
    ```javascript
-   var promise = jatos.batchSession.add("/subjects/-", {id: 124, name: "Adam"});
+   var promise = jatos.batchSession.add("/array", [1, 2, 3]);
    promise.done(() => { alert("Batch Session was successfully updated") });
    promise.fail(() => { alert("Batch Session synchronization failed") });
    ```
+   Afterwards the Batch Session contains `{"array": [1, 2, 3]}`.
 
+1. Add an element to an array:
+
+   If the Batch Session is `{"array": [1, 2, 3]}` and one calls
+
+   ```javascript
+   var promise = jatos.batchSession.add("/array/2", "new");
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
+   ```
+   
+   then afterwards the Batch Session contains `{"array": [1, 2, "new", 3]}`.
+
+1. Append to the end of an array using `/-`:
+
+   If the Batch Session is `{"array": [1, 2, 3]}` and one calls
+
+   ```javascript
+   var promise = jatos.batchSession.add("/array/-", "new");
+   promise.done(() => { alert("Batch Session was successfully updated") });
+   promise.fail(() => { alert("Batch Session synchronization failed") });
+   ```
+   
+   then afterwards the Batch Session contains `{"array": [1, 2, 3, "new"]}`.
 
 ### `jatos.batchSession.remove`
 
