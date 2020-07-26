@@ -783,7 +783,7 @@ Posts result data for the currently running component back to the JATOS server. 
    jatos.appendResultData(resultData);
    ```
 
-1. Use mulitple jatos.appendResultData in a row
+1. Use mulitple `jatos.appendResultData` in a row
 
    ```javascript
    jatos.appendResultData({"a": 1})
