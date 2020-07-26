@@ -783,6 +783,15 @@ Posts result data for the currently running component back to the JATOS server. 
    jatos.appendResultData(resultData);
    ```
 
+1. Use mulitple jatos.appendResultData in a row
+
+   ```javascript
+   jatos.appendResultData({"a": 1})
+      .then(() => jatos.appendResultData({"b": 2}))
+      .then(() => jatos.appendResultData({"c": 3}))
+      .catch(() => console.log('Something went wrong'));
+   ```
+
 1. You can use it together with `jatos.startNextComponent` to first append result data and afterwards jump to the next component
 
    ```javascript
