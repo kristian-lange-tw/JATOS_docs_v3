@@ -295,12 +295,12 @@ jatos.setHeartbeatPeriod(60000); // Sets to a heartbeat every minute
 
 **If you just want to write into the study session, this function is not what you want**. This function sets the study session data and **sends it back to the JATOS server**. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
 
-Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameters or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer.
 
 * _@param {object} sessionData_ - object to be submitted
 * _@param {optional function} onSuccess_ - Function to be called after this function is finished
 * _@param {optional function} onFail_ - Function to be called after if this this functions fails
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Example**
 
@@ -535,12 +535,12 @@ Aborts study. All previously submitted result data will be deleted. Afterwards t
 
 **Hint**: There is a convenience function `jatos.addAbortButton` that already adds a button to your document including showing an confirmation box and options to change it to your needs.
 
-Aborts study with an Ajax call. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
+Aborts study with an Ajax call. All previously submitted result data will be deleted. Data stored in the Batch Session or Group Session are uneffected by this. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the ending.
 
 * _@param {optional string} message_ - Message that should be logged
 * _@param {optional function} onSuccess_ - Function to be called in case of successful submit
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
@@ -611,7 +611,7 @@ Since v3.4.1 there are two versions: with and without result data
 
 ### `jatos.endStudyAndRedirect`
 
-**Since JATOS version >= 3.5.1** - Ends study and redirects the given URL. This is useful if you want to let the worker return to a recruitment platform (e.g. Prolific) or have your own end page. The same effect can be achieved with the Study Properties' _End Redirect URL_ field. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
+**Since JATOS version >= 3.5.1** - Ends study and redirects the given URL. This is useful if you want to let the worker return to a recruitment platform (e.g. Prolific) or have your own end page. The same effect can be achieved with the Study Properties' _End Redirect URL_ field. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the ending.
 
 **Hint**: There is a '**End Redirect URL**'  field in the Study Properties that also specifies the redirect URL. It's easier to use, but not as flexible.
 
@@ -620,7 +620,7 @@ Since v3.4.1 there are two versions: with and without result data
 * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
 * _@param {optional function} onSuccess_ - Function to be called in case of successful submit
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
@@ -652,13 +652,13 @@ Since v3.4.1 there are two versions: with and without result data
 
 ### `jatos.endStudyAjax`
 
-Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. If the study was run by an MTurk worker the confirmation code will be in the response. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the ending.
+Ends study with an Ajax call - afterwards the study is not redirected to the JATOS' end page. If the study was run by an MTurk worker the confirmation code will be in the response. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the ending.
 
 * _@param {optional boolean} successful_ - 'true' if study should finish successful - 'false' otherwise.
 * _@param {optional string} message_ - Message that will be stored together with the study results and is accessible via JATOS' GUI result pages. The message can be max 255 characters long.
 * _@param {optional function} onSuccess_ - Function to be called in case of successful submit
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
@@ -677,26 +677,25 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
 1. Indicate a failure and send a message
 
    ```javascript
-   jatos.endStudyAjax(false, "internal JS error");
+   jatos.endStudyAjax(false, "some error description");
    ```
    
 1. End study and show the confirmation code to the MTurk worker
 
    ```javascript
-   jatos.endStudyAjax().done((confirmationCode) => {
+   jatos.endStudyAjax().then((confirmationCode) => {
      // Show the confirmation code to the worker
    });
    ```   
 
-1. Send result data, end study and jump to another URL afterwards (by using jQuery's [done](https://api.jquery.com/deferred.done/)
+1. Use Promise to submit result data and afterwards, end the study and move to another URL ([see also](jatos.js-Reference.html#jatosendstudyandredirect))
 
    ```javascript
    var resultData = {id: 123, data: "my important result data"};
    jatos.submitResultData(resultData)
-     .done(jatos.endStudyAjax)
-     .done(() => {
-       window.location.href = 'http://example.com/index.html'
-     });
+     .then(jatos.endStudyAjax)
+     .then(() => { window.location.href = 'http://example.com/index.html' }
+     .catch(() => console.log("Something went wrong"));
    ``` 
 
 1. Send result data and end study (since JATOS >= v3.4.1)
@@ -711,12 +710,12 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
 
 ### `jatos.submitResultData`
 
-Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be **overwritten**. If you want to append result data use `jatos.appendResultData` instead. Alternatively you can send result data with functions that jump to another component (e.g. `jatos.startComponent`) or end the study (`jatos.endStudy`). It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+Posts result data for the currently running component back to the JATOS server. Already stored result data for this component will be **overwritten**. If you want to append result data use `jatos.appendResultData` instead. Alternatively you can send result data with functions that jump to another component (e.g. `jatos.startComponent`) or end the study (`jatos.endStudy`). It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer.
 
 * _@param {object} resultData_ - String or object that will be sent as result data. An object will be serialized to JSON.
 * _@param {optional function} onSuccess_ - Function to be called in case of successful submit
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
@@ -724,7 +723,7 @@ Posts result data for the currently running component back to the JATOS server. 
 
    ```javascript
    var resultData = {"a": 123, "b": 789, "c": 100};
-   jatos.submitResultData(JSON.stringify(resultData));
+   jatos.submitResultData(resultData);
    ```
 
 1. Since v3.3.1 it's possible to leave out the JSON serialization
@@ -749,22 +748,24 @@ Posts result data for the currently running component back to the JATOS server. 
    jatos.submitResultData(resultData, () => { jatos.startComponentByPos(4) });
    ```
 
-1. Or with jQuery's [then](https://api.jquery.com/deferred.then/) function
+1. Or by using the returned Promise
 
    ```javascript
    var resultData = {"a": 123, "b": 789, "c": 100};
-   jatos.submitResultData(resultData).then(() => console.log('success'), () => console.log('error'));
+   jatos.submitResultData(resultData)
+      .then(() => console.log('success'))
+      .catch(() => console.log('error'));
    ```
 
 
 ### `jatos.appendResultData`
 
-**Since JATOS version >= 3.1.7** - Appends result data to the already posted result data. Contrary to `jatos.submitResultData` it does not overwrite the result data. Alternatively you can send result data with functions that jump to another component (e.g. `jatos.startComponent`) or end the study (`jatos.endStudy`). It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer. This function can be used several times during an component run to incrementally save result data.
+**Since JATOS version >= 3.1.7** - Appends result data to the already posted result data. Contrary to `jatos.submitResultData` it does not overwrite the result data. Alternatively you can send result data with functions that jump to another component (e.g. `jatos.startComponent`) or end the study (`jatos.endStudy`). It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer. This function can be used several times during an component run to incrementally save result data.
 
 * _@param {string} resultData_ - String or object that will be sent as result data. An object will be serialized to JSON (stringify).
 * _@param {optional function} onSuccess_ - Function to be called in case of successful submit
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
@@ -772,7 +773,7 @@ Posts result data for the currently running component back to the JATOS server. 
 
    ```javascript
    var resultData = { "a": 123, "b": 789, "c": 100};
-   jatos.appendResultData(JSON.stringify(resultData));
+   jatos.appendResultData(resultData);
    ```
 
 1. Since v3.3.1 it's possible to leave out the JSON serialization
@@ -789,50 +790,61 @@ Posts result data for the currently running component back to the JATOS server. 
    jatos.appendResultData(resultData, jatos.startNextComponent);
    ```
 
+1. Or by using the returned Promise
+
+   ```javascript
+   var resultData = {"a": 123, "b": 789, "c": 100};
+   jatos.appendResultData(resultData)
+      .then(() => jatos.startNextComponent())
+      .catch(() => console.log('Something went wrong'));
+   ```
+
 1. Or together with `jatos.startComponentByPos` to start a particular component (here at position 4)
 
    ```javascript
-   var resultData = { "a": 123, "b": 789, "c": 100};
-   jatos.appendResultData(resultData, () => { jatos.startComponentByPos(4) });
+   var resultData = {"a": 123, "b": 789, "c": 100};
+   jatos.appendResultData(resultData)
+      .then(() => jatos.startComponentByPos(4))
+      .catch(() => console.log('Something went wrong'));
    ```
 
 
 ### `jatos.uploadResultFile`
 
-**Since JATOS version >= 3.5.1** - Uploads a file to the JATOS server where they are stored in the server's file system (but not in the database). Similar to result data it can be downloaded in the JATOS UI, in the result pages. The files are stored per component - that means you can use the same filename without overwriting the file if the upload happens from different components. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+**Since JATOS version >= 3.5.1** - Uploads a file to the JATOS server where they are stored in the server's file system (but not in the database). Similar to result data it can be downloaded in the JATOS UI, in the result pages. The files are stored per component - that means you can use the same filename without overwriting the file if the upload happens from different components. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer.
 
 * _@param {Blob, string or object} obj_ - Data to be uploaded as a file. Can be [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob), a string, or a object. A Blob	will be uploaded right away. A string is turned into a Blob. An object is	first turned into a JSON string	and	then into a Blob.
 * _@param {string} filename_ - Name of the uploaded file
 * _@param {optional function} onSuccess_ - Function to be called in case of success
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
 1. Upload text
 
    ```javascript
-   var promise = jatos.uploadResultFile("this is my data", "example.txt");
-   promise.done(() => { alert("File was successfully uploaded") });
-   promise.fail(() => { alert("File upload failed") });
+   jatos.uploadResultFile("this is my data", "example.txt")
+      .then(() => console.log("File was successfully uploaded"))
+      .catch(() => console.log("File upload failed"));
    ```
 
 1. Upload object as JSON
 
    ```javascript
    var resultData = { "a": 123, "b": 789, "c": 100};
-   var promise = jatos.uploadResultFile(resultData, "example.json");
-   promise.done(() => { alert("File was successfully uploaded") });
-   promise.fail(() => { alert("File upload failed") });
+   jatos.uploadResultFile(resultData, "example.json")
+      .then(() => console.log("File was successfully uploaded"))
+      .catch(() => console.log("File upload failed"));
    ```
 
 1. Upload text as Blob
 
    ```javascript
    var blob = new Blob(["Hello, world!"], {type: 'text/plain'});
-   var promise = jatos.uploadResultFile(blob, "example.txt");
-   promise.done(() => { alert("File was successfully uploaded") });
-   promise.fail(() => { alert("File upload failed") });
+   jatos.uploadResultFile(blob, "example.txt")
+      .then(() => console.log("File was successfully uploaded"))
+      .catch(() => console.log("File upload failed"));
    ```
 
 1. Turn canvas into Blob and upload as image file. It assumes you have an canvas element with ID 'canvas'.
@@ -840,9 +852,9 @@ Posts result data for the currently running component back to the JATOS server. 
    ```javascript
    var canvas = document.getElementById('canvas');
    canvas.toBlob((blob) => {
-     var promise = jatos.uploadResultFile(blob, "canvas.png");
-     promise.done(() => { alert("File was successfully uploaded") });
-     promise.fail(() => { alert("File upload failed") });
+      jatos.uploadResultFile(blob, "canvas.png")
+         .then(() => console.log("File was successfully uploaded"))
+         .catch(() => console.log("File upload failed"));
    });
    ```
 
@@ -851,12 +863,12 @@ Posts result data for the currently running component back to the JATOS server. 
 
 ### `jatos.downloadResultFile`
 
-**Since JATOS version >= 3.5.1** - Downloads a file from the JATOS server. One can only download a file that was previously uploaded with `jatos.uploadResultFile` in the same study run. If the file contains text it returns the content as a string. If the file contains JSON, it returns the JSON already parsed as an object. All other [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) are returned as a Blob. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the transfer.
+**Since JATOS version >= 3.5.1** - Downloads a file from the JATOS server. One can only download a file that was previously uploaded with `jatos.uploadResultFile` in the same study run. If the file contains text it returns the content as a string. If the file contains JSON, it returns the JSON already parsed as an object. All other [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) are returned as a Blob. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer.
 
 * _@param {string} filename_ - Name of the uploaded file
 * _@param {optional function} onSuccess_ - Function to be called in case of success
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 Additionally you can specify the component position from where the file was uploaded (in case different components uploaded files with the same filename)
 
@@ -864,42 +876,40 @@ Additionally you can specify the component position from where the file was uplo
 * _@param {string} filename_ - Name of the uploaded file
 * _@param {optional function} onSuccess_ - Function to be called in case of success
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
 1. Download text file
 
    ```javascript
-   var promise = jatos.downloadResultFile("example.txt");
-   promise.done((text) => { console.log(text) });
-   promise.fail(() => { alert("File download failed") });
+   jatos.downloadResultFile("example.txt")
+      .then((text) => console.log(text))
+      .catch(() => console.log("File download failed"));
    ```
 
 1. Download JSON file
 
    ```javascript
-   var promise = jatos.downloadResultFile("example.json");
-   promise.done((obj) => { console.log(JSON.stringify(obj)) });
-   promise.fail(() => { alert("File download failed") });
+   jatos.downloadResultFile("example.json")
+      .then((obj) => console.log(JSON.stringify(obj)))
+      .catch(() => console.log("File download failed"));
    ```
 
 1. Download image and display it in a canvas element
 
    ```javascript
-   var promise = jatos.downloadResultFile("canvas.png");
-   promise.done((blob) => {
-     document.getElementById("canvas").src = URL.createObjectURL(blob);
-   });
-   promise.fail(() => { alert("File download failed") });
+   jatos.downloadResultFile("canvas.png")
+      .then((blob) => { document.getElementById("canvas").src = URL.createObjectURL(blob) })
+      .catch(() => console.log("File download failed"));
    ```
 
 1. Download file and specify that the file was uploaded in the first component
 
    ```javascript
-   var promise = jatos.downloadResultFile(1, "example.txt");
-   promise.done((text) => { console.log(text) });
-   promise.fail(() => { alert("File download failed") });
+   jatos.downloadResultFile(1, "example.txt")
+      .then((text) => console.log(text))
+      .catch(() => console.log("File download failed"));
    ```
 
 1. For more real-world examples have a look at the ['Drawing' and the 'Video Recording' examples](Example-Studies.html)
@@ -907,7 +917,7 @@ Additionally you can specify the component position from where the file was uplo
 
 ## Functions to access the Batch Session
 
-The Batch Session is stored in JATOS' database on the server side (see also [Session Data - Three Types](Session-Data-Three-Types.html)). That means that all changes in the Batch Session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
+The Batch Session is stored in JATOS' database on the server side (see also [Session Data - Three Types](Session-Data-Three-Types.html)). That means that all changes in the Batch Session have to be synchronized between the client and the server. This is done via the batch channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.batchSession.[function_name]` or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the Batch Session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
 
@@ -917,217 +927,171 @@ Accessing the Batch Session is done via [JSON Patches (RFC 6902)](https://tools.
 [JSON Pointer (RFC 6901)](https://tools.ietf.org/html/rfc6901). An introduction can be found under [jsonpatch.com](http://jsonpatch.com/). For JSON Patches jatos.js uses the [JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch) library from Joachim Wester and for JSON Pointers the [jsonpointer.js](https://github.com/alexeykuzmin/jsonpointer.js) library from Alexey Kuzmin.
 
 
-### `jatos.batchSession.add`
+### `jatos.onBatchSession`
 
-JSON Patch add operation: Adds a value to an object or inserts it into an array. In the case of an array, the value is inserted before the given index. The `-` character can be used instead of an index to insert at the end of an array (see [jsonpatch.com](http://jsonpatch.com/)). If the path already exists in the Batch Session the value will be overwritten.
+Defines a callback function that is called every time the Batch Session changes on the JATOS server side (that includes updates in the session originating from other workers that run the study in parallel).
 
-* _@param {string} path_ - JSON pointer path 
+The callback function has two parameter (before v3.3.1 one parameter):
+* _@param {string} path_ - JSON pointer to the changed field in the Batch Session
+* _@param {string} op_ - (version >= 3.3.1) JSON patch operation ('add', 'remove', 'clear', ...) that was applied
+
+**Examples**
+
+1. Log whenever something changes in the Batch session
+
+   ```javascript
+   jatos.onBatchSession(function(path, op){
+     console.log("Batch Session was updated in path " + path + " with operation " + op);
+   });
+   ```
+
+1. `onBatchSession` is often used together with `jatos.batchSession.find` to get the updated value:
+
+   ```javascript
+   jatos.onBatchSession(function(path){
+     var changedObj = jatos.batchSession.find(path);
+     console.log("The changed object is " + JSON.stringify(changedObj));
+   });
+   ```
+
+
+### `jatos.batchSession.get`
+
+Convenience function: like `jatos.batchSession.find` but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Batch Session and returns the matching value.  For all other levels of the object tree use jatos.batchSession.find. Gets the object from the locally stored copy of the session and does not call the server.
+
+* _@param {string} name_ - name of the field 
+* _@return {object}_ - the value that is stored under name
+
+**Examples**
+
+1. Get the value that belongs to a key in the Batch Session
+
+   If the Batch Session is `{"a": 1000, "b": "watermelon"}`
+
+   ```javascript
+   // Since the parameter is the key's name and not a path it does not start with a "/"
+   var b = jatos.batchSession.get("b"); // b is "watermelon"
+   var c = jatos.batchSession.get("c"); // c is undefined
+   ```
+
+1. With `jatos.batchSession.get` you can only access the first level of the object tree - if you want another level use `jatos.batchSession.find`. If the Batch Session is `{"a": {"a1": 123, "a2": "watermelon"}}`
+
+   ```javascript
+   var a1 = jatos.batchSession.get("a1"); // a1 is undefined !!!
+   var a = jatos.batchSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
+   ```
+
+
+### `jatos.batchSession.set`
+
+A convenience function for `jatos.batchSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without a slash in front). Therefore it works only on the first level of the Batch Session's object tree. If the name already exists in the Batch Session the value will be overwritten.
+
+* _@param {string} name_ - name of the field 
 * _@param {object} value_ - value to be stored
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Add to an empty Batch Session
+1. Set a key and its value in the Batch Session
+
+   If the Batch Session is `{"a": 1234}`
 
    ```javascript
-   jatos.batchSession.add("/a", 100);
+   // Since the parameter is the key's name and not a path it does not start with a "/"
+   var b = jatos.batchSession.set("b", "koala");
    ```
 
-   After the Batch Session is successfully updated the new object is `{"a": 100}`.
+   then after the Batch Session is successfully updated the new object is `{"a": 1234, "b": "koala"}`.
 
-1. Add to Batch Session
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-   If the Batch Session is `{"a": 100}` and one calls
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   jatos.batchSession.add("/b", 123);
+   jatos.batchSession.set("b", "koala")
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
    ```
 
-   then after the Batch Session is successfully updated the new object is `{"a": 100, "b": 123}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
+1. Have a series of Batch Session changes
 
    ```javascript
-   var promise = jatos.batchSession.add("/b", 123);
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-   
-1. Add an object:
-
-   ```javascript
-   var promise = jatos.batchSession.add("/obj", { foo: "bar" });
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-   
-   Afterwards the Batch Session contains `{"obj": {"foo": "bar"}}`.
-   
-1. Add an array:
-
-   ```javascript
-   var promise = jatos.batchSession.add("/array", [1, 2, 3]);
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-   Afterwards the Batch Session contains `{"array": [1, 2, 3]}`.
-
-1. Add an element to an array:
-
-   If the Batch Session is `{"array": [1, 2, 3]}` and one calls
-
-   ```javascript
-   var promise = jatos.batchSession.add("/array/2", "new");
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-   
-   then afterwards the Batch Session contains `{"array": [1, 2, "new", 3]}`.
-
-1. Append to the end of an array using `/-`:
-
-   If the Batch Session is `{"array": [1, 2, 3]}` and one calls
-
-   ```javascript
-   var promise = jatos.batchSession.add("/array/-", "new");
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-   
-   then afterwards the Batch Session contains `{"array": [1, 2, 3, "new"]}`.
-
-### `jatos.batchSession.remove`
-
-JSON Patch remove operation: Removes a value from an object or array (see [jsonpatch.com](http://jsonpatch.com/)).
-
-* _@param {string} path_ - JSON pointer path to the field that should be removed
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
-
-**Examples**
-
-1. Remove from the Batch Session
-
-   If the Batch Session is `{"a": 100, "b": 123}` and one calls
-
-   ```javascript
-   jatos.batchSession.remove("/b");
-   ```
-
-   then after the Batch Session is successfully updated the new object is `{"a": 100}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
-
-   ```javascript
-   var promise = jatos.batchSession.remove("/b");
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
+   jatos.batchSession.set("a", 1)
+      .then(() => jatos.batchSession.set("b", 2))
+      .then(() => jatos.batchSession.set("c", 3))
+      .catch(() => console.log("Batch Session synchronization failed"));
    ```
 
 
-### `jatos.batchSession.replace`
+### `jatos.batchSession.getAll`
 
-JSON Patch replace operation: Replaces a value. Equivalent to a 'remove' followed by an 'add' (see [jsonpatch.com](http://jsonpatch.com/)).
+Returns the complete Batch Session data. Gets the object from the locally stored copy of the session and does not call the server.
 
-* _@param {string} path_ - JSON pointer path 
-* _@param {object} value_ - value to be replaced with
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
-
-**Examples**
-
-1. Replace in the Batch Session
-
-   If the Batch Session is `{"a": 100, "b": 123}` and one calls
-
-   ```javascript
-   jatos.batchSession.replace("/b", 789);
-   ```
-
-   then after the Batch Session is successfully updated the new object is `{"a": 100, "b": 789}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
-
-   ```javascript
-   var promise = jatos.batchSession.replace("/b", 789);
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-
-
-### `jatos.batchSession.copy`
-
-JSON Patch copy operation: Copies a value from one location to another within the JSON document. Both from and path are JSON Pointers (see [jsonpatch.com](http://jsonpatch.com/)).
-
-* _@param {string} from_ - JSON pointer path to the origin 
-* _@param {string} path_ - JSON pointer path to the target
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
-
-**Examples**
-
-1. Copy within the Batch Session from one location to another
-
-   If the Batch Session is `{"a": "jatos"}` and one calls
-
-   ```javascript
-   jatos.batchSession.copy("/a", "/b");
-   ```
-
-   then after the Batch Session is successfully updated the new object is `{"a": "jatos", "b": "jatos"}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
-
-   ```javascript
-   var promise = jatos.batchSession.copy("/a", "/b");
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-
-
-### `jatos.batchSession.move`
-
-JSON Patch move operation: Moves a value from one location to the other. Both from and path are JSON Pointers. (see [jsonpatch.com](http://jsonpatch.com/)).
-
-* _@param {string} from_ - JSON pointer path to the origin 
-* _@param {string} path_ - JSON pointer path to the target
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {object}_ Returns the whole Batch Session object
 
 **Example**
 
-1. Move within the Batch Session from one location to another
+```javascript
+var batchSession = jatos.batchSession.getAll();
+```
 
-   If the Batch Session is `{"a": "jatos"}` and one calls
+
+### `jatos.batchSession.setAll`
+
+Replaces the whole session data. If the replacing object is rather large it might be better performance-wise to replace only individual paths. Each session writting involves sending the changes in the session via a JSON Patch to the JATOS server. If the session is large this data transfer can take some time. In this case use other session functions, like 'set', 'add', or 'replace'.
+
+* _@param {object} value_ - value to be stored in the session
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
+
+**Examples**
+
+1. Set the whole Batch Session object
 
    ```javascript
-   jatos.batchSession.move("/a", "/b");
+   var o = {"a": 123, "b": "foo"};
+   jatos.batchSession.setAll(o); // Overwrites the current Batch Session with the object o
    ```
 
-   then after the Batch Session is successfully updated the new object is `{"b": "jatos"}`.
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   var promise = jatos.batchSession.move("/a", "/b");
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
+   var o = {"a": 123, "b": "foo"};
+   jatos.batchSession.setAll(o)
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+
+
+### `jatos.batchSession.clear`
+
+Clears the whole Batch Session data and sets it to an empty object `{}`.
+
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
+
+**Examples**
+
+1. Clear the whole Batch Session
+
+   ```javascript
+   jatos.batchSession.clear();
+   ```
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
+
+   ```javascript
+   jatos.batchSession.clear()
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
    ```
 
 
@@ -1195,162 +1159,227 @@ JSON Patch test operation: Tests that the specified value is set in the document
    ```
 
 
-### `jatos.batchSession.get`
+### `jatos.batchSession.add`
 
-Convenience function: like `jatos.batchSession.find` but works with a key instead of a JSON Pointer. Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Batch Session and returns the matching value.  For all other levels of the object tree use jatos.batchSession.find. Gets the object from the locally stored copy of the session and does not call the server.
+JSON Patch add operation: Adds a value to an object or inserts it into an array. In the case of an array, the value is inserted before the given index. The `-` character can be used instead of an index to insert at the end of an array (see [jsonpatch.com](http://jsonpatch.com/)). If the path already exists in the Batch Session the value will be overwritten.
 
-* _@param {string} name_ - name of the field 
-* _@return {object}_ - the value that is stored under name
-
-**Examples**
-
-1. Get the value that belongs to a key in the Batch Session
-
-   If the Batch Session is `{"a": 1000, "b": "watermelon"}`
-
-   ```javascript
-   // Since the parameter is the key's name and not a path it does not start with a "/"
-   var b = jatos.batchSession.get("b"); // b is "watermelon"
-   var c = jatos.batchSession.get("c"); // c is undefined
-   ```
-
-1. With `jatos.batchSession.get` you can only access the first level of the object tree - if you want another level use `jatos.batchSession.find`. If the Batch Session is `{"a": {"a1": 123, "a2": "watermelon"}}`
-
-   ```javascript
-   var a1 = jatos.batchSession.get("a1"); // a1 is undefined !!!
-   var a = jatos.batchSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
-   ```
-
-
-### `jatos.batchSession.set`
-
-A convenience function for `jatos.batchSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without a slash in front). Therefore it works only on the first level of the Batch Session's object tree. If the name already exists in the Batch Session the value will be overwritten.
-
-* _@param {string} name_ - name of the field 
+* _@param {string} path_ - JSON pointer path 
 * _@param {object} value_ - value to be stored
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Set a key and its value in the Batch Session
-
-   If the Batch Session is `{"a": 1234}`
+1. Add to an empty Batch Session
 
    ```javascript
-   // Since the parameter is the key's name and not a path it does not start with a "/"
-   var b = jatos.batchSession.set("b", "koala");
+   jatos.batchSession.add("/a", 100);
    ```
 
-   then after the Batch Session is successfully updated the new object is `{"a": 1234, "b": "koala"}`.
+   After the Batch Session is successfully updated the new object is `{"a": 100}`.
 
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
+1. Add to Batch Session
 
-1. Catch failures with jQuery's defered
+   If the Batch Session is `{"a": 100}` and one calls
 
    ```javascript
-   var promise = jatos.batchSession.set("b", "koala");
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
+   jatos.batchSession.add("/b", 123);
+   ```
+
+   then after the Batch Session is successfully updated the new object is `{"a": 100, "b": 123}`.
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or fail
+
+   ```javascript
+   jatos.batchSession.add("/b", 123)
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+   
+1. Add an object:
+
+   ```javascript
+   jatos.batchSession.add("/obj", { foo: "bar" })
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+   
+   Afterwards the Batch Session contains `{"obj": {"foo": "bar"}}`.
+   
+1. Add an array:
+
+   ```javascript
+   jatos.batchSession.add("/array", [1, 2, 3])
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+   Afterwards the Batch Session contains `{"array": [1, 2, 3]}`.
+
+1. Add an element to an array:
+
+   If the Batch Session is `{"array": [1, 2, 3]}` and one calls
+
+   ```javascript
+   jatos.batchSession.add("/array/2", "new")
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+   
+   then afterwards the Batch Session contains `{"array": [1, 2, "new", 3]}`.
+
+1. Append to the end of an array using `/-`:
+
+   If the Batch Session is `{"array": [1, 2, 3]}` and one calls
+
+   ```javascript
+   jatos.batchSession.add("/array/-", "new")
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+   
+   then afterwards the Batch Session contains `{"array": [1, 2, 3, "new"]}`.
+
+1. Have a series of Batch Session updates
+
+   ```javascript
+   jatos.batchSession.add("/a", 1)
+      .then(() => jatos.batchSession.add("/b", 2))
+      .then(() => jatos.batchSession.add("/c", 3))
+      .catch(() => console.log("Batch Session synchronization failed"));
    ```
 
 
-### `jatos.batchSession.getAll`
+### `jatos.batchSession.remove`
 
-Returns the complete Batch Session data. Gets the object from the locally stored copy of the session and does not call the server.
+JSON Patch remove operation: Removes a value from an object or array (see [jsonpatch.com](http://jsonpatch.com/)).
 
-* _@return {object}_ Returns the whole Batch Session object
+* _@param {string} path_ - JSON pointer path to the field that should be removed
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
+
+**Examples**
+
+1. Remove from the Batch Session
+
+   If the Batch Session is `{"a": 100, "b": 123}` and one calls
+
+   ```javascript
+   jatos.batchSession.remove("/b");
+   ```
+
+   then after the Batch Session is successfully updated the new object is `{"a": 100}`.
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
+
+   ```javascript
+   jatos.batchSession.remove("/b")
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+
+
+### `jatos.batchSession.replace`
+
+JSON Patch replace operation: Replaces a value. Equivalent to a 'remove' followed by an 'add' (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} path_ - JSON pointer path 
+* _@param {object} value_ - value to be replaced with
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
+
+**Examples**
+
+1. Replace in the Batch Session
+
+   If the Batch Session is `{"a": 100, "b": 123}` and one calls
+
+   ```javascript
+   jatos.batchSession.replace("/b", 789);
+   ```
+
+   then after the Batch Session is successfully updated the new object is `{"a": 100, "b": 789}`.
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
+
+   ```javascript
+   jatos.batchSession.replace("/b", 789)
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+
+
+### `jatos.batchSession.copy`
+
+JSON Patch copy operation: Copies a value from one location to another within the JSON document. Both from and path are JSON Pointers (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} from_ - JSON pointer path to the origin 
+* _@param {string} path_ - JSON pointer path to the target
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
+
+**Examples**
+
+1. Copy within the Batch Session from one location to another
+
+   If the Batch Session is `{"a": "jatos"}` and one calls
+
+   ```javascript
+   jatos.batchSession.copy("/a", "/b");
+   ```
+
+   then after the Batch Session is successfully updated the new object is `{"a": "jatos", "b": "jatos"}`.
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
+
+   ```javascript
+   jatos.batchSession.copy("/a", "/b")
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
+   ```
+
+
+### `jatos.batchSession.move`
+
+JSON Patch move operation: Moves a value from one location to the other. Both from and path are JSON Pointers. (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} from_ - JSON pointer path to the origin 
+* _@param {string} path_ - JSON pointer path to the target
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
 
 **Example**
 
-```javascript
-var batchSession = jatos.batchSession.getAll();
-```
+1. Move within the Batch Session from one location to another
 
-
-### `jatos.batchSession.setAll`
-
-Replaces the whole session data. If the replacing object is rather large it might be better performance-wise to replace only individual paths. Each session writting involves sending the changes in the session via a JSON Patch to the JATOS server. If the session is large this data transfer can take some time. In this case use other session functions, like 'set', 'add', or 'replace'.
-
-* _@param {object} value_ - value to be stored in the session
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
-
-**Examples**
-
-1. Set the whole Batch Session object
+   If the Batch Session is `{"a": "jatos"}` and one calls
 
    ```javascript
-   var o = {"a": 123, "b": "foo"};
-   jatos.batchSession.setAll(o); // Overwrites the current Batch Session with the object o
+   jatos.batchSession.move("/a", "/b");
    ```
 
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
+   then after the Batch Session is successfully updated the new object is `{"b": "jatos"}`.
 
-1. Catch failures with jQuery's defered
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-   ```javascript
-   var o = {"a": 123, "b": "foo"};
-   var promise = jatos.batchSession.setAll(o);
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-
-
-### `jatos.batchSession.clear`
-
-Clears the whole Batch Session data and sets it to an empty object `{}`.
-
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
-
-**Examples**
-
-1. Clear the whole Batch Session
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   jatos.batchSession.clear();
-   ```
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
-
-   ```javascript
-   var promise = jatos.batchSession.clear();
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
-
-
-### `jatos.onBatchSession`
-
-Defines a callback function that is called every time the Batch Session changes on the JATOS server side (that includes updates in the session originating from other workers that run the study in parallel).
-
-The callback function has two parameter (before v3.3.1 one parameter):
-* _@param {string} path_ - JSON pointer to the changed field in the Batch Session
-* _@param {string} op_ - (version >= 3.3.1) JSON patch operation ('add', 'remove', 'clear', ...) that was applied
-
-**Examples**
-
-1. Show an alert box whenever something changes in the Batch session
-
-   ```javascript
-   jatos.onBatchSession(function(path, op){
-     alert("Batch Session was updated in path " + path + " with operation " + op);
-   });
-   ```
-
-1. `onBatchSession` is often used together with `jatos.batchSession.find` to get the updated value:
-
-   ```javascript
-   jatos.onBatchSession(function(path){
-     var changedObj = jatos.batchSession.find(path);
-     alert("The changed object is " + JSON.stringify(changedObj));
-   });
+   jatos.batchSession.move("/a", "/b")
+      .then(() => console.log("Batch Session was successfully updated"))
+      .catch(() => console.log("Batch Session synchronization failed"));
    ```
 
 
@@ -1358,7 +1387,7 @@ The callback function has two parameter (before v3.3.1 one parameter):
 
 ### `jatos.joinGroup`
 
-Tries to join a group and if it succeeds opens the group channel (which is mostly a WebSocket). Only if the group channel is open one can exchange data with other group members. As the only parameter this function takes an object that consists of several optional callback functions that will be called by jatos.js when certain group events occur. It returns a [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in joining.
+Tries to join a group and if it succeeds opens the group channel (which is mostly a WebSocket). Only if the group channel is open one can exchange data with other group members. As the only parameter this function takes an object that consists of several optional callback functions that will be called by jatos.js when certain group events occur. It returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in joining.
 
 * _@param {object} callbacks_ - Defining callback functions for group events. All callbacks are optional. These callbacks functions are:
   * `onOpen`: Is called when the group channel is successfully opened
@@ -1371,7 +1400,7 @@ Tries to join a group and if it succeeds opens the group channel (which is mostl
   * `onMemberClose(memberId)`: Is called when another member (not the worker running this study) closed his group channel. It gets the group member ID as a parameter.
   * `onGroupSession(path, op)`: Is called every time the Group Session changes on the JATOS server side. It gets two parameters (before v3.3.1 only one): 1) JSON pointer path to the changed field in the Group Session as a parameter, and 2) JSON patch operation.
   * `onUpdate()`: Combines several other callbacks. It's called if one of the following is called: `onMemberJoin`, `onMemberOpen`, `onMemberLeave`, `onMemberClose`, or `onGroupSession`.
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
@@ -1384,7 +1413,7 @@ Tries to join a group and if it succeeds opens the group channel (which is mostl
 
    function onGroupSession(path, op) {
      var changedObj = jatos.groupSession.find(path);
-     alert("Group Session was updated in path " + path + " with operation " + op + " to " + JSON.stringify(changedObj));
+     console.log("Group Session was updated in path " + path + " with operation " + op + " to " + JSON.stringify(changedObj));
    }
    ```
 
@@ -1398,15 +1427,15 @@ Tries to join a group and if it succeeds opens the group channel (which is mostl
    });
 
    function onOpen() {
-     alert("You joined a group and opened a group channel");
+     console.log("You joined a group and opened a group channel");
    }
 
    function onMemberOpen(memberId) {
-     alert("In our group another member (ID " + memberId + ") opened a group channel");
+     console.log("In our group another member (ID " + memberId + ") opened a group channel");
    }
 
    function onMessage(msg) {
-     alert("You received a message: " + msg);
+     console.log("You received a message: " + msg);
    }
    ```
 
@@ -1460,18 +1489,18 @@ Like `jatos.sendGroupMsg` but sends a message to a particular group member speci
    }
 
    function onMessage(msg) {
-      alert("You received a message: " + msg);
+      console.log("You received a message: " + msg);
    }
    ```
 
 
 ### `jatos.leaveGroup`
 
-Leaves the group it has previously joined. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the leaving.
+Leaves the group it has previously joined. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the leaving.
 
 * _@param {optional function} onSuccess_ - Function to be called after the group is left
 * _@param {optional function} onError_ - Function to be called in case of error
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Example**
 
@@ -1482,28 +1511,28 @@ jatos.leaveGroup();
 
 ### `jatos.reassignGroup`
 
-Asks the JATOS server to reassign this study run to a different group. JATOS can only reassign if there is another group availible. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the reassigning.
+Asks the JATOS server to reassign this study run to a different group. JATOS can only reassign if there is another group availible. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the reassigning.
 
 * _@param {optional function} onSuccess_ - Function to be called if the reassignment was successful
 * _@param {optional function} onFail_ - Function to be called if the reassignment was unsuccessful
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Example**
 
 ```javascript
-var promise = jatos.reassignGroup();
-promise.done(() => { alert("Successful group reassignment: new group ID is " + jatos.groupResultId) });
-promise.fail(() => { alert("Group reassignment failed") });
+jatos.reassignGroup()
+   .then(() => console.log("Successful group reassignment: new group ID is " + jatos.groupResultId))
+   .catch(() => console.log("Group reassignment failed"));
 ```
 
 
 ### `jatos.setGroupFixed`
 
-Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave. It offers callbacks, either as parameter or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/), to signal success or failure in the fixing.
+Ask the JATOS server to fix this group. A fixed group is not allowed to take on more members although members are still allowed to leave. It offers callbacks, either as parameter or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the fixing.
 
 * _@param {optional function} onSuccess_ - Function to be called if the fixing was successful
 * _@param {optional function} onFail_ - Function to be called if the fixing was unsuccessful
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Example**
 
@@ -1587,7 +1616,7 @@ The Group Session is one of three way to communicate between members of a group.
 
 In difference to the [Batch Session](#functions-to-access-the-batch-session) the Group Session doesn't work from the start of a component. To use the Group Session you have to join a group ([with jatos.joinGroup](#jatosjoingroupcallbacks)). There you can also define a `onGroupSession` callback that gets called each time the Group Session changes regardless of the origin of the change.
 
-The Group Session is stored in JATOS' database on the server side. That means that all changes in the Group Session have to be synchronized between the client and the server. This is done via the group channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.groupSession.[function_name]` or via [jQuery.deferred.promise](https://api.jquery.com/deferred.promise/).
+The Group Session is stored in JATOS' database on the server side. That means that all changes in the Group Session have to be synchronized between the client and the server. This is done via the group channel. Therefore all writing functions (`add`, `remove`, `clear`, `replace`, `copy`, `move`, `set`, `setAll`) can be paired with callback functions that will signal  success or failure in the client-server sync. These callback functions can be either passed as parameters to `jatos.groupSession.[function_name]` or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 On the other side for all reading functions (`get`, `find`, `getAll`, `test`) there is no need to sync data between client and server, because jatos.js keeps a copy of the Group Session locally. Therefore all reading functions do not offer callbacks, because there is no risk of failure of synchronization.
 
@@ -1595,183 +1624,146 @@ Accessing the Group Session is done via [JSON Patches (RFC 6902)](https://tools.
 [JSON Pointer (RFC 6901)](https://tools.ietf.org/html/rfc6901). An introduction can be found under [jsonpatch.com](http://jsonpatch.com/). For JSON Patches jatos.js uses the [JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch) library from Joachim Wester and for JSON Pointers the [jsonpointer.js](https://github.com/alexeykuzmin/jsonpointer.js) library from Alexey Kuzmin.
 
 
-### `jatos.groupSession.add`
+### `jatos.groupSession.get`
 
-JSON Patch add operation: Adds a value to an object or inserts it into an array. In the case of an array, the value is inserted before the given index. The `-` character can be used instead of an index to insert at the end of an array (see [jsonpatch.com](http://jsonpatch.com/)). If the path already exists in the Group Session the value will be overwritten.
+Convenience function: like `jatos.groupSession.find` but works with a key instead of a JSON Pointer (without the slash in front of the key name). Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Group Session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
 
-* _@param {string} path_ - JSON pointer path 
+* _@param {string} name_ - name of the field 
+* _@return {object}_ - the value that is stored under name
+
+**Examples**
+
+1. Get a field from the Group Session
+
+   Given the Group Session is `{"a": 1000, "b": "watermelon"}`
+
+   ```javascript
+   // Since the parameter is the key's name and not a path it does not start with a "/"
+   var b = jatos.groupSession.get("b"); // b is "watermelon"
+   var c = jatos.groupSession.get("c"); // c is undefined
+   ```
+
+   the first line returns "watermelon" and the second undefined.
+
+1. With `jatos.groupSession.get` you can only access the first level of the object tree - if you want another level use `jatos.groupSession.find`.
+
+   If the Group Session is `{"a": {"a1": 123, "a2": "watermelon"}}`
+
+   ```javascript
+   var a1 = jatos.groupSession.get("a1"); // a1 is undefined !!!
+   var a = jatos.groupSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
+   ```
+
+
+### `jatos.groupSession.set`
+
+A convenience function for `jatos.groupSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without the slash in front). Therefore it works only on the first level of the Group Session's object tree. If the name already exists in the Group Session the value will be overwritten.
+
+* _@param {string} name_ - name of the field 
 * _@param {object} value_ - value to be stored
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Add an a field to the Group Session 
+1. Set a field in the Group Session
 
-   If the Group Session is `{"a": 100}` and one calls
-
-   ```javascript
-   jatos.groupSession.add("/b", 123);
-   ```
-
-   then after the Group Session is successfully updated the new object is `{"a": 100, "b": 123}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
+   If the Group Session is `{"a": 1234}`
 
    ```javascript
-   var promise = jatos.groupSession.add("/b", 123);
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
+   // Since the parameter is the key's name and not a path it does not start with a "/"
+   var b = jatos.groupSession.set("b", "koala");
    ```
 
-1. Example with an array: Put the object `{id: 123, name: "Max"}` after the second position of the array with the path `/subjects`:
+   then after the Group Session is successfully updated the new object is `{"a": 1234, "b": "koala"}`.
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   var promise = jatos.groupSession.add("/subjects/2", {id: 123, name: "Max"});
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
+   jatos.groupSession.set("b", "koala")
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
    ```
 
-1. Example of how to append to the end of an array: use `/-` after the arrays name:
+1. Have a series of Group Session changes
 
    ```javascript
-   var promise = jatos.groupSession.add("/subjects/-", {id: 124, name: "Adam"});
-   promise.done(() => { alert("Batch Session was successfully updated") });
-   promise.fail(() => { alert("Batch Session synchronization failed") });
-   ```
+   jatos.groupSession.set("a", 1)
+      .then(() => jatos.groupSession.set("b", 2))
+      .then(() => jatos.groupSession.set("c", 3))
+      .catch(() => console.log("Group Session synchronization failed"));
 
 
-### `jatos.groupSession.remove`
+### `jatos.groupSession.getAll`
 
-JSON Patch remove operation: Removes a value from an object or array (see [jsonpatch.com](http://jsonpatch.com/)).
+Returns the complete Group Session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
 
-* _@param {string} path_ - JSON pointer path to the field that should be removed
+* _@return {object}_ Returns the whole Group Session object
+
+**Example**
+
+```javascript
+var groupSession = jatos.groupSession.getAll();
+```
+
+
+### `jatos.groupSession.setAll`
+
+Replaces the whole session data. If the replacing object is rather large it might be better performance-wise to replace only individual paths. Each session writting involves sending the changes in the session via a JSON Patch to the JATOS server. If the session is large this data transfer can take some time. In this case use other session functions, like 'set', 'add', or 'replace'.
+
+* _@param {object} value_ - value to be stored in the session
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Remove a field from the Group Session
-
-   If the Group Session is `{"a": 100, "b": 123}` and one calls
+1. Set the whole Group Session at once
 
    ```javascript
-   jatos.groupSession.remove("/b");
+   var o = {"a": 123, "b": "foo"};
+   jatos.groupSession.setAll(o); // Overwrites the current Group Session with the object o
    ```
 
-   then after the Group Session is successfully updated the new object is `{"a": 100}`.
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   var promise = jatos.groupSession.remove("/b");
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
+   var o = {"a": 123, "b": "foo"};
+   jatos.groupSession.setAll(o)
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
    ```
 
 
-### `jatos.groupSession.replace`
+### `jatos.groupSession.clear`
 
-JSON Patch replace operation: Replaces a value. Equivalent to a “remove” followed by an “add” (see [jsonpatch.com](http://jsonpatch.com/)).
+Clears the whole Group Session data and sets it to an empty object `{}`.
 
-* _@param {string} path_ - JSON pointer path 
-* _@param {object} value_ - value to be replaced with
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Replace a field in the Group Session
-
-   If the Group Session is `{"a": 100, "b": 123}` and one calls
+1. Clear the whole Group Session
 
    ```javascript
-   jatos.groupSession.replace("/b", 789);
+   jatos.groupSession.clear();
    ```
 
-   then after the Group Session is successfully updated the new object is `{"a": 100, "b": 789}`.
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   var promise = jatos.groupSession.replace("/b", 789);
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
-   ```
-
-
-### `jatos.groupSession.copy`
-
-JSON Patch copy operation: Copies a value from one location to another within the JSON document. Both from and path are JSON Pointers (see [jsonpatch.com](http://jsonpatch.com/)).
-
-* _@param {string} from_ - JSON pointer path to the origin 
-* _@param {string} path_ - JSON pointer path to the target
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
-
-**Examples**
-
-1. Copy a field in the Group Session from one location to another
-
-   If the Group Session is `{"a": "jatos"}` and one calls
-
-   ```javascript
-   jatos.groupSession.copy("/a", "/b");
-   ```
-
-   then after the Group Session is successfully updated the new object is `{"a": "jatos", "b": "jatos"}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
-
-   ```javascript
-   var promise = jatos.groupSession.copy("/a", "/b");
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
-   ```
-
-
-### `jatos.groupSession.move`
-
-JSON Patch move operation: Moves a value from one location to the other. Both from and path are JSON Pointers. (see [jsonpatch.com](http://jsonpatch.com/)).
-
-* _@param {string} from_ - JSON pointer path to the origin 
-* _@param {string} path_ - JSON pointer path to the target
-* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
-* _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
-
-**Examples**
-
-1. Move a field in the Group Session from one location to another
-
-   If the Group Session is `{"a": "jatos"}` and one calls
-
-   ```javascript
-   jatos.groupSession.move("/a", "/b");
-   ```
-
-   then after the Group Session is successfully updated the new object is `{"b": "jatos"}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
-
-   ```javascript
-   var promise = jatos.groupSession.move("/a", "/b");
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
+   jatos.groupSession.clear()
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
    ```
 
 
@@ -1829,136 +1821,189 @@ jatos.groupSession.test("/b/b1", "flowers"); // returns true
 the first line returns true, second false and third true.
 
 
-### `jatos.groupSession.get`
+### `jatos.groupSession.add`
 
-Convenience function: like `jatos.groupSession.find` but works with a key instead of a JSON Pointer (without the slash in front of the key name). Therefore it works only on the first level of the session's object tree. It takes a name of an field within the Group Session and returns the matching value.  For all other levels of the object tree use jatos.groupSession.find. Gets the object from the locally stored copy of the session and does not call the server.
+JSON Patch add operation: Adds a value to an object or inserts it into an array. In the case of an array, the value is inserted before the given index. The `-` character can be used instead of an index to insert at the end of an array (see [jsonpatch.com](http://jsonpatch.com/)). If the path already exists in the Group Session the value will be overwritten.
 
-* _@param {string} name_ - name of the field 
-* _@return {object}_ - the value that is stored under name
-
-**Examples**
-
-1. Get a field from the Group Session
-
-   Given the Group Session is `{"a": 1000, "b": "watermelon"}`
-
-   ```javascript
-   // Since the parameter is the key's name and not a path it does not start with a "/"
-   var b = jatos.groupSession.get("b"); // b is "watermelon"
-   var c = jatos.groupSession.get("c"); // c is undefined
-   ```
-
-   the first line returns "watermelon" and the second undefined.
-
-1. With `jatos.groupSession.get` you can only access the first level of the object tree - if you want another level use `jatos.groupSession.find`.
-
-   If the Group Session is `{"a": {"a1": 123, "a2": "watermelon"}}`
-
-   ```javascript
-   var a1 = jatos.groupSession.get("a1"); // a1 is undefined !!!
-   var a = jatos.groupSession.get("a"); // a is { "a1": 123, "a2": "watermelon" }
-   ```
-
-
-### `jatos.groupSession.set`
-
-A convenience function for `jatos.groupSession.add`. Instead of a JSON Pointer path it accepts a name of the field to be stored (without the slash in front). Therefore it works only on the first level of the Group Session's object tree. If the name already exists in the Group Session the value will be overwritten.
-
-* _@param {string} name_ - name of the field 
+* _@param {string} path_ - JSON pointer path 
 * _@param {object} value_ - value to be stored
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Set a field in the Group Session
+1. Add an a field to the Group Session 
 
-   If the Group Session is `{"a": 1234}`
-
-   ```javascript
-   // Since the parameter is the key's name and not a path it does not start with a "/"
-   var b = jatos.groupSession.set("b", "koala");
-   ```
-
-   then after the Group Session is successfully updated the new object is `{"a": 1234, "b": "koala"}`.
-
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
-
-1. Catch failures with jQuery's defered
+   If the Group Session is `{"a": 100}` and one calls
 
    ```javascript
-   var promise = jatos.groupSession.set("b", "koala");
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
+   jatos.groupSession.add("/b", 123);
    ```
 
+   then after the Group Session is successfully updated the new object is `{"a": 100, "b": 123}`.
 
-### `jatos.groupSession.getAll`
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-Returns the complete Group Session data (might be bad performance-wise). Gets the object from the locally stored copy of the session and does not call the server.
+1. Use returned Promise to handle success or failure
 
-* _@return {object}_ Returns the whole Group Session object
+   ```javascript
+   jatos.groupSession.add("/b", 123)
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
+   ```
 
-**Example**
+1. Example with an array: Put the object `{id: 123, name: "Max"}` after the second position of the array with the path `/subjects`:
 
-```javascript
-var groupSession = jatos.groupSession.getAll();
-```
+   ```javascript
+   jatos.groupSession.add("/subjects/2", {id: 123, name: "Max"})
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
+   ```
+
+1. Example of how to append to the end of an array: use `/-` after the arrays name:
+
+   ```javascript
+   jatos.groupSession.add("/subjects/-", {id: 124, name: "Adam"})
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
+   ```
+
+1. Have a series of Group Session changes
+
+   ```javascript
+   jatos.groupSession.add("/a", 1)
+      .then(() => jatos.groupSession.add("/b", 2))
+      .then(() => jatos.groupSession.add("/c", 3))
+      .catch(() => console.log("Group Session synchronization failed"));
 
 
-### `jatos.groupSession.setAll`
+### `jatos.groupSession.remove`
 
-Replaces the whole session data. If the replacing object is rather large it might be better performance-wise to replace only individual paths. Each session writting involves sending the changes in the session via a JSON Patch to the JATOS server. If the session is large this data transfer can take some time. In this case use other session functions, like 'set', 'add', or 'replace'.
+JSON Patch remove operation: Removes a value from an object or array (see [jsonpatch.com](http://jsonpatch.com/)).
 
-* _@param {object} value_ - value to be stored in the session
+* _@param {string} path_ - JSON pointer path to the field that should be removed
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Set the whole Group Session at once
+1. Remove a field from the Group Session
+
+   If the Group Session is `{"a": 100, "b": 123}` and one calls
 
    ```javascript
-   var o = {"a": 123, "b": "foo"};
-   jatos.groupSession.setAll(o); // Overwrites the current Group Session with the object o
+   jatos.groupSession.remove("/b");
    ```
 
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
+   then after the Group Session is successfully updated the new object is `{"a": 100}`.
 
-1. Catch failures with jQuery's defered
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   var o = {"a": 123, "b": "foo"};
-   var promise = jatos.groupSession.setAll(o);
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
+   jatos.groupSession.remove("/b")
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
    ```
 
 
-### `jatos.groupSession.clear`
+### `jatos.groupSession.replace`
 
-Clears the whole Group Session data and sets it to an empty object `{}`.
+JSON Patch replace operation: Replaces a value. Equivalent to a “remove” followed by an “add” (see [jsonpatch.com](http://jsonpatch.com/)).
 
+* _@param {string} path_ - JSON pointer path 
+* _@param {object} value_ - value to be replaced with
 * _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
 * _@param {optional callback} onError_ - Function to be called if this patch failed
-* _@return {jQuery.deferred.promise}_
+* _@return {Promise}_
 
 **Examples**
 
-1. Clear the whole Group Session
+1. Replace a field in the Group Session
+
+   If the Group Session is `{"a": 100, "b": 123}` and one calls
 
    ```javascript
-   jatos.groupSession.clear();
+   jatos.groupSession.replace("/b", 789);
    ```
 
-   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use [jQuery' deferred object](https://api.jquery.com/deferred.promise/).
+   then after the Group Session is successfully updated the new object is `{"a": 100, "b": 789}`.
 
-1. Catch failures with jQuery's defered
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
 
    ```javascript
-   var promise = jatos.groupSession.clear();
-   promise.done(() => { alert("Group Session was successfully updated") });
-   promise.fail(() => { alert("Group Session synchronization failed") });
+   jatos.groupSession.replace("/b", 789)
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
+   ```
+
+
+### `jatos.groupSession.copy`
+
+JSON Patch copy operation: Copies a value from one location to another within the JSON document. Both from and path are JSON Pointers (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} from_ - JSON pointer path to the origin 
+* _@param {string} path_ - JSON pointer path to the target
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
+
+**Examples**
+
+1. Copy a field in the Group Session from one location to another
+
+   If the Group Session is `{"a": "jatos"}` and one calls
+
+   ```javascript
+   jatos.groupSession.copy("/a", "/b");
+   ```
+
+   then after the Group Session is successfully updated the new object is `{"a": "jatos", "b": "jatos"}`.
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
+
+   ```javascript
+   jatos.groupSession.copy("/a", "/b")
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
+   ```
+
+
+### `jatos.groupSession.move`
+
+JSON Patch move operation: Moves a value from one location to the other. Both from and path are JSON Pointers. (see [jsonpatch.com](http://jsonpatch.com/)).
+
+* _@param {string} from_ - JSON pointer path to the origin 
+* _@param {string} path_ - JSON pointer path to the target
+* _@param {optional callback} onSuccess_ - Function to be called if this patch was successfully applied on the server and the client side
+* _@param {optional callback} onError_ - Function to be called if this patch failed
+* _@return {Promise}_
+
+**Examples**
+
+1. Move a field in the Group Session from one location to another
+
+   If the Group Session is `{"a": "jatos"}` and one calls
+
+   ```javascript
+   jatos.groupSession.move("/a", "/b");
+   ```
+
+   then after the Group Session is successfully updated the new object is `{"b": "jatos"}`.
+
+   Since there is a slight chance that the session update was not successful it's a good idea to provide callback functions for both cases. To provide success or fail callback functions you can either specify the onSuccess/onError parameters or use the returned [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+1. Use returned Promise to handle success or failure
+
+   ```javascript
+   jatos.groupSession.move("/a", "/b")
+      .then(() => console.log("Group Session was successfully updated"))
+      .catch(() => console.log("Group Session synchronization failed"));
    ```
