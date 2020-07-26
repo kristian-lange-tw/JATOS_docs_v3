@@ -42,7 +42,7 @@ The second red box contains a link that will (re)direct the participant to a Pro
    All you need to do is call `jatos.endStudyAjax`, and add a callback that will replace `window.location.href` with the Prolific end page once the ajax call is `done`:
    
    ```JavaScript
-   jatos.endStudyAjax().done(() => {
+   jatos.endStudyAjax().then(() => {
      // Change this URL to the one you see in Prolific
      window.location.href = 'https://app.prolific.co/submissions/complete?cc=1234ABCD'
    });
@@ -53,8 +53,8 @@ The second red box contains a link that will (re)direct the participant to a Pro
    ```JavaScript
    var result = { test: "some results" };
    jatos.submitResultData(result)
-     .done(jatos.endStudyAjax)
-     .done(() => {
+     .then(jatos.endStudyAjax)
+     .then(() => {
        window.location.href = 'https://app.prolific.co/submissions/complete?cc=1234ABCD'
    });
    ```
