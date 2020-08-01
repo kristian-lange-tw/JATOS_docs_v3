@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 24 Jul 2020
+last_updated: 1 Aug 2020
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -694,7 +694,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
    var resultData = {id: 123, data: "my important result data"};
    jatos.submitResultData(resultData)
      .then(jatos.endStudyAjax)
-     .then(() => { window.location.href = 'http://example.com/index.html' }
+     .then(() => { window.location.href = 'http://example.com/index.html' })
      .catch(() => console.log("Something went wrong"));
    ``` 
 
