@@ -36,8 +36,7 @@ last_updated: 28 Apr 2017
    For example, you can see each result's details by clicking on the little arrow to the left of its row ([more information on how to mangage results](Manage-results.html)).
 
    _Here's a screenshot of a study's results view:_
-
-   ![Results View screenshot](images/ResultsView Screenshot.png)
+   ![Results View screenshot](images/ResultsView-Screenshot3.png)
 
 ### Explore
 
