@@ -114,7 +114,7 @@ http {
 
 ## With HTTPS and Docker
 
-Have a look at https://github.com/robinsonkwame/jatos-https-docker-compose for a good example in how to do this (Thanks to Kwame Porter Robinson)
+Have a look at [github.com/robinsonkwame/jatos-https-docker-compose](https://github.com/robinsonkwame/jatos-https-docker-compose) for a good example in how to do this (Thanks to Kwame Porter Robinson)
 
 
 ## Simple without encryption
