@@ -6,8 +6,8 @@ summary:
 sidebar: mydoc_sidebar
 permalink: JATOS-with-Nginx.html
 folder:
-toc: false
-last_updated: 31 May 2020
+toc: true
+last_updated: 19 Aug 2020
 ---
 
 These are examples for configurations of [Nginx](https://www.nginx.com/) as a proxy in front of JATOS. It is not necessary to run JATOS with a proxy but it's common. They support WebSockets for JATOS' group studies. 
@@ -110,6 +110,12 @@ http {
         #include /etc/nginx/sites-enabled/*;
 }
 ~~~
+
+
+## With HTTPS and Docker
+
+Have a look at https://github.com/robinsonkwame/jatos-https-docker-compose for a good example in how to do this (Thanks to Kwame Porter Robinson)
+
 
 ## Simple without encryption
 
