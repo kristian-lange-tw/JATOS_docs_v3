@@ -39,7 +39,7 @@
 {
 "title": "Configure JATOS on a Server",
 "tags": "",
-"keywords": "server, configuration, config, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf",
+"keywords": "server, configuration, config, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf",
 "url": "Configure-JATOS-on-a-Server.html",
 "summary": "If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions."
 }
@@ -226,9 +226,20 @@
 {
 "title": "Install JATOS on a server",
 "tags": "",
-"keywords": "server, installation, install, test, config, configuration, backup, proxy, java, MySQL, database, encryption, systemd, init.d, auto-start",
+"keywords": "server, installation, install, test, config, configuration, backup, proxy, java, encryption, systemd, init.d, auto-start",
 "url": "JATOS-on-a-server.html",
 "summary": "To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management."
+}
+,
+
+
+
+{
+"title": "JATOS Requirements",
+"tags": "",
+"keywords": "requiremtents, server, installation, install, MySQL, database, disk, memory, CPU",
+"url": "JATOS-requirments.html",
+"summary": ""
 }
 ,
 
@@ -250,6 +261,17 @@
 "tags": "",
 "keywords": "apache, server, httpd, installation, websocket, proxy, mod_proxy_wstunnel module",
 "url": "JATOS-with-Apache.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "JATOS with MySQL",
+"tags": "",
+"keywords": "server, installation, MySQL, database",
+"url": "JATOS-with-MySQL.html",
 "summary": ""
 }
 ,

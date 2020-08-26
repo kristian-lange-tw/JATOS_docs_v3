@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instanc...">
-<meta name="keywords" content=" server, installation, install, test, config, configuration, backup, proxy, java, MySQL, database, encryption, systemd, init.d, auto-start">
+<meta name="keywords" content=" server, installation, install, test, config, configuration, backup, proxy, java, encryption, systemd, init.d, auto-start">
 <title>Install JATOS on a server | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
@@ -636,7 +636,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="installation-on-a-server">Installation on a server</h2>
 
-<p>The actual JATOS instance on a server isn’t too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the H2 database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc.</p>
+<p>The actual JATOS instance on a server isn’t too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the embedded database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc.</p>
 
 <h3 id="1-install-java">1. Install Java</h3>
 
@@ -644,45 +644,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="2-optional-install-mysql">2. [Optional] Install MySQL</h3>
 
-<p>By default JATOS uses an embedded H2 database and no further setup is necessary but it can be easily configured to work with a MySQL database.</p>
-
-<p>Possible scenarios why one would use an external database are</p>
-<ul>
-  <li>the expected traffic is rather high and many users will run studies with many participants and the studies will store a lot of data in the database</li>
-  <li>to be able to do a regular database backup</li>
-  <li>higher trust in the reliability of MySQL (although we never had problems with H2)</li>
-</ul>
-
-<p>One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.</p>
-
-<p>If you are (like me) not a great MySQL admin, there are many manuals out there, e.g. <a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04">this one</a>. In the end your JATOS needs access to the MySQL and for this it needs a user called ‘jatosuser’ and a database called ‘jatos’. One way to set up MySQL is this one:</p>
-
-<ol>
-  <li>
-    <p>Install MySQL (e.g. <code class="highlighter-rouge">sudo apt install mysql-server</code> on Ubuntu)</p>
-
-    <p><strong>JATOS requires MySQL &gt;= 5.5</strong></p>
-  </li>
-  <li>
-    <p>Log in: <code class="highlighter-rouge">mysql -u root -p</code></p>
-  </li>
-  <li>
-    <p>Create a user for JATOS (change ‘password’) <code class="highlighter-rouge">GRANT ALL PRIVILEGES ON *.* TO 'jatosuser'@'localhost' IDENTIFIED BY 'password';</code></p>
-  </li>
-  <li>
-    <p>Log out and log in with the newly created user: <code class="highlighter-rouge">mysql -u jatosuser -p</code></p>
-  </li>
-  <li>
-    <p>Create a database for JATOS: <code class="highlighter-rouge">CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code> (the character set and collation is important - otherwise it won’t have full UTF-8 support)</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">exit</code> to exit the database</p>
-  </li>
-</ol>
-
-<p>Appart from giving JATOS access to the database it is <strong>not</strong> necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.</p>
-
-<p>Don’t forget to <a href="Configure-JATOS-on-a-Server.html#mysql-database">configure JATOS</a> to use your MySQL.</p>
+<p>See <a href="JATOS-with-MySQL.html">JATOS with MySQL</a></p>
 
 <h3 id="3-install-jatos">3. Install JATOS</h3>
 

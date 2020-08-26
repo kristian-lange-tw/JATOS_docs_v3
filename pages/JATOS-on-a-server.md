@@ -1,6 +1,6 @@
 ---
 title: Install JATOS on a server
-keywords: server, installation, install, test, config, configuration, backup, proxy, java, MySQL, database, encryption, systemd, init.d, auto-start
+keywords: server, installation, install, test, config, configuration, backup, proxy, java, encryption, systemd, init.d, auto-start
 tags:
 summary: To run studies online, JATOS has to be installed on a server. Server instances of JATOS have slightly different configuration requirements than local instances. This text aims at server admins who wants to setup a server running JATOS and who know their way around server management.
 sidebar: mydoc_sidebar
@@ -20,7 +20,7 @@ If you don't know much about server administration the DigitalOcean page might b
 
 ## Installation on a server
 
-The actual JATOS instance on a server isn't too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the H2 database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc.
+The actual JATOS instance on a server isn't too different from a local one. It basically involves telling JATOS which IP address and port it should use and (optionally) replace the embedded database with a MySQL one. There are other issues however, not directly related to JATOS, that you should consider when setting up a server. These include: setting up automatic, regular backups of your data, an automatic restart of JATOS after a server reboot, encryption, additional HTTP server, etc.
 
 ### 1. Install Java
 
@@ -28,34 +28,7 @@ We've produced multiple versions of JATOS. The simplest version is JATOS alone, 
 
 ### 2. [Optional] Install MySQL
 
-By default JATOS uses an embedded H2 database and no further setup is necessary but it can be easily configured to work with a MySQL database.
-
-Possible scenarios why one would use an external database are
-* the expected traffic is rather high and many users will run studies with many participants and the studies will store a lot of data in the database
-* to be able to do a regular database backup
-* higher trust in the reliability of MySQL (although we never had problems with H2)
-
-One could install the external database on the same server as JATOS is running or on an extra server depending on ones need.
-   
-If you are (like me) not a great MySQL admin, there are many manuals out there, e.g. [this one](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04). In the end your JATOS needs access to the MySQL and for this it needs a user called 'jatosuser' and a database called 'jatos'. One way to set up MySQL is this one:
-   
-   1. Install MySQL (e.g. `sudo apt install mysql-server` on Ubuntu)
-   
-      **JATOS requires MySQL >= 5.5**
-   
-   1. Log in: `mysql -u root -p`
-   
-   1. Create a user for JATOS (change 'password') `GRANT ALL PRIVILEGES ON *.* TO 'jatosuser'@'localhost' IDENTIFIED BY 'password';`
-   
-   1. Log out and log in with the newly created user: `mysql -u jatosuser -p`
-   
-   1. Create a database for JATOS: `CREATE DATABASE jatos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;` (the character set and collation is important - otherwise it won't have full UTF-8 support)
-   
-   1. `exit` to exit the database
-
-Appart from giving JATOS access to the database it is **not** necessary to set it up any further, e.g. to create any tables - JATOS is doing this automatically.
-
-Don't forget to [configure JATOS](Configure-JATOS-on-a-Server.html#mysql-database) to use your MySQL.
+See [JATOS with MySQL](JATOS-with-MySQL.html)
 
 ### 3. Install JATOS
 

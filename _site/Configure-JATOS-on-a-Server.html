@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, ch...">
-<meta name="keywords" content=" server, configuration, config, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf">
+<meta name="keywords" content=" server, configuration, config, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf">
 <title>Configure JATOS on a Server | JATOS 3 Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
@@ -701,46 +701,7 @@ play.server.http.port <span class="o">=</span> 80
 
 <h3 id="mysql-database">MySQL Database</h3>
 
-<p>There are three ways to set up JATOS to work with an MySQL:</p>
-
-<ol>
-  <li>Via command-line arguments:
-    <ul>
-      <li><code class="highlighter-rouge">-DJATOS_DB_URL</code> - specifies the URL to the database</li>
-      <li><code class="highlighter-rouge">-DJATOS_DB_USERNAME</code> - set your username</li>
-      <li><code class="highlighter-rouge">-DJATOS_DB_PASSWORD</code> - set your password</li>
-      <li><code class="highlighter-rouge">-DJATOS_DB_DRIVER</code> - always <code class="highlighter-rouge">com.mysql.cj.jdbc.Driver</code> for MySQL</li>
-    </ul>
-
-    <p>E.g. to connect to a MySQL running on 127.0.0.1 and port 3306 use (change username and password):</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loader.sh start <span class="nt">-DJATOS_DB_URL</span><span class="o">=</span><span class="s1">'jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC'</span> <span class="nt">-DJATOS_DB_USERNAME</span><span class="o">=</span>sa <span class="nt">-DJATOS_DB_PASSWORD</span><span class="o">=</span>sa <span class="nt">-DJATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.cj.jdbc.Driver
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Via <code class="highlighter-rouge">conf/production.conf</code> (change IP, port, username and password)</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>db.default.url<span class="o">=</span><span class="s2">"jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"</span>
-db.default.user<span class="o">=</span><span class="s2">"jatosuser"</span>
-db.default.password<span class="o">=</span><span class="s2">"mypassword"</span>
-db.default.driver<span class="o">=</span>com.mysql.cj.jdbc.Driver
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Via environment variables (change IP, port, username and password)</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">JATOS_DB_URL</span><span class="o">=</span><span class="s2">"jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"</span>
-<span class="nb">export </span><span class="nv">JATOS_DB_USERNAME</span><span class="o">=</span>jatosuser
-<span class="nb">export </span><span class="nv">JATOS_DB_PASSWORD</span><span class="o">=</span><span class="s1">'mypassword'</span>
-<span class="nb">export </span><span class="nv">JATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.cj.jdbc.Driver
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p>You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your database URL).</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>19:03:42.000 <span class="o">[</span>info] - p.a.d.DefaultDBApi - Database <span class="o">[</span>default] connected at jdbc:mysql://localhost/jatos?characterEncoding<span class="o">=</span>UTF-8
-</code></pre></div></div>
+<p>See <a href="JATOS-with-MySQL.html">JATOS with MySQL</a></p>
 
 <h3 id="password-restrictions">Password restrictions</h3>
 
@@ -866,7 +827,7 @@ db.default.driver<span class="o">=</span>com.mysql.cj.jdbc.Driver
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 25 May 2020
+<span>Page last updated:</span> 26 Aug 2020
                 </div>
             </div>
 </footer>

@@ -683,10 +683,11 @@ $('#toc').on('click', 'a', function() {
 
 <p>All environment variables that can be used to <a href="Configure-JATOS-on-a-Server.html">configure a normal JATOS server installation</a> can be used in a docker installation. Just use Docker’s <code class="highlighter-rouge">-e</code> argument to set them.</p>
 
-<p>E.g. to setup JATOS with a MySQL database running under IP <code class="highlighter-rouge">172.17.0.2</code> use the following command (but change the JATOS version and use username and password of your MySQL account):</p>
+<p>E.g. to run JATOS with a MySQL database running on a host with the IP <code class="highlighter-rouge">172.17.0.2</code> and with the default port 3306 use the following command (change username and password of your MySQL account):</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-e</span> <span class="nv">JATOS_DB_URL</span><span class="o">=</span><span class="s1">'jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC'</span> <span class="nt">-e</span> <span class="nv">JATOS_DB_USERNAME</span><span class="o">=</span><span class="s1">'root'</span> <span class="nt">-e</span> <span class="nv">JATOS_DB_PASSWORD</span><span class="o">=</span><span class="s1">'password'</span> <span class="nt">-e</span> <span class="nv">JATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.cj.jdbc.Driver <span class="nt">-e</span> <span class="nv">JATOS_JPA</span><span class="o">=</span>mysqlPersistenceUnit <span class="nt">-p</span> 9000:9000 jatos/jatos:latest
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-e</span> <span class="nv">JATOS_DB_URL</span><span class="o">=</span><span class="s1">'jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC'</span> <span class="nt">-e</span> <span class="nv">JATOS_DB_USERNAME</span><span class="o">=</span><span class="s1">'root'</span> <span class="nt">-e</span> <span class="nv">JATOS_DB_PASSWORD</span><span class="o">=</span><span class="s1">'password'</span> <span class="nt">-e</span> <span class="nv">JATOS_DB_DRIVER</span><span class="o">=</span>com.mysql.cj.jdbc.Driver <span class="nt">-e</span> <span class="nv">JATOS_JPA</span><span class="o">=</span>mysqlPersistenceUnit <span class="nt">-p</span> 9000:9000 jatos/jatos:latest
 </code></pre></div></div>
+
 
 
     <div class="tags">

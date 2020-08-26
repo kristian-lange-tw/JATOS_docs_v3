@@ -67,8 +67,10 @@ docker run -d -p 80:9000 jatos/jatos:latest
 
 All environment variables that can be used to [configure a normal JATOS server installation](Configure-JATOS-on-a-Server.html) can be used in a docker installation. Just use Docker's `-e` argument to set them.
 
-E.g. to setup JATOS with a MySQL database running under IP `172.17.0.2` use the following command (but change the JATOS version and use username and password of your MySQL account):
+E.g. to run JATOS with a MySQL database running on a host with the IP `172.17.0.2` and with the default port 3306 use the following command (change username and password of your MySQL account):
 
 ~~~ shell
-docker run -e JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -e JATOS_DB_USERNAME='root' -e JATOS_DB_PASSWORD='password' -e JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver -e JATOS_JPA=mysqlPersistenceUnit -p 9000:9000 jatos/jatos:latest
+docker run -e JATOS_DB_URL='jdbc:mysql://172.17.0.2/jatos?characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -e JATOS_DB_USERNAME='root' -e JATOS_DB_PASSWORD='password' -e JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver -e JATOS_JPA=mysqlPersistenceUnit -p 9000:9000 jatos/jatos:latest
 ~~~
+
+

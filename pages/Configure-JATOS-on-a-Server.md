@@ -1,13 +1,13 @@
 ---
 title: Configure JATOS on a Server
-keywords: server, configuration, config, MySQL, H2, database, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf
+keywords: server, configuration, config, study assets, study assets root, port, password, IP, port, localhost, domain, 127.0.0.1, ldap, production.conf
 tags:
 summary: If JATOS runs locally it's usually not necessary to change the defaults. On a server, you may want to set up the IP and port, or use a different database, change the path of the study assets root folder, or add some password restrictions.
 sidebar: mydoc_sidebar
 permalink: Configure-JATOS-on-a-Server.html
 folder:
 toc: true
-last_updated: 25 May 2020
+last_updated: 26 Aug 2020
 ---
 
 **Restart JATOS after making any changes to the configuration (`loader.sh restart`)**
@@ -78,48 +78,12 @@ By default the study assets root folder (where all your study's HTML, JavaScript
    ~~~ bash
    export JATOS_STUDY_ASSETS_ROOT_PATH="/path/to/my/assets/root/folder"
    ~~~
- 
+
 
 ### MySQL Database
 
-There are three ways to set up JATOS to work with an MySQL:
+See [JATOS with MySQL](JATOS-with-MySQL.html)
 
-1. Via command-line arguments:
-   * `-DJATOS_DB_URL` - specifies the URL to the database
-   * `-DJATOS_DB_USERNAME` - set your username
-   * `-DJATOS_DB_PASSWORD` - set your password
-   * `-DJATOS_DB_DRIVER` - always `com.mysql.cj.jdbc.Driver` for MySQL
-   
-   E.g. to connect to a MySQL running on 127.0.0.1 and port 3306 use (change username and password):
-   
-   ~~~ bash   
-   loader.sh start -DJATOS_DB_URL='jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' -DJATOS_DB_USERNAME=sa -DJATOS_DB_PASSWORD=sa -DJATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
-   ~~~
-   
-1. Via `conf/production.conf` (change IP, port, username and password)
-
-   ~~~ bash
-   db.default.url="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
-   db.default.user="jatosuser"
-   db.default.password="mypassword"
-   db.default.driver=com.mysql.cj.jdbc.Driver
-   ~~~
-   
-1. Via environment variables (change IP, port, username and password)
-
-   ~~~ bash
-   export JATOS_DB_URL="jdbc:mysql://127.0.0.1:3306/jatos?characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
-   export JATOS_DB_USERNAME=jatosuser
-   export JATOS_DB_PASSWORD='mypassword'
-   export JATOS_DB_DRIVER=com.mysql.cj.jdbc.Driver
-   ~~~
-   
-You can confirm that JATOS is accessing the correct database by looking in the logs. One of the lines after JATOS starts should look like this (with your database URL).
-
-~~~ bash
-19:03:42.000 [info] - p.a.d.DefaultDBApi - Database [default] connected at jdbc:mysql://localhost/jatos?characterEncoding=UTF-8
-~~~  
-   
 
 ### Password restrictions
 

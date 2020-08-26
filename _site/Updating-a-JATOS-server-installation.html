@@ -642,11 +642,11 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="first-option-quick-and-dirty-discarding-result-data">First option: quick and dirty (discarding result data)</h3>
 
-<p>You can just follow the <a href="Update-JATOS.html#first-easy-way-discarding-your-result-data">update instructions for the local installation</a>. If you use a mySQL database don’t forget to <a href="Configure-JATOS-on-a-Server.html">configure it with a clean and new one</a> (not the one from your old JATOS). Do not use the new JATOS with the old MySQL database unless you choose to keep your data, as described below.</p>
+<p>You can just follow the <a href="Update-JATOS.html#first-easy-way-discarding-your-result-data">update instructions for the local installation</a>. If you use a MySQL database don’t forget to <a href="Configure-JATOS-on-a-Server.html">configure it with a clean and new one</a> (not the one from your old JATOS). Do not use the new JATOS with the old MySQL database unless you choose to keep your data, as described below.</p>
 
 <h3 id="second-option-keeping-everything">Second option: keeping everything</h3>
 
-<p>This means that we have to configure the MySQL database or copy the H2 database files.</p>
+<p>This means that we have to configure the MySQL database or copy the embedded H2 database files.</p>
 
 <ol>
   <li>Stop the old JATOS using <code class="highlighter-rouge">./loader.sh stop</code></li>
