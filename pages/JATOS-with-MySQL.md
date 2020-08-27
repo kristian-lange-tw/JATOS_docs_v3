@@ -16,7 +16,7 @@ Possible scenarios why one would use an external database are
 * your JATOS will be used by more than a few users (e.g. several research groups or an institute-wide installation)
 * your JATOS will run studies with many participants
 * the expected traffic is rather high (the studies produce a lot of result data)
-* you want to be able to do a regular database backup
+* you want to be able to do a regular database backup (with the embedded H2 database this would involve stopping JATOS)
 * higher trust in the reliability of MySQL (although we had no problems with H2 so far)
 
 ## Installation
