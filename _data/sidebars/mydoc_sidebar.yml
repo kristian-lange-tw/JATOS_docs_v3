@@ -202,6 +202,10 @@ entries:
       - title: Configure JATOS on a Server
         url: /Configure-JATOS-on-a-Server.html
         output: web, pdf
+        
+      - title: JATOS and MySQL
+        url: /JATOS-with-MySQL.html
+        output: web, pdf
 
       - title: JATOS with Nginx
         url: /JATOS-with-Nginx.html

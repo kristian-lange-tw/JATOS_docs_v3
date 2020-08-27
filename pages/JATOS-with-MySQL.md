@@ -16,7 +16,7 @@ Possible scenarios why one would use an external database are
 * your JATOS will be used by more than a few users (e.g. several research groups or an institute-wide installation)
 * your JATOS will run studies with many participants
 * the expected traffic is rather high (the studies produce a lot of result data)
-* you want to be able to do a regular database backup
+* you want to be able to do a regular database backup (with the embedded H2 database this would involve stopping JATOS)
 * higher trust in the reliability of MySQL (although we had no problems with H2 so far)
 
 ## Installation
@@ -123,7 +123,7 @@ The problem with binary logs is that they can take up quite some disk space depe
 
 ### Via MySQL config
 
-Add `skip-log-bin` to the end of your MySQL config. On many Linux systems the config is in `/etc/mysql/mysql.conf.d/mysqld.cnf`.
+Add `skip-log-bin` to the end of your MySQL config ([details](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin)). On many Linux systems the config is in `/etc/mysql/mysql.conf.d/mysqld.cnf`.
 
 The part of your 'mysqld.cnf' that configures the binary logs could then look similar to this:
 
@@ -144,7 +144,7 @@ You have to restart MySQL for the changes to take effect.
 
 ### Via MySQL global variable
 
-If your MySQL is already running and you don't want to restart it, there is a way to turn off the binary logging with a [global variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin):
+If your MySQL is already running and you don't want to restart it, there is a way to turn off the binary logging with a [system variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_sql_log_bin):
 
 Log into your MySQL console and type:
 
