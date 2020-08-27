@@ -203,7 +203,7 @@ entries:
         url: /Configure-JATOS-on-a-Server.html
         output: web, pdf
         
-      - title: JATOS and MySQL
+      - title: JATOS with MySQL
         url: /JATOS-with-MySQL.html
         output: web, pdf
 
