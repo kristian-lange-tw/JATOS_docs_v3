@@ -1,13 +1,13 @@
 ---
 title: JATOS with MySQL
-keywords: server, installation, MySQL, database
+keywords: server, installation, MySQL, database, binary logging, binlog
 tags:
 summary: 
 sidebar: mydoc_sidebar
 permalink: JATOS-with-MySQL.html
 folder:
 toc: true
-last_updated: 26 Aug 2020
+last_updated: 28 Aug 2020
 ---
 
 By default JATOS uses an embedded H2 database and no further setup is necessary but it can be easily configured to work with a MySQL database.
@@ -119,7 +119,7 @@ Done. Your JATOS uses your MySQL now.
 
 MySQL's binary logs (also called binlogs) serve two purposes: replication and data recovery. More can be found in [MySQLs documentation](https://dev.mysql.com/doc/internals/en/binary-log-overview.html#:~:text=The%20binary%20log%20is%20a,14.).
 
-The problem with binary logs is that they can take up quite some disk space depending on the experiments you run on your JATOS. If you have a single MySQL instance (and therefore do not use replication) and you do not need MySQL's data recovery (e.g. have a different backup mechanism) than it is safe to deactivate the binary logs. 
+The problem with binary logs is that they can take up quite some disk space depending on the experiments you run on your JATOS. The location of those log files is specified in MySQL's config but on many systems they are under `/var/lib/mysql`. If you have a single MySQL instance (and therefore do not use replication) and you do not need MySQL's data recovery (e.g. have a different backup mechanism) than it is safe to deactivate the binary logs. 
 
 ### Via MySQL config
 
