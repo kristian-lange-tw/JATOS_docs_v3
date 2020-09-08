@@ -1,13 +1,13 @@
 ---
 title: JATOS with MySQL
-keywords: server, installation, MySQL, database, binary logging, binlog
+keywords: server, installation, MySQL, database, binary logging, binlog, max_allowed_packet
 tags:
 summary: 
 sidebar: mydoc_sidebar
 permalink: JATOS-with-MySQL.html
 folder:
 toc: true
-last_updated: 28 Aug 2020
+last_updated: 8 Sep 2020
 ---
 
 By default JATOS uses an embedded H2 database and no further setup is necessary but it can be easily configured to work with a MySQL database.
@@ -121,8 +121,6 @@ MySQL's binary logs (also called binlogs) serve two purposes: replication and da
 
 The problem with binary logs is that they can take up quite some disk space depending on the experiments you run on your JATOS. The location of those log files is specified in MySQL's config but on many systems they are under `/var/lib/mysql`. If you have a single MySQL instance (and therefore do not use replication) and you do not need MySQL's data recovery (e.g. have a different backup mechanism) than it is safe to deactivate the binary logs. 
 
-### Via MySQL config
-
 Add `skip-log-bin` to the end of your MySQL config ([details](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin)). On many Linux systems the config is in `/etc/mysql/mysql.conf.d/mysqld.cnf`.
 
 The part of your 'mysqld.cnf' that configures the binary logs could then look similar to this:
@@ -142,22 +140,23 @@ skip-log-bin
 
 You have to restart MySQL for the changes to take effect.
 
-### Via MySQL global variable
 
-If your MySQL is already running and you don't want to restart it, there is a way to turn off the binary logging with a [system variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_sql_log_bin):
+## [Optional] Increase MySQL's 'max_allowed_packet' size in older MySQLs
 
-Log into your MySQL console and type:
+If you have an older MySQL (< 8.x.x) and your experiments will have large resut data you might want to increase the '[max_allowed_packet](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)' size. If your result data is larger than the 'max_allowed_packet' JATOS will just return an 'internal server error'. In JATOS' log in will look similar to this:
 
-1. Log in to MySQL's command line terminal:
+```
+[ERROR] - g.ErrorHandler - Internal JATOS error
+[ERROR] - o.h.e.j.s.SqlExceptionHelper - Packet for query is too large (5,920,824 > 4,194,304). You can change this value on the server by setting the 'max_allowed_packet' variable.
+[WARN] - o.h.e.j.s.SqlExceptionHelper - SQL Error: 0, SQLState: S1000
+```
 
-   ```bash
-   mysql -u root -p
-   ```
+From 8.x.x the 'max_allowed_packet' is by default 64MB and this is usually more than enough. But in version smaller than 8.x.x it is just 4MB by default and before 5.6.6 it's just 1MB.  
 
-1. Set 'sql_log_bin'
+To increase the 'max_allowed_packet' size just add it to the end of your MySQL config. On many Linux systems the config is in `/etc/mysql/mysql.conf.d/mysqld.cnf`. E.g. to set it to 64MB:
 
-   ```bash
-   SET sql_log_bin = OFF;
-   ```
+```bash
+max_allowed_packet=64M
+```
 
-This is reversible by setting it to `ON`.
+You have to restart MySQL for the changes to take effect.
