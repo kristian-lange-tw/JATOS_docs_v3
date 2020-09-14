@@ -19,12 +19,9 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 Scarpina, F. (2020) Detection and Recognition of Fearful Facial Expressions During the Coronavirus Disease (COVID-19) Pandemic in an Italian Sample: An Online Experiment. *Front. Psychol.* [DOI](https://doi.org/10.3389/fpsyg.2020.02252)
 
-
 Qiu, M., Johns, B.T. (2020) Semantic diversity in paired-associate learning: Further evidence for the information accumulation perspective of cognitive aging. *Psychonomic Bulletin & Review* 27, 114–121. [DOI](https://link.springer.com/article/10.3758%2Fs13423-019-01691-w)
 
-
 Dolscheid, S., Çelik, S., Erkan, H., Küntay, A., & Majid, A. (2020). Space-pitch associations differ in their susceptibility to language. *Cognition*, 196, 104073. [DOI](https://doi.org/10.1016/j.cognition.2019.104073)
-
 
 Richan, E., Rouat, J. A proposal and evaluation of new timbre visualization methods for audio sample browsers. *Pers Ubiquit Comput* (2020). [DOI](https://doi.org/10.1007/s00779-020-01388-1)
 
@@ -36,7 +33,7 @@ Cooper, E., Greve, A., & Henson, R. N. (2019). Investigating Fast Mapping Task C
 
 MacGregor, L. J., Rodd, J. M., Gilbert, R. A., Hauk, O., Sohoglu, E., & Davis, M. H. (2019). The Neural Time Course of Semantic Ambiguity Resolution in Speech Comprehension. *Journal of Cognitive Neuroscience*, 1–23. [DOI](https://doi.org/10.1162/jocn_a_01493)
 
-Ren, K., & Gunderson, E. A. (2019). Malleability of whole-number and fraction biases in decimal comparison. *Developmental Psychology*, 55(11), 2263–2274. [Open Access Link](https://sites.temple.edu/cognitionlearning/files/2019/10/Ren-Gunderson-in-press.pdf)
+Ren, K., & Gunderson, E. A. (2019). Malleability of whole-number and fraction biases in decimal comparison. *Developmental Psychology*, 55(11), 2263–2274. [DOI](10.1037/dev0000797)
 
 ### 2018
 
