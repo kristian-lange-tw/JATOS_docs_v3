@@ -17,6 +17,8 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 ### 2020
 
+Scarpina, F. (2020) Detection and Recognition of Fearful Facial Expressions During the Coronavirus Disease (COVID-19) Pandemic in an Italian Sample: An Online Experiment. *Front. Psychol.* [DOI](https://doi.org/10.3389/fpsyg.2020.02252)
+
 Qiu, M., Johns, B.T. (2020) Semantic diversity in paired-associate learning: Further evidence for the information accumulation perspective of cognitive aging. *Psychonomic Bulletin & Review* 27, 114–121. [DOI](https://link.springer.com/article/10.3758%2Fs13423-019-01691-w)
 
 Dolscheid, S., Çelik, S., Erkan, H., Küntay, A., & Majid, A. (2020). Space-pitch associations differ in their susceptibility to language. *Cognition*, 196, 104073. [DOI](https://doi.org/10.1016/j.cognition.2019.104073)
