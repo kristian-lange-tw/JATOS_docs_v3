@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: jatos.js-Reference.html
 folder:
 toc: true
-last_updated: 1 Aug 2020
+last_updated: 23 Sept 2020
 ---
 
 Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
@@ -96,28 +96,6 @@ There's a convenient function that adds all these IDs to a given object. See fun
 The session data can be accessed and modified by every component of a study. It's a very convenient way to share data between different components. Whatever is written in this variable will be available in the subsequent components. However, remember that the session data will be deleted after the study is finished (see also [Session Data - Three Types](Session-Data-Three-Types.html)).
 
 * `jatos.studySessionData` (writeable)
-
-
-### Batch variables
-
-* `jatos.batchProperties` - All the properties you entered for this batch.
-  * `jatos.batchProperties.allowedWorkerTypes` - List of worker types that are currently allowed to run in this batch.
-  * `jatos.batchProperties.maxActiveMembers` - How many members this group can have at the same time
-  * `jatos.batchProperties.maxTotalMembers` - How many members this group is allowed to have at the same time
-  * `jatos.batchProperties.maxTotalWorkers` - Total amount of workers this group is allowed to have altogether in this batch
-  * `jatos.batchProperties.title` - Title of this batch
-* `jatos.batchJsonInput` - The JSON input you entered in the batch's properties.
-
-
-### Group variables
-
-The group variables are part of jatos.js since JATOS 2. They are only filled with values if the current study is a group study.
-
-* `jatos.groupMemberId` - Group member ID is unique for this member (it is actually identical with the study result ID)
-* `jatos.groupResultId` - ID of this group result (It's called group result to be consistent with the study result and the component result - although often it's just called group)
-* `jatos.groupState` (Removed in JATOS >= v3.4.1) - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)
-* `jatos.groupMembers` - List of member IDs of the current members of the group
-* `jatos.groupChannels` - List of member IDs of the currently open group channels
 
 
 ### Other variables
@@ -236,6 +214,21 @@ jatos.onLoad(function() {
    ```
 
 
+### `jatos.showBeforeUnloadWarning`
+
+**Since JATOS version >= 3.5.6** - Convenience function that adds or cancels a warning popup that will be shown by the browser to the worker who attempts to reload the page or close the browser (tab). By default this is turned on for components that are not 'reloadable'. Modern browsers do not allow to change the message of this popup. This works only if at least one user action happend in the window, e.g. mouse click (https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event).
+
+* _@param {boolean} show_ - If true the warning will be shown - if false a	previously added warning will be canceled
+
+**Example**
+
+Adds a warning popup:
+
+```javascript
+jatos.showBeforeUnloadWarning(true);
+```
+
+
 ### `jatos.onError`
 
 Defines a callback function that is to be called in case jatos.js produces an error. 
@@ -261,6 +254,17 @@ Sends a message to be logged back to the JATOS server where it will be logged in
 
 ```javascript
 jatos.log("Log this message in JATOS' log file");
+```
+
+
+### `jatos.catchAndLogErrors`
+
+Convenience function that sends all 'error' and 'unhandledrejection' events and 'console.error' and 'console.warn' calls to [JATOS' server log](Troubleshooting.html#read-log-file-in-the-browser). This is useful in debugging. 
+	 
+**Example**
+
+```javascript
+jatos.catchAndLogErrors();
 ```
 
 
@@ -293,7 +297,7 @@ jatos.setHeartbeatPeriod(60000); // Sets to a heartbeat every minute
 
 ### `jatos.setStudySessionData`
 
-**If you just want to write into the study session, this function is not what you want**. This function sets the study session data and **sends it back to the JATOS server**. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
+**Deprecated - if you just want to write into the study session, this function is not what you want**. This function sets the study session data and **sends it back to the JATOS server**. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
 
 Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameters or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer.
 
@@ -706,7 +710,7 @@ Ends study with an Ajax call - afterwards the study is not redirected to the JAT
    ```
 
 
-## Result data and result upload files (and download)
+## Result data and result upload/download files
 
 ### `jatos.submitResultData`
 
@@ -922,6 +926,19 @@ Additionally you can specify the component position from where the file was uplo
    ```
 
 1. For more real-world examples have a look at the ['Drawing' and the 'Video Recording' examples](Example-Studies.html)
+
+
+## Batch
+
+### Batch variables
+
+* `jatos.batchProperties` - All the properties you entered for this batch.
+  * `jatos.batchProperties.allowedWorkerTypes` - List of worker types that are currently allowed to run in this batch.
+  * `jatos.batchProperties.maxActiveMembers` - How many members this group can have at the same time
+  * `jatos.batchProperties.maxTotalMembers` - How many members this group is allowed to have at the same time
+  * `jatos.batchProperties.maxTotalWorkers` - Total amount of workers this group is allowed to have altogether in this batch
+  * `jatos.batchProperties.title` - Title of this batch
+* `jatos.batchJsonInput` - The JSON input you entered in the batch's properties.
 
 
 ## Functions to access the Batch Session
@@ -1369,7 +1386,7 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
 * _@param {optional callback} onError_ - Function to be called if this patch failed
 * _@return {Promise}_
 
-**Example**
+**Examples**
 
 1. Move within the Batch Session from one location to another
 
@@ -1390,6 +1407,30 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
       .then(() => console.log("Batch Session was successfully updated"))
       .catch(() => console.log("Batch Session synchronization failed"));
    ```
+
+
+### `jatos.batchSessionVersioning`
+
+This flag can be used to turn off versioning of the batch session. This speeds up updates to the batch session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.
+
+**Example**
+
+```javascript
+jatos.batchSessionVersioning = false; // Turns off versioning
+```
+
+
+## Group studies
+
+### Group variables
+
+The group variables are only filled with values if the current study run is a group study.
+
+* `jatos.groupMemberId` - Group member ID is unique for this member (it is actually identical with the study result ID)
+* `jatos.groupResultId` - ID of this group result (It's called group result to be consistent with the study result and the component result - although often it's just called group)
+* `jatos.groupState` (Removed in JATOS >= v3.4.1) - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)
+* `jatos.groupMembers` - List of member IDs of the current members of the group
+* `jatos.groupChannels` - List of member IDs of the currently open group channels
 
 
 ## Functions for group studies
@@ -2016,3 +2057,14 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
       .then(() => console.log("Group Session was successfully updated"))
       .catch(() => console.log("Group Session synchronization failed"));
    ```
+
+
+### `jatos.groupSessionVersioning`
+
+This flag can be used to turn off versioning of the group session. This speeds up updates to the group session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.
+
+**Example**
+
+```javascript
+jatos.groupSessionVersioning = false; // Turns off versioning
+```

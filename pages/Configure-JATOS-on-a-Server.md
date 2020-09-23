@@ -106,16 +106,18 @@ By default JATOS' keeps it simple and relies on the users to choose save passwor
    * `jatos.resultUploads.maxFileSize` - Max file size for one single uploaded result file (default is 30 MB)
    * `jatos.resultUploads.limitPerStudyRun` - Limit of all uploaded result files of one single study run (default is 50MB)
 
-1. The path can be configured via environment variables
+1. Via environment variables (JATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN and JATOS_RESULT_UPLOADS_MAX_FILE_SIZE only since 3.5.6)
 
    ~~~bash
    export JATOS_RESULT_UPLOADS_PATH="/path/to/my/result/upload/folder"
+   export JATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN=100MB
+   export JATOS_RESULT_UPLOADS_MAX_FILE_SIZE=50MB
    ~~~
 
-1. The path can be configured via command-line arguments
+1. Via command-line arguments (JATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN and JATOS_RESULT_UPLOADS_MAX_FILE_SIZE only since 3.5.6)
 
    ~~~bash
-   loader.sh start -DJATOS_RESULT_UPLOADS_PATH="/path/to/my/result/upload/folder"
+   loader.sh start -DJATOS_RESULT_UPLOADS_PATH="/path/to/my/result/upload/folder" -DJATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN=100MB -DJATOS_RESULT_UPLOADS_MAX_FILE_SIZE=50MB
    ~~~
 
 

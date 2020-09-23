@@ -514,6 +514,13 @@
           
           
           
+          <li><a href="JATOS-with-MySQL.html">JATOS with MySQL</a></li>
+          
+          
+          
+          
+          
+          
           <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
           
           
@@ -721,33 +728,6 @@ $('#toc').on('click', 'a', function() {
   <li><code class="highlighter-rouge">jatos.studySessionData</code> (writeable)</li>
 </ul>
 
-<h3 id="batch-variables">Batch variables</h3>
-
-<ul>
-  <li><code class="highlighter-rouge">jatos.batchProperties</code> - All the properties you entered for this batch.
-    <ul>
-      <li><code class="highlighter-rouge">jatos.batchProperties.allowedWorkerTypes</code> - List of worker types that are currently allowed to run in this batch.</li>
-      <li><code class="highlighter-rouge">jatos.batchProperties.maxActiveMembers</code> - How many members this group can have at the same time</li>
-      <li><code class="highlighter-rouge">jatos.batchProperties.maxTotalMembers</code> - How many members this group is allowed to have at the same time</li>
-      <li><code class="highlighter-rouge">jatos.batchProperties.maxTotalWorkers</code> - Total amount of workers this group is allowed to have altogether in this batch</li>
-      <li><code class="highlighter-rouge">jatos.batchProperties.title</code> - Title of this batch</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">jatos.batchJsonInput</code> - The JSON input you entered in the batch’s properties.</li>
-</ul>
-
-<h3 id="group-variables">Group variables</h3>
-
-<p>The group variables are part of jatos.js since JATOS 2. They are only filled with values if the current study is a group study.</p>
-
-<ul>
-  <li><code class="highlighter-rouge">jatos.groupMemberId</code> - Group member ID is unique for this member (it is actually identical with the study result ID)</li>
-  <li><code class="highlighter-rouge">jatos.groupResultId</code> - ID of this group result (It’s called group result to be consistent with the study result and the component result - although often it’s just called group)</li>
-  <li><code class="highlighter-rouge">jatos.groupState</code> (Removed in JATOS &gt;= v3.4.1) - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)</li>
-  <li><code class="highlighter-rouge">jatos.groupMembers</code> - List of member IDs of the current members of the group</li>
-  <li><code class="highlighter-rouge">jatos.groupChannels</code> - List of member IDs of the currently open group channels</li>
-</ul>
-
 <h3 id="other-variables">Other variables</h3>
 
 <p>All variables can be set except those labled <em>read-only</em>.</p>
@@ -871,6 +851,21 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ol>
 
+<h3 id="jatosshowbeforeunloadwarning"><code class="highlighter-rouge">jatos.showBeforeUnloadWarning</code></h3>
+
+<p><strong>Since JATOS version &gt;= 3.5.6</strong> - Convenience function that adds or cancels a warning popup that will be shown by the browser to the worker who attempts to reload the page or close the browser (tab). By default this is turned on for components that are not ‘reloadable’. Modern browsers do not allow to change the message of this popup. This works only if at least one user action happend in the window, e.g. mouse click (https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event).</p>
+
+<ul>
+  <li><em>@param {boolean} show</em> - If true the warning will be shown - if false a	previously added warning will be canceled</li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p>Adds a warning popup:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">showBeforeUnloadWarning</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div></div>
+
 <h3 id="jatosonerror"><code class="highlighter-rouge">jatos.onError</code></h3>
 
 <p>Defines a callback function that is to be called in case jatos.js produces an error.</p>
@@ -897,6 +892,15 @@ $('#toc').on('click', 'a', function() {
 <p><strong>Example</strong></p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Log this message in JATOS' log file"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="jatoscatchandlogerrors"><code class="highlighter-rouge">jatos.catchAndLogErrors</code></h3>
+
+<p>Convenience function that sends all ‘error’ and ‘unhandledrejection’ events and ‘console.error’ and ‘console.warn’ calls to <a href="Troubleshooting.html#read-log-file-in-the-browser">JATOS’ server log</a>. This is useful in debugging.</p>
+
+<p><strong>Example</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">catchAndLogErrors</span><span class="p">();</span>
 </code></pre></div></div>
 
 <h3 id="jatosaddjatosids"><code class="highlighter-rouge">jatos.addJatosIds</code></h3>
@@ -928,7 +932,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatossetstudysessiondata"><code class="highlighter-rouge">jatos.setStudySessionData</code></h3>
 
-<p><strong>If you just want to write into the study session, this function is not what you want</strong>. This function sets the study session data and <strong>sends it back to the JATOS server</strong>. If you want to write something into the study session, just write into the <a href="jatos.js-Reference.html#studys-session-data"><code class="highlighter-rouge">jatos.studySessionData</code></a> variable.</p>
+<p><strong>Deprecated - if you just want to write into the study session, this function is not what you want</strong>. This function sets the study session data and <strong>sends it back to the JATOS server</strong>. If you want to write something into the study session, just write into the <a href="jatos.js-Reference.html#studys-session-data"><code class="highlighter-rouge">jatos.studySessionData</code></a> variable.</p>
 
 <p>Posts Study Session data to the JATOS server. This function is called automatically in the end of a component’s life cycle (it’s called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, <strong>it’s not necessary to call this function manually</strong>. It offers callbacks, either as parameters or via a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, to signal success or failure in the transfer.</p>
 
@@ -1410,7 +1414,7 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ol>
 
-<h2 id="result-data-and-result-upload-files-and-download">Result data and result upload files (and download)</h2>
+<h2 id="result-data-and-result-uploaddownload-files">Result data and result upload/download files</h2>
 
 <h3 id="jatossubmitresultdata"><code class="highlighter-rouge">jatos.submitResultData</code></h3>
 
@@ -1646,6 +1650,23 @@ $('#toc').on('click', 'a', function() {
     <p>For more real-world examples have a look at the <a href="Example-Studies.html">‘Drawing’ and the ‘Video Recording’ examples</a></p>
   </li>
 </ol>
+
+<h2 id="batch">Batch</h2>
+
+<h3 id="batch-variables">Batch variables</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.batchProperties</code> - All the properties you entered for this batch.
+    <ul>
+      <li><code class="highlighter-rouge">jatos.batchProperties.allowedWorkerTypes</code> - List of worker types that are currently allowed to run in this batch.</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.maxActiveMembers</code> - How many members this group can have at the same time</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.maxTotalMembers</code> - How many members this group is allowed to have at the same time</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.maxTotalWorkers</code> - Total amount of workers this group is allowed to have altogether in this batch</li>
+      <li><code class="highlighter-rouge">jatos.batchProperties.title</code> - Title of this batch</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">jatos.batchJsonInput</code> - The JSON input you entered in the batch’s properties.</li>
+</ul>
 
 <h2 id="functions-to-access-the-batch-session">Functions to access the Batch Session</h2>
 
@@ -2137,7 +2158,7 @@ $('#toc').on('click', 'a', function() {
   <li><em>@return {Promise}</em></li>
 </ul>
 
-<p><strong>Example</strong></p>
+<p><strong>Examples</strong></p>
 
 <ol>
   <li>
@@ -2161,6 +2182,29 @@ $('#toc').on('click', 'a', function() {
 </code></pre></div>    </div>
   </li>
 </ol>
+
+<h3 id="jatosbatchsessionversioning"><code class="highlighter-rouge">jatos.batchSessionVersioning</code></h3>
+
+<p>This flag can be used to turn off versioning of the batch session. This speeds up updates to the batch session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.</p>
+
+<p><strong>Example</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">batchSessionVersioning</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// Turns off versioning</span>
+</code></pre></div></div>
+
+<h2 id="group-studies">Group studies</h2>
+
+<h3 id="group-variables">Group variables</h3>
+
+<p>The group variables are only filled with values if the current study run is a group study.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">jatos.groupMemberId</code> - Group member ID is unique for this member (it is actually identical with the study result ID)</li>
+  <li><code class="highlighter-rouge">jatos.groupResultId</code> - ID of this group result (It’s called group result to be consistent with the study result and the component result - although often it’s just called group)</li>
+  <li><code class="highlighter-rouge">jatos.groupState</code> (Removed in JATOS &gt;= v3.4.1) - Represents the state of the group in JATOS; only set if group channel is open (one of STARTED, FIXED, FINISHED)</li>
+  <li><code class="highlighter-rouge">jatos.groupMembers</code> - List of member IDs of the current members of the group</li>
+  <li><code class="highlighter-rouge">jatos.groupChannels</code> - List of member IDs of the currently open group channels</li>
+</ul>
 
 <h2 id="functions-for-group-studies">Functions for group studies</h2>
 
@@ -2826,6 +2870,15 @@ jatos.groupSession.add(“/a”, 1)
   </li>
 </ol>
 
+<h3 id="jatosgroupsessionversioning"><code class="highlighter-rouge">jatos.groupSessionVersioning</code></h3>
+
+<p>This flag can be used to turn off versioning of the group session. This speeds up updates to the group session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.</p>
+
+<p><strong>Example</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jatos</span><span class="p">.</span><span class="nx">groupSessionVersioning</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// Turns off versioning</span>
+</code></pre></div></div>
+
 
     <div class="tags">
         
@@ -2841,7 +2894,7 @@ jatos.groupSession.add(“/a”, 1)
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-<span>Page last updated:</span> 1 Aug 2020
+<span>Page last updated:</span> 23 Sept 2020
                 </div>
             </div>
 </footer>

@@ -270,7 +270,7 @@
 {
 "title": "JATOS with MySQL",
 "tags": "",
-"keywords": "server, installation, MySQL, database",
+"keywords": "server, installation, MySQL, database, binary logging, binlog, max_allowed_packet",
 "url": "JATOS-with-MySQL.html",
 "summary": ""
 }

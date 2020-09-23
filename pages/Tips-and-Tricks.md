@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Tips-and-Tricks.html
 folder:
 toc: true
-last_updated: 7 Jan 2020
+last_updated: 20 Sept 2020
 ---
 
 ### Batch and Group Session do not work on Windows without HTTPS
@@ -91,4 +91,19 @@ To do this, you can send a message together with `jatos.abortStudy` as a paramet
 ### How to let a Personal Single Worker redo his study?
 
 A Personal Single Worker is only allowed to run their study once. But sometimes you want to allow them to do it a second time (maybe they accidentally clicked the 'Cancel' button). One way would be to just create another Personal Single Link and hand it to the worker. But there is another way without creating a second Link: you can simply delete the worker's result from one of the result pages. This will allow this Personal Single worker to redo this study.
+
+### Simulate slow network
+
+Usually one develops a study on a local JATOS or a remote JATOS with a good internet - but your participants might live at a place where internet connections are slower or run your study via mobile network. All studies should take this into account, but especially those with big files like images, audio or video. There is a way to artifically throttle the network speed in [Firefox's](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor) and [Chrome's](https://developers.google.com/web/tools/chrome-devtools/network#throttle) Developer Tools. Choose a slower connection, e.g. '3G', and try out your study again. This works on every JATOS, local or a remote.
+
+### Personal/General Single links seem not to work when distributed via social networks
+
+Problem: The study runs fine, but as soon as one distributes links for Personal Single or General Single runs via social networks like Twitter, Facebook and Reddit or chat tools like Slack and Google Hangout it stops working. The participants only get the message 'A problem occurred: Study can be done only once.' and in the results the study run appears as started but never finished (State DATA_RETRIEVED).
+
+The reason for this behaviour is that some of those tools open links that are posted in them before your participant can click on them. They do this to provide more information about the link, like a title and an image. Usually this is fine but Personal/General Single links work exactly once (if preview is not allowed) and a second request with the same link just responses with the forementioned error message.
+
+Solution: You can keep using Personal/General Single links and use a [preview link](Restricting-study-flow.html#preview-links) to allow opening the first component of your study as many times as one wishes. All following components can be opened only once again.
+
+If your study has only one component (like it is common with OpenSesame/OSWeb or lab.js studies) then you can add an additional component in front of the actual experiment. This component would be a preview component in which you can give an intro to your experiment and most importantly tell your participants that by going on (e.g. clicking on the 'continue' button) they would start the experiment and this can be done only once. One can combine this with a consent form.
+
 

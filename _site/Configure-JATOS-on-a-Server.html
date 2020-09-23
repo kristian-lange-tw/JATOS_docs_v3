@@ -514,6 +514,13 @@
           
           
           
+          <li><a href="JATOS-with-MySQL.html">JATOS with MySQL</a></li>
+          
+          
+          
+          
+          
+          
           <li><a href="JATOS-with-Nginx.html">JATOS with Nginx</a></li>
           
           
@@ -733,15 +740,17 @@ play.server.http.port <span class="o">=</span> 80
     </ul>
   </li>
   <li>
-    <p>The path can be configured via environment variables</p>
+    <p>Via environment variables (JATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN and JATOS_RESULT_UPLOADS_MAX_FILE_SIZE only since 3.5.6)</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">JATOS_RESULT_UPLOADS_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/result/upload/folder"</span>
+<span class="nb">export </span><span class="nv">JATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN</span><span class="o">=</span>100MB
+<span class="nb">export </span><span class="nv">JATOS_RESULT_UPLOADS_MAX_FILE_SIZE</span><span class="o">=</span>50MB
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>The path can be configured via command-line arguments</p>
+    <p>Via command-line arguments (JATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN and JATOS_RESULT_UPLOADS_MAX_FILE_SIZE only since 3.5.6)</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loader.sh start <span class="nt">-DJATOS_RESULT_UPLOADS_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/result/upload/folder"</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loader.sh start <span class="nt">-DJATOS_RESULT_UPLOADS_PATH</span><span class="o">=</span><span class="s2">"/path/to/my/result/upload/folder"</span> <span class="nt">-DJATOS_RESULT_UPLOADS_LIMIT_PER_STUDY_RUN</span><span class="o">=</span>100MB <span class="nt">-DJATOS_RESULT_UPLOADS_MAX_FILE_SIZE</span><span class="o">=</span>50MB
 </code></pre></div>    </div>
   </li>
 </ol>
