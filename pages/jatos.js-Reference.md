@@ -1411,7 +1411,7 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
 
 ### `jatos.batchSessionVersioning`
 
-This flag can be used to turn off versioning of the batch session. This speeds up updates to the batch session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.
+**Since JATOS version >= 3.5.6** - This flag can be used to turn off versioning of the batch session. This speeds up updates to the batch session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.
 
 **Example**
 
@@ -2061,7 +2061,7 @@ JSON Patch move operation: Moves a value from one location to the other. Both fr
 
 ### `jatos.groupSessionVersioning`
 
-This flag can be used to turn off versioning of the group session. This speeds up updates to the group session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.
+**Since JATOS version >= 3.5.6** - This flag can be used to turn off versioning of the group session. This speeds up updates to the group session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.
 
 **Example**
 
