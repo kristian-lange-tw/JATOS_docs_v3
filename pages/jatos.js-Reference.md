@@ -297,9 +297,9 @@ jatos.setHeartbeatPeriod(60000); // Sets to a heartbeat every minute
 
 ### `jatos.setStudySessionData`
 
-**Deprecated - if you just want to write into the study session, this function is not what you want**. This function sets the study session data and **sends it back to the JATOS server**. If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) variable.
+**If you want to just write into the study session, this function is not what you need.** If you want to write something into the study session, just write into the [`jatos.studySessionData`](jatos.js-Reference.html#studys-session-data) object.
 
-Posts Study Session data to the JATOS server. This function is called automatically in the end of a component's life cycle (it's called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, **it's not necessary to call this function manually**. It offers callbacks, either as parameters or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer.
+Posts Study Session data to the JATOS server. This function sets the study session data and **sends it to the JATOS server for safe storage**. This is done automatically whenever a component finishes. But sometimes it is necessary to trigger this manually, e.g. in a very long-running component one might want to store the session intermediately. It offers callbacks, either as parameters or via a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), to signal success or failure in the transfer.
 
 * _@param {object} sessionData_ - object to be submitted
 * _@param {optional function} onSuccess_ - Function to be called after this function is finished

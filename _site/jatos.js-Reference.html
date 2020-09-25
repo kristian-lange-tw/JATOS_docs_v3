@@ -932,9 +932,9 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatossetstudysessiondata"><code class="highlighter-rouge">jatos.setStudySessionData</code></h3>
 
-<p><strong>Deprecated - if you just want to write into the study session, this function is not what you want</strong>. This function sets the study session data and <strong>sends it back to the JATOS server</strong>. If you want to write something into the study session, just write into the <a href="jatos.js-Reference.html#studys-session-data"><code class="highlighter-rouge">jatos.studySessionData</code></a> variable.</p>
+<p><strong>If you want to just write into the study session, this function is not what you need.</strong> If you want to write something into the study session, just write into the <a href="jatos.js-Reference.html#studys-session-data"><code class="highlighter-rouge">jatos.studySessionData</code></a> object.</p>
 
-<p>Posts Study Session data to the JATOS server. This function is called automatically in the end of a component’s life cycle (it’s called by all jatos.js functions that end a component). So unless you want to store the session data during a component run yourself, <strong>it’s not necessary to call this function manually</strong>. It offers callbacks, either as parameters or via a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, to signal success or failure in the transfer.</p>
+<p>Posts Study Session data to the JATOS server. This function sets the study session data and <strong>sends it to the JATOS server for safe storage</strong>. This is done automatically whenever a component finishes. But sometimes it is necessary to trigger this manually, e.g. in a very long-running component one might want to store the session intermediately. It offers callbacks, either as parameters or via a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>, to signal success or failure in the transfer.</p>
 
 <ul>
   <li><em>@param {object} sessionData</em> - object to be submitted</li>
@@ -2185,7 +2185,7 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="jatosbatchsessionversioning"><code class="highlighter-rouge">jatos.batchSessionVersioning</code></h3>
 
-<p>This flag can be used to turn off versioning of the batch session. This speeds up updates to the batch session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.</p>
+<p><strong>Since JATOS version &gt;= 3.5.6</strong> - This flag can be used to turn off versioning of the batch session. This speeds up updates to the batch session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.</p>
 
 <p><strong>Example</strong></p>
 
@@ -2872,7 +2872,7 @@ jatos.groupSession.add(“/a”, 1)
 
 <h3 id="jatosgroupsessionversioning"><code class="highlighter-rouge">jatos.groupSessionVersioning</code></h3>
 
-<p>This flag can be used to turn off versioning of the group session. This speeds up updates to the group session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.</p>
+<p><strong>Since JATOS version &gt;= 3.5.6</strong> - This flag can be used to turn off versioning of the group session. This speeds up updates to the group session (patches) in certain cases where all concurrent patches are conflict-free between each other. If versioning is turned on (set to true) all session data patches are accompanied by a version. On the JATOS server side only a patch with the current version (as stored in the database) is applied. If there are multiple concurrent patches only the first one is applied. If versioning is turned off all patches arriving at the JATOS server are applied right away without checking the version. This is faster but can lead to unintended session data changes. By default versioning is turned on.</p>
 
 <p><strong>Example</strong></p>
 
