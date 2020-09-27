@@ -46,9 +46,9 @@ you can access those fields in your JavaScript with `jatos.studyJsonInput.introd
 The sessions are there to help you exchange data within a study, batch or group. The Study Session allows to pass on data within the same study run, from one component to the next. With the Batch Session one can transfer data between study runs that belong to the same batch. There is a whole page dedicated to those sessions: [Session Data - Three Types](/Session-Data-Three-Types.html).
 
 
-## Safe your result data
+## Save your result data
 
-You probably want to safe the data that will be collected during your experiments. There are generally two ways to do this: 1) result data or 2) result files - and there is a [documentation page about it](Submit-and-upload-data-to-the-server.html).
+You probably want to save the data that will be collected during your experiments. There are generally two ways to do this: 1) result data or 2) result files - and there is a [documentation page about it](Submit-and-upload-data-to-the-server.html).
 
 
 ## Group Studies
