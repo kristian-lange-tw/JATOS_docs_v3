@@ -19,8 +19,9 @@ Click on the study name to download the .zip file and [import it into JATOS](htt
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
 
-## Minimal example studies
+### Minimal example studies
 
+You can trust that all these studies have been written with 'clean code' in mind, should all be neat, well formatted, and well documented. You can use them as starting points. 
 
 | Study Name        | Brief Description   | Frameworks Used | JATOS Features   | Example Image  |
 |-------------------|-------------------|-------------------|-------------------|-------------------|
