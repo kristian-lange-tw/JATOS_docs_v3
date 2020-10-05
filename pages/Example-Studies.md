@@ -6,7 +6,7 @@ summary: These study examples will (hopefully) be a helpful starting point for y
 sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
-toc: false
+toc: true
 last_updated: 22 Jun 2020
 ---
 
@@ -19,6 +19,7 @@ Click on the study name to download the .zip file and [import it into JATOS](htt
 
 If you wrote an example study that you'd like to share, please feel free to [contact us](Contact-us.html) and we'll include it in this page!
 
+## Minimal example studies
 
 
 | Study Name        | Brief Description   | Frameworks Used | JATOS Features   | Example Image  |
@@ -70,3 +71,8 @@ If you wrote an example study that you'd like to share, please feel free to [con
 
 † Requires JATOS version 3.5.1 or newer
 
+## Example studies contributed by others
+
+| Study Name        | Brief Description   | Frameworks Used | JATOS Features   | Example Image  | Contributed By  |
+|-------------------|-------------------|-------------------|-------------------|-------------------|
+| [Randomize (Multi-component) Tasks Between Workers](https://github.com/JATOS/JATOS_examples/raw/master/examples/randomize_tasks_between_workers.zip) § | Template to randomly assign participants to conditions A or B, where each condition is composed of two different components. This is an extension of the "Randomize Tasks Between Workers' example above | - | [Batch session](http://www.jatos.org/Session-Data-Three-Types.html)| <img src="images/example-studies/Screenshot_randomization_between_workers.png" style="width:200%"/>|Craig Stark, Ph.D., School of Biological Sciences, University of California, Irvin | 
