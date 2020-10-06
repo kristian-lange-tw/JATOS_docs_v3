@@ -597,6 +597,29 @@
    
 
     
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
 
 
     
@@ -616,6 +639,10 @@
 <p><b>If you have trouble downloading a study (common in Safari browsers) check <a href="Troubleshooting.html#downloading-a-study--exporting-a-study-fails-eg-in-safari-browsers">this troubleshooting tip</a>.</b></p>
 
 <p>If you wrote an example study that you’d like to share, please feel free to <a href="Contact-us.html">contact us</a> and we’ll include it in this page!</p>
+
+<h3 id="minimal-example-studies">Minimal example studies</h3>
+
+<p>You can trust that all these studies have been written with ‘clean code’ in mind, should all be neat, well formatted, and well documented. You can use them as starting points.</p>
 
 <table>
   <thead>
@@ -917,6 +944,30 @@
 
 <p>† Requires JATOS version 3.5.1 or newer</p>
 
+<h2 id="example-studies-contributed-by-others">Example studies contributed by others</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Study Name</th>
+      <th>Brief Description</th>
+      <th>Frameworks Used</th>
+      <th>JATOS Features</th>
+      <th>Contributed By</th>
+      <th>Example Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/JATOS/JATOS_examples/raw/master/examples/randomize_tasks_between_workers.zip">Randomize (Multi-component) Tasks Between Workers</a> §</td>
+      <td>Template to randomly assign participants to conditions A or B, where each condition is composed of two different components. This is an extension of the “Randomize Tasks Between Workers’ example above</td>
+      <td>-</td>
+      <td><a href="http://www.jatos.org/Session-Data-Three-Types.html">Batch session</a></td>
+      <td>Craig Stark, Ph.D., School of Biological Sciences, University of California, Irvin</td>
+      <td><img src="images/example-studies/Screenshot_randomization_between_workers.png" style="width:200%" /></td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">

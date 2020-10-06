@@ -1,13 +1,13 @@
 ---
-title: Some Advanced Features
+title: Beyond the Basics
 keywords: installation, advanced, JSON input, studyJsonInput, componentJsonInput
 tags:
 summary:
 sidebar: mydoc_sidebar
-permalink: Advanced-Features.html
+permalink: Beyond-the-Basics.html
 folder:
-toc: false
-last_updated: 25 Sep 2020
+toc: true
+last_updated: 6 Oct 2020
 ---
 
 ## Study JSON Input and Component JSON Input
@@ -49,6 +49,11 @@ The sessions are there to help you exchange data within a study, batch or group.
 ## Save your result data
 
 You probably want to save the data that will be collected during your experiments. There are generally two ways to do this: 1) result data or 2) result files - and there is a [documentation page about it](Submit-and-upload-data-to-the-server.html).
+
+
+## jatos.js Reference
+
+In your JavaScript you will use jatos.js to handle everything JATOS related. Every function available in jatos.js is described in it's [reference](jatos.js-Reference.html).
 
 
 ## Group Studies
