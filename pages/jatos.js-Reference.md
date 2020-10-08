@@ -259,7 +259,7 @@ jatos.log("Log this message in JATOS' log file");
 
 ### `jatos.catchAndLogErrors`
 
-Convenience function that sends all 'error' and 'unhandledrejection' events and 'console.error' and 'console.warn' calls to [JATOS' server log](Troubleshooting.html#read-log-file-in-the-browser). This is useful in debugging. 
+**Since JATOS version >= 3.5.6** - Convenience function that sends all 'error' and 'unhandledrejection' events and 'console.error' and 'console.warn' calls to [JATOS' server log](Troubleshooting.html#read-log-file-in-the-browser). This is useful in debugging. 
 	 
 **Example**
 
