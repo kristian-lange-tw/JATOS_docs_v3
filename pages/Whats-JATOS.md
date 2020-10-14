@@ -6,7 +6,7 @@ summary:
 sidebar: mydoc_sidebar
 permalink: Whats-JATOS.html
 toc: false
-last_updated: 2 Jun 2020
+last_updated: 14 Oct 2020
 ---
 
 JATOS (Just Another Tool for Online Studies) helps you set up and run your online studies on your own server.
@@ -24,12 +24,14 @@ JATOS (Just Another Tool for Online Studies) helps you set up and run your onlin
 * Recruit participants via **MTurk**, **Prolific** etc.
 * It's **open-source and free** to use.
 * **Manage workers**, to e.g. make sure that each participant does your study only **once**.
+* **Upload** files, e.g. audio or video recordings
 * **Export/Import** studies to facilitate exchange with other researchers.
 
+
+<iframe width="1524" height="616" src="https://www.youtube.com/embed/J1ELazppklQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 You can try out [JATOS on _cortex_, our test server](JATOS-Tryout-Server.html).
-
-
-The whole documentation is available as <a target="_blank" class="noCrossRef" href="https://github.com/JATOS/JATOS_docs_v3/raw/gh-pages/pdf/jatos.pdf"><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download</button></a>
 
 
 JATOS is open-source and released under the [Apache 2 Licence](http://www.apache.org/licenses/LICENSE-2.0.html). The source code is available on [github.com/JATOS/JATOS](https://github.com/JATOS/JATOS).
