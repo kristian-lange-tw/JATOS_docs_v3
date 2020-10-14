@@ -28,7 +28,11 @@ JATOS (Just Another Tool for Online Studies) helps you set up and run your onlin
 * **Export/Import** studies to facilitate exchange with other researchers.
 
 
-<iframe src="https://www.youtube.com/embed/J1ELazppklQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
+Watch an introduction video:
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/J1ELazppklQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/><br/>  
 
 
 You can try out [JATOS on _cortex_, our test server](JATOS-Tryout-Server.html).
