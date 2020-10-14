@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: Example-Studies.html
 folder:
 toc: true
-last_updated: 22 Jun 2020
+last_updated: 14 Oct 2020
 ---
 
 ### Overview
@@ -72,7 +72,7 @@ You can trust that all these studies have been written with 'clean code' in mind
 
 † Requires JATOS version 3.5.1 or newer
 
-## Example studies contributed by others
+### Example studies contributed by others
 
 | Study Name        | Brief Description   | Frameworks Used | JATOS Features   | Contributed By | Example Image |
 |-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
