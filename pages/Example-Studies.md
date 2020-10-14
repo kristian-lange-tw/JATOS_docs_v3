@@ -11,7 +11,7 @@ last_updated: 14 Oct 2020
 ---
 
 ### Overview
-JATOS gives you complete freedom on the client side. You can do whatever you like! You can use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [jQuery](https://jquery.com/), [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/), [p5](https://p5js.org/), or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)). These are some examples of how to use these client-side frameworks in combination with JATOS. 
+JATOS gives you complete freedom on the client side. You can do whatever you like! You can use in your study code whatever technologies work in browsers (e.g. HTML5 canvas, CSS3 or 3D graphics with WebGL). Additionally browser-side JavaScript libraries or frameworks like [Bootstrap](http://getbootstrap.com/), [Highcharts](http://www.highcharts.com/), [p5](https://p5js.org/), or [jsPsych](http://www.jspsych.org/) are possible and will smooth out your path to quick and easy development. Of course the same is true for CSS modules (e.g. [Pure.css](http://purecss.io/), [Material Design](http://www.google.com/design/spec/material-design/introduction.html)). These are some examples of how to use these client-side frameworks in combination with JATOS. 
 
 Click on the study name to download the .zip file and [import it into JATOS](http://www.jatos.org/Get-started.html).  
 
