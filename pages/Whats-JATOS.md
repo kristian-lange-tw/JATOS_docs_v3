@@ -26,16 +26,14 @@ JATOS (Just Another Tool for Online Studies) helps you set up and run your onlin
 * **Manage workers**, to e.g. make sure that each participant does your study only **once**.
 * **Upload** files, e.g. audio or video recordings
 * **Export/Import** studies to facilitate exchange with other researchers.
+* You can **try out** [JATOS on _cortex_, our test server](JATOS-Tryout-Server.html).
 
 
 <br/>
 Watch an introduction video:
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/J1ELazppklQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="75%" height="300" src="https://www.youtube.com/embed/J1ELazppklQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br/><br/>  
-
-
-You can try out [JATOS on _cortex_, our test server](JATOS-Tryout-Server.html).
 
 
 JATOS is open-source and released under the [Apache 2 Licence](http://www.apache.org/licenses/LICENSE-2.0.html). The source code is available on [github.com/JATOS/JATOS](https://github.com/JATOS/JATOS).
