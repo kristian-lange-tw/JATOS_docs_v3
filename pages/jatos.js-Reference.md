@@ -10,13 +10,13 @@ toc: true
 last_updated: 23 Sept 2020
 ---
 
-Have a look at what's [mandatory in HTML and JavaScript for JATOS components](Mandatory-lines-in-your-components-HTML.html). Always load the jatos.js script in the `<head>` section with the following line:
+Always load the jatos.js script in the `<head>` section with the following line:
 
 ```
 <script src="jatos.js"></script>
 ```
 
-or in older JATOS versions with:
+or before version 3.3.1 with:
 
 ```
 <script src="/assets/javascripts/jatos.js"></script>
@@ -160,7 +160,7 @@ All variables can be set except those labled _read-only_.
 
 ### `jatos.onLoad`
 
-Defines callback function that jatos.js will call when it's finished initialising. Only [mandatory](Mandatory-lines-in-your-components-HTML.html) call in every component.
+Defines callback function that jatos.js will call when it's finished initialising.
 
 * _@param {function} callback_ - function to be called after jatos.js' initialization is done
 

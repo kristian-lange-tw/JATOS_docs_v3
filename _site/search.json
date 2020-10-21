@@ -15,17 +15,6 @@
 
 
 {
-"title": "Beyond the Basics",
-"tags": "",
-"keywords": "installation, advanced, JSON input, studyJsonInput, componentJsonInput",
-"url": "Beyond-the-Basics.html",
-"summary": ""
-}
-,
-
-
-
-{
 "title": "Bring your JATOS online",
 "tags": "",
 "keywords": "installation, internet, online",
@@ -83,7 +72,7 @@
 {
 "title": "Create a new study",
 "tags": "",
-"keywords": "create, import, export",
+"keywords": "create, import, new study",
 "url": "Create-a-new-study.html",
 "summary": ""
 }
@@ -537,6 +526,17 @@
 "keywords": "group, group session, WebSocket, group channel, messaging, fixing",
 "url": "Write-Group-Studies-II-JavaScript-and-Messaging.html",
 "summary": "Learn how to use jatos.js to join groups and manage them. Learn about the three different ways of sending messages within a group."
+}
+,
+
+
+
+{
+"title": "Write your own Study - Basics and Beyond",
+"tags": "",
+"keywords": "installation, basics, JSON input, studyJsonInput, componentJsonInput",
+"url": "Write-your-own-Study-Basics-and-Beyond.html",
+"summary": ""
 }
 ,
 

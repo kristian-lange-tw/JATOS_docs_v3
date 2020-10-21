@@ -1,27 +1,39 @@
 ---
 title: Create a new study
-keywords: create, import, export
+keywords: create, import, new study
 tags:
 summary:
 sidebar: mydoc_sidebar
 permalink: Create-a-new-study.html
 folder:
 toc: true
-last_updated: 24 Nov 2019
+last_updated: 21 Oct 2020
 ---
 
-There are two ways to create a new study: by modifying an existing one from our examples, or by creating one from scratch. 
+There are different ways to create a new study for JATOS: use a builder, with jsPsych, from scratch or by modifying an existing study. Then afterwards continue with [Write your own Study - Basics and Beyond](Write-your-own-Study-Basics-and-Beyond.html) or [Adapt Pre written Code to run it in JATOS (Jatosify)](Adapt-Pre-written-Code-to-run-it-in-JATOS.html).
 
 **Developement of a JATOS study usually happens on your local JATOS: [Run an experiment with JATOS - Workflow](Run-an-experiment-with-JATOS-Workflow.html)**
 
-### Modify an existing study
 
-Take an existing study (e.g. from [Example Studies](Example-Studies.html)) as a prototype and modify it bit by bit. We recommend you start with this to get a quick idea of how JATOS works. Just import an existing study and clone it by clicking on More → Clone in the study bar.
+### Use a builder - OpenSesame/OSWeb and lab.js
+
+Experiment builders like [OpenSesame/OSWeb](OSWeb-and-JATOS.html) and [lab.js](labjs-and-JATOS.html) have a point-and-click UI. They are easy to use and you don't have to care for the programming part. But they come with the limitation that they only allow you to do what is possible in the UI. If you want more freedom consider jsPsych or write your own study.
+
+
+### Use jsPsych
+
+[jsPsych](http://www.jspsych.org/) is a popular library for running behavioral experiments in a web browser. We have an own web page describing using [jsPsych with JATOS](jsPsych-and-JATOS.html).
+
 
 ### Write your own study from scratch
 
-Press the **New Study** button in the header of your local JATOS. Then edit the study properties and add new components manually. You will have to write your own JavaScript code. 
+Writing your own study gives your the most freedom since it allows you to do whatever is possible in a modern browser. But you will have to program your own code in JavaScript, HTML and CSS.
 
-The most difficult part - though it's still easy! - is to learn to write your own study component scripts, using HTML, CSS and JavaScripts. Or, instead of reinventing the wheel, you could use a framework like [jsPsych](jsPsych-and-JATOS.html), [OSWeb](OSWeb-and-JATOS.html) or [lab.js](labjs-and-JATOS.html).
+Press the **New Study** button in the header of your local JATOS. Then edit the study properties and add new components manually. All source code for your study has to got into the study assets folder you defined in the the study properties. The study assets folder is usually located in your JATOS installation folder.
 
-Check out the [Mandatory lines in your components' HTML](Mandatory-lines-in-your-components-HTML.html) page to know what you absolutely must include in your scripts in order to let JATOS see them. Also check out the [jatos.js Reference](jatos.js-Reference.html), that contains a set of very useful functions that you have to use to communicate with jatos (to e.g. submit and receive data).
+
+### Modify an existing study
+
+Take an existing study (e.g. from [Example Studies](Example-Studies.html)) as a prototype and modify it bit by bit. Press on the **Import** button in the header and select the file of the study. Then see the source code in your study assets folder, which is usually in your JATOS installation folder.
+
+

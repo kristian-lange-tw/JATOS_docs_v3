@@ -32,12 +32,6 @@
   
   
   <url>
-    <loc>http://localhost:4000/Beyond-the-Basics.html</loc>
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:4000/Bring-your-JATOS-online.html</loc>
   </url>
   
@@ -315,6 +309,12 @@
   
   <url>
     <loc>http://localhost:4000/Write-Group-Studies-II-JavaScript-and-Messaging.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/Write-your-own-Study-Basics-and-Beyond.html</loc>
   </url>
   
   

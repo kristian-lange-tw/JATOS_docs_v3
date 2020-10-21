@@ -63,8 +63,8 @@ entries:
         url: /Create-a-new-study.html
         output: web, pdf
 
-      - title: Mandatory lines in your components' HTML
-        url: /Mandatory-lines-in-your-components-HTML.html
+      - title: Write your own Study - Basics and Beyond
+        url: /Write-your-own-Study-Basics-and-Beyond.html
         output: web, pdf
 
       - title: Adapt Pre written Code to run it in JATOS (Jatosify)
@@ -79,7 +79,7 @@ entries:
         url: /labjs-and-JATOS.html
         output: web, pdf
 
-      - title: OSWeb and JATOS
+      - title: OpenSesame and JATOS
         url: /OSWeb-and-JATOS.html
         output: web, pdf
 
