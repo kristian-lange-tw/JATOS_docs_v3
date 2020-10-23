@@ -18,7 +18,7 @@ The link to the JATOS server is at the end of the page. But first the playing ru
 
 Extended until end of September - if you want it extended even longer feel free to 'buy us a coffee' to pay for the server.
 
-For now we plan to offer this server until the end of ~~August~~ ~~September~~ ~~October~~ ~~November~~ December 2020. It's also possible that we limit the signing in of new users if we find that the load on the server becomes too high and therefore a free service is unsustainable.
+For now we plan to offer this server until the end of ~~August~~ ~~September~~ ~~October~~ ~~November~~ ~~December 2020~~ January 2021. It's also possible that we limit the signing in of new users if we find that the load on the server becomes too high and therefore a free service is unsustainable.
 
 **Please talk to us before you run your study with participants if**
 
