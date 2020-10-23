@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: JATOS-server-during-the-COVID-19-pandemic.html
 folder:
 toc: false
-last_updated: 24 Sept 2020
+last_updated: 23 Oct 2020
 ---
 
 The link to the JATOS server is at the end of the page. But first the playing rules:
