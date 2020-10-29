@@ -77,7 +77,7 @@ Restrictions
 
 We pay about 35€/month to keep the server running, and you can contribute towards that by clicking on the Buy-me-a-coffee button at the bottom right of this page.
 
-**- You plan to keep the server running until November December 2020 January 2021. I will not be able to finish data collection until February 2021 March 2021. Can you guarantee that the server will continue to run?**
+**- You plan to keep the server running until ~~November December 2020~~ January 2021. I will not be able to finish data collection until ~~February 2021~~ March 2021. Can you guarantee that the server will continue to run?**
 
 The short answer is no.
 This is because JATOS is our side project. If the server is down (which happens only seldom), we will not always able to bring it back up immediately. Also, the server has so far ran well with minimal maintenance from our side. But some studies are less well-behaved than others. This is not intentional, but sometimes there is too much traffic due to studies submitting data too often, etc. If something like this happens, we might reach the server's capacity and have to turn it off. (Again, this hasn't happened yet, but we cannot guarantee that it never will).
