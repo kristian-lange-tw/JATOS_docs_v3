@@ -73,24 +73,25 @@ Restrictions
 
 
 ### FAQ
-**- How much does it cost to run the experiments.jatos.org server per month?**
 
-We pay about 35€/month to keep the server running, and you can contribute towards that by clicking on the Buy-me-a-coffee button at the bottom right of this page.
+* **How much does it cost to run the experiments.jatos.org server per month?**
 
-**- You plan to keep the server running until ~~November December 2020~~ January 2021. I will not be able to finish data collection until ~~February 2021~~ March 2021. Can you guarantee that the server will continue to run?**
+  We pay about 35€/month to keep the server running, and you can contribute towards that by clicking on the Buy-me-a-coffee button at the bottom right of this page.
 
-The short answer is no.
+* **You plan to keep the server running until ~~November December 2020~~ January 2021. I will not be able to finish data collection until ~~February 2021~~ March 2021. Can you guarantee that the server will continue to run?**
 
-This is because JATOS is our side project. If the server is down (which happens only seldom), we will not always able to bring it back up immediately. Also, the server has so far ran well with minimal maintenance from our side. But some studies are less well-behaved than others. This is not intentional, but sometimes there is too much traffic due to studies submitting data too often, etc. If something like this happens, we might reach the server's capacity and have to turn it off. (Again, this hasn't happened yet, but we cannot guarantee that it never will).
+  The short answer is no.
 
-We’ll also be (really) busy in the first half of 2021. 
+  This is because JATOS is our side project. If the server is down (which happens only seldom), we will not always able to bring it back up immediately. Also, the server has so far ran well with minimal maintenance from our side. But some studies are less well-behaved than others. This is not intentional, but sometimes there is too much traffic due to studies submitting data too often, etc. If something like this happens, we might reach the server's capacity and have to turn it off. (Again, this hasn't happened yet, but we cannot guarantee that it never will).
 
-**- But I can pay! Would you keep it up then?**
+  We’ll also be (really) busy in the first half of 2021. 
 
-We feel uneasy about asking for money in advance in exchange for a guarantee that the server runs, because we can’t do that for sure (see above). The Buy-me-a-coffee button is meant to be used post-hoc, after you’ve enjoyed the software. Not before, as a commercial agreement. That's not what we're doing.
+* **But I can pay! Would you keep it up then?**
 
-If the best option [(asking your institution for a JATOS sever)](http://www.jatos.org/JATOS-on-a-server.html) is not available, the next best is to [get your own Digital Ocean JATOS cloud instance](http://www.jatos.org/JATOS-on-DigitalOcean.html). Or one on [AWS](http://www.jatos.org/JATOS-in-Amazons-Cloud-without-Docker.html). Or some other cloud provider. This way you would be entering on a commercial agreement with a proper company, and they will have some obligations. You will be able to manage the server yourself, get receipts, etc. If this is not an option for you and you decide to contribute to the experiments server, that’s fine. Just be aware that we simply cannot promise 100% that it will be up for all the time.
+  We feel uneasy about asking for money in advance in exchange for a guarantee that the server runs, because we can’t do that for sure (see above). The Buy-me-a-coffee button is meant to be used post-hoc, after you’ve enjoyed the software. Not before, as a commercial agreement. That's not what we're doing.
 
-**-So what’s your suggestion?**
+  If the best option [(asking your institution for a JATOS sever)](http://www.jatos.org/JATOS-on-a-server.html) is not available, the next best is to [get your own Digital Ocean JATOS cloud instance](http://www.jatos.org/JATOS-on-DigitalOcean.html). Or one on [AWS](http://www.jatos.org/JATOS-in-Amazons-Cloud-without-Docker.html). Or some other cloud provider. This way you would be entering on a commercial agreement with a proper company, and they will have some obligations. You will be able to manage the server yourself, get receipts, etc. If this is not an option for you and you decide to contribute to the experiments server, that’s fine. Just be aware that we simply cannot promise 100% that it will be up for all the time.
 
-We’ve paid for the first few months, and the coffees bought by others have extended the server for a long time. We suggest you use the server for free. If it works for you and you’re happy, pay the love forwards and buy us a couple of coffees.
+* **So what’s your suggestion?**
+
+  We’ve paid for the first few months, and the coffees bought by others have extended the server for a long time. We suggest you use the server for free. If it works for you and you’re happy, pay the love forwards and buy us a couple of coffees.
