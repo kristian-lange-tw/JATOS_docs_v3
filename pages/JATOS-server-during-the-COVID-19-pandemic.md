@@ -80,12 +80,14 @@ We pay about 35€/month to keep the server running, and you can contribute towa
 **- You plan to keep the server running until ~~November December 2020~~ January 2021. I will not be able to finish data collection until ~~February 2021~~ March 2021. Can you guarantee that the server will continue to run?**
 
 The short answer is no.
+
 This is because JATOS is our side project. If the server is down (which happens only seldom), we will not always able to bring it back up immediately. Also, the server has so far ran well with minimal maintenance from our side. But some studies are less well-behaved than others. This is not intentional, but sometimes there is too much traffic due to studies submitting data too often, etc. If something like this happens, we might reach the server's capacity and have to turn it off. (Again, this hasn't happened yet, but we cannot guarantee that it never will).
 We’ll also be (really) busy in the first half of 2021. 
 
 **- But I can pay! Would you keep it up then?**
 
 We feel uneasy about asking for money in advance in exchange for a guarantee that the server runs, because we can’t do that for sure (see above). The Buy-me-a-coffee button is meant to be used post-hoc, after you’ve enjoyed the software. Not before, as a commercial agreement. That's not what we're doing.
+
 If the best option is not available [asking your institution for a sever](http://www.jatos.org/JATOS-on-a-server.html), the next best and safest option is to [get your own Digital Ocean server](http://www.jatos.org/JATOS-on-DigitalOcean.html). Or on [AWS](http://www.jatos.org/JATOS-in-Amazons-Cloud-without-Docker.html). Or some other cloud provider. This way you would be entering on a commercial agreement with a proper company, and they will have some obligations. You will be able to manage the server yourself, get receipts, etc. If this is not an option for you and you decide to contribute to the experiments server, that’s fine. Just be aware that we simply cannot promise 100% that it will be up for all the time.
 
 **-So what’s your suggestion?**
