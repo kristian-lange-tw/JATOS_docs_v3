@@ -17,6 +17,8 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 ### 2020
 
+Vari, J. & Tamburelli, M. (2020) Standardisation: bolstering positive attitudes towards endangered language varieties? Evidence from implicit attitudes. *Journal of Multilingual and Multicultural Development* [DOI](https://doi.org/10.1080/01434632.2020.1829632)
+
 Gorin, S. (2020) Temporal grouping effects in tone sequence reconstruction: testing domain-general positional theories of serial order. *PsyArXiv* [DOI](10.31234/osf.io/mfynu)
 
 Scarpina, F. (2020) Detection and Recognition of Fearful Facial Expressions During the Coronavirus Disease (COVID-19) Pandemic in an Italian Sample: An Online Experiment. *Front. Psychol.* [DOI](https://doi.org/10.3389/fpsyg.2020.02252)
