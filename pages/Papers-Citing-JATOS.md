@@ -17,7 +17,7 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 ### 2020
 
-Vari, J. & Tamburelli, M. (2020) Standardisation: bolstering positive attitudes towards endangered language varieties? Evidence from implicit attitudes. *Journal of Multilingual and Multicultural Development* [DOI](https://doi.org/10.1080/01434632.2020.1829632)
+Vari, J. & Tamburelli, M. (2020) Standardisation: bolstering positive attitudes towards endangered language varieties? Evidence from implicit attitudes. *Journal of Multilingual and Multicultural Development*. [DOI](https://doi.org/10.1080/01434632.2020.1829632)
 
 Richan, E., Rouat, J. (2020) A proposal and evaluation of new timbre visualization methods for audio sample browsers. Pers Ubiquit Comput. [DOI](https://doi.org/10.1007/s00779-020-01388-1)
 
