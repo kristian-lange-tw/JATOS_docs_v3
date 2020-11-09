@@ -19,8 +19,6 @@ Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pon
 
 Vari, J. & Tamburelli, M. (2020) Standardisation: bolstering positive attitudes towards endangered language varieties? Evidence from implicit attitudes. *Journal of Multilingual and Multicultural Development*. [DOI](https://doi.org/10.1080/01434632.2020.1829632)
 
-Richan, E., Rouat, J. (2020) A proposal and evaluation of new timbre visualization methods for audio sample browsers. Pers Ubiquit Comput. [DOI](https://doi.org/10.1007/s00779-020-01388-1)
-
 Verkhodanova V., Trčková D., Coler M., Lowie W. (2020) More than Words: Cross-Linguistic Exploration of Parkinson’s Disease Identification from Speech. In: Karpov A., Potapova R. (eds) Speech and Computer. SPECOM 2020. Lecture Notes in Computer Science, vol 12335. Springer, Cham. [DOI](https://doi.org/10.1007/978-3-030-60276-5_59)
 
 Gorin, S. (2020) Temporal grouping effects in tone sequence reconstruction: testing domain-general positional theories of serial order. *PsyArXiv* [DOI](https://doi.org/10.31234/osf.io/mfynu)
