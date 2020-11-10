@@ -9,7 +9,7 @@ toc: false
 last_updated: 30 Jun 2020
 ---
 
-JATOS has been used sucessfully to collect data all over the world. Here are some peer-reviewed publications (that we are aware of) that used JATOS. 
+JATOS has been used sucessfully to collect data all over the world. Here is a curated list of peer-reviewed publications (that we are aware of) that used JATOS to collect data. (You can also see the [full list of citations](https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5951401270744316355,1084162777884423960).) 
 
 Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130834) if you use JATOS for your research. It helps us with funding and it's great to see how we've contributed to science. 
 
