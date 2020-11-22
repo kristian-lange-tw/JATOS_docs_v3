@@ -7,12 +7,27 @@ sidebar: mydoc_sidebar
 permalink: Write-your-own-Study-Basics-and-Beyond.html
 folder:
 toc: true
-last_updated: 21 Oct 2020
+last_updated: 22 Nov 2020
 ---
 
 After you [created a new study](Create-a-new-study.html) ... what comes next?
 
 **Developement of a JATOS study usually happens on your local JATOS: [Run an experiment with JATOS - Workflow](Run-an-experiment-with-JATOS-Workflow.html)**
+
+
+## Add a component
+
+If you have an empty study you want to add a component. A component corresponds to a webpage defined by an HTML file. A study can have more than one component - this is actually a strength of JATOS: e.g. one can combine different experiments into one, or easily add an survey to an existing experiment.
+
+To add a component go to your study and click on Components -> New.
+
+![New Component](images/Screenshot_new-component.png)
+
+Then In the following form you define the component's properties: enter the component's title and most importantly its 'HTML file path'. This is the path to the HTML file that starts this component.
+
+![New Component](images/Screenshot_new-component-properites.png)
+
+Click on 'Create' and you are done. If you add more than one component you can change the order in which they run by drag-and-drop on the position button.
 
 
 ## Mandatory lines in your components' HTML
