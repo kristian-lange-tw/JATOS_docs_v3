@@ -7,7 +7,7 @@ sidebar: mydoc_sidebar
 permalink: OSWeb-and-JATOS.html
 folder:
 toc: false
-last_updated: 27 Jan 2020
+last_updated: 26 Nov 2020
 ---
 
 {% include image.html file="OSweb_logo.png" alt="Logo" caption="" max-width="300" %}
@@ -18,4 +18,6 @@ OSWeb lets you run an [OpenSesame](https://osdoc.cogsci.nl) experiment on a brow
 
 If you want to use [Prolific](https://www.prolific.co/) to recruit participants for your OSWeb experiment running in JATOS then you can put the return link in the 'End Redirect URL' field of your Study Properties (in JATOS GUI, since JATOS v3.5.1).
 
-That's all there is to say. If you'd like to know more, Sebastiaan Mathot's [tutorial](https://www.youtube.com/watch?v=0448NeoUaqU) is the place to start. 
+If you'd like to know more
+* Sebastiaan Mathot's [tutorial](https://www.youtube.com/watch?v=0448NeoUaqU)
+* [Workshop about OpenSesame, Python, and JATOS](https://www.youtube.com/playlist?list=PLSadj_kFpja_IOBQZrKf56RpjzUl3W6SP) (12 lessons)
