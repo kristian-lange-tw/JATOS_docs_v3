@@ -9,13 +9,15 @@ toc: false
 last_updated: 30 Jun 2020
 ---
 
-JATOS has been used sucessfully to collect data all over the world. Here is a curated list of peer-reviewed publications (that we are aware of) that used JATOS to collect data. (You can also see the [full list of citations](https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5951401270744316355,1084162777884423960).) 
+JATOS has been used sucessfully to collect data all over the world. Here is a curated list of peer-reviewed publications or preprints (that we are aware of) that used JATOS to collect data. (You can also see the [full list of citations](https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5951401270744316355,1084162777884423960).) 
 
 Please [cite us](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130834) if you use JATOS for your research. It helps us with funding and it's great to see how we've contributed to science. 
 
 **Please complete our short [survey](https://forms.gle/Jtjw4LxpyWVFEtG17) on how (much) you use JATOS (ca. 3 min). It’s very important for us!**
 
 ### 2020
+
+Kumbhar, O., Sizikova, E., Majaj, N., & Pelli, D. G. (2020). Anytime Prediction as a Model of Human Reaction Time. *ArXiv*2011.12859(Cs, q-Bio). [DOI](http://arxiv.org/abs/2011.12859)
 
 Vari, J. & Tamburelli, M. (2020) Standardisation: bolstering positive attitudes towards endangered language varieties? Evidence from implicit attitudes. *Journal of Multilingual and Multicultural Development*. [DOI](https://doi.org/10.1080/01434632.2020.1829632)
 
