@@ -143,7 +143,7 @@ You have to restart MySQL for the changes to take effect.
 
 ## [Optional] Increase 'max_allowed_packet' size in older MySQLs
 
-If you have an older MySQL (< 8.x.x) and your experiments will have large resut data you might want to increase the '[max_allowed_packet](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)' size. If your result data is larger than the 'max_allowed_packet' JATOS will just return an 'internal server error'. In JATOS' log in will look similar to this:
+If you have an older MySQL (< 8.x.x) and your experiments will have large resut data you might want to increase the '[max_allowed_packet](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)' size. If your result data is larger than the 'max_allowed_packet' JATOS will just return an 'internal server error'. In JATOS' log it will look similar to this:
 
 ```
 [ERROR] - g.ErrorHandler - Internal JATOS error
