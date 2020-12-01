@@ -42,7 +42,7 @@ You might have a  task, experiment, survey, or study running in a browser. You m
       E.g. if you want to load the file 'survey.js' and the study's assets folder is 'my-exp'
 
         ```html
-        <link rel="stylesheet" type="text/css" href="/study_assets/my-exp/survey.js" />
+        <script src="/study_assets/my-exp/survey.js"></script>
         ```
 
       ✰  For absolute paths make sure you understand the difference between the `study_assets_root` folder and the placeholder `study_assets` in your path names. `study_assets_root` is the folder in your system (or in the server) where the assets (HTML, JS, CSS, images, etc) of **all** your JATOS studies will be stored. You can [configure](Configure-JATOS-on-a-Server.html#study-assets-root-path) the location of this folder. `study_assets`, on the other hand, is just a placeholder that will go in your HTML files. JATOS will interpret this and replace the placeholder with the path, (specific to the study) that you entered in the field 'Study assets directory name' in your Study's Properties. The advantage of this is that you can change the location or name of the assets for any study, or export-import a study into a different computer, and the study will still run without having to make any changes in the HTML code.  
